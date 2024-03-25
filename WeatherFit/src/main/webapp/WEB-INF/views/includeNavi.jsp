@@ -22,7 +22,8 @@
 			<!-- 내비바 -->
 			<ul class="nav nav-underline">
 
-				<li class="nav-item"><a class="nav-link" id="redirecthome" href = "gomain.do">홈</a></li>
+				<li class="nav-item"><a class="nav-link" id="redirecthome"
+					href="gomain.do">홈</a></li>
 				<c:choose>
 					<c:when test="${member==null}">
 						<li class="nav-item"><a class="nav-link"
@@ -33,11 +34,11 @@
 							href="javascript:alert('회원가입ㄱ')">메시지</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="javascript:alert('회원가입ㄱ')">알림</a></li>
-						
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-						data-bs-target="#loginModal">로그인</button>
-						
-						
+
+						<button type="button" class="btn btn-primary"
+							data-bs-toggle="modal" data-bs-target="#loginModal">로그인</button>
+
+
 					</c:when>
 
 					<c:when test="${member!=null}">
@@ -54,8 +55,8 @@
 		</div>
 	</header>
 	<%@ include file="includeModal.jsp"%>
-	<script src="././assets/js/login.js?ver=<%=System.currentTimeMillis()%>"></script>
-	<script src="././assets/js/notification.js?ver=<%=System.currentTimeMillis()%>"></script>
-	<script src="././assets/js/weatherwidget.js?ver=<%=System.currentTimeMillis()%>"></script>
+	<script src="assets/js/login.js?ver=<%=System.currentTimeMillis()%>"></script>
+	<script src="assets/js/notification.js?ver=<%=System.currentTimeMillis()%>"></script>
+	<script src="assets/js/weatherwidget.js?ver=<%=System.currentTimeMillis()%>"></script>
 </body>
 </html>

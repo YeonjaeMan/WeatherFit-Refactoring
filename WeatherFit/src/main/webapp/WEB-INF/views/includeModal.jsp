@@ -23,7 +23,7 @@
 					<h4 class="fw-bold mb-0 fs-2 text-center w-100">로그인</h4>
 
 					<form action="Login.do" method="post">
-					<div></div>
+						<div></div>
 						<div class="form-floating">
 							<input type="text" class="form-control" id="floatingInput"
 								name="email_id" placeholder="id" required> <label
@@ -40,13 +40,13 @@
 						<div class="mb-2"></div>
 						<button class="btn btn-primary w-100 py-2" type="submit">로그인</button>
 					</form>
-				<div class = "mb-2">
-					<!-- 회원가입 Modal -->
-					<!-- Modal Trigger -->
-					<button type="button" class="btn btn-primary"
-						data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
-					<!-- 회원가입 Modal -->
-				</div>
+					<div class="mb-2">
+						<!-- 회원가입 Modal -->
+						<!-- Modal Trigger -->
+						<button type="button" class="btn btn-primary"
+							data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
+						<!-- 회원가입 Modal -->
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
@@ -70,9 +70,10 @@
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-				
-				
-					<form action="Join.do" method="post" class="validation-form" novalidate>
+
+
+					<form action="Join.do" method="post" class="validation-form"
+						novalidate>
 						<div class="mb-3">
 							<label for="idModal">아이디</label> <input type="text"
 								class="form-control" id="idModal" name="userId" required>
@@ -86,8 +87,8 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="password2Modal">이름</label> <input
-								type="text" class="form-control" id="password2Modal" name = "userName"
+							<label for="password2Modal">이름</label> <input type="text"
+								class="form-control" id="password2Modal" name="userName"
 								required>
 							<div class="invalid-feedback">이름을 입력해주세요.</div>
 						</div>
@@ -114,20 +115,22 @@
 
 						<div class="mb-3">
 							<label for="addressModal">주소</label> <input type="text"
-								class="form-control" id="addressModal" placeholder="서울특별시 강남구" name="userRegion"
-								required>
+								class="form-control" id="addressModal" placeholder="서울특별시 강남구"
+								name="userRegion" required>
 							<div class="invalid-feedback">주소를 입력해주세요.</div>
 						</div>
 
 						<div class="mb-3">
 							<label for="heightModal">키</label> <input type="text"
-								class="form-control" id="heightModal" placeholder="cm" name="userHeight"  required>
+								class="form-control" id="heightModal" placeholder="cm"
+								name="userHeight" required>
 							<div class="invalid-feedback">키를 입력해주세요.</div>
 						</div>
 
 						<div class="mb-3">
 							<label for="weightModal">몸무게</label> <input type="text"
-								class="form-control" id="weightModal" placeholder="kg" name="userWeight" required>
+								class="form-control" id="weightModal" placeholder="kg"
+								name="userWeight" required>
 							<div class="invalid-feedback">몸무게를 입력해주세요.</div>
 						</div>
 
@@ -144,16 +147,34 @@
 							<button type="submit" class="btn btn-primary">가입하기</button>
 						</div>
 					</form>
-					
-					
+
+
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-
-
+	<!-- 게시물 Modal -->
+	<div class="modal fade" id="postModal" tabindex="-1"
+		aria-labelledby="postModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="postModalLabel">게시물 상세</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<!-- 가져올 게시물 내용을 생각하자 -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>
