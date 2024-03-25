@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <typeAliases>
+    <typeAlias type="com.smhrd.model.UserVO" alias="uvo"/>
+    <typeAlias type="com.smhrd.model.PostVO" alias="pvo"/>
+  </typeAliases>
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+
+
+        <property name="url" value="jdbc:mysql://project-db-campus.smhrd.com:3307/cgi_23k_big23_p2_4"/>
+        <property name="username" value="cgi_23k_big23_p2_4"/>
+        <property name="password" value="smhrd4"/>
+
+
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="com/smhrd/database/MemberMapper.xml"/>
+  </mappers>
+</configuration>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.database.DAO">
+   
+   <select id="login" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
+      select userId, userNick
+      from tb_user
+      where userId = #{userId} and userPw = #{userPw}
+   </select>
+
+   <insert id="join" parameterType="com.smhrd.model.UserVO">
+      insert into tb_user(userId, userPw, userName, userNick, userGender, userRegion, userWeight, userHeight)
+      values(#{userId},#{userPw},#{userName},#{userNick},#{userGender},#{userRegion},#{userWeight},#{userHeight})
+   </insert>
+
+   <update id="update" parameterType="com.smhrd.model.UserVO">
+      update tb_user
+      set userPw = #{userPw}, userNick=#{userNick}, userRegion = #{userRegion}, userWeight = #{userWeight}, userHeight = #{userHeight},
+      userProfileImg = #{userProfileImg}, userProfileInfo = #{userProfileInfo} 
+      where userId = #{userId}
+   </update>
+
+
+   <insert id="post" parameterType="com.smhrd.model.PostVO">
+      insert into tb_post (postContent, userId, hashTag)
+      values(#{postContent},#{userId},#{hashTag})
+   </insert>
+
+   <select id="getpost" resultType="map">
+   		select postContent, userNick from tb_post
+   		inner join tb_user on tb_post.userId = tb_user.userId
+   		order by postIdx desc;
+   
+
+   </select>
+
+   <select id="postselect" resultType="com.smhrd.model.PostVO">
+      select *
+      from tb_post
+   </select>
+
+	<select id="search" resultType="map">
+		select postContent, postIdx, hashTag, userNick 
+		from tb_post inner join tb_user
+		on tb_post.userId = tb_user.userId
+		where postContent like #{keyWord} or
+		hashTag like #{keyWord} or
+		userNick like #{keyWord}
+		order by postIdx desc limit 5
+	</select>
+
+
+
+	<insert id="comment" parameterType="com.smhrd.model.CommentVO">
+		insert into tb_comment (cmtContent, userId, cmtLikes)
+		values(#{cmtContent}, #{userId}, #{cmtLikes})
+	</insert>
+
+	
+	<insert id="sendchat" parameterType="com.smhrd.model.ChatVO">
+		insert into tb_chat(roomIdx, chatter, chat, emoticon)
+		values (#{roomIdx}, #{chatter}, #{chat}, #{emoticon})
+	</insert>
+
+	<select id="selectchats" parameterType="com.smhrd.model.ChatVO" resultType="com.smhrd.model.ChatVO">
+		select *
+		from tb_chat
+		where roomIdx = #{roomIdx}
+	</select>
+	
+	<insert id="createroom" parameterType="com.smhrd.model.RoomVO">
+		insert into tb_room(roomTitle, userId, roomLimit, roomStatus)
+		values (#{roomTitle}, #{userId}, #{roomLimit}, #{roomStatus})
+	</insert>
+	
+	<select id="selectrooms" parameterType="com.smhrd.model.RoomVO" resultType="com.smhrd.model.RoomVO">
+		select *
+		from tb_room
+		where userId=#{userId} or roomTitle=#{userId}
+	</select>
+	
+	<select id="checkroom" parameterType="com.smhrd.model.RoomVO" resultType="com.smhrd.model.RoomVO">
+		select *
+		from tb_room
+		where (userId=#{userId} and roomTitle=#{roomTitle}) or (userId=#{roomTitle} and roomTitle=#{userId})
+	</select>
+
+</mapper>
