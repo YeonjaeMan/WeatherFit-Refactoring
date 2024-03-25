@@ -1,0 +1,22 @@
+li {
+	list-style: none;
+	display: inline;
+}
+
+#weather-link {
+	width: 10%;
+	height: 10%;
+	background-color: rgba(111, 161, 196, 0.274);
+	border-radius: 10%;
+}
+
+#weather-sky {
+	margin-top: 2%;
+	margin-left: 15%;
+}
+
+#weather-t1h {
+	margin-top: 2%;
+	margin-left: 3%;
+	color: black;
+}
