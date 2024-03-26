@@ -135,6 +135,7 @@ public class DAO {
 		return row;
 	}
 	
+
 	public LikeVO selectLike(LikeVO lvo) {
 		SqlSession session = factory.openSession();
 		LikeVO resultVO = session.selectOne("selectLike", lvo);
@@ -145,6 +146,14 @@ public class DAO {
 	public List<LikeVO> countLike(LikeVO lvo) {
 		SqlSession session = factory.openSession();
 		List<LikeVO> resultList = session.selectList("countLike", lvo);
+		session.close();
+		return resultList;
+	}
+
+	// 내 게시글 확인 기능
+	public List<PostVO> selectMinePosts(UserVO uvo) {
+		SqlSession session = factory.openSession();
+		List<PostVO> resultList = session.selectList("selectMinePosts", uvo);
 		session.close();
 		return resultList;
 	}

@@ -46,7 +46,30 @@
 						<!-- <li class="nav-item"><a class="nav-link" href="#">팔로우</a></li> -->
 						<li class="nav-item"><a class="nav-link" href="gochat.do">메시지</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
-						<button type="button" class="btn btn-primary" id="btn-logout">로그아웃</button>
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded>
+								<i class="fa-solid fa-user"></i>
+							</button>
+							<ul class="dropdown-menu">
+							    <li><a class="dropdown-item" href="goprofile.do">프로필 확인</a></li>
+							    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileUpdateModal">프로필 수정</a></li>
+							    
+							    
+							    
+							    
+							    
+							    
+							
+							    
+							    
+							    
+							    
+							    
+							    
+							    <li><hr class="dropdown-divider"></li>
+							    <li><a id="btn-logout" class="dropdown-item" href="#">로그아웃</a></li>
+							  </ul>
+						</div>
 					</c:when>
 
 				</c:choose>
