@@ -22,4 +22,5 @@ let like = document.getElementById("like-heart");
 
 like.addEventListener("click", function () {
     like.classList.toggle("active")
+     
 });

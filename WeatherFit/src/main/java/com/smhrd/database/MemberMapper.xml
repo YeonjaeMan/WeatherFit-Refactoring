@@ -86,5 +86,23 @@
 		from tb_room
 		where (userId=#{userId} and roomTitle=#{roomTitle}) or (userId=#{roomTitle} and roomTitle=#{userId})
 	</select>
+	
+	<!-- 좋아요 기능 -->
+	<update id="updateLike" parameterType="com.smhrd.model.PostVO">
+		update tb_post
+		set postLikes = postLikes + 1
+		where postIdx = #{postIdx}
+	</update>
+	
+	<select id="selectLike" parameterType="com.smhrd.model.PostVO" resultType="com.smhrd.model.PostVO">
+		select postLikes
+		from tb_post
+		where postIdx = #{postIdx}
+	</select>
+	
+	
+	
+	
+	
 
 </mapper>
