@@ -113,12 +113,26 @@ public class DAO {
 	}
 
 	public RoomVO checkRoom(RoomVO rvo) {
-		SqlSession session = factory.openSession();
+		SqlSession session = factory.openSession(true);
 		RoomVO resultVO = session.selectOne("checkroom", rvo);
 		session.close();
 		return resultVO;
 	}
 	
+	// 좋아요 기능
+	public int updateLike(PostVO pvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("updateLike", pvo);
+		session.close();
+		return row;
+	}
+	
+	public PostVO selectLike(PostVO pvo) {
+		SqlSession session = factory.openSession(true);
+		PostVO resultVO = session.selectOne("selectLikes", pvo);
+		session.close();
+		return resultVO;
+	}
 	
 	
 	
