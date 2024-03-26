@@ -25,6 +25,7 @@ public class Posts extends HttpServlet {
 		DAO dao = new DAO();
 		List<PostVO> posts = dao.Postselect();
 		
+		
 		Gson gson = new Gson();
 		String json = gson.toJson(posts);
 		
