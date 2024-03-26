@@ -145,9 +145,9 @@ function success(position) {
 				}
 			} else if (PTY == 7) { // 강수형태 눈날림
 				if (6 < Number(hours) && Number(hours) < 18) {
-					$("#weather-sky").append("<a><img alt='눈날림' src='assets/images/weather/cloudy.svg' height='45px' title='흐림'/></a>");
+					$("#weather-sky").append("<a><img alt='눈날림' src='assets/images/weather/blowingsnow.svg' height='45px' title='눈날림'/></a>");
 				} else {
-					$("#weather-sky").append("<a><img alt='눈날림_저녁' src='assets/images/weather/cloudy.svg' height='45px' title='흐림'/></a>");
+					$("#weather-sky").append("<a><img alt='눈날림_저녁' src='assets/images/weather/blowingsnow_night.svg' height='45px' title='눈날림_저녁'/></a>");
 				}
 			}
 		},
