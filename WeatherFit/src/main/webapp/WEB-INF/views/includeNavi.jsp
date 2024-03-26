@@ -5,6 +5,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style type="text/css">
+	
+	body {
+      padding-bottom: 3rem;
+    }
+	
+    .fixed-button {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 999;
+      background-color: #0055FF;
+      color: white; /* 텍스트 색상 */
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    }
+
+    .round-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px; /* 동그라미 모양 */
+      font-size: 30px; /* 아이콘 크기 */
+      text-align: center; /* 텍스트 중앙 정렬 */
+      padding: 0; /* 기본 패딩 제거 */
+    }
+</style>
 </head>
 <body>
 	<!-- 헤더부분(날씨위젯, 사이트명, 내비바) -->
@@ -53,23 +78,11 @@
 							<ul class="dropdown-menu">
 							    <li><a class="dropdown-item" href="goprofile.do">프로필 확인</a></li>
 							    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#profileUpdateModal">프로필 수정</a></li>
-							    
-							    
-							    
-							    
-							    
-							    
-							
-							    
-							    
-							    
-							    
-							    
-							    
 							    <li><hr class="dropdown-divider"></li>
 							    <li><a id="btn-logout" class="dropdown-item" href="#">로그아웃</a></li>
 							  </ul>
 						</div>
+						<button type="button" id="btn-create-post" class="btn btn-primary round-button fixed-button" data-bs-toggle="modal" data-bs-target="#createPostModal">+</button>
 					</c:when>
 
 				</c:choose>
@@ -77,6 +90,8 @@
 
 		</div>
 	</header>
+	
+	
 	<%@ include file="includeModal.jsp"%>
 	<script src="assets/js/login.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/notification.js?ver=<%=System.currentTimeMillis()%>"></script>
