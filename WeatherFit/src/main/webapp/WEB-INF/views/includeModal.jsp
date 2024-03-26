@@ -176,5 +176,56 @@
 		</div>
 	</div>
 
+
+
+
+
+
+
+
+
+<!-- 회원정보수정 모달 -->
+<div class="modal fade" id="profileUpdateModal" tabindex="-1" aria-labelledby="profileUpdateModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="profileUpdateModalLabel">프로필 업데이트</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- 입력 필드 -->
+        <form>
+          <div class="mb-3">
+            <label for="current-password" class="col-form-label">현재 비밀번호:</label>
+            <input type="password" class="form-control" id="current-password">
+          </div>
+          <div class="mb-3">
+            <label for="new-password" class="col-form-label">새 비밀번호:</label>
+            <input type="password" class="form-control" id="new-password">
+          </div>
+          <div class="mb-3">
+            <label for="confirm-password" class="col-form-label">새 비밀번호 확인:</label>
+            <input type="password" class="form-control" id="confirm-password">
+          </div>
+          <!-- 추가 필드는 비슷한 방식으로 구성 -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary">저장하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

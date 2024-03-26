@@ -134,6 +134,14 @@ public class DAO {
 		return resultVO;
 	}
 	
+	// 내 게시글 확인 기능
+	public List<PostVO> selectMinePosts(UserVO uvo) {
+		SqlSession session = factory.openSession();
+		List<PostVO> resultList = session.selectList("selectMinePosts", uvo);
+		session.close();
+		return resultList;
+	}
+	
 	
 	
 }
