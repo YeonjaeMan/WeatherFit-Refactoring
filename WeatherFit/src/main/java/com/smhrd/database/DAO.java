@@ -113,12 +113,34 @@ public class DAO {
 	}
 
 	public RoomVO checkRoom(RoomVO rvo) {
-		SqlSession session = factory.openSession();
+		SqlSession session = factory.openSession(true);
 		RoomVO resultVO = session.selectOne("checkroom", rvo);
 		session.close();
 		return resultVO;
 	}
 	
+	// 좋아요 기능
+	public int updateLike(PostVO pvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("updateLike", pvo);
+		session.close();
+		return row;
+	}
+	
+	public PostVO selectLike(PostVO pvo) {
+		SqlSession session = factory.openSession(true);
+		PostVO resultVO = session.selectOne("selectLikes", pvo);
+		session.close();
+		return resultVO;
+	}
+	
+	// 내 게시글 확인 기능
+	public List<PostVO> selectMinePosts(UserVO uvo) {
+		SqlSession session = factory.openSession();
+		List<PostVO> resultList = session.selectList("selectMinePosts", uvo);
+		session.close();
+		return resultList;
+	}
 	
 	
 	
