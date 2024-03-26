@@ -29,6 +29,14 @@ public class Posts extends HttpServlet {
 		String json = gson.toJson(posts);
 		
 		out.print(json);
+		
+		
+		
+		
+		
+		
+		
+		
 //		for(int i = 0; i < posts.size(); i++) {
 //			String json = gson.toJson(posts.get(i));
 //			System.out.println(json);
