@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.model.ChatVO;
 import com.smhrd.model.CommentVO;
+import com.smhrd.model.LikeVO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.RoomVO;
 import com.smhrd.model.UserVO;
@@ -120,20 +121,33 @@ public class DAO {
 	}
 	
 	// 좋아요 기능
-	public int updateLike(PostVO pvo) {
+	public int insertLike(LikeVO lvo) {
 		SqlSession session = factory.openSession(true);
-		int row = session.update("updateLike", pvo);
+		int row = session.insert("insertLike", lvo);
 		session.close();
 		return row;
 	}
 	
-	public PostVO selectLike(PostVO pvo) {
+	public int deleteLike(LikeVO lvo) {
 		SqlSession session = factory.openSession(true);
-		PostVO resultVO = session.selectOne("selectLikes", pvo);
+		int row = session.delete("deleteLike", lvo);
+		session.close();
+		return row;
+	}
+	
+	public LikeVO selectLike(LikeVO lvo) {
+		SqlSession session = factory.openSession();
+		LikeVO resultVO = session.selectOne("selectLike", lvo);
 		session.close();
 		return resultVO;
 	}
-	
+
+	public List<LikeVO> countLike(LikeVO lvo) {
+		SqlSession session = factory.openSession();
+		List<LikeVO> resultList = session.selectList("countLike", lvo);
+		session.close();
+		return resultList;
+	}
 	
 	
 }

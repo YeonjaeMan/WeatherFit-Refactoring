@@ -88,21 +88,27 @@
 	</select>
 	
 	<!-- 좋아요 기능 -->
-	<update id="updateLike" parameterType="com.smhrd.model.PostVO">
-		update tb_post
-		set postLikes = postLikes + 1
-		where postIdx = #{postIdx}
-	</update>
+	<insert id="insertLike" parameterType="com.smhrd.model.LikeVO" >
+		insert into tb_like(userId, postIdx)
+		values (#{userId}, #{postIdx})
+	</insert>
 	
-	<select id="selectLike" parameterType="com.smhrd.model.PostVO" resultType="com.smhrd.model.PostVO">
-		select postLikes
-		from tb_post
-		where postIdx = #{postIdx}
+	<delete id="deleteLike" parameterType="com.smhrd.model.LikeVO">
+		delete from tb_like
+		where userId = #{userId} and postIdx = #{postIdx}
+	</delete>
+	
+	<select id="selectLike" parameterType="com.smhrd.model.LikeVO" resultType="com.smhrd.model.LikeVO">
+		select *
+		from tb_like
+		where userId = #{userId} and postIdx = #{postIdx}	
 	</select>
 	
-	
-	
-	
+	<select id="countLike" parameterType="com.smhrd.model.LikeVO" resultType="com.smhrd.model.LikeVO">
+		select *
+		from tb_like
+		where postIdx = #{postIdx}
+	</select>
 	
 
 </mapper>
