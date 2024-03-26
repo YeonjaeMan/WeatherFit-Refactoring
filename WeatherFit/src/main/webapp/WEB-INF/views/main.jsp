@@ -41,11 +41,9 @@
 		</div>
 	</main>
 
+
 	
-	
-	
-	
-	
+
 	
 
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
