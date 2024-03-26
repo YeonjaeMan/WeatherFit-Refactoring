@@ -86,5 +86,37 @@
 		from tb_room
 		where (userId=#{userId} and roomTitle=#{roomTitle}) or (userId=#{roomTitle} and roomTitle=#{userId})
 	</select>
+	
+	<!-- 좋아요 기능 -->
+
+	<insert id="insertLike" parameterType="com.smhrd.model.LikeVO" >
+		insert into tb_like(userId, postIdx)
+		values (#{userId}, #{postIdx})
+	</insert>
+	
+	<delete id="deleteLike" parameterType="com.smhrd.model.LikeVO">
+		delete from tb_like
+		where userId = #{userId} and postIdx = #{postIdx}
+	</delete>
+	
+	<select id="selectLike" parameterType="com.smhrd.model.LikeVO" resultType="com.smhrd.model.LikeVO">
+		select *
+		from tb_like
+		where userId = #{userId} and postIdx = #{postIdx}
+  </select>
+	
+	<select id="countLike" parameterType="com.smhrd.model.LikeVO" resultType="com.smhrd.model.LikeVO">
+		select *
+		from tb_like
+		where postIdx = #{postIdx}
+	</select>
+	
+    <!-- 내 게시글 확인 기능 -->
+	<select id="selectMinePosts" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.PostVO">
+		select *
+		from tb_post
+		where tb_post.userId = #{userId}
+		order by tb_post.createdAt desc
+	</select>
 
 </mapper>

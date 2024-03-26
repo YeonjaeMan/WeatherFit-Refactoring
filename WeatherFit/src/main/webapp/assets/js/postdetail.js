@@ -20,6 +20,6 @@ document.getElementById("message-wrap").addEventListener("click", function () {
 // 좋아요 하트 활성화
 let like = document.getElementById("like-heart");
 
-like.addEventListener("click", function () {
-    like.classList.toggle("active")
-});
+like.addEventListener("click", function(){
+	like.classList.toggle("active")
+})

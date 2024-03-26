@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.model.ChatVO;
 import com.smhrd.model.CommentVO;
+import com.smhrd.model.LikeVO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.RoomVO;
 import com.smhrd.model.UserVO;
@@ -113,13 +114,49 @@ public class DAO {
 	}
 
 	public RoomVO checkRoom(RoomVO rvo) {
-		SqlSession session = factory.openSession();
+		SqlSession session = factory.openSession(true);
 		RoomVO resultVO = session.selectOne("checkroom", rvo);
 		session.close();
 		return resultVO;
 	}
 	
+	// 좋아요 기능
+	public int insertLike(LikeVO lvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.insert("insertLike", lvo);
+		session.close();
+		return row;
+	}
 	
+	public int deleteLike(LikeVO lvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.delete("deleteLike", lvo);
+		session.close();
+		return row;
+	}
+	
+
+	public LikeVO selectLike(LikeVO lvo) {
+		SqlSession session = factory.openSession();
+		LikeVO resultVO = session.selectOne("selectLike", lvo);
+		session.close();
+		return resultVO;
+	}
+
+	public List<LikeVO> countLike(LikeVO lvo) {
+		SqlSession session = factory.openSession();
+		List<LikeVO> resultList = session.selectList("countLike", lvo);
+		session.close();
+		return resultList;
+	}
+
+	// 내 게시글 확인 기능
+	public List<PostVO> selectMinePosts(UserVO uvo) {
+		SqlSession session = factory.openSession();
+		List<PostVO> resultList = session.selectList("selectMinePosts", uvo);
+		session.close();
+		return resultList;
+	}
 	
 	
 }
