@@ -1,6 +1,5 @@
 
 $(document).ready(function() {
-
 	$.ajax({
 		url: "Posts",
 		type: "get",
@@ -8,23 +7,17 @@ $(document).ready(function() {
 		success: function(posts) {
 			console.log(posts);
 
-
-			$.each(posts, function(i) {
-
-			});
-
-
-			for (let i = 0; i < 4; i++) {
+			for (let i = 0; i < posts.length; i++) {
+				let jsonString = JSON.stringify(posts[i].fileData);
+				let jsonBlob = new Blob([jsonString], { type: `application/${posts[i].fileExt}` });
+				console.log(jsonBlob);
+				let objectURL = window.URL.createObjectURL(jsonBlob);
+				console.log(objectURL);
 				$('#ajaxcontainer').append(`
 				<div class="col-md-4">
 					<div class="card shadow-sm">
-						<svg class="bd-placeholder-img card-img-top" width="80%"
-							height="400" xmlns="http://www.w3.org/2000/svg" role="img"
-							aria-label="Placeholder: Thumbnail"
-							preserveAspectRatio="xMidYMid slice" focusable="false">
-							<title>Placeholder</title>
+						<img src=` + objectURL + `/>
 							<rect width="100%" height="100%" fill="#55595c" />
-						</svg>
 						<div class="card-body">
 							<p class="card-text">`+ posts[i].postContent + `</p>
 							<text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ posts[i].hashTag + `</text>
@@ -40,8 +33,15 @@ $(document).ready(function() {
 					</div>
 				</div>`
 
+					/*<svg class="bd-placeholder-img card-img-top" width="80%"
+								height="400" xmlns="http://www.w3.org/2000/svg" role="img"
+								aria-label="Placeholder: Thumbnail"
+								preserveAspectRatio="xMidYMid slice" focusable="false">
+								</svg>*/
 				);
+				window.URL.revokeObjectURL(objectURL);
 			}
+
 
 
 

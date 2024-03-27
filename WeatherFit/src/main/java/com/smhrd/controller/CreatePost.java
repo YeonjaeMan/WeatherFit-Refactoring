@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FilenameUtils;
 
@@ -16,15 +17,17 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.database.DAO;
 import com.smhrd.model.FileVO;
 import com.smhrd.model.PostVO;
+import com.smhrd.model.UserVO;
 
 public class CreatePost implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
-		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		UserVO uvo = (UserVO)session.getAttribute("member");
 		
 		String filename = "";
-		int sizeLimit = 300 * 1024;
+		int sizeLimit = 1024 * 1024;
 		
 		String realPath = request.getServletContext().getRealPath("assets/images");
 		System.out.println("파일 경로 : " + realPath);
@@ -42,15 +45,17 @@ public class CreatePost implements Command {
 			
 			return "gomain.do";
 		} else {
-			String userId = multipartRequest.getParameter("userId");
+			String userId = uvo.getUserId();
 			String postContent = multipartRequest.getParameter("postContent");
-//		String postOption = Integer.parseInt(multipartRequest.getParameter("postOption"));
+			int postTemp = Integer.parseInt(multipartRequest.getParameter("postTemp"));
 			String hashTags = multipartRequest.getParameter("hashTags");
+			
+			System.out.println("이 Post에 해당되는 기온 : " + postTemp + " 'C");
 			
 			PostVO pvo = new PostVO();
 			pvo.setUserId(userId);
 			pvo.setPostContent(postContent);
-			pvo.setTemp(0); // temp 자리 수정필요!!!
+			pvo.setPostTemp(postTemp); // temp 자리 수정필요!!!
 			pvo.setHashTag(hashTags);
 			
 			DAO dao = new DAO();

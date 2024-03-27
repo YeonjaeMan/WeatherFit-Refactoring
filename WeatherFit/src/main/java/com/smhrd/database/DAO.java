@@ -61,13 +61,12 @@ public class DAO {
 		return result;
 	}
 
-	public List<PostVO> Postselect() {
+	public List<Map<String, Object>> Postselect() {
 
 		SqlSession session = factory.openSession();
-
-		List<PostVO> resultList = session.selectList("postselect");
+		List<Map<String, Object>> result = session.selectList("postselect");
 		session.close();
-		return resultList;
+		return result;
 
 	}
 

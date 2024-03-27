@@ -3,6 +3,7 @@ package com.smhrd.frontController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +24,7 @@ public class Posts extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		DAO dao = new DAO();
-		List<PostVO> posts = dao.Postselect();
+		List<Map<String, Object>> posts = dao.Postselect();
 		
 		
 		Gson gson = new Gson();
