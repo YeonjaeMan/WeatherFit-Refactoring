@@ -118,5 +118,19 @@
 		where tb_post.userId = #{userId}
 		order by tb_post.createdAt desc
 	</select>
+	
+	<insert id="insertPost" parameterType="com.smhrd.model.PostVO">
+		insert into tb_post(postContent, userId, hashTag, temp)
+		values (#{postContent}, #{userId}, #{hashTag}, #{temp})
+	</insert>
+	
+	<select id="lastInsertId" resultType="int">
+		select LAST_INSERT_ID()
+	</select>
+	
+	<insert id="insertFile">
+		insert into tb_file(fileRname, fileData, fileSize, fileExt, postIdx)
+		values (#{fileRname}, #{fileData,jdbcType=BLOB}, #{fileSize}, #{fileExt}, #{postIdx})
+	</insert>
 
 </mapper>
