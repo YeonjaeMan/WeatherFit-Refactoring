@@ -38,7 +38,7 @@ public class FrontController extends HttpServlet {
 		map.put("Postselect.do", new Postselect());
 		map.put("Update.do", new Update());
 		map.put("CreateRoom.do", new CreateRoom());
-		map.put("CreatePost.do", new CreatePost());	
+		map.put("CreatePost.do", new CreatePost());
 		// 단순 이동 기능 삭제요망
 //		map.put("Message.do", new Message());
 //		map.put("Home.do", new Home());

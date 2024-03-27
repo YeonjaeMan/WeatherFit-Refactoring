@@ -283,12 +283,7 @@
 								name="postContent" rows="3"></textarea>
 						</div>
 						<fieldset class="mb-3">
-							<legend>현재 기온을 표기할까요?</legend>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="postOption"
-									id="option1" value="option1" checked> <label
-									class="form-check-label" for="option1"> 기온 표기 x </label>
-							</div>
+							<legend>현재 기온을 표기할까요?(default:기온 표기 x)</legend>
 							<div class="form-check">
 								<input class="form-check-input" type="radio" name="postOption"
 									id="option2" value="option2"> <label
