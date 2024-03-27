@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" href="assets/css/address.css">
 <body>
 	<!-- 로그인 Modal -->
 
@@ -114,9 +115,66 @@
 						</fieldset>
 
 						<div class="mb-3">
-							<label for="addressModal">주소</label> <input type="text"
-								class="form-control" id="addressModal" placeholder="서울특별시 강남구"
-								name="userRegion" required>
+							<label for="addressModal">주소</label><br>
+							<div id="addressWrap">
+								<img src="//t1.daumcdn.net/postcode/resource/images/close.png"
+									id="btnFoldWrap" onclick="foldDaumPostcode()" alt="접기 버튼">
+							</div>
+
+							<script
+								src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+							<script>
+								var element_wrap = document
+										.getElementById('addressWrap');
+
+								function foldDaumPostcode() {
+									element_wrap.style.display = 'none';
+								}
+
+								function execDaumPostcode() {
+									var currentScroll = Math.max(
+											document.body.scrollTop,
+											document.documentElement.scrollTop);
+									new daum.Postcode(
+											{
+												oncomplete : function(data) {
+													var addr = '';
+													var extraAddr = '';
+
+													if (data.userSelectedType === 'R') {
+														addr = data.roadAddress;
+													} else {
+														addr = data.jibunAddress;
+													}
+
+													document
+															.getElementById('postcode').value = data.zonecode;
+													document
+															.getElementById("address").value = addr;
+													document.getElementById(
+															"detailAddress")
+															.focus();
+
+													element_wrap.style.display = 'none';
+
+													document.body.scrollTop = currentScroll;
+												},
+												onresize : function(size) {
+													element_wrap.style.height = size.height
+															+ 'px';
+												},
+												width : '100%',
+												height : '100%'
+											}).embed(element_wrap);
+
+									element_wrap.style.display = 'block';
+								}
+							</script>
+							<input type="text" id="postcode" placeholder="우편번호" readonly
+								required> <input type="button"
+								onclick="execDaumPostcode()" value="우편번호 찾기"><br> <input
+								type="text" id="address" placeholder="주소" readonly required>
+							<input type="text" id="detailAddress" placeholder="상세주소" required>
 							<div class="invalid-feedback">주소를 입력해주세요.</div>
 						</div>
 
@@ -179,8 +237,9 @@
 
 
 	<!-- 채팅방 생성 모달 -->
-	<div class="modal fade" id="createRoomModal" tabindex="-1" role="dialog"
-		aria-labelledby="createRoomModalLabel" aria-hidden="true">
+	<div class="modal fade" id="createRoomModal" tabindex="-1"
+		role="dialog" aria-labelledby="createRoomModalLabel"
+		aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -209,8 +268,8 @@
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 
 
 
@@ -254,8 +313,8 @@
 			</div>
 		</div>
 	</div>
-	
-		<!-- 게시글 작성 모달 -->
+
+	<!-- 게시글 작성 모달 -->
 	<div class="modal fade" id="createPostModal" tabindex="-1"
 		aria-labelledby="createPostModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -267,7 +326,8 @@
 				</div>
 				<div class="modal-body">
 					<!-- 게시글 작성 폼 -->
-					<form action="CreatePost.do" method="post" enctype="multipart/form-data">
+					<form action="CreatePost.do" method="post"
+						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
 								class="form-control" type="file" id="imageUpload" name="postImg"
@@ -307,8 +367,8 @@
 			</div>
 		</div>
 	</div>
-	
-		<script type="text/javascript">
+
+	<script type="text/javascript">
 		$("#imageUpload").on("change", function(event) {
 			let file = event.target.files[0];
 			let reader = new FileReader();
@@ -319,58 +379,73 @@
 
 			reader.readAsDataURL(file);
 		});
-		
+
 		// 해시태그 배열
 		let hashtags = [];
-		
-		$(document).ready(function(event) {
-/* 			  $('#hashtagInput').on('input', function() {
-			    let inputVal = $(this).val();
-			    let hashtags = inputVal.split(/\s+/).filter(function(tag) {
-			      return tag.startsWith('#');
-			    });
-			    console.log(hashtags); // 콘솔에 분리된 해시태그 배열 출력
 
-			  }); */
-			  
-			  $("#hashtagInput").on("keyup", function(event) {
-				  let inputVal = $(this).val();
-				  if (event.which == 32) { // 스페이스바 키 코드는 32입니다.
-				    let hashtagValue = $(this).val().trim();
-				    if (hashtagValue) { // 입력값이 비어있지 않은 경우에만 실행
-				      $('#hashtagList').append('<li>' + hashtagValue + '<button class="remove">X</button></li>');
-				      $(this).val(''); // 입력 필드 초기화
-				      let hashtag = inputVal.split(/\s+/).filter(function(tag) {
-					      return tag.startsWith('#');
-					  });
-				      hashtags.push(hashtag);
-				      console.log(hashtags); // 콘솔에 분리된 해시태그 배열 출력
-				    }
-				  }				  
-			  });
+		$(document)
+				.ready(
+						function(event) {
+							/* 			  $('#hashtagInput').on('input', function() {
+							 let inputVal = $(this).val();
+							 let hashtags = inputVal.split(/\s+/).filter(function(tag) {
+							 return tag.startsWith('#');
+							 });
+							 console.log(hashtags); // 콘솔에 분리된 해시태그 배열 출력
 
-			  // 해시태그 삭제 기능
-			  $('#hashtagList').on('click', '.remove', function() {
-			    $(this).parent().remove(); // 해당 해시태그 삭제
-			    console.log(this);
-			    removeHashtag(this);
-			  });
-			});
+							 }); */
 
-		
+							$("#hashtagInput")
+									.on(
+											"keyup",
+											function(event) {
+												let inputVal = $(this).val();
+												if (event.which == 32) { // 스페이스바 키 코드는 32입니다.
+													let hashtagValue = $(this)
+															.val().trim();
+													if (hashtagValue) { // 입력값이 비어있지 않은 경우에만 실행
+														$('#hashtagList')
+																.append(
+																		'<li>'
+																				+ hashtagValue
+																				+ '<button class="remove">X</button></li>');
+														$(this).val(''); // 입력 필드 초기화
+														let hashtag = inputVal
+																.split(/\s+/)
+																.filter(
+																		function(
+																				tag) {
+																			return tag
+																					.startsWith('#');
+																		});
+														hashtags.push(hashtag);
+														console.log(hashtags); // 콘솔에 분리된 해시태그 배열 출력
+													}
+												}
+											});
+
+							// 해시태그 삭제 기능
+							$('#hashtagList').on('click', '.remove',
+									function() {
+										$(this).parent().remove(); // 해당 해시태그 삭제
+										console.log(this);
+										removeHashtag(this);
+									});
+						});
+
 		// 해시태그 삭제 함수
 		function removeHashtag(tagToRemove) {
-		  hashtags = hashtags.filter(function(tag) {
-		    return tag !== tagToRemove;
-		  });
-		  console.log(hashtags); // 업데이트된 해시태그 배열 출력
+			hashtags = hashtags.filter(function(tag) {
+				return tag !== tagToRemove;
+			});
+			console.log(hashtags); // 업데이트된 해시태그 배열 출력
 		}
 
 		// 예시 사용법: '#exampleTag' 해시태그 삭제
 		// removeHashtag('#exampleTag');
 	</script>
 
-	
+
 
 </body>
 </html>
