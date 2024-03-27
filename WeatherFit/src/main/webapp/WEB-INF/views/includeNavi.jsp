@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 
+
 <link rel="stylesheet" href="assets/css/weatherwidget.css">
 
 
@@ -112,6 +113,7 @@
 
 
 
+
 </head>
 <body>
 	<!-- 헤더부분(날씨위젯, 사이트명, 내비바) -->
@@ -162,6 +164,7 @@
 								<i class="fa-solid fa-user"></i>
 							</button>
 							<ul class="dropdown-menu">
+
 								<li><a class="dropdown-item" href="goprofile.do">프로필 확인</a></li>
 								<li><a class="dropdown-item" data-bs-toggle="modal"
 									data-bs-target="#profileUpdateModal">프로필 수정</a></li>
@@ -181,7 +184,9 @@
 								<li><hr class="dropdown-divider"></li>
 								<li><a id="btn-logout" class="dropdown-item" href="#">로그아웃</a></li>
 							</ul>
+
 						</div>
+						<button type="button" id="btn-create-post" class="btn btn-primary round-button fixed-button" data-bs-toggle="modal" data-bs-target="#createPostModal">+</button>
 					</c:when>
 
 				</c:choose>
@@ -189,6 +194,8 @@
 
 		</div>
 	</header>
+	
+	
 	<%@ include file="includeModal.jsp"%>
 	<script src="assets/js/login.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script

@@ -1,9 +1,6 @@
 
+$(document).ready(function() {
 
-
-
-
-(function() {
 	$.ajax({
 		url: "Posts",
 		type: "get",
@@ -68,7 +65,7 @@
 			console.log("연결 실패");
 		}
 	})
-}());
+});
 
 
 

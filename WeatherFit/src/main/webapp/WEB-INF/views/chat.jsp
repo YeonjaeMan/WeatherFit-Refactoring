@@ -15,6 +15,7 @@
 <body>
 	<%@ include file="includeNavi.jsp"%>
 
+
 	<%
 	UserVO uvo = (UserVO) session.getAttribute("member");
 	%>
@@ -23,10 +24,12 @@
 	
 	
 	<main id="main-chat">
+
 		<div id="menu-room" class="container-fluid d-flex p-3 bg-light">
 			<ul class="nav mb-auto">
 				<li id="btn-room-add">
 					<!-- Button trigger modal -->
+
 					<button type="button" class="btn-blue"
 						data-bs-toggle="modal" data-bs-target="#exampleModal">채팅상대추가</button>
 				</li>
@@ -73,8 +76,9 @@
 
 
 
+
 	<script>
-		let userId = "<%=uvo.getUserId()%>";
+		let userId = "${member.userId}";
 	</script>
 	<script src="assets/js/chat.js"></script>
 </body>

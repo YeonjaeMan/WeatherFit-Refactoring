@@ -1,0 +1,16 @@
+
+#addressWrap {
+    display: none;
+    border: 1px solid;
+    width: 425px;
+    margin: 5px;
+    position: relative;
+}
+
+#btnFoldWrap{
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: -1px;
+    z-index: 1;
+}
