@@ -28,8 +28,19 @@ public class PostVO {
 
 	    // 해시 태그 
 	    private String hashTag;
+	    
+	    // 기온
+	    private int temp;
 
-	    public int getPostIdx() {
+	    public int getTemp() {
+			return temp;
+		}
+
+		public void setTemp(int temp) {
+			this.temp = temp;
+		}
+
+		public int getPostIdx() {
 	        return postIdx;
 	    }
 

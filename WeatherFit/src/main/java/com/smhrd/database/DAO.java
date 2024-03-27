@@ -1,5 +1,6 @@
 package com.smhrd.database;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.model.ChatVO;
 import com.smhrd.model.CommentVO;
+import com.smhrd.model.FileVO;
 import com.smhrd.model.LikeVO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.RoomVO;
@@ -156,6 +158,27 @@ public class DAO {
 		List<PostVO> resultList = session.selectList("selectMinePosts", uvo);
 		session.close();
 		return resultList;
+	}
+
+	public int insertPost(PostVO pvo) {
+		SqlSession session = factory.openSession(true);
+		session.insert("insertPost", pvo);
+		int lastInsertIdx = session.selectOne("lastInsertId");
+		session.close();
+		return lastInsertIdx;
+	}
+
+	public int insertFile(FileVO fvo) {
+		SqlSession session = factory.openSession(true);
+		Map<String, Object> param = new HashMap<>();
+		param.put("fileRname", fvo.getFileRname());
+		param.put("fileData", fvo.getFileData());
+		param.put("fileSize", fvo.getFileSize());
+		param.put("fileExt", fvo.getFileExt());
+		param.put("postIdx", fvo.getPostIdx());
+		int row = session.insert("insertFile", param);
+		session.close();
+		return row;
 	}
 	
 	
