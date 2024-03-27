@@ -8,13 +8,97 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 
-	<!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
-	<%@ include file="includeHeaders.jsp"%>
+<!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
+<%@ include file="includeHeaders.jsp"%>
+
+
+
+<style>
+.d-flex {
+	margin-top: 1rem;
+}
+
+#btn-darkblue {
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 5px 10px;
+	margin-top: 3px;
+	border-radius: 8px;
+	/* font-family: "paybooc-Light", sans-serif; */
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+	background-color: #7895CB;
+	color: white;
+}
+
+#btn-darkblue:hover {
+	background-color: #C5DFF8;
+	cursor: pointer;
+	color: #4A55A2;
+}
+
+.btn-view {
+	position: relative;
+	display: inline-block;
+	padding: 5px 10px;
+	margin-top: 3px;
+	border-radius: 8px;
+	/* font-family: "paybooc-Light", sans-serif; */
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+	color: #4A55A2;
+	border-color: #7895CB;
+}
+
+.btn-view:hover {
+	cursor: pointer;
+	background-color: #7895CB;
+	color: white;
+}
+
+.shadow-sm {
+	border: none;
+	border-radius: 0px;
+}
+
+.card-body {
+
+}
+
+.post-text {
+	
+}
+
+#hashtag {
+	color: rgb(93, 93, 214);
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
+	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
+}
+
+.card-text {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
+	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
+}
+
+.btn-group {
+}
+</style>
 
 </head>
 <body>
 	<!-- 날씨 위젯과 상단 네비 분리 -->
-	
+
 	<%@ include file="includeNavi.jsp"%>
 
 
@@ -27,26 +111,26 @@
 		<div class="container">
 			<!-- 토글 버튼 -->
 			<p class="d-flex justify-content-center">
-				<button type="button" class="btn btn-primary"
+				<button type="button" id="btn-darkblue" class="btn-blue"
 					data-bs-toggle="button">최신</button>
 			</p>
 			<!-- 게시글 카드 -->
 
 			<div>
 				<div id="ajaxcontainer"
-					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-1"></div>
 				<!-- ajax게시판바로불러오기 -->
 			</div>
 
 		</div>
 	</main>
 
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 
