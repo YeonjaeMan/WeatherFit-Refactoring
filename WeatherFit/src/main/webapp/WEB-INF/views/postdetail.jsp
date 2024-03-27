@@ -119,8 +119,7 @@
 								<!-- 댓글 작성창-->
 								<form action="#" method="post" class="mb-4" id="comment-form">
 									<textarea class="form-control" rows="2"
-										placeholder="댓글을 남겨주세요.">
-                  </textarea>
+										placeholder="댓글을 남겨주세요."></textarea>
 									<div class="row justify-content-center">
 										<button type="submit" class="btn btn-primary mt-3"
 											id="btn-submit">댓글 등록</button>
