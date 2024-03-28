@@ -135,9 +135,7 @@
 	</select>
 
 	<!-- 내 게시글 확인 기능 -->
-	<select id="selectMinePosts"
-		parameterType="com.smhrd.model.UserVO"
-		resultType="com.smhrd.model.PostVO">
+	<select id="selectMinePosts" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.PostVO">
 		select *
 		from tb_post
 		where tb_post.userId = #{userId}
