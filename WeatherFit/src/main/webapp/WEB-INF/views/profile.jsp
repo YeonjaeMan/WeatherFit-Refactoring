@@ -73,10 +73,6 @@
 		</div>
 	</main>
 
-	<script type="text/javascript">
-		let userId = "<%=uvo.getUserId()%>
-		";
-	</script>
 	<script src="assets/js/profile.js"></script>
 
 </body>

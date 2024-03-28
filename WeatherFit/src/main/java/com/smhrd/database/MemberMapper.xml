@@ -60,11 +60,9 @@
 
 
 
-	<insert id="comment" parameterType="com.smhrd.model.CommentVO">
-		insert into tb_comment
-		(cmtContent, userId, cmtLikes)
-		values(#{cmtContent}, #{userId},
-		#{cmtLikes})
+
+	<insert id="commentselect" parameterType="com.smhrd.model.CommentVO">
+		select * from tb_comment where postIdx = #{postIdx}
 	</insert>
 
 
@@ -135,9 +133,7 @@
 	</select>
 
 	<!-- 내 게시글 확인 기능 -->
-	<select id="selectMinePosts"
-		parameterType="com.smhrd.model.UserVO"
-		resultType="com.smhrd.model.PostVO">
+	<select id="selectMinePosts" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.PostVO">
 		select *
 		from tb_post
 		where tb_post.userId = #{userId}

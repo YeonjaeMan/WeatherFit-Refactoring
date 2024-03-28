@@ -9,31 +9,29 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.smhrd.database.DAO;
-import com.smhrd.model.PostVO;
-import com.smhrd.model.UserVO;
+import com.smhrd.model.CommentVO;
 
-public class MinePosts implements AjaxCommand{
+public class Comments implements AjaxCommand{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
+response.setContentType("text/html;charset=UTF-8");
 		
-		UserVO uvo =(UserVO)request.getSession().getAttribute("member");
+		int postIdx = Integer.parseInt(request.getParameter("postIdx"));
+		System.out.println("비동기댓글들어오냐?");
+		CommentVO commentVO = new CommentVO();
+		commentVO.setPostIdx(postIdx);
+		
 		
 		DAO dao = new DAO();
-		List<PostVO> minePosts = dao.selectMinePosts(uvo);
+		List<CommentVO> commentlist = dao.Commentselect(commentVO);
 		
 		Gson gson = new Gson();
-		String json = gson.toJson(minePosts);
-		
-		
-		
-		
+		String json = gson.toJson(commentlist);
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
         response.getWriter().write(json);
 	}
-	
 
 }

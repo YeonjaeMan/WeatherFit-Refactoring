@@ -28,7 +28,6 @@ public class CreatePost implements Command {
 		HttpSession session = request.getSession();
 		UserVO uvo = (UserVO) session.getAttribute("member");
 
-		String filename = "";
 		int sizeLimit = 1024 * 1024;
 
 //		C:\Users\smhrd\Desktop\-SNS\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\WeatherFit\assets\images
@@ -45,14 +44,13 @@ public class CreatePost implements Command {
 
 		String userId = uvo.getUserId();
 		String postContent = multipartRequest.getParameter("postContent");
-		String postTempStr = multipartRequest.getParameter("postTemp");
 		String hashTags = multipartRequest.getParameter("hashTags");
-
-		int postTemp = 0;
-		if (postTempStr != null) {
-			postTemp = Integer.parseInt(postTempStr);
-		} else {
-			postTemp = 999;
+		
+		int postTemp;
+		try {
+			postTemp = Integer.parseInt(multipartRequest.getParameterValues("postTemp")[0]);
+		} catch(Exception e) {
+			postTemp = -999;
 		}
 
 		System.out.println("이 Post에 해당되는 기온 : " + postTemp + " 'C");
