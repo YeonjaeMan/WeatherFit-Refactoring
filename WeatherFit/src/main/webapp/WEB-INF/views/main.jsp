@@ -59,17 +59,13 @@
 	color: white;
 }
 
-.shadow-sm {
+.postcard {
 	border: none;
 	border-radius: 0px;
 }
 
-.card-body {
-
-}
-
-.post-text {
-	
+.postcard:hover {
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
 }
 
 #hashtag {
@@ -91,8 +87,6 @@
 	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
 }
 
-.btn-group {
-}
 </style>
 
 </head>
@@ -129,6 +123,6 @@
 
 
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
-
+	<script src="assets/js/crawlingView.js"></script>
 </body>
 </html>

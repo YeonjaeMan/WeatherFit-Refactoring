@@ -18,7 +18,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="fw-bold mb-0 fs-2 text-center w-100">로그인</h4>
+					<h5 class="modal-title fw-bold mb-0 fs-2 text-center w-100">로그인</h5>
 					<!-- 수정함  <h5 class="modal-title" id="loginModalLabel">모달 헤더 입니다.</h5> -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -40,12 +40,13 @@
 								for="floatingPassword">비밀번호</label>
 							<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 						</div>
-						<div class="form-check text-start my-3">
-							<button type="button" class="btn btn-primary"
+						<div class="form-check text-start my-3 d-flex justify-content-end">
+							<button type="button" id="btn-join" class="btn"
+
 								data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
 						</div>
 						<div class="mb-2"></div>
-						<button class="btn btn-primary w-100 py-2" type="submit">로그인</button>
+						<button class="btn-blue w-100 py-2" type="submit">로그인</button>
 					</form>
 					<div class="mb-2">
 						<!-- 회원가입 Modal -->
@@ -62,7 +63,6 @@
 
 
 	<!-- Modal -->
-	
 	<div class="modal fade" id="joinModal" tabindex="-1"
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -104,15 +104,21 @@
 
 						<fieldset class="mb-3">
 							<legend>성별</legend>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="userGender"
-									id="manModal" value="남자" required> <label
-									class="form-check-label" for="manModal">남자</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="userGender"
-									id="womanModal" value="여자" required> <label
-									class="form-check-label" for="womanModal">여자</label>
+							<div class="row">
+								<div class="col">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="userGender"
+											id="manModal" value="남자" required> <label
+											class="form-check-label" for="manModal">남자</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="userGender"
+											id="womanModal" value="여자" required> <label
+											class="form-check-label" for="womanModal">여자</label>
+									</div>
+								</div>
 							</div>
 						</fieldset>
 
@@ -238,7 +244,7 @@
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="postModalLabel">게시물 상세</h5>
+					<h5 class="title modal-title" id="postModalLabel">게시물 상세</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>

@@ -49,14 +49,10 @@ $(document).ready(function() {
 					}
 				})
 
-
 			}
 
-
-
-
-
 			$(document).on('click', '.view-btn', function() {
+
 				let postIdx = $(this).data('id') - 1; // 게시물 ID 가져오기
 				// postIdx를 이용하여 해당 게시물의 상세 정보를 가져오는 로직 구현
 				// AJAX 요청, 성공 콜백에서 모달의 내용을 채우는 로직 구현
@@ -76,19 +72,7 @@ $(document).ready(function() {
 		}
 	})
 });
-$("#ajaxcontroller").on("click",()=>{
-	$.ajax({
-		url:"Posts.ajax",
-		dataType:"json",
-		success: function(e){
-			console.log("ajax컨트롤러를 경유")
-			console.log(e)
-		},error: function(r){
-			console.log("ajax컨트롤러 경유실패")
-		}
-})
-	
-})
+
 
 
 
