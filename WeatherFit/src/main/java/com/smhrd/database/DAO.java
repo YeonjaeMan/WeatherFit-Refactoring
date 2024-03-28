@@ -14,8 +14,9 @@ import com.smhrd.model.LikeVO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.RoomVO;
 import com.smhrd.model.UserVO;
+import com.smhrd.model.crawlingVO;
 
-public class DAO {
+public class DAO<CrawlingVO> {
 
 	private SqlSessionFactory factory = MySqlSessionManager.getSqlSessionFactory();
 
@@ -179,6 +180,15 @@ public class DAO {
 		int row = session.insert("insertFile", param);
 		session.close();
 		return row;
+	}
+	
+	// 크롤링 데이터 가져오기
+	
+	public List<crawlingVO> selectCrawling() {
+		SqlSession session = factory.openSession();
+		List<crawlingVO> resultCrawl = session.selectList("selectCrawling");
+		session.close();
+		return resultCrawl;
 	}
 	
 	

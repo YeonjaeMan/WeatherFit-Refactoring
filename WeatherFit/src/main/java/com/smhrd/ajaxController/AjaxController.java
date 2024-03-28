@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.ajax.AjaxCommand;
 import com.smhrd.ajax.Chats;
+import com.smhrd.ajax.CrawlingPost;
 import com.smhrd.ajax.MinePosts;
 import com.smhrd.ajax.Posts;
 import com.smhrd.ajax.Rooms;
@@ -31,6 +32,7 @@ public class AjaxController extends HttpServlet {
 		map.put("Rooms.ajax",new Rooms());
 		map.put("Chats.ajax",new Chats());
 		map.put("MinePosts.ajax",new MinePosts());
+		map.put("CrawlingPost.ajax", new CrawlingPost());
 		
 	}
 

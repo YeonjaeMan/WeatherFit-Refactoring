@@ -18,13 +18,13 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="fw-bold mb-0 fs-2 text-center w-100">로그인</h4>
+					<h5 class="modal-title fw-bold mb-0 fs-2 text-center w-100">로그인</h5>
 					<!-- 수정함  <h5 class="modal-title" id="loginModalLabel">모달 헤더 입니다.</h5> -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					
+
 
 					<form action="Login.do" method="post">
 						<div></div>
@@ -40,21 +40,21 @@
 								for="floatingPassword">비밀번호</label>
 							<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 						</div>
-						<div class="form-check text-start my-3">
-							<button type="button" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
+						<div class="form-check text-start my-3 d-flex justify-content-end">
+							<button type="button" id="btn-join" class="btn"
+								data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
 						</div>
 						<div class="mb-2"></div>
-						<button class="btn btn-primary w-100 py-2" type="submit">로그인</button>
+						<button class="btn-blue w-100 py-2" type="submit">로그인</button>
 					</form>
 					<div class="mb-2">
 						<!-- 회원가입 Modal -->
 						<!-- Modal Trigger -->
-						
+
 						<!-- 회원가입 Modal -->
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
@@ -62,12 +62,11 @@
 
 
 	<!-- Modal -->
-	>
 	<div class="modal fade" id="joinModal" tabindex="-1"
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header" id = "">
+				<div class="modal-header" id="">
 					<h5 class="modal-title" id="joinModalLabel">회원가입</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -104,15 +103,21 @@
 
 						<fieldset class="mb-3">
 							<legend>성별</legend>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="userGender"
-									id="manModal" value="남자" required> <label
-									class="form-check-label" for="manModal">남자</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="userGender"
-									id="womanModal" value="여자" required> <label
-									class="form-check-label" for="womanModal">여자</label>
+							<div class="row">
+								<div class="col">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="userGender"
+											id="manModal" value="남자" required> <label
+											class="form-check-label" for="manModal">남자</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="userGender"
+											id="womanModal" value="여자" required> <label
+											class="form-check-label" for="womanModal">여자</label>
+									</div>
+								</div>
 							</div>
 						</fieldset>
 
@@ -122,7 +127,7 @@
 								<img src="//t1.daumcdn.net/postcode/resource/images/close.png"
 									id="btnFoldWrap" onclick="foldDaumPostcode()" alt="접기 버튼">
 							</div>
-						
+
 							<script
 								src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 							<script>
@@ -148,20 +153,29 @@
 													} else {
 														addr = data.jibunAddress;
 													}
-								                    
+
 													// 주소를 하나의 변수로 합치기
 													var postcode = data.zonecode;
-								                    var address = addr;
-								                    var detailAddress = document.getElementById("detailAddress").value;
-								                    var userRegion = postcode + ' ' + address + ' ' + detailAddress;
+													var address = addr;
+													var detailAddress = document
+															.getElementById("detailAddress").value;
+													var userRegion = postcode
+															+ ' ' + address
+															+ ' '
+															+ detailAddress;
 
-													document.getElementById('postcode').value = data.zonecode;
-													document.getElementById("address").value = addr;
-													document.getElementById("detailAddress").focus();
+													document
+															.getElementById('postcode').value = data.zonecode;
+													document
+															.getElementById("address").value = addr;
+													document.getElementById(
+															"detailAddress")
+															.focus();
 
-								                    // userRegion 값을 숨겨진 input 요소에 설정
-								                    document.getElementById("userRegionInput").value = userRegion;
-													
+													// userRegion 값을 숨겨진 input 요소에 설정
+													document
+															.getElementById("userRegionInput").value = userRegion;
+
 													element_wrap.style.display = 'none';
 
 													document.body.scrollTop = currentScroll;
@@ -183,9 +197,9 @@
 								type="text" id="address" placeholder="주소" readonly required>
 							<input type="text" id="detailAddress" placeholder="상세주소" required>
 							<div class="invalid-feedback">주소를 입력해주세요.</div>
-							
+
 							<!-- 사용자 지역을 전달할 숨겨진 input 요소 -->
-    						<input type="hidden" id="userRegionInput" name="userRegion">
+							<input type="hidden" id="userRegionInput" name="userRegion">
 						</div>
 
 						<div class="mb-3">
@@ -215,8 +229,8 @@
 							<button type="submit" class="btn btn-primary">가입하기</button>
 						</div>
 					</form>
-					
-						
+
+
 				</div>
 			</div>
 		</div>
@@ -229,7 +243,7 @@
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="postModalLabel">게시물 상세</h5>
+					<h5 class="title modal-title" id="postModalLabel">게시물 상세</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>

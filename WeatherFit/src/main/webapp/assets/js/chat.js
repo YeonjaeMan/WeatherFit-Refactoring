@@ -43,12 +43,17 @@ $(document).on("click", ".chatroom", function(event) {
 	$("#chatroom-display").remove();
 	$("#menu-room").after(`
 					<div id="chatroom-display" class="container">
-					<div class="chat-container" id="chat-container">
-					<!-- 채팅 메시지가 표시될 영역 -->
-				</div>
-				<input type="text" id="message-input" placeholder="메시지를 입력하세요...">
-				<button class="btn-blue" id="btn-send">전송</button>
-			</div>`);
+					<div id="chat-wrap">
+                     <div class="chat-container" id="chat-container">
+                     <!-- 채팅 메시지가 표시될 영역 -->
+                     </div>
+                     <div class="message-send-container">
+                        <textarea type="text" id="message-input" placeholder="메시지를 입력하세요..." rows="2"></textarea>
+                        <button class="btn-blue" id="btn-send">전송</button>
+                     </div>
+                  </div>
+               </div>`);
+
 
 	let path = "ws://localhost:8080/WeatherFit/websocket/" + roomIdx;
 	

@@ -15,9 +15,9 @@
     
     
     <main>
-        <form class="d-flex justify-content-center align-items-center" role="search" action="#" method="post">
+        <form class="d-flex justify-content-center align-items-center mt-5" role="search" action="#" method="post">
             <input type="search" name="search" id="search" placeholder="검색어를 입력하세요.">
-            <input type="submit" value="검색">
+            <input class="btn-blue ml-2" type="submit" value="검색">
             <div class="d-flex flex-column">
                 <ul id="search-list"></ul>
             </div>

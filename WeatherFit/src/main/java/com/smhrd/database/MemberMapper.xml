@@ -31,7 +31,7 @@
    <select id="getpost" resultType="map">
    		select postContent, userNick from tb_post
    		inner join tb_user on tb_post.userId = tb_user.userId
-   		order by postIdx desc;
+   		order by postIdx desc
    
 
    </select>
@@ -132,5 +132,11 @@
 		insert into tb_file(fileRname, fileData, fileSize, fileExt, postIdx)
 		values (#{fileRname}, #{fileData,jdbcType=BLOB}, #{fileSize}, #{fileExt}, #{postIdx})
 	</insert>
+	
+	<!-- 크롤링 데이터 불러오기 -->
+	<select id="selectCrawling" resultType="com.smhrd.model.crawlingVO">
+		select * 
+		from tb_crawling
+	</select>
 
 </mapper>
