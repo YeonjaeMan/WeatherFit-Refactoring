@@ -4,19 +4,27 @@ li {
 }
 
 #weather-link {
-	width: 10%;
-	height: 10%;
-	background-color: rgba(111, 161, 196, 0.274);
+	width: 8%;
+	height: 60px;
+	/* background-color: #A0BFE0; */ 
+	border-color: #7895CB;
 	border-radius: 10%;
+	border-style: solid;
+	text-decoration: none;
+	color: #4A55A2;
+	font-weight: bolder;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
 }
 
 #weather-sky {
 	margin-top: 2%;
-	margin-left: 15%;
+	margin-left: 10%;
 }
 
 #weather-t1h {
-	margin-top: 2%;
-	margin-left: 3%;
-	color: black;
+	margin-top: 2.93%;
+	margin-left: 8%;
+	margin-right: 8%;
 }
