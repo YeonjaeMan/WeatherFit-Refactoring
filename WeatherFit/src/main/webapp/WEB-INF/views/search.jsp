@@ -22,7 +22,7 @@
                 <ul id="search-list"></ul>
             </div>
         </form>
-        <div id=ajaxcontainer></div>
+        <div id="ajaxcontainer"></div>
     </main>
 	
     <script src="assets/js/search.js"></script>

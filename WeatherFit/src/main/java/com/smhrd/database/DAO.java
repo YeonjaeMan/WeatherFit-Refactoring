@@ -60,13 +60,20 @@ public class DAO {
 		session.close();
 		return result;
 	}
+	
+	public FileVO selectFile(FileVO fvo) {
+		SqlSession session = factory.openSession();
+		FileVO resultVO = session.selectOne("selectFile", fvo);
+		session.close();
+		return resultVO;
+	}
 
-	public List<Map<String, Object>> Postselect() {
+	public List<PostVO> Postselect() {
 
 		SqlSession session = factory.openSession();
-		List<Map<String, Object>> result = session.selectList("postselect");
+		List<PostVO> resultVO = session.selectList("postselect");
 		session.close();
-		return result;
+		return resultVO;
 
 	}
 
@@ -169,13 +176,7 @@ public class DAO {
 
 	public int insertFile(FileVO fvo) {
 		SqlSession session = factory.openSession(true);
-		Map<String, Object> param = new HashMap<>();
-		param.put("fileRname", fvo.getFileRname());
-		param.put("fileData", fvo.getFileData());
-		param.put("fileSize", fvo.getFileSize());
-		param.put("fileExt", fvo.getFileExt());
-		param.put("postIdx", fvo.getPostIdx());
-		int row = session.insert("insertFile", param);
+		int row = session.insert("insertFile", fvo);
 		session.close();
 		return row;
 	}
