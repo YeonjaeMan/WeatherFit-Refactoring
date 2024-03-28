@@ -24,7 +24,7 @@
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					
+
 
 					<form action="Login.do" method="post">
 						<div></div>
@@ -42,7 +42,7 @@
 						</div>
 						<div class="form-check text-start my-3">
 							<button type="button" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
+								data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
 						</div>
 						<div class="mb-2"></div>
 						<button class="btn btn-primary w-100 py-2" type="submit">로그인</button>
@@ -50,11 +50,11 @@
 					<div class="mb-2">
 						<!-- 회원가입 Modal -->
 						<!-- Modal Trigger -->
-						
+
 						<!-- 회원가입 Modal -->
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
@@ -62,12 +62,12 @@
 
 
 	<!-- Modal -->
-	>
+	
 	<div class="modal fade" id="joinModal" tabindex="-1"
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header" id = "">
+				<div class="modal-header" id="">
 					<h5 class="modal-title" id="joinModalLabel">회원가입</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -122,7 +122,7 @@
 								<img src="//t1.daumcdn.net/postcode/resource/images/close.png"
 									id="btnFoldWrap" onclick="foldDaumPostcode()" alt="접기 버튼">
 							</div>
-						
+
 							<script
 								src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 							<script>
@@ -148,20 +148,29 @@
 													} else {
 														addr = data.jibunAddress;
 													}
-								                    
+
 													// 주소를 하나의 변수로 합치기
 													var postcode = data.zonecode;
-								                    var address = addr;
-								                    var detailAddress = document.getElementById("detailAddress").value;
-								                    var userRegion = postcode + ' ' + address + ' ' + detailAddress;
+													var address = addr;
+													var detailAddress = document
+															.getElementById("detailAddress").value;
+													var userRegion = postcode
+															+ ' ' + address
+															+ ' '
+															+ detailAddress;
 
-													document.getElementById('postcode').value = data.zonecode;
-													document.getElementById("address").value = addr;
-													document.getElementById("detailAddress").focus();
+													document
+															.getElementById('postcode').value = data.zonecode;
+													document
+															.getElementById("address").value = addr;
+													document.getElementById(
+															"detailAddress")
+															.focus();
 
-								                    // userRegion 값을 숨겨진 input 요소에 설정
-								                    document.getElementById("userRegionInput").value = userRegion;
-													
+													// userRegion 값을 숨겨진 input 요소에 설정
+													document
+															.getElementById("userRegionInput").value = userRegion;
+
 													element_wrap.style.display = 'none';
 
 													document.body.scrollTop = currentScroll;
@@ -183,9 +192,9 @@
 								type="text" id="address" placeholder="주소" readonly required>
 							<input type="text" id="detailAddress" placeholder="상세주소" required>
 							<div class="invalid-feedback">주소를 입력해주세요.</div>
-							
+
 							<!-- 사용자 지역을 전달할 숨겨진 input 요소 -->
-    						<input type="hidden" id="userRegionInput" name="userRegion">
+							<input type="hidden" id="userRegionInput" name="userRegion">
 						</div>
 
 						<div class="mb-3">
@@ -215,8 +224,8 @@
 							<button type="submit" class="btn btn-primary">가입하기</button>
 						</div>
 					</form>
-					
-						
+
+
 				</div>
 			</div>
 		</div>
@@ -224,7 +233,7 @@
 
 
 	<!-- 게시물 Modal -->
-	<div class="modal fade" id="postModal" tabindex="-1"
+	<!-- <div class="modal fade" id="postModal" tabindex="-1"
 		aria-labelledby="postModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -234,7 +243,7 @@
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<!-- 가져올 게시물 내용을 생각하자 -->
+					 가져올 게시물 내용을 생각하자 
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
@@ -242,9 +251,37 @@
 				</div>
 			</div>
 		</div>
+	</div> -->
+
+	<!-- 게시물 상세보기 모달 -->
+	<div class="modal fade" id="postModal" tabindex="-1"
+		aria-labelledby="postModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<!-- 왼쪽 영역 -->
+							<div class="col-md-6">
+								<div class="row">
+									<div class="col-12 mb-2" style="height: 20%;">작성자 닉네임 영역</div>
+									<div class="col-12" style="height: 80%;">사진 영역</div>
+								</div>
+							</div>
+							<!-- 오른쪽 영역 -->
+							<div class="col-md-6">
+								<div class="row">
+									<div class="col-12 mb-2" style="height: 20%;">게시글 내용 영역</div>
+									<div class="col-12 mb-2" style="height: 20%;">해시태그 영역</div>
+									<div class="col-12" style="height: 60%;">댓글 영역</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-
-
 
 	<!-- 채팅방 생성 모달 -->
 	<div class="modal fade" id="createRoomModal" tabindex="-1"
@@ -354,7 +391,7 @@
 						</div>
 						<fieldset class="mb-3">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value=""
+								<input class="form-check-input" type="checkbox" name="postTemp" value=""
 									id="postTemp"> <label class="form-check-label"
 									for="postTemp"> 현재 기온 표기 </label>
 							</div>
@@ -388,69 +425,6 @@
 			reader.readAsDataURL(file);
 		});
 
-		// 해시태그 배열
-		let hashtags = [];
-
-		$(document)
-				.ready(
-						function(event) {
-							/* 			  $('#hashtagInput').on('input', function() {
-							 let inputVal = $(this).val();
-							 let hashtags = inputVal.split(/\s+/).filter(function(tag) {
-							 return tag.startsWith('#');
-							 });
-							 console.log(hashtags); // 콘솔에 분리된 해시태그 배열 출력
-
-							 }); */
-
-							$("#hashtagInput")
-									.on(
-											"keyup",
-											function(event) {
-												let inputVal = $(this).val();
-												if (event.which == 32) { // 스페이스바 키 코드는 32입니다.
-													let hashtagValue = $(this)
-															.val().trim();
-													if (hashtagValue) { // 입력값이 비어있지 않은 경우에만 실행
-														$('#hashtagList')
-																.append(
-																		'<li>'
-																				+ hashtagValue
-																				+ '<button class="remove">X</button></li>');
-														$(this).val(''); // 입력 필드 초기화
-														let hashtag = inputVal
-																.split(/\s+/)
-																.filter(
-																		function(
-																				tag) {
-																			return tag
-																					.startsWith('#');
-																		});
-														hashtags.push(hashtag);
-														console.log(hashtags); // 콘솔에 분리된 해시태그 배열 출력
-													}
-												}
-											});
-
-							// 해시태그 삭제 기능
-							$('#hashtagList').on('click', '.remove',
-									function() {
-										$(this).parent().remove(); // 해당 해시태그 삭제
-										console.log(this);
-										removeHashtag(this);
-									});
-						});
-
-		// 해시태그 삭제 함수
-		function removeHashtag(tagToRemove) {
-			hashtags = hashtags.filter(function(tag) {
-				return tag !== tagToRemove;
-			});
-			console.log(hashtags); // 업데이트된 해시태그 배열 출력
-		}
-
-		// 예시 사용법: '#exampleTag' 해시태그 삭제
-		// removeHashtag('#exampleTag');
 	</script>
 
 

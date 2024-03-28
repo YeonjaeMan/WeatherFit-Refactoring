@@ -45,7 +45,7 @@ $(document).ready(function() {
 						);
 					},
 					error: function() {
-						console.log("이미지 가져오기 실패..");
+						alert("이미지 가져오기 실패..");
 					}
 				})
 

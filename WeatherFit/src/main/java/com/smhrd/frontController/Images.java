@@ -19,7 +19,6 @@ public class Images extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.println("이미지파일 요청이 들어옴.");
 		response.setContentType("text/html;charset=UTF-8");
 		
 		int postIdx = Integer.parseInt(request.getParameter("postIdx"));
@@ -33,7 +32,6 @@ public class Images extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		Gson gson = new Gson();
 		String json = gson.toJson(resultVO);
-		System.out.println(json);
 		out.print(json);
 	}
 
