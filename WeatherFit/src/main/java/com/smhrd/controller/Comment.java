@@ -19,7 +19,7 @@ public class Comment implements Command {
 		
 		
 		DAO dao = new DAO();
-		dao.Comment();
+		//dao.Comment();
 		
 		
 		return null;

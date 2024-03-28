@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.ajax.AjaxCommand;
 import com.smhrd.ajax.Chats;
+import com.smhrd.ajax.Comments;
 import com.smhrd.ajax.CrawlingPost;
 import com.smhrd.ajax.MinePosts;
 import com.smhrd.ajax.Posts;
@@ -32,8 +33,9 @@ public class AjaxController extends HttpServlet {
 		map.put("Rooms.ajax",new Rooms());
 		map.put("Chats.ajax",new Chats());
 		map.put("MinePosts.ajax",new MinePosts());
+		map.put("Comments.ajax", new Comments());
 		map.put("CrawlingPost.ajax", new CrawlingPost());
-		
+
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
