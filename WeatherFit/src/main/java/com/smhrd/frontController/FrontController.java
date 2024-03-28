@@ -1,4 +1,5 @@
 package com.smhrd.frontController;
+
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -21,14 +22,12 @@ import com.smhrd.controller.Post;
 import com.smhrd.controller.Postselect;
 import com.smhrd.controller.Update;
 
-
-
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private HashMap<String, Command> map = new HashMap<String, Command>();
-	
+
 	@Override
 	public void init() throws ServletException {
 		map.put("Join.do", new Join());
@@ -40,31 +39,33 @@ public class FrontController extends HttpServlet {
 		map.put("CreateRoom.do", new CreateRoom());
 		map.put("CreatePost.do", new CreatePost());
 
-
 	}
-	
-	
+
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		String uri = request.getRequestURI();
 		String cp = request.getContextPath();
 		String path = uri.substring(cp.length() + 1);
-		
+
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		
+
 		String finalPath = null;
 		Command com = map.get(path);
+
+	
 		
-		if(path.startsWith("go")) {
+		
+		if (path.startsWith("go")) {
 			finalPath = path.replace("go", "").replace(".do", "");
 		} else {
 			finalPath = com.execute(request, response);
 		}
 		
-		if(finalPath == null) {
-			
+
+		if (finalPath == null) {
+
 		} else if (finalPath.contains("redirect:/")) {
 			response.sendRedirect(finalPath.split("/")[1]);
 		} else {
