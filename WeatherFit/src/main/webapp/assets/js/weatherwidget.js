@@ -67,6 +67,7 @@ function success(position) {
 		type: "GET",
 
 		success: function(res) {
+			console.log(res);
 			//console.log(res.response.body.items.item[24].fcstValue); // 3/20 10:30 기준 11:00 기온(7)
 			// console.log(res.response.body.items.item[12].fcstValue); // 강수량("강수없음")
 			//console.log(res.response.body.items.item[18].fcstValue); // 하늘상태(1) 0~5 맑음 6~8 구름많음 9~10 흐림
@@ -74,19 +75,11 @@ function success(position) {
 			// console.log(res.response.body.items.item[6].fcstValue); // 강수형태(0) 0 없음 1 비 2 비/눈 3 눈 5 빗방울 6 빗방울눈날림 7 눈날림
 			// console.log(res.response.body.items.item[54].fcstValue); // 풍속(3) 4미만 - 바람이 약하다 / 4이상~9미만 - 바람이 약간 강하다 / 9이상~14미만 - 바람이 강하다 / 14이상 - 바람이 매우 강하다
 			let T1H = res.response.body.items.item[24].fcstValue;
-			//let RN1 = res.response.body.items.item[12].fcstValue;
 			let SKY = res.response.body.items.item[18].fcstValue;
-			//let REH = res.response.body.items.item[30].fcstValue;
 			let PTY = res.response.body.items.item[6].fcstValue;
-			//let WSD = res.response.body.items.item[54].fcstValue;
 
 			$("#weather-t1h").append("<span>" + T1H + "°C</span>")
-			//$("#weather-list").append("<li>" + "기온 : " + T1H + "도" + "</li>");
-			//$("#weather-list").append("<li>" + "강수량 : " + RN1 + "</li>");
-			//$("#weather-list").append("<li>" + "하늘상태 : " +  SKY + "</li>");
-			//$("#weather-list").append("<li>" + "습도 : " + REH + "</li>");
-			//$("#weather-list").append("<li>" + "강수형태 : " + PTY + "</li>");
-			//$("#weather-list").append("<li>" + "풍속 : " + WSD + "</li>");
+			$("#postTemp").attr("value", T1H);
 
 			if (PTY == 0) { // 강수형태 없음
 				if (SKY >= 0 && SKY <= 5) { // 하늘상태 맑음
@@ -148,14 +141,15 @@ function success(position) {
 		},
 
 		error: function() {
-			console.log("요청 중 에러 발생");
+			alert("날씨 정보를 가져올 수 없습니다..");
+			$("#weather-t1h").append("<span>점검중..<span>")
 		}
 	})
 }
 
 // 위도 경도 불러오기 실패!
 function error() {
-	alert("위치 정보 조회 실패!");
+	alert("위치 정보를 가져올 수 없습니다..");
 }
 
 // LCC DFS 좌표변환 ( code : "toXY"(위경도->좌표, v1:위도, v2:경도), "toLL"(좌표->위경도,v1:x, v2:y) )

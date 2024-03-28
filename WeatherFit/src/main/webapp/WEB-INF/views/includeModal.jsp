@@ -353,11 +353,10 @@
 								name="postContent" rows="3"></textarea>
 						</div>
 						<fieldset class="mb-3">
-							<legend>현재 기온을 표기할까요?(default:기온 표기 x)</legend>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="postOption"
-									id="option2" value="option2"> <label
-									class="form-check-label" for="option2"> 기온 표기 o </label>
+								<input class="form-check-input" type="checkbox" value=""
+									id="postTemp"> <label class="form-check-label"
+									for="postTemp"> 현재 기온 표기 </label>
 							</div>
 						</fieldset>
 						<div class="mb-3">
@@ -366,7 +365,6 @@
 								name="hashTags" placeholder="#해시태그">
 							<ul id="hashtagList"></ul>
 						</div>
-						<input type="hidden" name="userId" value="${member.userId}">
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-bs-dismiss="modal">닫기</button>
