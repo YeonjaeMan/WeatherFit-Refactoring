@@ -1,4 +1,4 @@
-package com.smhrd.frontController;
+package com.smhrd.ajaxController;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -10,42 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.controller.Command;
-import com.smhrd.controller.CreatePost;
-import com.smhrd.controller.CreateRoom;
-import com.smhrd.controller.Join;
-//import com.smhrd.controller.EmailCheck;
-//import com.smhrd.controller.Join;
-import com.smhrd.controller.Login;
-import com.smhrd.controller.Logout;
-import com.smhrd.controller.Post;
 import com.smhrd.controller.Postselect;
-import com.smhrd.controller.Update;
 
 
 
-@WebServlet("*.do")
-public class FrontController extends HttpServlet {
+@WebServlet("*.ajax")
+public class AjaxController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private HashMap<String, Command> map = new HashMap<String, Command>();
 	
 	@Override
 	public void init() throws ServletException {
-		map.put("Join.do", new Join());
-		map.put("Login.do", new Login());
-		map.put("Logout.do", new Logout());
-		map.put("Post.do", new Post());
-		map.put("Postselect.do", new Postselect());
-		map.put("Update.do", new Update());
-		map.put("CreateRoom.do", new CreateRoom());
-		map.put("CreatePost.do", new CreatePost());
-
-
+		
+		map.put("Postselect.ajax", new Postselect());// select를 하려고할때 ??
+		
 	}
-	
-	
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String uri = request.getRequestURI();
 		String cp = request.getContextPath();
@@ -58,20 +40,17 @@ public class FrontController extends HttpServlet {
 		Command com = map.get(path);
 		
 		if(path.startsWith("go")) {
-			finalPath = path.replace("go", "").replace(".do", "");
+			finalPath = path.replace("go", "").replace(".ajax", "");
 		} else {
 			finalPath = com.execute(request, response);
 		}
 		
 		if(finalPath == null) {
-			
-		} else if (finalPath.contains("redirect:/")) {
-			response.sendRedirect(finalPath.split("/")[1]);
 		} else {
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/" + finalPath + ".jsp");
 			rd.forward(request, response);
 		}
-
+		
 	}
 
 }
