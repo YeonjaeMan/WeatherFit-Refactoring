@@ -132,7 +132,7 @@
 					src="assets/images/logo/logo.png" alt=""></a>
 			</div>
 			<!-- 내비바 (수정함) -->
-			<ul class="nav mt-3">
+			<ul id="nav-menu" class="nav mt-3">
 
 				<li class="nav-item"><a class="nav-link" id="redirecthome"
 					href="gomain.do">홈</a></li>
@@ -159,7 +159,7 @@
 						<li class="nav-item"><a class="nav-link" href="gochat.do">메시지</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
 						<div class="btn-group">
-							<button type="button" class="btn btn-primary dropdown-toggle"
+							<button type="button" class="btn-blue dropdown-toggle"
 								data-bs-toggle="dropdown" aria-expanded>
 								<i class="fa-solid fa-user"></i>
 							</button>
