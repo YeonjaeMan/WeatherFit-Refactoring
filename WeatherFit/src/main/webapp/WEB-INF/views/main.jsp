@@ -120,6 +120,7 @@
 	</main>
 	
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
+	<script src="assets/js/comment.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/crawlingView.js"></script>
 
 </body>
