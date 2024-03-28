@@ -23,9 +23,7 @@ public class Login implements Command {
 		
 		UserVO resultVO = dao.login(vo);
 
-		System.out.println("null인가?"); 
 		if(resultVO != null) {
-			System.out.println("null이아닌데요?");
 			HttpSession session = request.getSession();
 			session.setAttribute("member", resultVO);	// <<<<
 		}
