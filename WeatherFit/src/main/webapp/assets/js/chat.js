@@ -11,15 +11,15 @@ let webSocket; // 웹소켓 생성
 		success: function(rooms) {
 			console.log(rooms);
 			for (let i = 0; i < rooms.length; i++) {
-				if(userId == rooms[i].userId){
-					$("#btn-room-add").after(`<li class="nav-item"><a href="#" class="chatroom nav-link active"
+				if (userId == rooms[i].userId) {
+					$("#btn-room-add").after(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
 									aria-current="page" data-val=` + rooms[i].roomIdx + `> <svg class="bi pe-none me-2" width="16"
 									height="16">
 			                            <use xlink:href="#home" />
 			                    </svg>` + rooms[i].roomTitle +
-						`</a></li>`);					
+						`</a></li>`);
 				} else {
-					$("#btn-room-add").after(`<li class="nav-item"><a href="#" class="chatroom nav-link active"
+					$("#btn-room-add").after(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
 									aria-current="page" data-val=` + rooms[i].roomIdx + `> <svg class="bi pe-none me-2" width="16"
 									height="16">
 			                            <use xlink:href="#home" />
@@ -54,10 +54,9 @@ $(document).on("click", ".chatroom", function(event) {
                   </div>
                </div>`);
 
-
 	let path = "ws://localhost:8080/WeatherFit/websocket/" + roomIdx;
-	
-	
+
+
 	console.log(path);
 	// 웹소켓 초기화
 	webSocketInit(path, userId);
@@ -160,7 +159,7 @@ function socketMsgSend(userId, roomIdx, sendMessage) {
 function socketMessage(event, userId) {
 	let receiveData = event.data; // 수신 data
 	let receiveMessage = JSON.parse(receiveData);
-	
+
 	let messageElement = document.createElement("div");
 
 	if (receiveMessage.userId == userId) {

@@ -8,6 +8,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 부트스트랩, 제이쿼리, search에서 폰트어썸 쓰나? 일단 인클루드함 -->
 	<%@ include file="includeHeaders.jsp"%>
+	
+	
+	<style>
+	#search{
+	width: 300px;
+	margin-right:10px
+	}
+	
+	div#ajaxcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+	
+	
+	</style>
+	
+	
+	
 </head>
 <body>
 	<!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
@@ -22,7 +41,7 @@
                 <ul id="search-list"></ul>
             </div>
         </form>
-        <div id=ajaxcontainer></div>
+        <div id="ajaxcontainer"></div>
     </main>
 	
     <script src="assets/js/search.js"></script>

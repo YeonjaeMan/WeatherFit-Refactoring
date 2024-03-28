@@ -61,14 +61,20 @@ public class DAO<CrawlingVO> {
 		session.close();
 		return result;
 	}
+	
+	public FileVO selectFile(FileVO fvo) {
+		SqlSession session = factory.openSession();
+		FileVO resultVO = session.selectOne("selectFile", fvo);
+		session.close();
+		return resultVO;
+	}
 
 	public List<PostVO> Postselect() {
 
 		SqlSession session = factory.openSession();
-
-		List<PostVO> resultList = session.selectList("postselect");
+		List<PostVO> resultVO = session.selectList("postselect");
 		session.close();
-		return resultList;
+		return resultVO;
 
 	}
 
@@ -171,13 +177,7 @@ public class DAO<CrawlingVO> {
 
 	public int insertFile(FileVO fvo) {
 		SqlSession session = factory.openSession(true);
-		Map<String, Object> param = new HashMap<>();
-		param.put("fileRname", fvo.getFileRname());
-		param.put("fileData", fvo.getFileData());
-		param.put("fileSize", fvo.getFileSize());
-		param.put("fileExt", fvo.getFileExt());
-		param.put("postIdx", fvo.getPostIdx());
-		int row = session.insert("insertFile", param);
+		int row = session.insert("insertFile", fvo);
 		session.close();
 		return row;
 	}
