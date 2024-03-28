@@ -53,9 +53,8 @@
 
 
 
-	<insert id="comment" parameterType="com.smhrd.model.CommentVO">
-		insert into tb_comment (cmtContent, userId, cmtLikes)
-		values(#{cmtContent}, #{userId}, #{cmtLikes})
+	<insert id="commentselect" parameterType="com.smhrd.model.CommentVO">
+		select * from tb_comment where postIdx = #{postIdx}
 	</insert>
 
 	
