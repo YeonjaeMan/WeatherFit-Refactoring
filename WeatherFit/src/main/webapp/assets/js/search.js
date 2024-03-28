@@ -8,7 +8,7 @@ inputField.addEventListener('keyup', function() {
     let senddata = { keyWord : this.value }; 
     
     $.ajax({
-        url: "Searchs",
+        url: "Searchs.ajax",
         type: "get",
         data: senddata, // 수정된 부분
         dataType: "json",
@@ -26,7 +26,7 @@ inputField.addEventListener('keyup', function() {
             });
         },
         error: function(err) {
-            console.log("연결 실패");
+            console.log("검색 연결 실패");
         }
     });
 });
