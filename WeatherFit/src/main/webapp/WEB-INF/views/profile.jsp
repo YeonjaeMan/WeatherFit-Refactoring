@@ -8,30 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document</title>
 
-<!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
-<%@ include file="includeHeaders.jsp"%>
 
-
-<style>
-#nickname {
-	margin-right: 10%;
-}
-
-#nick-follow {
-	width: 30%;
-}
-
-
-
-
-
-</style>
-
-
-
-
-
-
+	<!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
+	<%@ include file="includeHeaders.jsp"%>
+	<link rel="stylesheet" href="assets/css/profile.css">
+	
 </head>
 <body>
 	<!-- 날씨 위젯과 상단 네비 분리 -->
@@ -55,11 +36,12 @@
                         <rect width="100%" height="100%"
 							fill="var(--bs-secondary-color)" />
                     </svg>
-					<div id="nick-follow"
-						class="d-flex flex-column justify-content-evenly">
-						<div class="d-flex">
+
+					<div id="nick-follow" class="d-flex flex-column justify-content-evenly">
+						<div  class="d-flex">
 							<!-- 닉네임 -->
-							<h2 class="fw-normal" id="nickname"><%=uvo.getUserNick()%></h2>
+							<h2 class="fw-normal" id="nickname"><%= uvo.getUserNick() %></h2>
+
 							<!-- 팔로우버튼 -->
 							<p>
 								<a class="btn-blue" href="#">팔로우</a>

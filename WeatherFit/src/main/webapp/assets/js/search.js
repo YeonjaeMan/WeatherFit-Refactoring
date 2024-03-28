@@ -17,8 +17,7 @@ inputField.addEventListener('keyup', function() {
             
             $("#ajaxcontainer").empty(); // 기존의 검색 결과를 지우고 새로운 결과를 추가
             search.forEach(function(item) { // 모든 검색 결과를 순회하여 추가
-                $("#ajaxcontainer").append(`
-                    ${item.postContent}<br>
+                $("#ajaxcontainer").html(`
                     ${item.userNick}<br>
                     ${item.hashTag}
                 `);
