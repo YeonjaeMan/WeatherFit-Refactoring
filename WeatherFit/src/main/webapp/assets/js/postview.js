@@ -17,9 +17,7 @@ $(document).ready(function() {
 					type: "post",
 					dataType: "json",
 					success: function(images) {
-						console.log(images);
 						let imgPath = "assets/uploads/" + images.fileRname;
-						console.log(imgPath);
 						$('#ajaxcontainer').append(`
 							<div class="col-md-4">
 								<div class="card shadow-sm">
@@ -50,7 +48,6 @@ $(document).ready(function() {
 			$(document).on('click', '.view-btn', function() {
 
 				let postIdx = parseInt($(this).data('id'), 10); // 게시물 ID를 숫자로 변환합니다.
-				console.log(postIdx);
 				// 데이터 속성 이름이 'id'인지, 'postIdx'인지 확인하여 일치하는 이름을 사용
 				let post = posts.find(post => post.postIdx === postIdx); // 예를 들어, 여기서는 'postIdx'를 사용
 
@@ -64,7 +61,8 @@ $(document).ready(function() {
 
 				$.ajax({
 					url: "Comments.ajax",
-					data: { "postIdx": postIdx },
+					type:"post",
+					data: {"postIdx":postIdx},
 					dataType: "json",
 					success: function(comment) {
 						console.log(comment)
