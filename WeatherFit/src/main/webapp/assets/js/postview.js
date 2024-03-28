@@ -12,7 +12,7 @@ $(document).ready(function() {
 			for (let i = 0; i < posts.length; i++) {
 
 				$.ajax({
-					url: "Images",
+					url: "Images.ajax",
 					data: { "postIdx": posts[i].postIdx },
 					type: "post",
 					dataType: "json",
@@ -38,13 +38,6 @@ $(document).ready(function() {
 									</div>
 								</div>
 							</div>`
-
-							/*<svg class="bd-placeholder-img card-img-top" width="80%"
-										height="400" xmlns="http://www.w3.org/2000/svg" role="img"
-										aria-label="Placeholder: Thumbnail"
-										preserveAspectRatio="xMidYMid slice" focusable="false">
-										</svg>
-										<rect width="100%" height="100%" fill="#55595c" />*/
 						);
 					},
 					error: function() {
