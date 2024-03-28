@@ -47,7 +47,7 @@ $(document).on("click", ".chatroom", function(event) {
 					<!-- 채팅 메시지가 표시될 영역 -->
 				</div>
 				<input type="text" id="message-input" placeholder="메시지를 입력하세요...">
-				<button id="btn-send">전송</button>
+				<button class="btn-blue" id="btn-send">전송</button>
 			</div>`);
 
 	let path = "ws://localhost:8080/WeatherFit/websocket/" + roomIdx;
