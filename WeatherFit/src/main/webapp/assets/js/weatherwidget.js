@@ -80,6 +80,7 @@ function success(position) {
 
 			$("#weather-t1h").append("<span>" + T1H + "°C</span>")
 			$("#postTemp").attr("value", T1H);
+			postView(T1H);
 
 			if (PTY == 0) { // 강수형태 없음
 				if (SKY >= 0 && SKY <= 5) { // 하늘상태 맑음
