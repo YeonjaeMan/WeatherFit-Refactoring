@@ -6,8 +6,6 @@ public class FileVO {
 	
 	private int postIdx;
 	
-	private byte[] fileData;
-	
 	private String fileRname;
 	
 	private long fileSize;
@@ -19,10 +17,9 @@ public class FileVO {
 
 	}
 
-	public FileVO(int fileIdx, int postIdx, byte[] fileData, String fileRname, long fileSize, String fileExt) {
+	public FileVO(int fileIdx, int postIdx, String fileRname, long fileSize, String fileExt) {
 		this.fileIdx = fileIdx;
 		this.postIdx = postIdx;
-		this.fileData = fileData;
 		this.fileRname = fileRname;
 		this.fileSize = fileSize;
 		this.fileExt = fileExt;
@@ -44,14 +41,6 @@ public class FileVO {
 		this.postIdx = postIdx;
 	}
 	
-	public byte[] getFileData() {
-		return fileData;
-	}
-
-	public void setFileData(byte[] fileData) {
-		this.fileData = fileData;
-	}
-
 	public void setFileSize(long fileSize) {
 		this.fileSize = fileSize;
 	}

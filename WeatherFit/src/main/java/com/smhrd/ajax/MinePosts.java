@@ -17,10 +17,8 @@ public class MinePosts implements AjaxCommand{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		String userId = request.getParameter("userId");
 		
-		UserVO uvo = new UserVO();
-		uvo.setUserId(userId);
+		UserVO uvo =(UserVO)request.getSession().getAttribute("member");
 		
 		DAO dao = new DAO();
 		List<PostVO> minePosts = dao.selectMinePosts(uvo);
