@@ -37,6 +37,7 @@ $(document).ready(function() {
 								</div>
 							</div>`
 						);
+					
 					},
 					error: function() {
 						alert("이미지 가져오기 실패..");
@@ -44,10 +45,6 @@ $(document).ready(function() {
 				})
 
 			}
-
-			
-
-
 
 		},
 		error: function(err) {
