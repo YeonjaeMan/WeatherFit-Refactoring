@@ -6,7 +6,7 @@
 
 	<select id="login" parameterType="com.smhrd.model.UserVO"
 		resultType="com.smhrd.model.UserVO">
-		select userId, userNick
+		select userId, userGender, userNick, userRegion, joinedAt, userHeight, userWeight, userProfileImg, userProfileInfo
 		from tb_user
 		where userId = #{userId}
 		and userPw = #{userPw}
