@@ -4,7 +4,7 @@ let webSocket; // 웹소켓 생성
 // 채팅방 목록 로딩 
 (function() {
 	$.ajax({
-		url: "Rooms",
+		url: "Rooms.ajax",
 		data: { "userId": userId },
 		dataType: "json",
 		type: "post",
@@ -58,7 +58,7 @@ $(document).on("click", ".chatroom", function(event) {
 	webSocketInit(path, userId);
 
 	$.ajax({
-		url: "Chats",
+		url: "Chats.ajax",
 		data: { "roomIdx": roomIdx },
 		dataType: "json",
 		type: "post",

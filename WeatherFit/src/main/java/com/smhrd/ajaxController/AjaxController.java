@@ -2,15 +2,18 @@ package com.smhrd.ajaxController;
 import java.io.IOException;
 import java.util.HashMap;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smhrd.controller.Command;
-import com.smhrd.controller.Postselect;
+import com.smhrd.ajax.AjaxCommand;
+import com.smhrd.ajax.Chats;
+import com.smhrd.ajax.MinePosts;
+import com.smhrd.ajax.Posts;
+import com.smhrd.ajax.Rooms;
+import com.smhrd.ajax.Searchs;
 
 
 
@@ -18,12 +21,16 @@ import com.smhrd.controller.Postselect;
 public class AjaxController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private HashMap<String, Command> map = new HashMap<String, Command>();
+	private HashMap<String, AjaxCommand> map = new HashMap<String, AjaxCommand>();
 	
 	@Override
 	public void init() throws ServletException {
 		
-		map.put("Postselect.ajax", new Postselect());// select를 하려고할때 ??
+		map.put("Posts.ajax", new Posts());// select를 하려고할때 ??
+		map.put("Searchs.ajax", new Searchs());
+		map.put("Rooms.ajax",new Rooms());
+		map.put("Chats.ajax",new Chats());
+		map.put("MinePosts.ajax",new MinePosts());
 		
 	}
 
@@ -36,20 +43,15 @@ public class AjaxController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		String finalPath = null;
-		Command com = map.get(path);
 		
-		if(path.startsWith("go")) {
-			finalPath = path.replace("go", "").replace(".ajax", "");
-		} else {
-			finalPath = com.execute(request, response);
-		}
+		AjaxCommand com = map.get(path);
+		if (com != null) {
+			com.execute(request, response);
+		}else {
+            // 해당하는 Command 객체가 없는 경우, 에러 처리
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        }
 		
-		if(finalPath == null) {
-		} else {
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/" + finalPath + ".jsp");
-			rd.forward(request, response);
-		}
 		
 	}
 

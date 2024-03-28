@@ -1,12 +1,9 @@
-package com.smhrd.frontController;
+package com.smhrd.ajax;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,15 +12,11 @@ import com.smhrd.database.DAO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.UserVO;
 
-@WebServlet("/MinePosts")
-public class MinePosts extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class MinePosts implements AjaxCommand{
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		
 		String userId = request.getParameter("userId");
 		
 		UserVO uvo = new UserVO();
@@ -34,7 +27,15 @@ public class MinePosts extends HttpServlet {
 		
 		Gson gson = new Gson();
 		String json = gson.toJson(minePosts);
-		out.print(json);
+		
+		
+		
+		
+		response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        response.getWriter().write(json);
 	}
+	
 
 }

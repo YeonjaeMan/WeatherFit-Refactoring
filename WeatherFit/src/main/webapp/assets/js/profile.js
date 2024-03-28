@@ -27,9 +27,9 @@ $(document).ready(function() {
 
 function viewMinePosts() {
 	$.ajax({
-		url: "MinePosts",
-		data: { "userId": userId },
-		type: "get",
+		url: "MinePosts.ajax",
+		data: {"userId":userId},
+		type: "post",
 		dataType: "json",
 		success: function(minePosts) {
 			console.log(minePosts);

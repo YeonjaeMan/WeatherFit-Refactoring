@@ -16,7 +16,7 @@ public class Postselect implements Command{
 		DAO dao = new DAO();
 		List<PostVO> list = dao.Postselect();
 		request.setAttribute("list", list);
-		return "select";
+		return null;
 		
 		
 	}
