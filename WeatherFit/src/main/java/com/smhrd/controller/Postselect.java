@@ -14,9 +14,9 @@ public class Postselect implements Command{
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		DAO dao = new DAO();
-//		List<PostVO> list = dao.Postselect();
-//		request.setAttribute("list", list);
-		return "select";
+		List<PostVO> list = dao.Postselect();
+		request.setAttribute("list", list);
+		return null;
 		
 		
 	}

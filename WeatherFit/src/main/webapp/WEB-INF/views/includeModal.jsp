@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" href="assets/css/address.css">
+<link rel="stylesheet" href="assets/css/modal.css">
+
 <body>
 	<!-- 로그인 Modal -->
 
@@ -16,12 +18,13 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+					<h4 class="fw-bold mb-0 fs-2 text-center w-100">로그인</h4>
 					<!-- 수정함  <h5 class="modal-title" id="loginModalLabel">모달 헤더 입니다.</h5> -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<h4 class="fw-bold mb-0 fs-2 text-center w-100">로그인</h4>
+					
 
 					<form action="Login.do" method="post">
 						<div></div>
@@ -37,23 +40,21 @@
 								for="floatingPassword">비밀번호</label>
 							<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 						</div>
-						<div class="form-check text-start my-3"></div>
+						<div class="form-check text-start my-3">
+							<button type="button" class="btn btn-primary"
+							data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
+						</div>
 						<div class="mb-2"></div>
 						<button class="btn btn-primary w-100 py-2" type="submit">로그인</button>
 					</form>
 					<div class="mb-2">
 						<!-- 회원가입 Modal -->
 						<!-- Modal Trigger -->
-						<button type="button" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
+						
 						<!-- 회원가입 Modal -->
 					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">닫기</button>
-					<button type="button" class="btn btn-primary">의미없는버튼</button>
-				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -61,11 +62,12 @@
 
 
 	<!-- Modal -->
+	>
 	<div class="modal fade" id="joinModal" tabindex="-1"
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
+				<div class="modal-header" id = "">
 					<h5 class="modal-title" id="joinModalLabel">회원가입</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -120,7 +122,7 @@
 								<img src="//t1.daumcdn.net/postcode/resource/images/close.png"
 									id="btnFoldWrap" onclick="foldDaumPostcode()" alt="접기 버튼">
 							</div>
-
+						
 							<script
 								src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 							<script>
@@ -146,15 +148,20 @@
 													} else {
 														addr = data.jibunAddress;
 													}
+								                    
+													// 주소를 하나의 변수로 합치기
+													var postcode = data.zonecode;
+								                    var address = addr;
+								                    var detailAddress = document.getElementById("detailAddress").value;
+								                    var userRegion = postcode + ' ' + address + ' ' + detailAddress;
 
-													document
-															.getElementById('postcode').value = data.zonecode;
-													document
-															.getElementById("address").value = addr;
-													document.getElementById(
-															"detailAddress")
-															.focus();
+													document.getElementById('postcode').value = data.zonecode;
+													document.getElementById("address").value = addr;
+													document.getElementById("detailAddress").focus();
 
+								                    // userRegion 값을 숨겨진 input 요소에 설정
+								                    document.getElementById("userRegionInput").value = userRegion;
+													
 													element_wrap.style.display = 'none';
 
 													document.body.scrollTop = currentScroll;
@@ -176,6 +183,9 @@
 								type="text" id="address" placeholder="주소" readonly required>
 							<input type="text" id="detailAddress" placeholder="상세주소" required>
 							<div class="invalid-feedback">주소를 입력해주세요.</div>
+							
+							<!-- 사용자 지역을 전달할 숨겨진 input 요소 -->
+    						<input type="hidden" id="userRegionInput" name="userRegion">
 						</div>
 
 						<div class="mb-3">
@@ -205,8 +215,8 @@
 							<button type="submit" class="btn btn-primary">가입하기</button>
 						</div>
 					</form>
-
-
+					
+						
 				</div>
 			</div>
 		</div>

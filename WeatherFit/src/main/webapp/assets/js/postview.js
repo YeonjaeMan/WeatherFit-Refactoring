@@ -1,11 +1,10 @@
 
 $(document).ready(function() {
 	$.ajax({
-		url: "Posts",
-		type: "post",
+		url: "Posts.ajax",
+		type: "get",
 		dataType: "json",
 		success: function(posts) {
-			console.log(posts);
 
 			for (let i = 0; i < posts.length; i++) {
 
@@ -77,8 +76,19 @@ $(document).ready(function() {
 		}
 	})
 });
-
-
+$("#ajaxcontroller").on("click",()=>{
+	$.ajax({
+		url:"Posts.ajax",
+		dataType:"json",
+		success: function(e){
+			console.log("ajax컨트롤러를 경유")
+			console.log(e)
+		},error: function(r){
+			console.log("ajax컨트롤러 경유실패")
+		}
+})
+	
+})
 
 
 
