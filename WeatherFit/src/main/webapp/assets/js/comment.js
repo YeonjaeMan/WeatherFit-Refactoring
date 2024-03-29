@@ -1,8 +1,9 @@
 ////////////////////////////////////////////////// 댓글영역
+let postIdx;
 $(document).on('click', '.view-btn', function() { // .view-btn은 postIdx를 담기위함
 	// 선택개체를 바꾼다면 이부분을 바꿔야함
 	// postviews.js 에 있는것과 동일
-	let postIdx = parseInt($(this).data('id'));
+	postIdx = parseInt($(this).data('id'));
 	console.log(postIdx);
 	$.ajax({
 		url: "Comments.ajax",
@@ -14,6 +15,7 @@ $(document).on('click', '.view-btn', function() { // .view-btn은 postIdx를 담
 
 
 			let targetPostIdx = postIdx;
+			
 
 			// postIdx가 targetPostIdx와 일치하는 댓글들만 필터링
 			let filteredComments = comment.filter(comment => comment.postIdx === targetPostIdx);
@@ -21,7 +23,6 @@ $(document).on('click', '.view-btn', function() { // .view-btn은 postIdx를 담
 			// 필터링된 댓글들의 userId와 cmtContent를 출력
 			$("#cmt-cmt").empty();
 			filteredComments.forEach(comment => {
-				console.log(`작성자: ${comment.userId}, 내용: ${comment.cmtContent}`);
 				$("#cmt-cmt").append(
 					`<p>${comment.userId}<br>${comment.cmtContent}</p>`
 
@@ -49,7 +50,7 @@ $(document).on('click', '.view-btn', function() { // .view-btn은 postIdx를 담
 
 				$.ajax({
 					url: "Images.ajax",
-					data: { "postIdx": data[i].postIdx },
+					data: { "postIdx": postIdx },
 					type: "post",
 					dataType: "json",
 					success: function(images) {
@@ -76,4 +77,54 @@ $(document).on('click', '.view-btn', function() { // .view-btn은 postIdx를 담
 
 
 
+
+
 });
+			
+
+			$("#cmtContent").keydown(function(event){
+				if(event.which == 13){
+					$("insert-cmt").click();
+				}
+			})
+			$("#cmt-cmt").empty();
+			$("#insert-cmt").on("click", function() {
+				let cmtContent = $("input[name='cmtContent']").val();
+				console.log(cmtContent)
+				$("input[name='cmtContent']").val("");
+				$.ajax({
+					url: "Comment.do",
+					data: {
+						"postIdx": postIdx,
+						"cmtContent": cmtContent
+					},
+					type: "post",
+					success: function(s) {
+						$.ajax({
+							url:"Comments.ajax",
+							data: { "postIdx": postIdx },
+							dataType: "json",
+							success:function(d){
+								console.log("입력성공")
+								$("#cmt-cmt").empty();
+								for (let i =0;i<d.length;i++){
+									$("#cmt-cmt").append(
+										d[i].userId+"<br>"+d[i].cmtContent+"<br>"
+										);
+								$("#insert-cmt").value=null;
+								}
+									
+							},error:function(e){
+								
+							}
+						})
+
+						
+					}
+
+
+				})
+			})
+
+
+
