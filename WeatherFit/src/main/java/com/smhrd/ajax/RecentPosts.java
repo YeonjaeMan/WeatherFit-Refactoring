@@ -9,27 +9,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.smhrd.database.DAO;
-import com.smhrd.model.CommentVO;
+import com.smhrd.model.PostVO;
 
-public class Comments implements AjaxCommand {
+public class RecentPosts implements AjaxCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=UTF-8");
-
-		int postIdx = Integer.parseInt(request.getParameter("postIdx"));
-		System.out.println(postIdx);
-		System.out.println("비동기댓글들어오냐?");
-		CommentVO commentVO = new CommentVO();
 
 		DAO dao = new DAO();
-		List<CommentVO> commentlist = dao.Commentselect(postIdx);
+		List<PostVO> recentPosts = dao.selectRecentPosts();
 
 		Gson gson = new Gson();
-		String json = gson.toJson(commentlist);
+		String json = gson.toJson(recentPosts);
+
+		// 응답의 컨텐츠 타입을 "application/json"으로 설정하고, 문자 인코딩은 "UTF-8"로 설정합니다.
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 
+		// 변환된 JSON 문자열을 응답 바디에 작성하여 클라이언트에게 전송합니다.
 		response.getWriter().write(json);
 	}
 

@@ -141,8 +141,8 @@
 			<!-- 날씨위젯 -->
 			<a id="weather-link" href="#"
 				class="d-flex align-items-around mb-2 mb-lg-0">
-				<div id="weather-sky"></div>
-				<div id="weather-t1h"></div>
+				<div id="weather-sky" class="weather-info"></div>
+				<div id="weather-t1h" class="weather-info"></div>
 			</a>
 			<!-- 사이트 로고(수정함) -->
 			<div class="title">
