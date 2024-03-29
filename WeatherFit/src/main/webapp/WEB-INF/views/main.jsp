@@ -14,30 +14,7 @@
 
 
 <style>
-.d-flex {
-	margin-top: 1rem;
-}
 
-#btn-darkblue {
-	position: relative;
-	border: none;
-	display: inline-block;
-	padding: 5px 10px;
-	margin-top: 3px;
-	border-radius: 8px;
-	/* font-family: "paybooc-Light", sans-serif; */
-	text-decoration: none;
-	font-weight: 600;
-	transition: 0.25s;
-	background-color: #7895CB;
-	color: white;
-}
-
-#btn-darkblue:hover {
-	background-color: #C5DFF8;
-	cursor: pointer;
-	color: #4A55A2;
-}
 
 .btn-view {
 	position: relative;
@@ -59,6 +36,18 @@
 	color: white;
 }
 
+/* 메인페이지 게시글 토글버튼 */
+#btn-mainpost {
+    margin-top: 30px;
+}
+
+
+/* 게시글 크기 고정.. 하고싶다 */
+.fixed-height {
+    height: 600px;
+    overflow: auto;
+  }
+
 
 .postcard {
 	border: none;
@@ -68,6 +57,7 @@
 .postcard:hover {
 	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
 }
+
 
 #hashtag {
 	color: rgb(93, 93, 214);
@@ -79,6 +69,7 @@
 	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
 }
 
+/* 게시글 내용 */
 .card-text {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
@@ -112,8 +103,8 @@
 					<label class="btn btn-outline-primary" for="recommand">추천</label>
 				</div>
 			</div>
-			<!-- 게시글 카드 -->
 
+			<!-- 게시글 카드 -->
 			<div>
 				<div id="ajaxcontainer"
 					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-1"></div>
