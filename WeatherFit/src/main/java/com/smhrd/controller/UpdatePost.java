@@ -2,8 +2,6 @@ package com.smhrd.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,20 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FilenameUtils;
-import org.apache.ibatis.reflection.SystemMetaObject;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.smhrd.ajax.AjaxCommand;
 import com.smhrd.database.DAO;
 import com.smhrd.model.FileVO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.UserVO;
 
-public class CreatePost implements Command {
+public class UpdatePost implements Command {
 
+	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
-
+			throws ServletException, IOException {
+		
 		HttpSession session = request.getSession();
 		UserVO uvo = (UserVO) session.getAttribute("member");
 
@@ -43,11 +42,12 @@ public class CreatePost implements Command {
 		String userId = uvo.getUserId();
 		String postContent = multipartRequest.getParameter("postContent");
 		String hashTags = multipartRequest.getParameter("hashTags");
-		
+		int postIdx = Integer.parseInt(multipartRequest.getParameter("postIdx"));
+
 		int postTemp;
 		try {
 			postTemp = Integer.parseInt(multipartRequest.getParameterValues("postTemp")[0]);
-		} catch(Exception e) {
+		} catch (Exception e) {
 			postTemp = -999;
 		}
 
@@ -60,31 +60,17 @@ public class CreatePost implements Command {
 		pvo.setHashTag(hashTags);
 
 		DAO dao = new DAO();
-		int postIdx = dao.insertPost(pvo);
+		int row = dao.updatePost(pvo);
 
-		if (postIdx >= 0) {
-			System.out.println("게시글 저장 성공!");
+		FileVO fvo = new FileVO();
+		fvo.setFileRname(multipartRequest.getFilesystemName("postImg")); // 업로드한 파일 이름
+		fvo.setFileSize(multipartRequest.getFile("postImg").length()); // 파일 크기
+		fvo.setFileExt(FilenameUtils.getExtension(multipartRequest.getFilesystemName("postImg"))); // 파일 확장자
+		fvo.setPostIdx(postIdx);
 
-			FileVO fvo = new FileVO();
-			fvo.setFileRname(multipartRequest.getFilesystemName("postImg")); // 업로드한 파일 이름
-			fvo.setFileSize(multipartRequest.getFile("postImg").length()); // 파일 크기
-			fvo.setFileExt(FilenameUtils.getExtension(multipartRequest.getFilesystemName("postImg"))); // 파일 확장자
-			fvo.setPostIdx(postIdx);
-
-			int row = dao.insertFile(fvo);
-
-			if (row > 0) {
-				System.out.println("이미지파일 저장 성공 !");
-			} else {
-				System.out.println("이미지파일 저장 실패..");
-			}
-
-		} else {
-			System.out.println("게시글 저장 실패..");
-		}
-
+		dao.updateFile(fvo);
+		
 		return "redirect:/gomain.do";
-
 	}
 
 }

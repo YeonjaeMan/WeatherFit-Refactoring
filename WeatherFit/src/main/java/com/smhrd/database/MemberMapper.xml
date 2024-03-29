@@ -194,5 +194,28 @@
 		from tb_file
 		where postIdx = #{postIdx}
 	</select>
+	
+	<select id="selectRecentPosts" resultType="com.smhrd.model.PostVO">
+		select *
+		from tb_post
+		order by createdAt desc
+	</select>
+	
+	<delete id="deletePost" parameterType="com.smhrd.model.PostVO">
+		delete from tb_post
+		where postIdx = #{postIdx}
+	</delete>
+	
+	<update id="updatePost" parameterType="com.smhrd.model.PostVO">
+		update tb_post
+		set postContent=#{postContent}, hashTag=#{hashTag}, postTemp=#{postTemp}
+		where postIdx = #{postIdx}
+	</update>
+	
+	<update id="updateFile" parameterType="com.smhrd.model.FileVO">
+		update tb_file
+		set fileRname=#{fileRname}, fileSize=#{fileSize}, fileExt=#{fileExt}
+		where postIdx=#{postIdx}
+	</update>
 
 </mapper>
