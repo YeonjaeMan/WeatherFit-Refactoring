@@ -6,8 +6,76 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<style type="text/css">
+
+/* 작성자 닉네임 영역 스타일 */
+#cmt-user {
+    background-color: #e9ecef; /* 배경 색상 */
+    padding: 10px; /* 여백 */
+    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+    font-weight: bold; /* 글꼴 굵기 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 사진 영역 스타일 */
+#cmt-img {
+    background-color: #fff; /* 배경 색상 */
+    padding: 10px; /* 여백 */
+    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 게시글 내용 영역 스타일 */
+#cmt-content {
+    background-color: #fff; /* 배경 색상 */
+    padding: 10px; /* 여백 */
+    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+    overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
+}
+
+/* 해시태그 영역 스타일 */
+#cmt-hashtag {
+    background-color: #fff; /* 배경 색상 */
+    padding: 10px; /* 여백 */
+    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 댓글 영역 스타일 */
+#cmt-cmt {
+    background-color: #fff; /* 배경 색상 */
+    padding: 10px; /* 여백 */
+    overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
+}
+
+/* 스크롤바 스타일 */
+#cmt-content::-webkit-scrollbar, #cmt-cmt::-webkit-scrollbar {
+    width: 5px; /* 스크롤바 너비 */
+}
+
+#cmt-content::-webkit-scrollbar-thumb, #cmt-cmt::-webkit-scrollbar-thumb {
+    background: #888; /* 스크롤바 색상 */
+    border-radius: 5px; /* 스크롤바 모서리 둥글게 */
+}
+
+#cmt-content::-webkit-scrollbar-thumb:hover, #cmt-cmt::-webkit-scrollbar-thumb:hover {
+    background: #555; /* 스크롤바 색상 (호버 시) */
+}
+
+
+</style>
+
+
 </head>
 <link rel="stylesheet" href="assets/css/address.css">
+<link rel="stylesheet" href="assets/css/modal.css">
+
+
+
+
+
+
 <body>
 	<!-- 로그인 Modal -->
 
@@ -16,12 +84,13 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+					<h5 class="modal-title fw-bold mb-0 fs-2 text-center w-100">로그인</h5>
 					<!-- 수정함  <h5 class="modal-title" id="loginModalLabel">모달 헤더 입니다.</h5> -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<h4 class="fw-bold mb-0 fs-2 text-center w-100">로그인</h4>
+
 
 					<form action="Login.do" method="post">
 						<div></div>
@@ -37,23 +106,22 @@
 								for="floatingPassword">비밀번호</label>
 							<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 						</div>
-						<div class="form-check text-start my-3"></div>
+						<div class="form-check text-start my-3 d-flex justify-content-end">
+							<button type="button" id="btn-join" class="btn"
+
+								data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
+						</div>
 						<div class="mb-2"></div>
-						<button class="btn btn-primary w-100 py-2" type="submit">로그인</button>
+						<button class="btn-blue w-100 py-2" type="submit">로그인</button>
 					</form>
 					<div class="mb-2">
 						<!-- 회원가입 Modal -->
 						<!-- Modal Trigger -->
-						<button type="button" class="btn btn-primary"
-							data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
+
 						<!-- 회원가입 Modal -->
 					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">닫기</button>
-					<button type="button" class="btn btn-primary">의미없는버튼</button>
-				</div>
+
 			</div>
 		</div>
 	</div>
@@ -65,7 +133,7 @@
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
+				<div class="modal-header" id="">
 					<h5 class="modal-title" id="joinModalLabel">회원가입</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -102,15 +170,21 @@
 
 						<fieldset class="mb-3">
 							<legend>성별</legend>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="userGender"
-									id="manModal" value="남자" required> <label
-									class="form-check-label" for="manModal">남자</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="userGender"
-									id="womanModal" value="여자" required> <label
-									class="form-check-label" for="womanModal">여자</label>
+							<div class="row">
+								<div class="col">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="userGender"
+											id="manModal" value="남자" required> <label
+											class="form-check-label" for="manModal">남자</label>
+									</div>
+								</div>
+								<div class="col">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" name="userGender"
+											id="womanModal" value="여자" required> <label
+											class="form-check-label" for="womanModal">여자</label>
+									</div>
+								</div>
 							</div>
 						</fieldset>
 
@@ -147,6 +221,16 @@
 														addr = data.jibunAddress;
 													}
 
+													// 주소를 하나의 변수로 합치기
+													var postcode = data.zonecode;
+													var address = addr;
+													var detailAddress = document
+															.getElementById("detailAddress").value;
+													var userRegion = postcode
+															+ ' ' + address
+															+ ' '
+															+ detailAddress;
+
 													document
 															.getElementById('postcode').value = data.zonecode;
 													document
@@ -154,6 +238,10 @@
 													document.getElementById(
 															"detailAddress")
 															.focus();
+
+													// userRegion 값을 숨겨진 input 요소에 설정
+													document
+															.getElementById("userRegionInput").value = userRegion;
 
 													element_wrap.style.display = 'none';
 
@@ -176,6 +264,9 @@
 								type="text" id="address" placeholder="주소" readonly required>
 							<input type="text" id="detailAddress" placeholder="상세주소" required>
 							<div class="invalid-feedback">주소를 입력해주세요.</div>
+
+							<!-- 사용자 지역을 전달할 숨겨진 input 요소 -->
+							<input type="hidden" id="userRegionInput" name="userRegion">
 						</div>
 
 						<div class="mb-3">
@@ -214,17 +305,17 @@
 
 
 	<!-- 게시물 Modal -->
-	<div class="modal fade" id="postModal" tabindex="-1"
+	<!-- <div class="modal fade" id="postModal" tabindex="-1"
 		aria-labelledby="postModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="postModalLabel">게시물 상세</h5>
+					<h5 class="title modal-title" id="postModalLabel">게시물 상세</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<!-- 가져올 게시물 내용을 생각하자 -->
+					 가져올 게시물 내용을 생각하자 
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary"
@@ -232,9 +323,37 @@
 				</div>
 			</div>
 		</div>
+	</div> -->
+
+	<!-- 게시물 상세보기 모달 -->
+	<div class="modal fade" id="postModal" tabindex="-1"
+		aria-labelledby="postModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<div class="modal-body" id="cmtModal-css">
+					<div class="container-fluid">
+						<div class="row">
+							<!-- 왼쪽 영역 -->
+							<div class="col-md-6">
+								<div class="row">
+									<div class="col-12 mb-2" id="cmt-user" style="height: 20%;">작성자 닉네임 영역</div>
+									<div class="col-12" id="cmt-img" style="height: 80%;">사진 영역</div>
+								</div>
+							</div>
+							<!-- 오른쪽 영역 -->
+							<div class="col-md-6">
+								<div class="row">
+									<div class="col-12 mb-2" id="cmt-content" style="height: 20%;">게시글 내용 영역</div>
+									<div class="col-12 mb-2" id="cmt-hashtag" style="height: 20%;">해시태그 영역</div>
+									<div class="col-12" id="cmt-cmt" style="height: 60%;">댓글 영역</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-
-
 
 	<!-- 채팅방 생성 모달 -->
 	<div class="modal fade" id="createRoomModal" tabindex="-1"
@@ -343,11 +462,10 @@
 								name="postContent" rows="3"></textarea>
 						</div>
 						<fieldset class="mb-3">
-							<legend>현재 기온을 표기할까요?(default:기온 표기 x)</legend>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="postOption"
-									id="option2" value="option2"> <label
-									class="form-check-label" for="option2"> 기온 표기 o </label>
+								<input class="form-check-input" type="checkbox" name="postTemp" value=""
+									id="postTemp"> <label class="form-check-label"
+									for="postTemp"> 현재 기온 표기 </label>
 							</div>
 						</fieldset>
 						<div class="mb-3">
@@ -356,7 +474,6 @@
 								name="hashTags" placeholder="#해시태그">
 							<ul id="hashtagList"></ul>
 						</div>
-						<input type="hidden" name="userId" value="${member.userId}">
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
 								data-bs-dismiss="modal">닫기</button>
@@ -380,69 +497,6 @@
 			reader.readAsDataURL(file);
 		});
 
-		// 해시태그 배열
-		let hashtags = [];
-
-		$(document)
-				.ready(
-						function(event) {
-							/* 			  $('#hashtagInput').on('input', function() {
-							 let inputVal = $(this).val();
-							 let hashtags = inputVal.split(/\s+/).filter(function(tag) {
-							 return tag.startsWith('#');
-							 });
-							 console.log(hashtags); // 콘솔에 분리된 해시태그 배열 출력
-
-							 }); */
-
-							$("#hashtagInput")
-									.on(
-											"keyup",
-											function(event) {
-												let inputVal = $(this).val();
-												if (event.which == 32) { // 스페이스바 키 코드는 32입니다.
-													let hashtagValue = $(this)
-															.val().trim();
-													if (hashtagValue) { // 입력값이 비어있지 않은 경우에만 실행
-														$('#hashtagList')
-																.append(
-																		'<li>'
-																				+ hashtagValue
-																				+ '<button class="remove">X</button></li>');
-														$(this).val(''); // 입력 필드 초기화
-														let hashtag = inputVal
-																.split(/\s+/)
-																.filter(
-																		function(
-																				tag) {
-																			return tag
-																					.startsWith('#');
-																		});
-														hashtags.push(hashtag);
-														console.log(hashtags); // 콘솔에 분리된 해시태그 배열 출력
-													}
-												}
-											});
-
-							// 해시태그 삭제 기능
-							$('#hashtagList').on('click', '.remove',
-									function() {
-										$(this).parent().remove(); // 해당 해시태그 삭제
-										console.log(this);
-										removeHashtag(this);
-									});
-						});
-
-		// 해시태그 삭제 함수
-		function removeHashtag(tagToRemove) {
-			hashtags = hashtags.filter(function(tag) {
-				return tag !== tagToRemove;
-			});
-			console.log(hashtags); // 업데이트된 해시태그 배열 출력
-		}
-
-		// 예시 사용법: '#exampleTag' 해시태그 삭제
-		// removeHashtag('#exampleTag');
 	</script>
 
 

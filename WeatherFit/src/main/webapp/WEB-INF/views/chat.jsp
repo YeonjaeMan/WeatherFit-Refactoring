@@ -23,14 +23,14 @@
 	
 	
 	
-	<main id="main-chat">
+	<main id="main-chat" class="container-flex">
 
-		<div id="menu-room" class="container-fluid d-flex p-3 bg-light">
+		<div id="menu-room" class="container-fluid flex-column p-3 bg-light">
 			<ul class="nav mb-auto">
 				<li id="btn-room-add">
 					<!-- Button trigger modal -->
 
-					<button type="button" class="btn-blue"
+					<button type="button" id="btn-addchat" class="btn-blue"
 						data-bs-toggle="modal" data-bs-target="#exampleModal">채팅상대추가</button>
 				</li>
 			</ul>
@@ -57,8 +57,6 @@
 							name="sendUserId" value="<%=uvo.getUserId()%>">
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn-blue"
-							data-dismiss="modal">닫기</button>
 						<!-- <input type="submit" class="btn btn-primary"
 							value="채팅방생성"> -->
 						<button class="btn-blue">채팅방생성</button>

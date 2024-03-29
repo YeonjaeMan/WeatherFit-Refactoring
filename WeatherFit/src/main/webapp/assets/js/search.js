@@ -8,7 +8,7 @@ inputField.addEventListener('keyup', function() {
     let senddata = { keyWord : this.value }; 
     
     $.ajax({
-        url: "Searchs",
+        url: "Searchs.ajax",
         type: "get",
         data: senddata, // 수정된 부분
         dataType: "json",
@@ -17,8 +17,7 @@ inputField.addEventListener('keyup', function() {
             
             $("#ajaxcontainer").empty(); // 기존의 검색 결과를 지우고 새로운 결과를 추가
             search.forEach(function(item) { // 모든 검색 결과를 순회하여 추가
-                $("#ajaxcontainer").append(`
-                    ${item.postContent}<br>
+                $("#ajaxcontainer").html(`
                     ${item.userNick}<br>
                     ${item.hashTag}
                 `);
@@ -26,7 +25,7 @@ inputField.addEventListener('keyup', function() {
             });
         },
         error: function(err) {
-            console.log("연결 실패");
+            console.log("검색 연결 실패");
         }
     });
 });

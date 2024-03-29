@@ -30,14 +30,14 @@ public class PostVO {
 	    private String hashTag;
 	    
 	    // 기온
-	    private int temp;
+	    private int postTemp;
 
-	    public int getTemp() {
-			return temp;
+	    public int getPostTemp() {
+			return postTemp;
 		}
 
-		public void setTemp(int temp) {
-			this.temp = temp;
+		public void setPostTemp(int postTemp) {
+			this.postTemp = postTemp;
 		}
 
 		public int getPostIdx() {
