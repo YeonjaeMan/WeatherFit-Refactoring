@@ -83,9 +83,9 @@
 	<div class="modal fade" id="loginModal" tabindex="-1"
 		aria-labelledby="loginModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
+			<div id="modal-login" class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title fw-bold mb-0 fs-3 text-center w-100">로그인</h4>
+					<h3 class="modal-title fw-bold mb-0 text-center w-100">회원 로그인</h3>
 					<!-- 수정함  <h5 class="modal-title" id="loginModalLabel">모달 헤더 입니다.</h5> -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -107,7 +107,7 @@
 								for="floatingPassword">비밀번호</label>
 							<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 						</div>
-						<div class="form-check text-start my-3 d-flex justify-content-end">
+						<div class="form-check text-start mt-1 d-flex justify-content-end">
 							<button type="button" id="btn-join" class="btn"
 								data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
 						</div>
@@ -134,7 +134,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header" id="">
-					<h4 class="modal-title fw-bold mb-0 fs-3 text-center w-100">회원가입</h4>
+					<h3 class="modal-title fw-bold mb-0 text-center w-100">회원가입</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -156,20 +156,24 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="password2Modal">이름</label> <input type="text"
-								class="form-control" id="password2Modal" name="userName"
-								required>
-							<div class="invalid-feedback">이름을 입력해주세요.</div>
-						</div>
-
-						<div class="mb-3">
-							<label for="nicknameModal">닉네임</label> <input type="text"
-								class="form-control" id="nicknameModal" name="userNick" required>
-							<div class="invalid-feedback">닉네임을 입력해주세요.</div>
+							<div class="row">
+								<div class="col">
+									<label for="password2Modal">이름</label> <input type="text"
+										class="form-control" id="password2Modal" name="userName"
+										required>
+									<div class="invalid-feedback">이름을 입력해주세요.</div>
+								</div>
+								<div class="col">
+									<label for="nicknameModal">닉네임</label> <input type="text"
+										class="form-control" id="nicknameModal" name="userNick"
+										required>
+									<div class="invalid-feedback">닉네임을 입력해주세요.</div>
+								</div>
+							</div>
 						</div>
 
 						<fieldset class="mb-3">
-							<legend>성별</legend>
+							<label>성별</label>
 							<div class="row">
 								<div class="col">
 									<div class="form-check">
@@ -270,30 +274,32 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="heightModal">키</label> <input type="text"
-								class="form-control" id="heightModal" placeholder="cm"
-								name="userHeight" required>
-							<div class="invalid-feedback">키를 입력해주세요.</div>
+							<div class="row">
+								<div class="col">
+									<label for="heightModal">키</label> <input type="text"
+										class="form-control" id="heightModal" placeholder="cm"
+										name="userHeight" required>
+									<div class="invalid-feedback">키를 입력해주세요.</div>
+								</div>
+								<div class="col">
+									<label for="weightModal">몸무게</label> <input type="text"
+										class="form-control" id="weightModal" placeholder="kg"
+										name="userWeight" required>
+									<div class="invalid-feedback">몸무게를 입력해주세요.</div>
+								</div>
+							</div>
 						</div>
 
-						<div class="mb-3">
-							<label for="weightModal">몸무게</label> <input type="text"
-								class="form-control" id="weightModal" placeholder="kg"
-								name="userWeight" required>
-							<div class="invalid-feedback">몸무게를 입력해주세요.</div>
-						</div>
 
-						<div class="mb-3 form-check">
+						<div class="mb-3 form-check justify-content-end">
 							<input type="checkbox" class="form-check-input"
 								id="agreementModal" required> <label
 								class="form-check-label" for="agreementModal">개인정보 수집 및
 								이용에 동의합니다.</label>
 						</div>
 
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">닫기</button>
-							<button type="submit" class="btn btn-primary">가입하기</button>
+						<div>
+							<button type="submit" class="btn btn-blue w-100">가입하기</button>
 						</div>
 					</form>
 
@@ -366,7 +372,8 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">채팅상대입력</h5>
+					<h3 class="modal-title fw-bold mb-0 text-center w-100"
+						id="exampleModalLabel">채팅상대입력</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -380,12 +387,8 @@
 							aria-describedby="basic-addon1"> <input type="hidden"
 							name="sendUserId" value="${member.userId}">
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">닫기</button>
-						<!-- <input type="submit" class="btn btn-primary"
-							value="채팅방생성"> -->
-						<button class="btn btn-primary">채팅방생성</button>
+					<div>
+						<button class="btn btn-blue">채팅방생성</button>
 					</div>
 				</form>
 			</div>
@@ -402,21 +405,22 @@
 	<div class="modal fade" id="profileUpdateModal" tabindex="-1"
 		aria-labelledby="profileUpdateModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
+			<div id="modal-update" class="modal-content">
 				<div class="modal-header">
-					<h4 id="profileUpdateModalLabel" class="modal-title fw-bold mb-0 fs-3 text-center w-100">프로필 업데이트</h4>
+					<h3 id="profileUpdateModalLabel"
+						class="modal-title fw-bold mb-0 text-center w-100">프로필 업데이트</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<!-- 입력 필드 -->
 					<form>
-						<div class="mb-3">
+						<div class="mb-1">
 							<label for="current-password" class="col-form-label">현재
 								비밀번호:</label> <input type="password" class="form-control"
 								id="current-password">
 						</div>
-						<div class="mb-3">
+						<div class="mb-1">
 							<label for="new-password" class="col-form-label">새 비밀번호:</label>
 							<input type="password" class="form-control" id="new-password">
 						</div>
@@ -426,10 +430,10 @@
 								id="confirm-password">
 						</div>
 						<!-- 추가 필드는 비슷한 방식으로 구성 -->
+						<div>
+							<button type="button" class="btn btn-blue w-100">저장하기</button>
+						</div>
 					</form>
-				</div>
-				<div class="justify-content-end">
-					<button type="button" class="btn-blue">저장하기</button>
 				</div>
 			</div>
 		</div>
@@ -441,7 +445,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">게시글 수정</h5>
+					<h3 class="modal-title fw-bold mb-0 text-center w-100">게시글 작성</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -484,14 +488,14 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 게시글 수정 모달 -->
 	<div class="modal fade" id="updatePostModal" tabindex="-1"
 		aria-labelledby="updatePostModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="updateModalLabel">게시글 작성</h5>
+					<h3 class="modal-title fw-bold mb-0 text-center w-100">게시글 수정</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -515,8 +519,8 @@
 						</div>
 						<fieldset class="mb-3">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" name="postTemp" value=""
-									id="postTemp"> <label class="form-check-label"
+								<input class="form-check-input" type="checkbox" name="postTemp"
+									value="" id="postTemp"> <label class="form-check-label"
 									for="postTemp"> 현재 기온 표기 </label>
 							</div>
 						</fieldset>
@@ -526,10 +530,8 @@
 								name="hashTags" placeholder="#해시태그">
 							<ul id="hashtagList"></ul>
 						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">닫기</button>
-							<button type="submit" class="btn btn-primary">작성하기</button>
+						<div>
+							<button type="submit" class="btn btn-blue w-100">작성하기</button>
 						</div>
 					</form>
 				</div>

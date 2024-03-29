@@ -13,8 +13,13 @@
 }
 
 .modal-header{
-	background-color : #C5DFF8;
 }
+
+.modal-title{
+	color: #4A55A2;
+	font-size: 25px;
+}
+
 
 /* 로그인 모달 - 회원가입 버튼 */ 
 #btn-join:hover{
@@ -23,10 +28,21 @@
    color: #4A55A2
 }
 
-/* 모달창 제목 */
-.modal-title{
-	color: #4A55A2;
+/* 로그인 인풋 간격 */
+input#floatingInput {
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
+
+
+
+/* 회원가입 모달창 */
+#modal-update, #modal-login {
+    width: 70%;
+}
+
+
+
 
 
 
