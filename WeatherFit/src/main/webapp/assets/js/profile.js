@@ -46,7 +46,7 @@ function viewMinePosts() {
 							let imgPath = "assets/uploads/" + images.fileRname;
 							console.log(imgPath);
 							$('#ajaxcontainer').append(`
-							<div class="col-md-4">
+							<div class="col-md-4 fixed-height">
 								<div class="card shadow-sm">
 										<img src="` + imgPath + `">
 									<div class="card-body">
