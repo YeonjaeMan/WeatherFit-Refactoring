@@ -11,74 +11,8 @@
 <!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
 <%@ include file="includeHeaders.jsp"%>
 
-
-
-<style>
-
-
-.btn-view {
-	position: relative;
-	display: inline;
-	padding: 5px 10px;
-	margin-top: 3px;
-	border-radius: 8px;
-	/* font-family: "paybooc-Light", sans-serif; */
-	text-decoration: none;
-	font-weight: 600;
-	transition: 0.25s;
-	color: #4A55A2;
-	border-color: #7895CB;
-}
-
-.btn-view:hover {
-	cursor: pointer;
-	background-color: #7895CB;
-	color: white;
-}
-
-/* 메인페이지 게시글 토글버튼 */
-#btn-mainpost {
-    margin-top: 30px;
-}
-
-
-/* 게시글 크기 고정.. 하고싶다 */
-.fixed-height {
-    height: 600px;
-    overflow: auto;
-  }
-
-
-.postcard {
-	border: none;
-	border-radius: 0px;
-}
-
-.postcard:hover {
-	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-}
-
-
-#hashtag {
-	color: rgb(93, 93, 214);
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
-	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
-}
-
-/* 게시글 내용 */
-.card-text {
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
-	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
-}
-</style>
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/imageupload.css">
 
 </head>
 <body>
@@ -116,7 +50,7 @@
 
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/comment.js?ver=<%=System.currentTimeMillis()%>"></script>
-
+	<script src="assets/js/imageupload.js?ver=<%=System.currentTimeMillis()%>"></script>
 
 	<!-- <script src="assets/js/crawlingView.js"></script> -->
 
