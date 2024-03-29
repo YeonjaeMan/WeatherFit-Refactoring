@@ -209,7 +209,7 @@
 	<update id="updatePost" parameterType="com.smhrd.model.PostVO">
 		update tb_post
 		set postContent=#{postContent}, hashTag=#{hashTag}, postTemp=#{postTemp}
-		where userId = #{userId}, postIdx = #{postIdx}
+		where postIdx = #{postIdx}
 	</update>
 	
 	<update id="updateFile" parameterType="com.smhrd.model.FileVO">

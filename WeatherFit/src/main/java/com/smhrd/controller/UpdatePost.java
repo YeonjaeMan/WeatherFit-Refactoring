@@ -23,10 +23,8 @@ public class UpdatePost implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		HttpSession session = request.getSession();
-		int postIdx = (Integer) session.getAttribute("postIdx");
-		System.out.println(postIdx);
 		UserVO uvo = (UserVO) session.getAttribute("member");
 
 		int sizeLimit = 1024 * 1024;
@@ -44,6 +42,7 @@ public class UpdatePost implements Command {
 		String userId = uvo.getUserId();
 		String postContent = multipartRequest.getParameter("postContent");
 		String hashTags = multipartRequest.getParameter("hashTags");
+		int postIdx = Integer.parseInt(multipartRequest.getParameter("postIdx"));
 
 		int postTemp;
 		try {
@@ -70,7 +69,7 @@ public class UpdatePost implements Command {
 		fvo.setPostIdx(postIdx);
 
 		dao.updateFile(fvo);
-
+		
 		return "redirect:/gomain.do";
 	}
 

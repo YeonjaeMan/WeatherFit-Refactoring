@@ -19,6 +19,7 @@ import com.smhrd.ajax.Posts;
 import com.smhrd.ajax.RecentPosts;
 import com.smhrd.ajax.Rooms;
 import com.smhrd.ajax.Searchs;
+import com.smhrd.controller.UpdatePost;
 
 
 
