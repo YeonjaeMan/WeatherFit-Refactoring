@@ -1,142 +1,131 @@
-
-
-
 /* 미디어 쿼리 추가 */
 @media ( max-width : 768px) {
-   .container-flex {
-      flex-direction: column; /* 화면이 작을 때 세로로 배치 */
-   }
-   #menu-room {
-      width: 80px; /* 전체 너비로 설정 */
-      min-height: 100px; /* 최소 높이 자동 설정 */
-   }
-   #chat-wrap {
-      width: 100%; /* 전체 너비로 설정 */
-   }
+	.container-flex {
+		flex-direction: column; /* 화면이 작을 때 세로로 배치 */
+	}
+	#menu-room {
+		width: 80px; /* 전체 너비로 설정 */
+		min-height: 100px; /* 최소 높이 자동 설정 */
+	}
+	#chat-wrap {
+		width: 100%; /* 전체 너비로 설정 */
+	}
 }
 
 @media screen and (max-width: 768px) {
-   #menu-room {
-      width: 80px; /* 작은 화면일 때 더 작은 너비로 조정 */
-   }
+	#menu-room {
+		width: 80px; /* 작은 화면일 때 더 작은 너비로 조정 */
+	}
 }
 
-
-
-
-
 #chatroom-display {
-   top: 120px; /* Header 높이만큼 여백 */
-   left: 300px; /* #menu-room 너비만큼 여백 */
-   right: 0; /* 오른쪽에서 0 */
-   bottom: 0; /* 아래에서 0 */
+	top: 120px; /* Header 높이만큼 여백 */
+	left: 300px; /* #menu-room 너비만큼 여백 */
+	right: 0; /* 오른쪽에서 0 */
+	bottom: 0; /* 아래에서 0 */
 }
 
 #main-chat {
-   width: 100%;
-   height: 80%;
-   display: inline;
-   margin-right: 0px;
+	width: 100%;
+	height: 80%;
+	display: inline;
+	margin-right: 0px;
 }
 
 #chat-wrap {
-   flex: 1;
-   padding-top: 30px;
-   display: flex; /* Flexbox 레이아웃 사용 */
-   flex-direction: column; /* 아이템을 세로로 정렬 */
-   align-items: center; /* 가로 방향으로 중앙 정렬 */
-   height: 100%; /* 부모 요소(#chatroom-display)의 높이와 동일하게 설정 */
+	flex: 1;
+	padding-top: 30px;
+	display: flex; /* Flexbox 레이아웃 사용 */
+	flex-direction: column; /* 아이템을 세로로 정렬 */
+	align-items: center; /* 가로 방향으로 중앙 정렬 */
+	height: 100%; /* 부모 요소(#chatroom-display)의 높이와 동일하게 설정 */
 }
 
 .chat-container {
-   display: flex;
-   flex-direction: column;
-   padding: 10px;
-   width: 700px;
-    max-width: 700px;;
-   height: 600px;
-   border: 1px solid #ccc;
-   overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	width: 700px;
+	max-width: 700px;;
+	height: 600px;
+	border: 1px solid #ccc;
+	overflow-y: auto;
 }
 
 .message-send-container {
-    display: flex; /* Flexbox 레이아웃 적용 */
-    width: 700px;
-    align-items: center; /* 자식 요소를 수직 중앙에 정렬 */
-    justify-content: space-between; /* 자식 요소 사이에 공간을 균등하게 배분 */
-    padding: 10px; /* 패딩으로 여백 추가 */
+	display: flex; /* Flexbox 레이아웃 적용 */
+	width: 700px;
+	align-items: center; /* 자식 요소를 수직 중앙에 정렬 */
+	justify-content: space-between; /* 자식 요소 사이에 공간을 균등하게 배분 */
+	padding-top: 10px;
 }
 
 #message-input {
-    display: inline;
-    width: calc(100% - 65px); /* 버튼 너비와 패딩을 고려한 너비 설정 */
-    height: 80px; /* 높이 설정 */
-    margin-right: 10px; /* 오른쪽 여백 추가 */
+	display: inline;
+	width: calc(100% - 65px); /* 버튼 너비와 패딩을 고려한 너비 설정 */
+	height: 80px; /* 높이 설정 */
+	margin-right: 10px; /* 오른쪽 여백 추가 */
 }
 
 #btn-send {
-    width: 80px;
-    height: 80px;
+	width: 80px;
+	height: 80px;
 }
 
-
-
-
 .message {
-   padding: 5px 10px;
-   margin: 5px;
-   border-radius: 10px;
-   max-width: 45%;
+	padding: 5px 10px;
+	margin: 5px;
+	border-radius: 10px;
+	max-width: 45%;
 }
 
 .mine {
-   align-self: flex-end;
-   background-color: #7895CB;
-   color: white;
+	align-self: flex-end;
+	background-color: #7895CB;
+	color: white;
 }
 
 .theirs {
-   align-self: flex-start;
-   background-color: #ccc;
+	align-self: flex-start;
+	background-color: #ccc;
 }
 
 .timestamp {
-   align-self: flex-end;
-   font-size: 12px;
-   margin-top: 5px;
+	align-self: flex-end;
+	font-size: 12px;
+	margin-top: 5px;
 }
 
 #chat-containter {
-   border: none;
-   width: 500px;
+	border: none;
+	width: 500px;
 }
 
 /* 채팅방 목록 */
 #menu-room {
-   width: 300px;
-   min-height: calc(100vh - 56px);
-   left: 0; /* 왼쪽에 고정시킵니다. */
-   float: left;
+	width: 300px;
+	min-height: calc(100vh - 56px);
+	left: 0; /* 왼쪽에 고정시킵니다. */
+	float: left;
 }
 
-#btn-room-add{
-   width: 440px;
+#btn-room-add {
+	width: 440px;
 }
-
 
 .mb-auto {
-   display: block;
+	display: block;
 }
 
 #chat-idlist {
-   color: #4A55A2 !important;
-   text-decoration: none !important;
-   text-decoration-line: none !important;
-   font-weight: bolder !important;
-   font-size: 18px;
+	color: #4A55A2 !important;
+	text-decoration: none !important;
+	text-decoration-line: none !important;
+	font-weight: bolder !important;
+	font-size: 18px;
 }
 
 #chat-idlist:hover {
-   transform: scale(1.05);
-   cursor: pointer;
+	transform: scale(1.05);
+	cursor: pointer;
 }

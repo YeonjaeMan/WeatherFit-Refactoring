@@ -21,7 +21,7 @@ function postView(T1H) {
 					success: function(images) {
 						let imgPath = "assets/uploads/" + images.fileRname;
 						$('#ajaxcontainer').append(`
-							<div class="col-md-4">
+							<div class="postcard col-md-4 fixed-height">
 								<div class="card shadow-sm view-btn" 
 							data-id=`+ posts[i].postIdx + ` data-bs-toggle="modal" data-bs-target="#postModal">
 										<img src="` + imgPath + `">

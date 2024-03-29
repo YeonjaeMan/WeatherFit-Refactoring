@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -7,65 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<style type="text/css">
-
-/* 작성자 닉네임 영역 스타일 */
-#cmt-user {
-    background-color: #e9ecef; /* 배경 색상 */
-    padding: 10px; /* 여백 */
-    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-    font-weight: bold; /* 글꼴 굵기 */
-    text-align: center; /* 텍스트 가운데 정렬 */
-}
-
-/* 사진 영역 스타일 */
-#cmt-img {
-    background-color: #fff; /* 배경 색상 */
-    padding: 10px; /* 여백 */
-    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-    text-align: center; /* 텍스트 가운데 정렬 */
-}
-
-/* 게시글 내용 영역 스타일 */
-#cmt-content {
-    background-color: #fff; /* 배경 색상 */
-    padding: 10px; /* 여백 */
-    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-    overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
-}
-
-/* 해시태그 영역 스타일 */
-#cmt-hashtag {
-    background-color: #fff; /* 배경 색상 */
-    padding: 10px; /* 여백 */
-    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-    text-align: center; /* 텍스트 가운데 정렬 */
-}
-
-/* 댓글 영역 스타일 */
-#cmt-cmt {
-    background-color: #fff; /* 배경 색상 */
-    padding: 10px; /* 여백 */
-    overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
-}
-
-/* 스크롤바 스타일 */
-#cmt-content::-webkit-scrollbar, #cmt-cmt::-webkit-scrollbar {
-    width: 5px; /* 스크롤바 너비 */
-}
-
-#cmt-content::-webkit-scrollbar-thumb, #cmt-cmt::-webkit-scrollbar-thumb {
-    background: #888; /* 스크롤바 색상 */
-    border-radius: 5px; /* 스크롤바 모서리 둥글게 */
-}
-
-#cmt-content::-webkit-scrollbar-thumb:hover, #cmt-cmt::-webkit-scrollbar-thumb:hover {
-    background: #555; /* 스크롤바 색상 (호버 시) */
-}
-
-
-</style>
 
 
 </head>
@@ -85,7 +26,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title fw-bold mb-0 fs-2 text-center w-100">로그인</h5>
+					<h4 class="modal-title fw-bold mb-0 fs-3 text-center w-100">로그인</h4>
 					<!-- 수정함  <h5 class="modal-title" id="loginModalLabel">모달 헤더 입니다.</h5> -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -109,7 +50,6 @@
 						</div>
 						<div class="form-check text-start my-3 d-flex justify-content-end">
 							<button type="button" id="btn-join" class="btn"
-
 								data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
 						</div>
 						<div class="mb-2"></div>
@@ -129,13 +69,13 @@
 
 
 
-	<!-- Modal -->
+	<!-- 회원가입 Modal -->
 	<div class="modal fade" id="joinModal" tabindex="-1"
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header" id="">
-					<h5 class="modal-title" id="joinModalLabel">회원가입</h5>
+					<h4 class="modal-title fw-bold mb-0 fs-3 text-center w-100">회원가입</h4>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -337,20 +277,25 @@
 							<!-- 왼쪽 영역 -->
 							<div class="col-md-6">
 								<div class="row">
-									<div class="col-12 mb-2" id="cmt-user" style="height: 20%;">작성자 닉네임 영역</div>
-									<div class="col-12" id="cmt-img" style="height: 820px;">사진 영역</div>
+									<div class="col-12 mb-2" id="cmt-user" style="height: 20%;">작성자
+										닉네임 영역</div>
+									<div class="col-12" id="cmt-img" style="height: 820px;">사진
+										영역</div>
 								</div>
 							</div>
 							<!-- 오른쪽 영역 -->
 							<div class="col-md-6">
 								<div class="row">
-									<div class="col-12 mb-2" id="cmt-content" style="height: 20%;">게시글 내용 영역</div>
-									<div class="col-12 mb-2" id="cmt-hashtag" style="height: 20%;">해시태그 영역</div>
-									<div class="col-12" id="cmt-cmt" style="height: 60%;">ㅡ 댓글입니다 ㅡ</div>
+									<div class="col-12 mb-2" id="cmt-content" style="height: 20%;">게시글
+										내용 영역</div>
+									<div class="col-12 mb-2" id="cmt-hashtag" style="height: 20%;">해시태그
+										영역</div>
+									<div class="col-12" id="cmt-cmt" style="height: 60%;">ㅡ
+										댓글입니다 ㅡ</div>
 									<c:if test="${member!=null}">
 										<form onsubmit='return false;'>
-											<input type="text" name="cmtContent">							
-											<button id = "insert-cmt">작성하기</button>										
+											<input type="text" name="cmtContent">
+											<button id="insert-cmt">작성하기</button>
 										</form>
 									</c:if>
 								</div>
@@ -407,7 +352,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="profileUpdateModalLabel">프로필 업데이트</h5>
+					<h4 id="profileUpdateModalLabel" class="modal-title fw-bold mb-0 fs-3 text-center w-100">프로필 업데이트</h4>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -431,10 +376,8 @@
 						<!-- 추가 필드는 비슷한 방식으로 구성 -->
 					</form>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">닫기</button>
-					<button type="button" class="btn btn-primary">저장하기</button>
+				<div class="justify-content-end">
+					<button type="button" class="btn-blue">저장하기</button>
 				</div>
 			</div>
 		</div>
@@ -470,8 +413,8 @@
 						</div>
 						<fieldset class="mb-3">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" name="postTemp" value=""
-									id="postTemp"> <label class="form-check-label"
+								<input class="form-check-input" type="checkbox" name="postTemp"
+									value="" id="postTemp"> <label class="form-check-label"
 									for="postTemp"> 현재 기온 표기 </label>
 							</div>
 						</fieldset>
@@ -481,10 +424,8 @@
 								name="hashTags" placeholder="#해시태그">
 							<ul id="hashtagList"></ul>
 						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">닫기</button>
-							<button type="submit" class="btn btn-primary">작성하기</button>
+						<div>
+							<button type="submit" class="btn btn-blue justify-content-end">작성하기</button>
 						</div>
 					</form>
 				</div>
@@ -503,7 +444,6 @@
 
 			reader.readAsDataURL(file);
 		});
-
 	</script>
 
 

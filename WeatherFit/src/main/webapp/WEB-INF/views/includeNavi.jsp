@@ -11,16 +11,23 @@
 
 
 <style>
+
+
+
 /* 헤더 색 */
 #header {
 	background-color: #C5DFF8;
 	top: 0;
 	padding: 5px;
+	padding-top: 10px;
+    width: 100%; /* 헤더의 너비를 화면 전체 크기로 설정 */
+    z-index: 1000;
 }
 
 /* 로고 */
 #title-logo {
 	width: 330px;
+	margin-left: 4%;
 }
 
 .title {
@@ -50,6 +57,10 @@
 	background-color: #DDE6ED;
 	cursor: pointer;
 	color: #4A55A2;
+}
+
+.btn-user {
+margin-left: 10px;
 }
 
 /* 로그아웃 버튼 */
@@ -124,6 +135,9 @@
 	transform: scale(1.1);
 	cursor: pointer;
 }
+
+
+
 </style>
 
 
@@ -157,14 +171,9 @@
 				<c:choose>
 					<c:when test="${member==null}">
 						<li class="nav-item"><a class="nav-link"
-							href="javascript:alert('회원가입ㄱ')">검색</a></li>
-						<!--  <li class="nav-item"><a class="nav-link"
-							href="javascript:alert('회원가입ㄱ')">팔로우</a></li> -->
+							href="javascript:alert('회원가입을 해주세요.')">검색</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="javascript:alert('회원가입ㄱ')">메시지</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="javascript:alert('회원가입ㄱ')">알림</a></li>
-
+							href="javascript:alert('회원가입을 해주세요.')">메시지</a></li>
 						<button type="button" class="btn-blue" data-bs-toggle="modal"
 							data-bs-target="#loginModal">로그인</button>
 
@@ -175,9 +184,8 @@
 						<li class="nav-item"><a class="nav-link" href="gosearch.do">검색</a></li>
 						<!-- <li class="nav-item"><a class="nav-link" href="#">팔로우</a></li> -->
 						<li class="nav-item"><a class="nav-link" href="gochat.do">메시지</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">알림</a></li>
 						<div class="btn-group">
-							<button type="button" class="btn-blue dropdown-toggle"
+							<button type="button" class="btn-blue btn-user dropdown-toggle"
 								data-bs-toggle="dropdown" aria-expanded>
 								<i class="fa-solid fa-user"></i>
 							</button>
