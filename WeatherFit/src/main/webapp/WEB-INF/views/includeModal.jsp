@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -12,59 +12,59 @@
 
 /* 작성자 닉네임 영역 스타일 */
 #cmt-user {
-    background-color: #e9ecef; /* 배경 색상 */
-    padding: 10px; /* 여백 */
-    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-    font-weight: bold; /* 글꼴 굵기 */
-    text-align: center; /* 텍스트 가운데 정렬 */
+	background-color: #e9ecef; /* 배경 색상 */
+	padding: 10px; /* 여백 */
+	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+	font-weight: bold; /* 글꼴 굵기 */
+	text-align: center; /* 텍스트 가운데 정렬 */
 }
 
 /* 사진 영역 스타일 */
 #cmt-img {
-    background-color: #fff; /* 배경 색상 */
-    padding: 10px; /* 여백 */
-    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-    text-align: center; /* 텍스트 가운데 정렬 */
+	background-color: #fff; /* 배경 색상 */
+	padding: 10px; /* 여백 */
+	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+	text-align: center; /* 텍스트 가운데 정렬 */
 }
 
 /* 게시글 내용 영역 스타일 */
 #cmt-content {
-    background-color: #fff; /* 배경 색상 */
-    padding: 10px; /* 여백 */
-    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-    overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
+	background-color: #fff; /* 배경 색상 */
+	padding: 10px; /* 여백 */
+	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+	overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
 }
 
 /* 해시태그 영역 스타일 */
 #cmt-hashtag {
-    background-color: #fff; /* 배경 색상 */
-    padding: 10px; /* 여백 */
-    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-    text-align: center; /* 텍스트 가운데 정렬 */
+	background-color: #fff; /* 배경 색상 */
+	padding: 10px; /* 여백 */
+	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+	text-align: center; /* 텍스트 가운데 정렬 */
 }
 
 /* 댓글 영역 스타일 */
 #cmt-cmt {
-    background-color: #fff; /* 배경 색상 */
-    padding: 10px; /* 여백 */
-    overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
+	background-color: #fff; /* 배경 색상 */
+	padding: 10px; /* 여백 */
+	overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
 }
 
 /* 스크롤바 스타일 */
 #cmt-content::-webkit-scrollbar, #cmt-cmt::-webkit-scrollbar {
-    width: 5px; /* 스크롤바 너비 */
+	width: 5px; /* 스크롤바 너비 */
 }
 
-#cmt-content::-webkit-scrollbar-thumb, #cmt-cmt::-webkit-scrollbar-thumb {
-    background: #888; /* 스크롤바 색상 */
-    border-radius: 5px; /* 스크롤바 모서리 둥글게 */
+#cmt-content::-webkit-scrollbar-thumb, #cmt-cmt::-webkit-scrollbar-thumb
+	{
+	background: #888; /* 스크롤바 색상 */
+	border-radius: 5px; /* 스크롤바 모서리 둥글게 */
 }
 
-#cmt-content::-webkit-scrollbar-thumb:hover, #cmt-cmt::-webkit-scrollbar-thumb:hover {
-    background: #555; /* 스크롤바 색상 (호버 시) */
+#cmt-content::-webkit-scrollbar-thumb:hover, #cmt-cmt::-webkit-scrollbar-thumb:hover
+	{
+	background: #555; /* 스크롤바 색상 (호버 시) */
 }
-
-
 </style>
 
 
@@ -109,7 +109,6 @@
 						</div>
 						<div class="form-check text-start my-3 d-flex justify-content-end">
 							<button type="button" id="btn-join" class="btn"
-
 								data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
 						</div>
 						<div class="mb-2"></div>
@@ -337,21 +336,41 @@
 							<!-- 왼쪽 영역 -->
 							<div class="col-md-6">
 								<div class="row">
-									<div class="col-12 mb-2" id="cmt-user" style="height: 20%;">작성자 닉네임 영역</div>
-									<div class="col-12" id="cmt-img" style="height: 820px;">사진 영역</div>
+									<div class="col-12 mb-2" id="cmt-user" style="height: 20%;">작성자
+										닉네임 영역</div>
+									<div class="col-12" id="cmt-img" style="height: 820px;">사진
+										영역</div>
 								</div>
 							</div>
 							<!-- 오른쪽 영역 -->
 							<div class="col-md-6">
 								<div class="row">
-									<div class="col-12 mb-2" id="cmt-content" style="height: 20%;">게시글 내용 영역</div>
-									<div class="col-12 mb-2" id="cmt-hashtag" style="height: 20%;">해시태그 영역</div>
-									<div class="col-12" id="cmt-cmt" style="height: 60%;">ㅡ 댓글입니다 ㅡ</div>
+									<div class="col-12 mb-2" id="cmt-content" style="height: 20%;">게시글
+										내용 영역</div>
+									<div class="col-12 mb-2" id="cmt-hashtag" style="height: 20%;">해시태그
+										영역</div>
+									<div class="col-12" id="cmt-cmt" style="height: 60%;"></div>
+										<div class="comment-section"></div>
 									<c:if test="${member!=null}">
-										<form onsubmit='return false;'>
-											<input type="text" name="cmtContent">							
-											<button id = "insert-cmt">작성하기</button>										
-										</form>
+										<div class="card-body">
+											<form class="form-horizontal" onsubmit='return false;'>
+												<div class="row">
+													<div class="form-group col-sm-8">
+														<input class="form-control input-sm" id="newReplyText"
+															type="text" name="cmtContent" placeholder="댓글 입력...">
+													</div>
+													<div class="form-group col-sm-2">
+														<input class="form-control input-sm" id="newReplyWriter"
+															type="text" value="${member.userId}">
+													</div>
+													<div class="form-group col-sm-2">
+														<button type="submit" class="btn btn-blue btn-sm btn-block replyAddBtn" id="insert-cmt">
+															<i class="fa fa-save"></i> 저장
+														</button>
+													</div>
+												</div>
+											</form>
+										</div>
 									</c:if>
 								</div>
 							</div>
@@ -470,8 +489,8 @@
 						</div>
 						<fieldset class="mb-3">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" name="postTemp" value=""
-									id="postTemp"> <label class="form-check-label"
+								<input class="form-check-input" type="checkbox" name="postTemp"
+									value="" id="postTemp"> <label class="form-check-label"
 									for="postTemp"> 현재 기온 표기 </label>
 							</div>
 						</fieldset>
@@ -503,7 +522,6 @@
 
 			reader.readAsDataURL(file);
 		});
-
 	</script>
 
 
