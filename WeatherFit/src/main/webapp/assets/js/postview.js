@@ -32,13 +32,12 @@ $(document).ready(function() {
 			$.ajax({
 				url: "DeletePost.ajax",
 				type: "post",
-				dataType: "json",
 				data: {"postIdx" : postIdx}
 			});
 		}
 		
-		if(event.target.classList.contains("btn-update")) {
-			sessionStorage.setItem({"postIdx" : postIdx});
+		if(event.target.classList.contains("btn-edit")) {
+			$("#updatePostModal > div > div > div.modal-body > form").append(`<input type="hidden" name="postIdx" value="` + postIdx + `">`);
 		}
 	});
 });
@@ -73,7 +72,7 @@ function recoPostView(T1H) {
 										<div class="d-flex justify-content-between align-items-center">
 											<div class="btn-group row" id="contentmodal">
 												<button type="button" class="btn btn-view btn-sm btn-outline-secondary" onclick="location.href='gopostdetail.do'">View</button>
-												<button type="button" class="btn btn-edit btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#createPostModal">Edit</button>
+												<button type="button" class="btn btn-edit btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#updatePostModal">Edit</button>
     											<button type="button" class="btn btn-delete btn-sm btn-outline-danger btn-post-delete">Delete</button>
 											</div>
 										</div>

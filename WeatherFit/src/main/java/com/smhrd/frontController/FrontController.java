@@ -36,8 +36,8 @@ public class FrontController extends HttpServlet {
 		map.put("Update.do", new Update());
 		map.put("CreateRoom.do", new CreateRoom());
 		map.put("CreatePost.do", new CreatePost());
-		map.put("UpdatePost.do", new UpdatePost());
 		map.put("Comment.do", new Comment());
+		map.put("UpdatePost.do", new UpdatePost());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

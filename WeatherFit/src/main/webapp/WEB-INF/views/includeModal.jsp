@@ -430,7 +430,7 @@
 				</div>
 				<div class="modal-body">
 					<!-- 게시글 작성 폼 -->
-					<form action="UpdatePost.do" method="post"
+					<form action="CreatePost.do" method="post"
 						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
