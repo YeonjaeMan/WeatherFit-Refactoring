@@ -37,7 +37,7 @@ function viewMinePosts() {
 
 				for (let i = 0; i < minePosts.length; i++) {
 					$.ajax({
-						url: "Images",
+						url: "Images.ajax",
 						type: "post",
 						dataType: "json",
 						data: { "postIdx": minePosts[i].postIdx },

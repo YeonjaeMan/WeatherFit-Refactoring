@@ -6,9 +6,75 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<style type="text/css">
+
+/* 작성자 닉네임 영역 스타일 */
+#cmt-user {
+    background-color: #e9ecef; /* 배경 색상 */
+    padding: 10px; /* 여백 */
+    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+    font-weight: bold; /* 글꼴 굵기 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 사진 영역 스타일 */
+#cmt-img {
+    background-color: #fff; /* 배경 색상 */
+    padding: 10px; /* 여백 */
+    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 게시글 내용 영역 스타일 */
+#cmt-content {
+    background-color: #fff; /* 배경 색상 */
+    padding: 10px; /* 여백 */
+    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+    overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
+}
+
+/* 해시태그 영역 스타일 */
+#cmt-hashtag {
+    background-color: #fff; /* 배경 색상 */
+    padding: 10px; /* 여백 */
+    border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 댓글 영역 스타일 */
+#cmt-cmt {
+    background-color: #fff; /* 배경 색상 */
+    padding: 10px; /* 여백 */
+    overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
+}
+
+/* 스크롤바 스타일 */
+#cmt-content::-webkit-scrollbar, #cmt-cmt::-webkit-scrollbar {
+    width: 5px; /* 스크롤바 너비 */
+}
+
+#cmt-content::-webkit-scrollbar-thumb, #cmt-cmt::-webkit-scrollbar-thumb {
+    background: #888; /* 스크롤바 색상 */
+    border-radius: 5px; /* 스크롤바 모서리 둥글게 */
+}
+
+#cmt-content::-webkit-scrollbar-thumb:hover, #cmt-cmt::-webkit-scrollbar-thumb:hover {
+    background: #555; /* 스크롤바 색상 (호버 시) */
+}
+
+
+</style>
+
+
 </head>
 <link rel="stylesheet" href="assets/css/address.css">
 <link rel="stylesheet" href="assets/css/modal.css">
+
+
+
+
+
 
 <body>
 	<!-- 로그인 Modal -->
@@ -264,22 +330,22 @@
 		aria-labelledby="postModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-xl">
 			<div class="modal-content">
-				<div class="modal-body">
+				<div class="modal-body" id="cmtModal-css">
 					<div class="container-fluid">
 						<div class="row">
 							<!-- 왼쪽 영역 -->
 							<div class="col-md-6">
 								<div class="row">
-									<div class="col-12 mb-2" style="height: 20%;">작성자 닉네임 영역</div>
-									<div class="col-12" style="height: 80%;">사진 영역</div>
+									<div class="col-12 mb-2" id="cmt-user" style="height: 20%;">작성자 닉네임 영역</div>
+									<div class="col-12" id="cmt-img" style="height: 80%;">사진 영역</div>
 								</div>
 							</div>
 							<!-- 오른쪽 영역 -->
 							<div class="col-md-6">
 								<div class="row">
-									<div class="col-12 mb-2" style="height: 20%;">게시글 내용 영역</div>
-									<div class="col-12 mb-2" style="height: 20%;">해시태그 영역</div>
-									<div class="col-12" style="height: 60%;">댓글 영역</div>
+									<div class="col-12 mb-2" id="cmt-content" style="height: 20%;">게시글 내용 영역</div>
+									<div class="col-12 mb-2" id="cmt-hashtag" style="height: 20%;">해시태그 영역</div>
+									<div class="col-12" id="cmt-cmt" style="height: 60%;">댓글 영역</div>
 								</div>
 							</div>
 						</div>
