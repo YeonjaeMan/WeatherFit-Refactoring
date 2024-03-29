@@ -78,7 +78,7 @@ public class DAO<CrawlingVO> {
 
 	}
 
-	public List<CommentVO> Commentselect(CommentVO postIdx) {
+	public List<CommentVO> Commentselect(int postIdx) {
 		SqlSession session = factory.openSession();
 		List<CommentVO> resultList = session.selectList("commentselect",postIdx);
 		session.close();
