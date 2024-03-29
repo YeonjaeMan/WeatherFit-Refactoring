@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.sql.Timestamp;
+
 //회원 
 public class UserVO {
 
@@ -22,7 +24,7 @@ public class UserVO {
    private String userRegion;
 
    // 회원 가입일자
-   private int joinedAt;
+   private Timestamp joinedAt;
 
    // 회원 키
    private Double userHeight;
@@ -91,11 +93,11 @@ public class UserVO {
      this.userRegion = userRegion;
  }
 
- public int getJoinedAt() {
+ public Timestamp getJoinedAt() {
      return joinedAt;
  }
 
- public void setJoinedAt(int joinedAt) {
+ public void setJoinedAt(Timestamp joinedAt) {
      this.joinedAt = joinedAt;
  }
 

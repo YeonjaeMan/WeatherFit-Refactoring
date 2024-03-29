@@ -14,12 +14,9 @@ import com.smhrd.controller.Command;
 import com.smhrd.controller.CreatePost;
 import com.smhrd.controller.CreateRoom;
 import com.smhrd.controller.Join;
-//import com.smhrd.controller.EmailCheck;
-//import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
 import com.smhrd.controller.Logout;
 import com.smhrd.controller.Post;
-import com.smhrd.controller.Postselect;
 import com.smhrd.controller.Update;
 
 @WebServlet("*.do")
@@ -34,7 +31,6 @@ public class FrontController extends HttpServlet {
 		map.put("Login.do", new Login());
 		map.put("Logout.do", new Logout());
 		map.put("Post.do", new Post());
-		map.put("Postselect.do", new Postselect());
 		map.put("Update.do", new Update());
 		map.put("CreateRoom.do", new CreateRoom());
 		map.put("CreatePost.do", new CreatePost());

@@ -16,8 +16,13 @@ public class Posts implements AjaxCommand{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		int postTemp = Integer.parseInt(request.getParameter("temp"));
+		
+		PostVO pvo = new PostVO();
+		pvo.setPostTemp(postTemp);
+		
 		DAO dao = new DAO();
-		List<PostVO> posts = dao.Postselect();
+		List<PostVO> posts = dao.selectPosts(pvo);
 		
 		
 		Gson gson = new Gson();

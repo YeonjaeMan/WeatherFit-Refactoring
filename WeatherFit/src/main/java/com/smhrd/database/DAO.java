@@ -69,10 +69,10 @@ public class DAO<CrawlingVO> {
 		return resultVO;
 	}
 
-	public List<PostVO> Postselect() {
+	public List<PostVO> selectPosts(PostVO pvo) {
 
 		SqlSession session = factory.openSession();
-		List<PostVO> resultVO = session.selectList("postselect");
+		List<PostVO> resultVO = session.selectList("selectPosts", pvo);
 		session.close();
 		return resultVO;
 

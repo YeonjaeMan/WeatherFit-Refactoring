@@ -28,19 +28,27 @@
 			<div class="row">
 				<div class="d-flex justify-content-evenly mt-5 mb-5">
 					<!-- 프로필 사진 -->
-					<svg class="bd-placeholder-img rounded-circle" width="140"
-						height="140" xmlns="http://www.w3.org/2000/svg" role="img"
-						aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
-						focusable="false">
+					<% if(uvo.getUserProfileImg() == null) {
+					out.print("<img src='assets/images/user_profile/base_profile.png' alt='기본프로필' width='25%' height='50%'>");
+					 } else { 
+					out.print("<img src='assets/images/user_profile/'>");
+					 }%>
                         <title>프로필사진</title>
-                        <rect width="100%" height="100%"
+                        <rect width="10%" height="10%"
 							fill="var(--bs-secondary-color)" />
                     </svg>
 
 					<div id="nick-follow" class="d-flex flex-column justify-content-evenly">
 						<div  class="d-flex">
 							<!-- 닉네임 -->
-							<h2 class="fw-normal" id="nickname"><%= uvo.getUserNick() %></h2>
+							<h2 class="fw-normal" id="nickname">
+							<% if(uvo.getUserNick() == null) {
+								out.print(uvo.getUserId());
+							} else {
+								out.print(uvo.getUserNick());
+							}
+							%>
+							</h2>
 
 							<!-- 팔로우버튼 -->
 							<p>
@@ -48,7 +56,12 @@
 							</p>
 						</div>
 						<!-- 프로필소개 -->
-						<p><%=uvo.getUserProfileInfo()%></p>
+						<p><% if(uvo.getUserProfileInfo() == null) {
+								out.print("프로필 소개를 작성해주세요");
+							  } else {
+							    out.print(uvo.getUserProfileInfo());
+							  }
+							%></p>
 					</div>
 				</div>
 			</div>

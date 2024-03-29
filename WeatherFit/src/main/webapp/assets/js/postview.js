@@ -1,16 +1,18 @@
 
-$(document).ready(function() {
+function postView(T1H) {
 	let posts = [];
+
+	console.log(T1H);
 
 	$.ajax({
 		url: "Posts.ajax",
-		type: "get",
+		type: "post",
 		dataType: "json",
+		data: {"temp" : T1H},
 
 		success: function(data) {
-    	posts = data;
+			posts = data;
 			for (let i = 0; i < posts.length; i++) {
-
 				$.ajax({
 					url: "Images.ajax",
 					data: { "postIdx": posts[i].postIdx },
@@ -31,7 +33,6 @@ $(document).ready(function() {
 												<button type="button" class="btn btn-view btn-sm btn-outline-secondary" onclick="location.href='gopostdetail.do'">View</button>
 												<button type="button" class="btn btn-view btn-sm btn-outline-secondary >View</button>
 											</div>
-											
 										</div>
 									</div>
 								</div>
@@ -44,11 +45,12 @@ $(document).ready(function() {
 					}
 				})
 
+
 			}
 
 		},
-		error: function(err) {
+		error: function() {
 			console.log("연결 실패");
 		}
 	})
-});
+};
