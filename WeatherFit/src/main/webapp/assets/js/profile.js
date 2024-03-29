@@ -83,7 +83,7 @@ function viewMinePosts() {
 
 // 아이콘 클릭하면 배경색 남아있게 하기
 $(document).ready(function(){
-    $("#profilepost-icon1, #profilepost-icon2").removeClass("active");
+    $("#profilepost-icon1").addClass("active");
     $("#profilepost-icon1, #profilepost-icon2").click(function(){
         // 모든 아이콘에서 'active' 클래스를 제거
         $("#profilepost-icon1, #profilepost-icon2").removeClass("active");
