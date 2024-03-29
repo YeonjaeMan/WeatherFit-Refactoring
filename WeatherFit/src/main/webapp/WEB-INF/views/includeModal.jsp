@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -303,28 +304,6 @@
 		</div>
 	</div>
 
-
-	<!-- 게시물 Modal -->
-	<!-- <div class="modal fade" id="postModal" tabindex="-1"
-		aria-labelledby="postModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="title modal-title" id="postModalLabel">게시물 상세</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					 가져올 게시물 내용을 생각하자 
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">닫기</button>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
 	<!-- 게시물 상세보기 모달 -->
 	<div class="modal fade" id="postModal" tabindex="-1"
 		aria-labelledby="postModalLabel" aria-hidden="true">
@@ -337,7 +316,7 @@
 							<div class="col-md-6">
 								<div class="row">
 									<div class="col-12 mb-2" id="cmt-user" style="height: 20%;">작성자 닉네임 영역</div>
-									<div class="col-12" id="cmt-img" style="height: 80%;">사진 영역</div>
+									<div class="col-12" id="cmt-img" style="height: 820px;">사진 영역</div>
 								</div>
 							</div>
 							<!-- 오른쪽 영역 -->
@@ -345,7 +324,13 @@
 								<div class="row">
 									<div class="col-12 mb-2" id="cmt-content" style="height: 20%;">게시글 내용 영역</div>
 									<div class="col-12 mb-2" id="cmt-hashtag" style="height: 20%;">해시태그 영역</div>
-									<div class="col-12" id="cmt-cmt" style="height: 60%;">댓글 영역</div>
+									<div class="col-12" id="cmt-cmt" style="height: 60%;">ㅡ 댓글입니다 ㅡ</div>
+									<c:if test="${member!=null}">
+										<form onsubmit='return false;'>
+											<input type="text" name="cmtContent">							
+											<button id = "insert-cmt">작성하기</button>										
+										</form>
+									</c:if>
 								</div>
 							</div>
 						</div>
@@ -439,13 +424,65 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">게시글 작성</h5>
+					<h5 class="modal-title" id="exampleModalLabel">게시글 수정</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<!-- 게시글 작성 폼 -->
-					<form action="CreatePost.do" method="post"
+					<form action="UpdatePost.do" method="post"
+						enctype="multipart/form-data">
+						<div class="mb-3">
+							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
+								class="form-control" type="file" id="imageUpload" name="postImg"
+								accept="image/*"><br>
+							<!-- 이미지 미리보기를 위한 태그 -->
+							<img id="imagePreview" alt="Image Preview"
+								class="img-fluid mx-auto d-block"
+								style="display: none; max-width: 200px; max-height: 200px;">
+						</div>
+						<div class="mb-3">
+							<label for="postContent" class="form-label">내용:</label>
+							<textarea class="form-control" id="postContent"
+								name="postContent" rows="3"></textarea>
+						</div>
+						<fieldset class="mb-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" name="postTemp" value=""
+									id="postTemp"> <label class="form-check-label"
+									for="postTemp"> 현재 기온 표기 </label>
+							</div>
+						</fieldset>
+						<div class="mb-3">
+							<label for="hashtagInput" class="form-label">해시태그:</label> <input
+								type="text" class="form-control" id="hashtagInput"
+								name="hashTags" placeholder="#해시태그">
+							<ul id="hashtagList"></ul>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">닫기</button>
+							<button type="submit" class="btn btn-primary">작성하기</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 게시글 수정 모달 -->
+	<div class="modal fade" id="updatePostModal" tabindex="-1"
+		aria-labelledby="updatePostModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="updateModalLabel">게시글 작성</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<!-- 게시글 작성 폼 -->
+					<form action="UpdatePost.do" method="post"
 						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input

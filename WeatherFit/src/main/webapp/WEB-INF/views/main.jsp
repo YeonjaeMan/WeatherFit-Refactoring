@@ -41,7 +41,7 @@
 
 .btn-view {
 	position: relative;
-	display: inline-block;
+	display: inline;
 	padding: 5px 10px;
 	margin-top: 3px;
 	border-radius: 8px;
@@ -59,13 +59,14 @@
 	color: white;
 }
 
+
 .postcard {
 	border: none;
 	border-radius: 0px;
 }
 
 .postcard:hover {
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
 }
 
 #hashtag {
@@ -86,7 +87,6 @@
 	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
 	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
 }
-
 </style>
 
 </head>
@@ -95,7 +95,7 @@
 
 	<%@ include file="includeNavi.jsp"%>
 
-
+	<% UserVO uvo = (UserVO)session.getAttribute("member"); %>
 
 	<div id="container-notification"></div>
 
@@ -104,10 +104,14 @@
 		<div class="album bg-tertiary"></div>
 		<div class="container">
 			<!-- 토글 버튼 -->
-			<p class="d-flex justify-content-center">
-				<button type="button" id="btn-darkblue" class="btn-blue"
-					data-bs-toggle="button">최신</button>
-			</p>
+			<div class="d-flex justify-content-center">
+				<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+					<input type="radio" class="btn-check btn-darkblue" id="recent" name="btnradio" autocomplete="off" checked>
+					<label class="btn btn-outline-primary" for="recent">최근</label>
+					<input type="radio" class="btn-check btn-darkblue" id="recommand" name="btnradio" autocomplete="off">
+					<label class="btn btn-outline-primary" for="recommand">추천</label>
+				</div>
+			</div>
 			<!-- 게시글 카드 -->
 
 			<div>
@@ -118,8 +122,11 @@
 
 		</div>
 	</main>
-	
+
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
+	<script src="assets/js/comment.js?ver=<%=System.currentTimeMillis()%>"></script>
+
+
 	<!-- <script src="assets/js/crawlingView.js"></script> -->
 
 </body>

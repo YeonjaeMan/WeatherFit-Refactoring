@@ -73,6 +73,26 @@
 	cursor: pointer;
 }
 
+/* 게시글 작성 버튼 */
+#btn-create-post {
+	position: fixed; /* 고정 위치 */
+	bottom: 10%;
+	right: 13%;
+	width: 55px;
+	height: 55px;
+	font-size: 50px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	border-radius: 50%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+#plus {
+    margin-bottom: 12px;
+}
+
 /* 프로필(사용자) 아이콘 */
 .dropdown-toggle {
 	background-color: #7895CB;
@@ -104,8 +124,6 @@
 	transform: scale(1.1);
 	cursor: pointer;
 }
-
-
 </style>
 
 
@@ -123,8 +141,8 @@
 			<!-- 날씨위젯 -->
 			<a id="weather-link" href="#"
 				class="d-flex align-items-around mb-2 mb-lg-0">
-				<div id="weather-sky"></div>
-				<div id="weather-t1h"></div>
+				<div id="weather-sky" class="weather-info"></div>
+				<div id="weather-t1h" class="weather-info"></div>
 			</a>
 			<!-- 사이트 로고(수정함) -->
 			<div class="title">
@@ -164,29 +182,17 @@
 								<i class="fa-solid fa-user"></i>
 							</button>
 							<ul class="dropdown-menu">
-
 								<li><a class="dropdown-item" href="goprofile.do">프로필 확인</a></li>
 								<li><a class="dropdown-item" data-bs-toggle="modal"
 									data-bs-target="#profileUpdateModal">프로필 수정</a></li>
-
-
-
-
-
-
-
-
-
-
-
-
-
 								<li><hr class="dropdown-divider"></li>
 								<li><a id="btn-logout" class="dropdown-item" href="#">로그아웃</a></li>
 							</ul>
-
 						</div>
-						<button type="button" id="btn-create-post" class="btn btn-primary round-button fixed-button" data-bs-toggle="modal" data-bs-target="#createPostModal">+</button>
+						<button type="button" id="btn-create-post"
+							class="btn btn-blue round-button fixed-button"
+							data-bs-toggle="modal" data-bs-target="#createPostModal">
+							<span id="plus">+</span></button>
 					</c:when>
 
 				</c:choose>
@@ -194,8 +200,8 @@
 
 		</div>
 	</header>
-	
-	
+
+
 	<%@ include file="includeModal.jsp"%>
 	<script src="assets/js/login.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script
