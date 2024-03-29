@@ -78,7 +78,11 @@
 	<select id="commentselect" resultType="com.smhrd.model.CommentVO">
 		select * from tb_comment where postIdx = #{postIdx}
 	</select>
-
+	
+	<insert id="comment" parameterType="com.smhrd.model.CommentVO">
+		insert into tb_comment (postIdx,cmtContent,userId) values(#{postIdx},#{cmtContent},#{userId})
+	</insert>
+	
 
 	<insert id="sendchat" parameterType="com.smhrd.model.ChatVO">
 		insert into tb_chat(roomIdx,

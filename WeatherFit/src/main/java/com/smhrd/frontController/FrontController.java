@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.controller.Command;
+import com.smhrd.controller.Comment;
 import com.smhrd.controller.CreatePost;
 import com.smhrd.controller.CreateRoom;
 import com.smhrd.controller.Join;
@@ -36,6 +37,7 @@ public class FrontController extends HttpServlet {
 		map.put("CreateRoom.do", new CreateRoom());
 		map.put("CreatePost.do", new CreatePost());
 		map.put("UpdatePost.do", new UpdatePost());
+		map.put("Comment.do", new Comment());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

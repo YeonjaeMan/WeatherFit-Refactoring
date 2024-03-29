@@ -41,7 +41,7 @@
 
 .btn-view {
 	position: relative;
-	display: inline-block;
+	display: inline;
 	padding: 5px 10px;
 	margin-top: 3px;
 	border-radius: 8px;
@@ -59,13 +59,14 @@
 	color: white;
 }
 
+
 .postcard {
 	border: none;
 	border-radius: 0px;
 }
 
 .postcard:hover {
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
 }
 
 #hashtag {
@@ -86,7 +87,6 @@
 	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
 	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
 }
-
 </style>
 
 </head>
@@ -122,8 +122,11 @@
 
 		</div>
 	</main>
-	
+
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
+	<script src="assets/js/comment.js?ver=<%=System.currentTimeMillis()%>"></script>
+
+
 	<!-- <script src="assets/js/crawlingView.js"></script> -->
 
 </body>

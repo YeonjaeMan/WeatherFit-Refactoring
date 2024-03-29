@@ -54,14 +54,12 @@ public class DAO<CrawlingVO> {
 		return row;
 	}
 
-	public List<Map<String, Object>> getpost() {
-		SqlSession session = factory.openSession();
-//		PostVO resultPVO = (PostVO)session.selectList("getpost");
-		List<Map<String, Object>> result = session.selectList("getpost");
+	public int comment(CommentVO cvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.insert("comment", cvo);
 		session.close();
-		return result;
+		return row;
 	}
-	
 	public FileVO selectFile(FileVO fvo) {
 		SqlSession session = factory.openSession();
 		FileVO resultVO = session.selectOne("selectFile", fvo);

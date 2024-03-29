@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -315,7 +316,7 @@
 							<div class="col-md-6">
 								<div class="row">
 									<div class="col-12 mb-2" id="cmt-user" style="height: 20%;">작성자 닉네임 영역</div>
-									<div class="col-12" id="cmt-img" style="height: 80%;">사진 영역</div>
+									<div class="col-12" id="cmt-img" style="height: 820px;">사진 영역</div>
 								</div>
 							</div>
 							<!-- 오른쪽 영역 -->
@@ -323,7 +324,13 @@
 								<div class="row">
 									<div class="col-12 mb-2" id="cmt-content" style="height: 20%;">게시글 내용 영역</div>
 									<div class="col-12 mb-2" id="cmt-hashtag" style="height: 20%;">해시태그 영역</div>
-									<div class="col-12" id="cmt-cmt" style="height: 60%;">댓글 영역</div>
+									<div class="col-12" id="cmt-cmt" style="height: 60%;">ㅡ 댓글입니다 ㅡ</div>
+									<c:if test="${member!=null}">
+										<form onsubmit='return false;'>
+											<input type="text" name="cmtContent">							
+											<button id = "insert-cmt">작성하기</button>										
+										</form>
+									</c:if>
 								</div>
 							</div>
 						</div>
