@@ -1,7 +1,7 @@
 package com.smhrd.ajax;
 
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,31 +9,31 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.smhrd.database.DAO;
-import com.smhrd.model.PostVO;
-import com.smhrd.model.UserVO;
+import com.smhrd.model.FileVO;
 
-public class MinePosts implements AjaxCommand{
+public class Images implements AjaxCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		
-		UserVO uvo =(UserVO)request.getSession().getAttribute("member");
-		
+
+		int postIdx = Integer.parseInt(request.getParameter("postIdx"));
+
+		FileVO fvo = new FileVO();
+		fvo.setPostIdx(postIdx);
+
 		DAO dao = new DAO();
-		List<PostVO> minePosts = dao.selectMinePosts(uvo);
-		
+		FileVO resultVO = dao.selectFile(fvo);
+
+		PrintWriter out = response.getWriter();
 		Gson gson = new Gson();
-		String json = gson.toJson(minePosts);
-		
-		
-		
-		
-		response.setContentType("application/json");
+		String json = gson.toJson(resultVO);
+        response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
         response.getWriter().write(json);
+		
+		
 	}
-	
 
 }

@@ -4,3 +4,8 @@
 .modal-header{
 	background-color : #C5DFF8;
 }
+
+#btn-join:hover{
+   font-weight:bolder;
+   cursor: pointer;
+}

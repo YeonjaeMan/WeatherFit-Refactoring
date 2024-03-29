@@ -14,8 +14,9 @@ import com.smhrd.model.LikeVO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.RoomVO;
 import com.smhrd.model.UserVO;
+import com.smhrd.model.crawlingVO;
 
-public class DAO {
+public class DAO<CrawlingVO> {
 
 	private SqlSessionFactory factory = MySqlSessionManager.getSqlSessionFactory();
 
@@ -60,21 +61,28 @@ public class DAO {
 		session.close();
 		return result;
 	}
+	
+	public FileVO selectFile(FileVO fvo) {
+		SqlSession session = factory.openSession();
+		FileVO resultVO = session.selectOne("selectFile", fvo);
+		session.close();
+		return resultVO;
+	}
 
-	public List<PostVO> Postselect() {
+	public List<PostVO> selectPosts(PostVO pvo) {
 
 		SqlSession session = factory.openSession();
-
-		List<PostVO> resultList = session.selectList("postselect");
+		List<PostVO> resultVO = session.selectList("selectPosts", pvo);
 		session.close();
-		return resultList;
+		return resultVO;
 
 	}
 
-	public void Comment() {
+	public List<CommentVO> Commentselect(int postIdx) {
 		SqlSession session = factory.openSession();
-		List<CommentVO> resultList = session.selectList(null);
+		List<CommentVO> resultList = session.selectList("commentselect",postIdx);
 		session.close();
+		return resultList;
 
 	}
 
@@ -170,15 +178,18 @@ public class DAO {
 
 	public int insertFile(FileVO fvo) {
 		SqlSession session = factory.openSession(true);
-		Map<String, Object> param = new HashMap<>();
-		param.put("fileRname", fvo.getFileRname());
-		param.put("fileData", fvo.getFileData());
-		param.put("fileSize", fvo.getFileSize());
-		param.put("fileExt", fvo.getFileExt());
-		param.put("postIdx", fvo.getPostIdx());
-		int row = session.insert("insertFile", param);
+		int row = session.insert("insertFile", fvo);
 		session.close();
 		return row;
+	}
+	
+	// 크롤링 데이터 가져오기
+	
+	public List<crawlingVO> selectCrawling() {
+		SqlSession session = factory.openSession();
+		List<crawlingVO> resultCrawl = session.selectList("selectCrawling");
+		session.close();
+		return resultCrawl;
 	}
 	
 	
