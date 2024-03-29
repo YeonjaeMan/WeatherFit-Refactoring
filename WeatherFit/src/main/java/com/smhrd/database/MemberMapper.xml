@@ -3,56 +3,70 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.database.DAO">
-   
-   <select id="login" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
-      select userId, userNick
-      from tb_user
-      where userId = #{userId} and userPw = #{userPw}
-   </select>
 
-   <insert id="join" parameterType="com.smhrd.model.UserVO">
-      insert into tb_user(userId, userPw, userName, userNick, userGender, userRegion, userWeight, userHeight)
-      values(#{userId},#{userPw},#{userName},#{userNick},#{userGender},#{userRegion},#{userWeight},#{userHeight})
-   </insert>
+	<select id="login" parameterType="com.smhrd.model.UserVO"
+		resultType="com.smhrd.model.UserVO">
+		select userId, userGender, userNick, userRegion, joinedAt, userHeight, userWeight, userProfileImg, userProfileInfo
+		from tb_user
+		where userId = #{userId}
+		and userPw = #{userPw}
+	</select>
+
+	<insert id="join" parameterType="com.smhrd.model.UserVO">
+		insert into tb_user(userId,
+		userPw, userName, userNick, userGender,
+		userRegion, userWeight,
+		userHeight)
+		values(#{userId},#{userPw},#{userName},#{userNick},#{userGender},#{userRegion},#{userWeight},#{userHeight})
+	</insert>
 
 
 
 
-   <insert id="post" parameterType="com.smhrd.model.PostVO">
-      insert into tb_post (postContent, userId, hashTag)
-      values(#{postContent},#{userId},#{hashTag})
-   </insert>
+	<insert id="post" parameterType="com.smhrd.model.PostVO">
+		insert into tb_post
+		(postContent, userId, hashTag)
+		values(#{postContent},#{userId},#{hashTag})
+	</insert>
 
-   <select id="getpost" resultType="map">
-   		select postContent, userNick from tb_post
-   		inner join tb_user on tb_post.userId = tb_user.userId
-   		order by postIdx desc
-   
+	<select id="getpost" resultType="map">
+		select postContent, userNick
+		from tb_post
+		inner join tb_user on tb_post.userId = tb_user.userId
+		order by postIdx desc
 
-   </select>
+
+	</select>
 
 	<update id="update" parameterType="com.smhrd.model.UserVO">
 		update tb_user
-		set userPw = #{userPw}, userNick=#{userNick}, userRegion = #{userRegion},
+		set userPw =
+		#{userPw}, userNick=#{userNick}, userRegion = #{userRegion},
 		userWeight = #{userWeight}, userHeight = #{userHeight},
-		userProfileImg = #{userProfileImg}, userProfileInfo = #{userProfileInfo}
-		where userId = #{userId}
+		userProfileImg
+		= #{userProfileImg}, userProfileInfo = #{userProfileInfo}
+		where userId
+		= #{userId}
 	</update>
 
-	<select id="postselect" parameterType="com.smhrd.model.PostVO" resultType="com.smhrd.model.PostVO">
-		select *
-		from tb_post
-		order by tb_post.createdAt desc
+	<!-- 기온에 맞는 게시글들 가져오기 -->
+	<select id="selectPosts" parameterType="com.smhrd.model.PostVO"
+		resultType="com.smhrd.model.PostVO">
+		SELECT *
+		FROM tb_post
+		WHERE postTemp BETWEEN #{postTemp} - 5 AND #{postTemp} + 5
 	</select>
 
 	<select id="search" resultType="map">
 		select postContent, postIdx,
 		hashTag, userNick
 		from tb_post inner join tb_user
-		on tb_post.userId = tb_user.userId
+		on tb_post.userId =
+		tb_user.userId
 		where
 		postContent like #{keyWord} or
-		hashTag like #{keyWord} or
+		hashTag like
+		#{keyWord} or
 		userNick like
 		#{keyWord}
 		order by postIdx desc limit 5
@@ -111,7 +125,8 @@
 	<!-- 좋아요 기능 -->
 
 	<insert id="insertLike" parameterType="com.smhrd.model.LikeVO">
-		insert into tb_like(userId, postIdx)
+		insert into
+		tb_like(userId, postIdx)
 		values (#{userId}, #{postIdx})
 	</insert>
 
@@ -137,7 +152,9 @@
 	</select>
 
 	<!-- 내 게시글 확인 기능 -->
-	<select id="selectMinePosts" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.PostVO">
+	<select id="selectMinePosts"
+		parameterType="com.smhrd.model.UserVO"
+		resultType="com.smhrd.model.PostVO">
 		select *
 		from tb_post
 		where tb_post.userId = #{userId}
@@ -157,21 +174,48 @@
 	</select>
 
 	<insert id="insertFile" parameterType="com.smhrd.model.FileVO">
-		insert into tb_file(fileRname, fileSize, fileExt, postIdx)
-		values (#{fileRname}, #{fileSize}, #{fileExt}, #{postIdx})
+		insert into
+		tb_file(fileRname, fileSize, fileExt, postIdx)
+		values (#{fileRname},
+		#{fileSize}, #{fileExt}, #{postIdx})
 	</insert>
-	
+
 
 	<!-- 크롤링 데이터 불러오기 -->
-	<select id="selectCrawling" resultType="com.smhrd.model.crawlingVO">
-		select * 
+	<select id="selectCrawling"
+		resultType="com.smhrd.model.crawlingVO">
+		select *
 		from tb_crawling
-  </select>
+	</select>
 
-	<select id="selectFile" parameterType="com.smhrd.model.FileVO" resultType="com.smhrd.model.FileVO">
+	<select id="selectFile" parameterType="com.smhrd.model.FileVO"
+		resultType="com.smhrd.model.FileVO">
 		select *
 		from tb_file
 		where postIdx = #{postIdx}
 	</select>
+	
+	<select id="selectRecentPosts" resultType="com.smhrd.model.PostVO">
+		select *
+		from tb_post
+		order by createdAt desc
+	</select>
+	
+	<delete id="deletePost" parameterType="com.smhrd.model.PostVO">
+		delete from tb_post
+		where postIdx = #{postIdx}
+	</delete>
+	
+	<update id="updatePost" parameterType="com.smhrd.model.PostVO">
+		update tb_post
+		set postContent=#{postContent}, hashTag=#{hashTag}, postTemp=#{postTemp}
+		where postIdx = #{postIdx}
+	</update>
+	
+	<update id="updateFile" parameterType="com.smhrd.model.FileVO">
+		update tb_file
+		set fileRname=#{fileRname}, fileSize=#{fileSize}, fileExt=#{fileExt}
+		where postIdx=#{postIdx}
+	</update>
 
 </mapper>

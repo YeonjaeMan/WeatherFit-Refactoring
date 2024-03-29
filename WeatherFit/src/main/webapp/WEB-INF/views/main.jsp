@@ -14,34 +14,11 @@
 
 
 <style>
-.d-flex {
-	margin-top: 1rem;
-}
 
-#btn-darkblue {
-	position: relative;
-	border: none;
-	display: inline-block;
-	padding: 5px 10px;
-	margin-top: 3px;
-	border-radius: 8px;
-	/* font-family: "paybooc-Light", sans-serif; */
-	text-decoration: none;
-	font-weight: 600;
-	transition: 0.25s;
-	background-color: #7895CB;
-	color: white;
-}
-
-#btn-darkblue:hover {
-	background-color: #C5DFF8;
-	cursor: pointer;
-	color: #4A55A2;
-}
 
 .btn-view {
 	position: relative;
-	display: inline-block;
+	display: inline;
 	padding: 5px 10px;
 	margin-top: 3px;
 	border-radius: 8px;
@@ -59,14 +36,28 @@
 	color: white;
 }
 
+/* 메인페이지 게시글 토글버튼 */
+#btn-mainpost {
+    margin-top: 30px;
+}
+
+
+/* 게시글 크기 고정.. 하고싶다 */
+.fixed-height {
+    height: 600px;
+    overflow: auto;
+  }
+
+
 .postcard {
 	border: none;
 	border-radius: 0px;
 }
 
 .postcard:hover {
-    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
 }
+
 
 #hashtag {
 	color: rgb(93, 93, 214);
@@ -78,6 +69,7 @@
 	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
 }
 
+/* 게시글 내용 */
 .card-text {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
@@ -86,7 +78,6 @@
 	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
 	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
 }
-
 </style>
 
 </head>
@@ -95,7 +86,7 @@
 
 	<%@ include file="includeNavi.jsp"%>
 
-
+	<% UserVO uvo = (UserVO)session.getAttribute("member"); %>
 
 	<div id="container-notification"></div>
 
@@ -104,12 +95,16 @@
 		<div class="album bg-tertiary"></div>
 		<div class="container">
 			<!-- 토글 버튼 -->
-			<p class="d-flex justify-content-center">
-				<button type="button" id="btn-darkblue" class="btn-blue"
-					data-bs-toggle="button">최신</button>
-			</p>
-			<!-- 게시글 카드 -->
+			<div class="d-flex justify-content-center">
+				<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+					<input type="radio" class="btn-check btn-darkblue" id="recent" name="btnradio" autocomplete="off" checked>
+					<label class="btn btn-outline-primary" for="recent">최근</label>
+					<input type="radio" class="btn-check btn-darkblue" id="recommand" name="btnradio" autocomplete="off">
+					<label class="btn btn-outline-primary" for="recommand">추천</label>
+				</div>
+			</div>
 
+			<!-- 게시글 카드 -->
 			<div>
 				<div id="ajaxcontainer"
 					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-1"></div>
@@ -118,10 +113,12 @@
 
 		</div>
 	</main>
-	
+
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/comment.js?ver=<%=System.currentTimeMillis()%>"></script>
-	<script src="assets/js/crawlingView.js"></script>
+
+
+	<!-- <script src="assets/js/crawlingView.js"></script> -->
 
 </body>
 </html>

@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 			for (let i = 0; i < 0; i++) {
 				$('#ajaxcontainer').append(`
-				<div class="col-md-4">
+				<div class="col-md-4 fixed-height">
 					<div class="card shadow-sm">
 						<img src="` + crawling[i].src + `">
 							<title>Placeholder</title>
