@@ -217,5 +217,16 @@
 		set fileRname=#{fileRname}, fileSize=#{fileSize}, fileExt=#{fileExt}
 		where postIdx=#{postIdx}
 	</update>
+	
+	<update id="updateUserInfo" parameterType="com.smhrd.model.UserVO">
+		update tb_user
+		set userPw=#{userPw}, userNick=#{userNick}, userRegion=#{userRegion}, userHeight=#{userHeight}, userWeight=#{userWeight}
+		where userId=#{userId}
+	</update>
+	
+	<delete id="deleteUserInfo" parameterType="com.smhrd.model.UserVO">
+		delete from tb_user
+		where userId=#{userId}
+	</delete>
 
 </mapper>

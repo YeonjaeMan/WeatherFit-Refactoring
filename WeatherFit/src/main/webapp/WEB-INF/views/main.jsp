@@ -11,120 +11,8 @@
 <!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
 <%@ include file="includeHeaders.jsp"%>
 
-
-
-<style>
-.btn-view {
-	position: relative;
-	display: inline;
-	padding: 5px 10px;
-	margin-top: 3px;
-	border-radius: 8px;
-	/* font-family: "paybooc-Light", sans-serif; */
-	text-decoration: none;
-	font-weight: 600;
-	transition: 0.25s;
-	color: #4A55A2;
-	border-color: #7895CB;
-}
-
-.btn-view:hover {
-	cursor: pointer;
-	background-color: #7895CB;
-	color: white;
-}
-
-////
-.btn-blue {
-	position: relative;
-	border: none;
-	display: inline-block;
-	padding: 5px 10px;
-	margin-top: 3px;
-	border-radius: 8px;
-	/* font-family: "paybooc-Light", sans-serif; */
-	text-decoration: none;
-	font-weight: 600;
-	transition: 0.25s;
-	background-color: #7895CB;
-	color: white;
-}
-
-.btn-blue:hover {
-	background-color: #DDE6ED;
-	cursor: pointer;
-	color: #4A55A2;
-}
-
-///
-
-/* 메인페이지 게시글 토글버튼 */
-#maintoggle {
-	margin-top: 30px;
-	margin-bottom: 30px;
-}
-
-#recent, #recommand {
-	background-color: ;
-	border-color: red;
-	color: white;
-	font-weight: 600;
-}
-
-.btn-outline-primary:hover, .btn-outline-primary:focus {
-	background-color: #7895CB;
-	color: #4A55A2;
-}
-
-/* "최근" 버튼에 대한 기본 상태 */
-#recent:checked+.btn-outline-primary {
-	background-color: #7895CB;
-	color: white; 
-}
-
-/* "추천" 버튼에 대한 기본 상태  */
-#recommand:checked+.btn-outline-primary {
-	background-color: #7895CB;
-	color: white; 
-}
-
-
-
-/* 게시글 크기 고정.. 하고싶다 */
-.fixed-height {
-	height: 600px;
-	overflow: auto;
-}
-
-.postcard {
-	border: none;
-	border-radius: 0px;
-}
-
-.postcard:hover {
-	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-}
-
-#hashtag {
-	color: rgb(93, 93, 214);
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
-	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
-}
-
-/* 게시글 내용 */
-.card-text {
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
-	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
-}
-</style>
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/imageupload.css">
 
 </head>
 <body>
@@ -167,7 +55,7 @@
 
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/comment.js?ver=<%=System.currentTimeMillis()%>"></script>
-
+	<script src="assets/js/imageupload.js?ver=<%=System.currentTimeMillis()%>"></script>
 
 	<!-- <script src="assets/js/crawlingView.js"></script> -->
 

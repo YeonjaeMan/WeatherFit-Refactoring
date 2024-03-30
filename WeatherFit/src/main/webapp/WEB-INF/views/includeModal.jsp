@@ -414,24 +414,45 @@
 				</div>
 				<div class="modal-body">
 					<!-- 입력 필드 -->
-					<form>
-						<div class="mb-1">
+					<form action="UpdateUserInfo.do" method="post">
+						<div class="mb-3">
 							<label for="current-password" class="col-form-label">현재
 								비밀번호:</label> <input type="password" class="form-control"
 								id="current-password">
 						</div>
 						<div class="mb-1">
 							<label for="new-password" class="col-form-label">새 비밀번호:</label>
-							<input type="password" class="form-control" id="new-password">
+							<input type="password" class="form-control" id="new-password"
+								name="new-password">
 						</div>
 						<div class="mb-3">
 							<label for="confirm-password" class="col-form-label">새
 								비밀번호 확인:</label> <input type="password" class="form-control"
 								id="confirm-password">
 						</div>
+						<div class="mb-3">
+							<label for="new-nickname" class="col-form-label">새 닉네임:</label> <input
+								type="text" class="form-control" id="new-nickname"
+								name="new-nickname">
+						</div>
+						<div class="mb-3">
+							<label for="new-region" class="col-form-label">새 주소:</label> <input
+								type="text" class="form-control" id="new-region"
+								name="new-region">
+						</div>
+						<div class="mb-3">
+							<label for="new-heigth" class="col-form-label">새 키:</label> <input
+								type="text" class="form-control" id="new-height"
+								name="new-height">
+						</div>
+						<div class="mb-3">
+							<label for="new-weight" class="col-form-label">새 몸무게:</label> <input
+								type="text" class="form-control" id="new-weight"
+								name="new-weight">
+						</div>
 						<!-- 추가 필드는 비슷한 방식으로 구성 -->
 						<div>
-							<button type="button" class="btn btn-blue w-100">저장하기</button>
+							<button type="submit" class="btn btn-blue w-100">저장하기</button>
 						</div>
 					</form>
 				</div>
@@ -445,20 +466,20 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title fw-bold mb-0 text-center w-100">게시글 작성</h3>
+					<h3 class="modal-title id="exampleModalLabel" fw-bold mb-0 text-center w-100">게시글 작성</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<!-- 게시글 작성 폼 -->
-					<form action="CreatePost.do" method="post"
+					<form id="imageUploadForm" action="CreatePost.do" method="post"
 						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
-								class="form-control" type="file" id="imageUpload" name="postImg"
+								class="form-control" type="file" id="imageUpload1" name="postImg"
 								accept="image/*"><br>
 							<!-- 이미지 미리보기를 위한 태그 -->
-							<img id="imagePreview" alt="Image Preview"
+							<img id="imagePreview1" alt="Image Preview"
 								class="img-fluid mx-auto d-block"
 								style="display: none; max-width: 200px; max-height: 200px;">
 						</div>
@@ -482,6 +503,14 @@
 						</div>
 						<div>
 							<button type="submit" class="btn btn-blue justify-content-end">작성하기</button>
+							<!-- loading 이미지 -->
+							<div id="loadingAnimation" class="hidden">
+								<img src="loading.gif" alt="Loading...">
+								<p>Loading...</p>
+							</div>
+							<div id="imageContainer" class="hidden">
+								<img id="uploadedImage" src="" alt="Uploaded Image">
+							</div>
 						</div>
 					</form>
 				</div>
@@ -495,20 +524,20 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title fw-bold mb-0 text-center w-100">게시글 수정</h3>
+					<h3 class="modal-title id="updateModalLabel" fw-bold mb-0 text-center w-100">게시글 수정</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<!-- 게시글 작성 폼 -->
-					<form action="UpdatePost.do" method="post"
+					<form id="imageUploadForm" action="UpdatePost.do" method="post"
 						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
-								class="form-control" type="file" id="imageUpload" name="postImg"
+								class="form-control" type="file" id="imageUpload2" name="postImg"
 								accept="image/*"><br>
 							<!-- 이미지 미리보기를 위한 태그 -->
-							<img id="imagePreview" alt="Image Preview"
+							<img id="imagePreview2" alt="Image Preview"
 								class="img-fluid mx-auto d-block"
 								style="display: none; max-width: 200px; max-height: 200px;">
 						</div>
@@ -530,29 +559,22 @@
 								name="hashTags" placeholder="#해시태그">
 							<ul id="hashtagList"></ul>
 						</div>
-						<div>
-							<button type="submit" class="btn btn-blue w-100">작성하기</button>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">작성하기</button>
+							<!-- loading 이미지 -->
+							<div id="loadingAnimation" class="hidden">
+								<img src="loading.gif" alt="Loading...">
+								<p>Loading...</p>
+							</div>
+							<div id="imageContainer" class="hidden">
+								<img id="uploadedImage" src="" alt="Uploaded Image">
+							</div>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<script type="text/javascript">
-		$("#imageUpload").on("change", function(event) {
-			let file = event.target.files[0];
-			let reader = new FileReader();
-
-			reader.onload = function(e) {
-				$("#imagePreview").attr("src", e.target.result).show();
-			}
-
-			reader.readAsDataURL(file);
-		});
-	</script>
-
-
 
 </body>
 </html>

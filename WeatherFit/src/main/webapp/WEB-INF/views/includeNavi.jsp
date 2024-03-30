@@ -87,8 +87,8 @@ margin-left: 10px;
 /* 게시글 작성 버튼 */
 #btn-create-post {
 	position: fixed; /* 고정 위치 */
-	bottom: 10%;
-	right: 13%;
+	bottom: 20px;
+	right: 20px;
 	width: 55px;
 	height: 55px;
 	font-size: 50px;
@@ -98,6 +98,7 @@ margin-left: 10px;
 	border-radius: 50%;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+    z-index: 100;
 }
 
 #plus {
@@ -194,6 +195,7 @@ margin-left: 10px;
 								<li><a class="dropdown-item" data-bs-toggle="modal"
 									data-bs-target="#profileUpdateModal">프로필 수정</a></li>
 								<li><hr class="dropdown-divider"></li>
+								<li><a id="btn-deleteUser" class="dropdown-item" href="DeleteUserInfo.do">회원탈퇴</a></li>
 								<li><a id="btn-logout" class="dropdown-item" href="#">로그아웃</a></li>
 							</ul>
 						</div>
