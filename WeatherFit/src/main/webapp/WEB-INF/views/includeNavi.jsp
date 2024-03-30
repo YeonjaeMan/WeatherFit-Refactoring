@@ -88,7 +88,7 @@
 #btn-create-post {
 	position: fixed; /* 고정 위치 */
 	bottom: 15%;
-	right: 13%;
+	right: 10%;
 	width: 55px;
 	height: 55px;
 	font-size: 50px;

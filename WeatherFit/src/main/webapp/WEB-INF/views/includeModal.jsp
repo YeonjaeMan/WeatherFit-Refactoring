@@ -272,8 +272,7 @@
 												d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
                   </svg>
 									</div>
-									<div class="col-12" id="cmt-img"
-										style="width: 400px; height: 600px; border-bottom: none;">
+									<div class="col-12" id="cmt-img">
 										사진영역</div>
 								</div>
 							</div>
@@ -292,11 +291,13 @@
 		             					</svg>
 									</div>
 								<div class="col-12" id="cmt-cmt">
+								<span id="comment-txt">댓글</span>
 									<div class="comment-section">
 									<c:if test="${member!=null}">
 										<div class="card-body">
 											<form class="form-horizontal" onsubmit='return false;'>
-												<div class="row">
+									</c:if>
+												<div "cmtinput-row" class="row">
 													<div id="comment-input" class="form-group col-sm-10">
 														<input class="form-control input-sm" id="newReplyText"
 															type="text" name="cmtContent" placeholder="댓글을 입력하세요.">
@@ -305,17 +306,15 @@
 														<input class="form-control input-sm" id="newReplyWriter"
 															type="text" value="${member.userId}">
 													</div>  -->
-													<div class="form-group col-sm-2">
+													<div id="cmtsubmit-wrap" class="form-group col-sm-2">
 														<button type="submit"
 															class="btn btn-blue btn-sm btn-block replyAddBtn"
-															id="insert-cmt">
-															<i class="fa fa-save"></i> 저장
+															id="insert-cmt">등록
 														</button>
 													</div>
 												</div>
 											</form>
 										</div>
-									</c:if>
 									</div>
 								</div>
 							</div>
