@@ -13,7 +13,6 @@
 
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/imageupload.css">
-<link rel="stylesheet" href="assets/css/postcard.css">
 
 </head>
 <body>
@@ -37,26 +36,22 @@
 					aria-label="Basic radio toggle button group">
 					<input type="radio" class="btn-check btn-darkblue" id="recent"
 						name="btnradio" autocomplete="off" checked> <label
-						class="btn btn-outline-primary" for="recent">최근</label> <input
+						class="btn btn-outline" for="recent">최근</label> <input
 						type="radio" class="btn-check btn-darkblue" id="recommand"
 						name="btnradio" autocomplete="off"> <label
-						class="btn btn-outline-primary" for="recommand">추천</label>
+						class="btn btn-outline" for="recommand">추천</label>
 				</div>
 			</div>
 
 			<!-- 게시글 카드 -->
 			<div>
 				<div id="ajaxcontainer"
-					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4"></div>
+					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-1"></div>
 				<!-- ajax게시판바로불러오기 -->
 			</div>
 
 		</div>
 	</main>
-	
-	<script>
-		let sessionUserId = "${member.userId}";
-	</script>
 
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/comment.js?ver=<%=System.currentTimeMillis()%>"></script>
