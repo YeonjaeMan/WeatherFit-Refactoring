@@ -1,18 +1,75 @@
 .follow-button {
-  background-color: #7895CB; /* 녹색 배경 */
-  border: none;
-  color: white;
-  padding: 10px 24px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 12px;
+	background-color: #7895CB; /* 녹색 배경 */
+	border: none;
+	color: white;
+	padding: 5px 12px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bolder; margin : 4px 2px;
+	cursor: pointer;
+	margin: 4px 2px; cursor : pointer;
+	border-radius: 8px;
 }
 
 .follow-button:hover {
-  background-color: white; 
-  color: #7895CB; /* 호버 시 글자 색상 변경 */
+	background-color: white;
+	color: #7895CB; /* 호버 시 글자 색상 변경 */
+	border: solid 1px;
+	border-color: #7895CB;
+}
+
+.card-body.view-btn.shadow-sm {
+	cursor: pointer;
+}
+
+/* 게시글 수정삭제 버튼 */
+#btn-editdel {
+	font-size: 25px;
+	background-color: transparent;
+	color: #4A55A2;
+	height: 30px;
+	bottom: 7px;
+}
+
+/* 게시글 크기 고정.. 하고싶다 */
+.fixed-height {
+	height: 600px;
+	overflow: auto;
+}
+
+.postcard {
+	border: none;
+	border-radius: 0px;
+}
+
+.postcard:hover {
+	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+}
+
+#hashtag {
+	color: rgb(93, 93, 214);
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
+	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
+}
+
+/* 게시글 내용 */
+.card-text {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
+	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
+}
+
+.img-container img {
+	width: 1080px; /* 가로 크기를 1080픽셀로 고정 */
+	height: auto; /* 세로 크기를 자동으로 조정 */
+	object-fit: cover;
 }
