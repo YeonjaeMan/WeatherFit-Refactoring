@@ -11,83 +11,9 @@
 <!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
 <%@ include file="includeHeaders.jsp"%>
 
-
-
-<style>
-.d-flex {
-	margin-top: 1rem;
-}
-
-#btn-darkblue {
-	position: relative;
-	border: none;
-	display: inline-block;
-	padding: 5px 10px;
-	margin-top: 3px;
-	border-radius: 8px;
-	/* font-family: "paybooc-Light", sans-serif; */
-	text-decoration: none;
-	font-weight: 600;
-	transition: 0.25s;
-	background-color: #7895CB;
-	color: white;
-}
-
-#btn-darkblue:hover {
-	background-color: #C5DFF8;
-	cursor: pointer;
-	color: #4A55A2;
-}
-
-.btn-view {
-	position: relative;
-	display: inline;
-	padding: 5px 10px;
-	margin-top: 3px;
-	border-radius: 8px;
-	/* font-family: "paybooc-Light", sans-serif; */
-	text-decoration: none;
-	font-weight: 600;
-	transition: 0.25s;
-	color: #4A55A2;
-	border-color: #7895CB;
-}
-
-.btn-view:hover {
-	cursor: pointer;
-	background-color: #7895CB;
-	color: white;
-}
-
-
-.postcard {
-	border: none;
-	border-radius: 0px;
-}
-
-.postcard:hover {
-	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-}
-
-#hashtag {
-	color: rgb(93, 93, 214);
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
-	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
-}
-
-.card-text {
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
-	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
-}
-</style>
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/imageupload.css">
+<link rel="stylesheet" href="assets/css/postcard.css">
 
 </head>
 <body>
@@ -95,7 +21,9 @@
 
 	<%@ include file="includeNavi.jsp"%>
 
-	<% UserVO uvo = (UserVO)session.getAttribute("member"); %>
+	<%
+	UserVO uvo = (UserVO) session.getAttribute("member");
+	%>
 
 	<div id="container-notification"></div>
 
@@ -104,28 +32,35 @@
 		<div class="album bg-tertiary"></div>
 		<div class="container">
 			<!-- 토글 버튼 -->
-			<div class="d-flex justify-content-center">
-				<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-					<input type="radio" class="btn-check btn-darkblue" id="recent" name="btnradio" autocomplete="off" checked>
-					<label class="btn btn-outline-primary" for="recent">최근</label>
-					<input type="radio" class="btn-check btn-darkblue" id="recommand" name="btnradio" autocomplete="off">
-					<label class="btn btn-outline-primary" for="recommand">추천</label>
+			<div id="maintoggle" class="d-flex justify-content-center">
+				<div class="btn-group" role="group"
+					aria-label="Basic radio toggle button group">
+					<input type="radio" class="btn-check btn-darkblue" id="recent"
+						name="btnradio" autocomplete="off" checked> <label
+						class="btn btn-outline-primary" for="recent">최근</label> <input
+						type="radio" class="btn-check btn-darkblue" id="recommand"
+						name="btnradio" autocomplete="off"> <label
+						class="btn btn-outline-primary" for="recommand">추천</label>
 				</div>
 			</div>
-			<!-- 게시글 카드 -->
 
-			<div>
+			<!-- 게시글 카드 -->
+			<div> 
 				<div id="ajaxcontainer"
-					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-1"></div>
+					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4"></div>
 				<!-- ajax게시판바로불러오기 -->
 			</div>
 
 		</div>
 	</main>
+	
+	<script>
+		let sessionUserId = "${member.userId}";
+	</script>
 
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/comment.js?ver=<%=System.currentTimeMillis()%>"></script>
-
+	<script src="assets/js/imageupload.js?ver=<%=System.currentTimeMillis()%>"></script>
 
 	<!-- <script src="assets/js/crawlingView.js"></script> -->
 

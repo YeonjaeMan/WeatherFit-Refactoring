@@ -2,6 +2,7 @@ package com.smhrd.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,21 +23,14 @@ public class UpdatePost implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+			throws ServletException, IOException, InterruptedException {
+		
 		HttpSession session = request.getSession();
-		int postIdx = (Integer) session.getAttribute("postIdx");
-		System.out.println(postIdx);
 		UserVO uvo = (UserVO) session.getAttribute("member");
 
 		int sizeLimit = 1024 * 1024;
 
 		String realPath = "C:/Users/smhrd/Desktop/-SNS/WeatherFit/src/main/webapp/assets/uploads";
-		System.out.println("파일 경로 : " + realPath);
-
-		File dir = new File(realPath);
-		if (!dir.exists())
-			dir.mkdirs();
 
 		MultipartRequest multipartRequest = null;
 		multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
@@ -44,6 +38,7 @@ public class UpdatePost implements Command {
 		String userId = uvo.getUserId();
 		String postContent = multipartRequest.getParameter("postContent");
 		String hashTags = multipartRequest.getParameter("hashTags");
+		int postIdx = Integer.parseInt(multipartRequest.getParameter("postIdx"));
 
 		int postTemp;
 		try {
@@ -51,26 +46,40 @@ public class UpdatePost implements Command {
 		} catch (Exception e) {
 			postTemp = -999;
 		}
+		
+		
 
-		System.out.println("이 Post에 해당되는 기온 : " + postTemp + " 'C");
-
+		DAO dao = new DAO();
+		
 		PostVO pvo = new PostVO();
 		pvo.setUserId(userId);
 		pvo.setPostContent(postContent);
 		pvo.setPostTemp(postTemp); // temp 자리 수정필요!!!
 		pvo.setHashTag(hashTags);
+		pvo.setPostIdx(postIdx);
 
-		DAO dao = new DAO();
-		int row = dao.updatePost(pvo);
+		dao.updatePost(pvo);
 
 		FileVO fvo = new FileVO();
+		fvo.setPostIdx(postIdx);
+		
+		FileVO resultVO = dao.selectFile(fvo);
+		File recentFile = new File(realPath + resultVO.getFileRname());
+		if(recentFile.exists()) {
+			recentFile.delete();
+		} else {
+			System.out.println("파일이 존재하지 않아 삭제할 수 없습니다.");
+		}
+		
 		fvo.setFileRname(multipartRequest.getFilesystemName("postImg")); // 업로드한 파일 이름
 		fvo.setFileSize(multipartRequest.getFile("postImg").length()); // 파일 크기
 		fvo.setFileExt(FilenameUtils.getExtension(multipartRequest.getFilesystemName("postImg"))); // 파일 확장자
 		fvo.setPostIdx(postIdx);
 
 		dao.updateFile(fvo);
-
+		
+		TimeUnit.SECONDS.sleep(4);
+		
 		return "redirect:/gomain.do";
 	}
 

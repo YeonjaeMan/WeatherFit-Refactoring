@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ import com.smhrd.model.UserVO;
 public class CreatePost implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
+			throws IOException, ServletException, InterruptedException {
 
 		HttpSession session = request.getSession();
 		UserVO uvo = (UserVO) session.getAttribute("member");
@@ -51,8 +52,6 @@ public class CreatePost implements Command {
 			postTemp = -999;
 		}
 
-		System.out.println("이 Post에 해당되는 기온 : " + postTemp + " 'C");
-
 		PostVO pvo = new PostVO();
 		pvo.setUserId(userId);
 		pvo.setPostContent(postContent);
@@ -71,16 +70,10 @@ public class CreatePost implements Command {
 			fvo.setFileExt(FilenameUtils.getExtension(multipartRequest.getFilesystemName("postImg"))); // 파일 확장자
 			fvo.setPostIdx(postIdx);
 
-			int row = dao.insertFile(fvo);
+			dao.insertFile(fvo);
 
-			if (row > 0) {
-				System.out.println("이미지파일 저장 성공 !");
-			} else {
-				System.out.println("이미지파일 저장 실패..");
-			}
+			TimeUnit.SECONDS.sleep(4);
 
-		} else {
-			System.out.println("게시글 저장 실패..");
 		}
 
 		return "redirect:/gomain.do";

@@ -14,12 +14,16 @@ import com.smhrd.controller.Command;
 import com.smhrd.controller.Comment;
 import com.smhrd.controller.CreatePost;
 import com.smhrd.controller.CreateRoom;
+import com.smhrd.controller.DeletePost;
+import com.smhrd.controller.DeleteUserInfo;
 import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
 import com.smhrd.controller.Logout;
 import com.smhrd.controller.Post;
+import com.smhrd.controller.Profile;
 import com.smhrd.controller.Update;
 import com.smhrd.controller.UpdatePost;
+import com.smhrd.controller.UpdateUserInfo;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -36,8 +40,12 @@ public class FrontController extends HttpServlet {
 		map.put("Update.do", new Update());
 		map.put("CreateRoom.do", new CreateRoom());
 		map.put("CreatePost.do", new CreatePost());
-		map.put("UpdatePost.do", new UpdatePost());
 		map.put("Comment.do", new Comment());
+		map.put("UpdatePost.do", new UpdatePost());
+		map.put("DeletePost.do", new DeletePost());
+		map.put("UpdateUserInfo.do", new UpdateUserInfo());
+		map.put("DeleteUserInfo.do", new DeleteUserInfo());
+		map.put("Profile.do", new Profile());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -59,7 +67,11 @@ public class FrontController extends HttpServlet {
 		if (path.startsWith("go")) {
 			finalPath = path.replace("go", "").replace(".do", "");
 		} else {
-			finalPath = com.execute(request, response);
+			try {
+				finalPath = com.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
 		}
 		
 
