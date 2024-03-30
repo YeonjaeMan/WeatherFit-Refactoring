@@ -12,23 +12,20 @@ import com.smhrd.database.DAO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.UserVO;
 
-public class MinePosts implements AjaxCommand{
+public class UserPosts implements AjaxCommand{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		
-		UserVO uvo =(UserVO)request.getSession().getAttribute("member");
+		UserVO uvo =(UserVO)request.getSession().getAttribute("userProfileInfo");
 		
 		DAO dao = new DAO();
-		List<PostVO> minePosts = dao.selectMinePosts(uvo);
+		List<PostVO> userPosts = dao.selectUserPosts(uvo);
 		
 		Gson gson = new Gson();
-		String json = gson.toJson(minePosts);
-		
-		
-		
-		
+		String json = gson.toJson(userPosts);
+
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 

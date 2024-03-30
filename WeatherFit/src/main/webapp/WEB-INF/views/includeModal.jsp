@@ -438,10 +438,10 @@
 						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
-								class="form-control" type="file" id="imageUpload1"
+								class="form-control" type="file" id="imageUpload"
 								name="postImg" accept="image/*"><br>
 							<!-- 이미지 미리보기를 위한 태그 -->
-							<img id="imagePreview1" alt="Image Preview"
+							<img id="imagePreview" alt="Image Preview"
 								class="img-fluid mx-auto d-block"
 								style="display: none; max-width: 200px; max-height: 200px;">
 						</div>
@@ -465,14 +465,6 @@
 						</div>
 						<div>
 							<button type="submit" class="btn btn-blue justify-content-end">작성하기</button>
-							<!-- loading 이미지 -->
-							<div id="loadingAnimation" class="hidden">
-								<img src="loading.gif" alt="Loading...">
-								<p>Loading...</p>
-							</div>
-							<div id="imageContainer" class="hidden">
-								<img id="uploadedImage" src="" alt="Uploaded Image">
-							</div>
 						</div>
 					</form>
 				</div>
@@ -493,45 +485,37 @@
 				</div>
 				<div class="modal-body">
 					<!-- 게시글 작성 폼 -->
-					<form id="imageUploadForm" action="UpdatePost.do" method="post"
+					<form id="update-imageUploadForm" action="UpdatePost.do" method="post"
 						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
-								class="form-control" type="file" id="imageUpload2"
+								class="form-control" type="file" id="update-imageUpload"
 								name="postImg" accept="image/*"><br>
 							<!-- 이미지 미리보기를 위한 태그 -->
-							<img id="imagePreview2" alt="Image Preview"
+							<img id="update-imagePreview" alt="Image Preview"
 								class="img-fluid mx-auto d-block"
 								style="display: none; max-width: 200px; max-height: 200px;">
 						</div>
 						<div class="mb-3">
 							<label for="postContent" class="form-label">내용:</label>
-							<textarea class="form-control" id="postContent"
+							<textarea class="form-control" id="update-postContent"
 								name="postContent" rows="3"></textarea>
 						</div>
 						<fieldset class="mb-3">
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="postTemp"
-									value="" id="postTemp"> <label class="form-check-label"
+									value="" id="update-postTemp"> <label class="form-check-label"
 									for="postTemp"> 현재 기온 표기 </label>
 							</div>
 						</fieldset>
 						<div class="mb-3">
 							<label for="hashtagInput" class="form-label">해시태그:</label> <input
-								type="text" class="form-control" id="hashtagInput"
+								type="text" class="form-control" id="update-hashtagInput"
 								name="hashTags" placeholder="#해시태그">
-							<ul id="hashtagList"></ul>
+							<ul id="update-hashtagList"></ul>
 						</div>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-primary">작성하기</button>
-							<!-- loading 이미지 -->
-							<div id="loadingAnimation" class="hidden">
-								<img src="loading.gif" alt="Loading...">
-								<p>Loading...</p>
-							</div>
-							<div id="imageContainer" class="hidden">
-								<img id="uploadedImage" src="" alt="Uploaded Image">
-							</div>
 						</div>
 					</form>
 				</div>

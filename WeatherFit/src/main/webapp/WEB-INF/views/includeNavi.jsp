@@ -188,7 +188,7 @@
 								<i class="fa-solid fa-user"></i>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="goprofile.do">프로필 확인</a></li>
+								<li><a class="dropdown-item" href="Profile.do?userId=${member.userId}">프로필 확인</a></li>
 								<li><a class="dropdown-item" data-bs-toggle="modal"
 									data-bs-target="#profileUpdateModal">프로필 수정</a></li>
 								<li><hr class="dropdown-divider"></li>
