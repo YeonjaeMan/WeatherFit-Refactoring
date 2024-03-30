@@ -1,8 +1,6 @@
 $(document).ready(function() {
 	// '최근' 버튼이 체크되어 있는지 확인
 	if ($('#recent').is(':checked')) {
-		// 여기에 원하는 동작을 추가하세요.
-		console.log('최근 버튼이 선택되었습니다.');
 
 		recentPostView();
 	};
@@ -10,33 +8,36 @@ $(document).ready(function() {
 	// 라디오 버튼의 상태 변경을 감지
 	$('input[name="btnradio"]').change(function() {
 		if ($('#recent').is(':checked')) {
-			// '게시물' 버튼이 선택될 때 원하는 동작을 추가하세요.
-			console.log('최근 버튼이 선택되었습니다.');
 
 			$("#ajaxcontainer").html("");
 
 			recentPostView();
 
 		} else {
-			console.log('추천 버튼이 선택되었습니다.');
 
 			$("#ajaxcontainer").html("");
 
 			recoPostView($("#weather-t1h > span").text().slice(0, 2));
 		}
 	});
-	
-	$(document).on("click", ".col-md-4", function(event) {
+
+	$(document).on("click", "#ajaxcontainer", function(event) {
 		// 클릭된 요소가 btn-delete 또는 btn-edit 클래스를 가지고 있는지 확인
 		if (event.target.classList.contains("btn-delete") || event.target.classList.contains("btn-edit")) {
+			let card = event.target.closest(".card");
 			// 클릭된 요소에서 가장 가까운 .view-btn 요소를 찾아서 data-id 값을 가져옵니다.
-			let postIdx = this.dataset.id;
-			console.log(postIdx);
+			let postIdx = card.getAttribute("data-id");
 			if ($(event.target).hasClass("btn-delete")) {
 				$.ajax({
 					url: "DeletePost.do",
 					type: "post",
-					data: { "postIdx": postIdx }
+					data: { "postIdx": postIdx },
+					success: function() {
+						location.href = "gomain.do";
+					},
+					error: function() {
+						alert("게시글 삭제 오류!");
+					}
 				});
 			}
 
@@ -47,6 +48,7 @@ $(document).ready(function() {
 	});
 });
 
+// 추천 게시글 보기
 function recoPostView(T1H) {
 	let posts = [];
 
@@ -58,40 +60,9 @@ function recoPostView(T1H) {
 
 		success: function(data) {
 			posts = data;
+			console.log(posts);
 			for (let i = 0; i < posts.length; i++) {
-				$.ajax({
-					url: "Images.ajax",
-					data: { "postIdx": posts[i].postIdx },
-					type: "post",
-					dataType: "json",
-					success: function(images) {
-						let imgPath = "assets/uploads/" + images.fileRname;
-						$('#ajaxcontainer').append(`
-							<div class="col-md-4" data-id=`+ posts[i].postIdx + `>
-								<div id="btn-editdel" class="btn-group">
-										<button type="button" class="btn-blue btn-user dropdown-toggle" data-bs-toggle="dropdown" aria-expanded></button>
-											<ul class="dropdown-menu">
-												<li><button type="button" class="btn btn-edit btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#updatePostModal">Edit</button></li>
-												<li><button type="button" class="btn btn-delete btn-sm btn-outline-danger btn-post-delete">Delete</button></li>
-											</ul>
-								</div>
-								<div id="postcard" class="card shadow-sm view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
-										<img src="` + imgPath + `">
-									<div class="card-body">
-										<p class="card-text">`+ posts[i].postContent + `</p>
-										<text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ posts[i].hashTag + `</text>
-									</div>
-								</div>
-							</div>`
-						);
-
-					},
-					error: function() {
-						alert("이미지 가져오기 실패..");
-					}
-				})
-
-
+				viewPost(posts[i]);
 			}
 
 		},
@@ -101,6 +72,7 @@ function recoPostView(T1H) {
 	})
 };
 
+// 최근 게시글 보기
 function recentPostView() {
 	let posts = [];
 
@@ -113,39 +85,7 @@ function recentPostView() {
 			posts = data;
 			console.log(posts);
 			for (let i = 0; i < posts.length; i++) {
-				$.ajax({
-					url: "Images.ajax",
-					data: { "postIdx": posts[i].postIdx },
-					type: "post",
-					dataType: "json",
-					success: function(images) {
-						let imgPath = "assets/uploads/" + images.fileRname;
-						$('#ajaxcontainer').append(`
-							<div class="col-md-4" data-id=`+ posts[i].postIdx + `>
-								<div class="btn-group">
-										<button type="button" class="btn-blue btn-user dropdown-toggle" data-bs-toggle="dropdown" aria-expanded></button>
-											<ul class="dropdown-menu">
-												<li><button type="button" class="btn btn-edit btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#updatePostModal">Edit</button></li>
-												<li><button type="button" class="btn btn-delete btn-sm btn-outline-danger btn-post-delete">Delete</button></li>
-											</ul>
-										</div>
-								<div class="card shadow-sm view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
-										<img src="` + imgPath + `">
-									<div class="card-body">
-										<p class="card-text">`+ posts[i].postContent + `</p>
-										<text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ posts[i].hashTag + `</text>
-									</div>
-								</div>
-							</div>`
-						);
-
-					},
-					error: function() {
-						alert("이미지 가져오기 실패..");
-					}
-				})
-
-
+				viewPost(posts[i]);
 			}
 
 		},
@@ -154,3 +94,64 @@ function recentPostView() {
 		}
 	})
 };
+
+// 공통인 이미지를 가져오는 ajax와 더불어 브라우저에 html을 작성해주기
+function viewPost(post) {
+	$.ajax({
+		url: "Images.ajax",
+		data: { "postIdx": post.postIdx },
+		type: "post",
+		dataType: "json",
+		success: function(images) {
+			let imgPath = "assets/uploads/" + images.fileRname;
+			$('#ajaxcontainer').append(`
+						<div class="col-md-4 card-columns">
+							<div class="card" data-id=`+ post.postIdx + `>
+								<div class="card-header d-flex justify-content-between">
+									<div class="user-info d-flex align-items-center">
+									    <a hrdf="#">
+									    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
+									    <span>` + post.userId + `</span>
+										</a>
+									</div>
+								</div>
+									<div class="card-body view-btn shadow-sm" data-bs-toggle="modal" data-bs-target="#postModal">
+										<div class="img-container">
+											<img src="` + imgPath + `" class="img-fluid mx-auto d-block">
+										</div>
+									</div>
+										<div class="card-footer">
+								        <text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ post.hashTag + `</text>
+								    </div>
+							</div>
+						</div>`
+			);
+			
+			userPostCheck(post);
+
+		},
+		error: function() {
+			alert("이미지 가져오기 실패..");
+		}
+	})
+	
+}
+
+// 로그인한 유저의 세션 아이디와 포스트에 담겨 있는 아이디 확인해주기
+function userPostCheck(post) {
+	console.log(sessionUserId);
+	console.log(post.userId);
+	if(sessionUserId == post.userId) {
+		$('div.card[data-id="' + post.postIdx + '"] .card-header .user-info').after(`
+            <div class="btn-group">
+                <button type="button" class="btn-blue btn-user dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                <ul class="dropdown-menu">
+                    <li><button type="button" class="btn btn-edit btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#updatePostModal">Edit</button></li>
+                    <li><button type="button" class="btn btn-delete btn-sm btn-outline-danger btn-post-delete">Delete</button></li>
+                </ul>
+            </div>`);
+	} else {
+		$('div.card[data-id="' + post.postIdx + '"] .card-header .user-info').after(`
+			<button class="follow-button">팔로우</button>`)
+	}
+}
