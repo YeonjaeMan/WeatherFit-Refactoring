@@ -8,66 +8,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<style type="text/css">
-
-/* 작성자 닉네임 영역 스타일 */
-#cmt-user {
-	background-color: #e9ecef; /* 배경 색상 */
-	padding: 10px; /* 여백 */
-	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-	font-weight: bold; /* 글꼴 굵기 */
-	text-align: center; /* 텍스트 가운데 정렬 */
-}
-
-/* 사진 영역 스타일 */
-#cmt-img {
-	background-color: #fff; /* 배경 색상 */
-	padding: 10px; /* 여백 */
-	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-	text-align: center; /* 텍스트 가운데 정렬 */
-}
-
-/* 게시글 내용 영역 스타일 */
-#cmt-content {
-	background-color: #fff; /* 배경 색상 */
-	padding: 10px; /* 여백 */
-	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-	overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
-}
-
-/* 해시태그 영역 스타일 */
-#cmt-hashtag {
-	background-color: #fff; /* 배경 색상 */
-	padding: 10px; /* 여백 */
-	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-	text-align: center; /* 텍스트 가운데 정렬 */
-}
-
-/* 댓글 영역 스타일 */
-#cmt-cmt {
-	background-color: #fff; /* 배경 색상 */
-	padding: 10px; /* 여백 */
-	overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
-}
-
-/* 스크롤바 스타일 */
-#cmt-content::-webkit-scrollbar, #cmt-cmt::-webkit-scrollbar {
-	width: 5px; /* 스크롤바 너비 */
-}
-
-#cmt-content::-webkit-scrollbar-thumb, #cmt-cmt::-webkit-scrollbar-thumb
-	{
-	background: #888; /* 스크롤바 색상 */
-	border-radius: 5px; /* 스크롤바 모서리 둥글게 */
-}
-
-#cmt-content::-webkit-scrollbar-thumb:hover, #cmt-cmt::-webkit-scrollbar-thumb:hover
-	{
-	background: #555; /* 스크롤바 색상 (호버 시) */
-}
-</style>
-
-
 </head>
 <link rel="stylesheet" href="assets/css/address.css">
 <link rel="stylesheet" href="assets/css/modal.css">
@@ -135,7 +75,7 @@
 	<div class="modal fade" id="joinModal" tabindex="-1"
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
+			<div id="modal-join" class="modal-content">
 				<div class="modal-header" id="">
 					<h3 class="modal-title fw-bold mb-0 text-center w-100">회원가입</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -316,42 +256,59 @@
 	<div class="modal fade" id="postModal" tabindex="-1"
 		aria-labelledby="postModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
+			<div id="modal-postdetail" class="modal-content">
 				<div class="modal-body" id="cmtModal-css">
 					<div class="container-fluid">
 						<div class="row">
 							<!-- 왼쪽 영역 -->
 							<div class="col-md-6">
 								<div class="row">
-									<div class="col-12 mb-2" id="cmt-user" style="height: 20%;">작성자
-										닉네임 영역</div>
-									<div class="col-12" id="cmt-img" style="height: 820px;">사진
-										영역</div>
+									<div class="col-12 mb-2 display-inline" id="cmt-user">
+										작성자 닉네임 영역
+										<svg id="message" xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 512 512">
+										<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+												d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
+                  </svg>
+									</div>
+									<div class="col-12" id="cmt-img"
+										style="width: 400px; height: 600px; border-bottom: none;">
+										사진영역</div>
 								</div>
 							</div>
 							<!-- 오른쪽 영역 -->
 							<div class="col-md-6">
-								<div class="row">
-									<div class="col-12 mb-2" id="cmt-content" style="height: 20%;">게시글
-										내용 영역</div>
-									<div class="col-12 mb-2" id="cmt-hashtag" style="height: 20%;">해시태그
-										영역</div>
-									<div class="col-12" id="cmt-cmt" style="height: 60%;"></div>
-										<div class="comment-section"></div>
+								<div class="col-12" id="cmt-content">게시글 내용 영역</div>
+								<div class="col-12" id="cmt-hashtag"
+									style="height: 10%; border-bottom: none;">#해시태그</div>
+									<div id="like">
+										<!-- <i class="fa-regular fa-heart" id="like-heart"></i>   -->
+										<svg id="like-heart" xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 512 512">
+											<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+		                					<path
+												d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+		             					</svg>
+									</div>
+								<div class="col-12" id="cmt-cmt">
+									<div class="comment-section">
 									<c:if test="${member!=null}">
 										<div class="card-body">
 											<form class="form-horizontal" onsubmit='return false;'>
 												<div class="row">
-													<div class="form-group col-sm-8">
+													<div id="comment-input" class="form-group col-sm-10">
 														<input class="form-control input-sm" id="newReplyText"
-															type="text" name="cmtContent" placeholder="댓글 입력...">
+															type="text" name="cmtContent" placeholder="댓글을 입력하세요.">
 													</div>
-													<div class="form-group col-sm-2">
+													<!-- <div class="form-group col-sm-2">
 														<input class="form-control input-sm" id="newReplyWriter"
 															type="text" value="${member.userId}">
-													</div>
+													</div>  -->
 													<div class="form-group col-sm-2">
-														<button type="submit" class="btn btn-blue btn-sm btn-block replyAddBtn" id="insert-cmt">
+														<button type="submit"
+															class="btn btn-blue btn-sm btn-block replyAddBtn"
+															id="insert-cmt">
 															<i class="fa fa-save"></i> 저장
 														</button>
 													</div>
@@ -359,6 +316,7 @@
 											</form>
 										</div>
 									</c:if>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -469,7 +427,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title id="exampleModalLabel" fw-bold mb-0 text-center w-100">게시글 작성</h3>
+					<h3 class="modal-title" id=" exampleModalLabel"fw-boldmb-0text-centerw-100">게시글
+						작성</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -479,8 +438,8 @@
 						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
-								class="form-control" type="file" id="imageUpload1" name="postImg"
-								accept="image/*"><br>
+								class="form-control" type="file" id="imageUpload1"
+								name="postImg" accept="image/*"><br>
 							<!-- 이미지 미리보기를 위한 태그 -->
 							<img id="imagePreview1" alt="Image Preview"
 								class="img-fluid mx-auto d-block"
@@ -527,7 +486,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title id="updateModalLabel" fw-bold mb-0 text-center w-100">게시글 수정</h3>
+					<h3 class="modal-title id="updateModalLabel" fw-boldmb-0text-centerw-100">게시글
+						수정</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -537,8 +497,8 @@
 						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
-								class="form-control" type="file" id="imageUpload2" name="postImg"
-								accept="image/*"><br>
+								class="form-control" type="file" id="imageUpload2"
+								name="postImg" accept="image/*"><br>
 							<!-- 이미지 미리보기를 위한 태그 -->
 							<img id="imagePreview2" alt="Image Preview"
 								class="img-fluid mx-auto d-block"
