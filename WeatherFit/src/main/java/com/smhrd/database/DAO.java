@@ -217,5 +217,19 @@ public class DAO<CrawlingVO> {
 		session.close();
 		return row;
 	}
+
+	public int updateUserInfo(UserVO uvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("updateUserInfo", uvo);
+		session.close();
+		return row;
+	}
+
+	public int deleteUserInfo(UserVO uvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("deleteUserInfo", uvo);
+		session.close();
+		return row;
+	}
 	
 }

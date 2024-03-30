@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ import com.smhrd.model.UserVO;
 public class CreatePost implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, ServletException {
+			throws IOException, ServletException, InterruptedException {
 
 		HttpSession session = request.getSession();
 		UserVO uvo = (UserVO) session.getAttribute("member");
@@ -75,6 +76,7 @@ public class CreatePost implements Command {
 
 			if (row > 0) {
 				System.out.println("이미지파일 저장 성공 !");
+				TimeUnit.SECONDS.sleep(4);
 			} else {
 				System.out.println("이미지파일 저장 실패..");
 			}

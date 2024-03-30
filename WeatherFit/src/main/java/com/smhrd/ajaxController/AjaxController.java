@@ -12,14 +12,12 @@ import com.smhrd.ajax.AjaxCommand;
 import com.smhrd.ajax.Chats;
 import com.smhrd.ajax.Comments;
 import com.smhrd.ajax.CrawlingPost;
-import com.smhrd.ajax.DeletePost;
 import com.smhrd.ajax.Images;
 import com.smhrd.ajax.MinePosts;
 import com.smhrd.ajax.Posts;
 import com.smhrd.ajax.RecentPosts;
 import com.smhrd.ajax.Rooms;
 import com.smhrd.ajax.Searchs;
-import com.smhrd.controller.UpdatePost;
 
 
 
@@ -41,7 +39,6 @@ public class AjaxController extends HttpServlet {
 		map.put("CrawlingPost.ajax", new CrawlingPost());
 		map.put("Images.ajax", new Images());
 		map.put("RecentPosts.ajax", new RecentPosts());
-		map.put("DeletePost.ajax", new DeletePost());
 
 	}
 
