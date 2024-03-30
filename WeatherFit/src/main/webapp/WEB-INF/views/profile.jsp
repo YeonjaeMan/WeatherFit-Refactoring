@@ -13,26 +13,6 @@
 <%@ include file="includeHeaders.jsp"%>
 <link rel="stylesheet" href="assets/css/profile.css">
 
-<style>
-
-
-
-
-
-
-
-
-
-
-
-
-</style>
-
-
-
-
-
-
 </head>
 <body>
 	<!-- 날씨 위젯과 상단 네비 분리 -->
@@ -40,7 +20,7 @@
 	<%@ include file="includeNavi.jsp"%>
 
 	<%
-	UserVO uvo = (UserVO) session.getAttribute("member");
+	UserVO uvo = (UserVO) session.getAttribute("userProfileInfo");
 	%>
 
 	<main>

@@ -20,6 +20,7 @@ import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
 import com.smhrd.controller.Logout;
 import com.smhrd.controller.Post;
+import com.smhrd.controller.Profile;
 import com.smhrd.controller.Update;
 import com.smhrd.controller.UpdatePost;
 import com.smhrd.controller.UpdateUserInfo;
@@ -44,6 +45,7 @@ public class FrontController extends HttpServlet {
 		map.put("DeletePost.do", new DeletePost());
 		map.put("UpdateUserInfo.do", new UpdateUserInfo());
 		map.put("DeleteUserInfo.do", new DeleteUserInfo());
+		map.put("Profile.do", new Profile());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
