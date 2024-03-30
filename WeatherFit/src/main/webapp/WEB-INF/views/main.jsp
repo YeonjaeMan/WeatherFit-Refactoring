@@ -20,7 +20,9 @@
 
 	<%@ include file="includeNavi.jsp"%>
 
-	<% UserVO uvo = (UserVO)session.getAttribute("member"); %>
+	<%
+	UserVO uvo = (UserVO) session.getAttribute("member");
+	%>
 
 	<div id="container-notification"></div>
 
@@ -29,12 +31,15 @@
 		<div class="album bg-tertiary"></div>
 		<div class="container">
 			<!-- 토글 버튼 -->
-			<div class="d-flex justify-content-center">
-				<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-					<input type="radio" class="btn-check btn-darkblue" id="recent" name="btnradio" autocomplete="off" checked>
-					<label class="btn btn-outline-primary" for="recent">최근</label>
-					<input type="radio" class="btn-check btn-darkblue" id="recommand" name="btnradio" autocomplete="off">
-					<label class="btn btn-outline-primary" for="recommand">추천</label>
+			<div id="maintoggle" class="d-flex justify-content-center">
+				<div class="btn-group" role="group"
+					aria-label="Basic radio toggle button group">
+					<input type="radio" class="btn-check btn-darkblue" id="recent"
+						name="btnradio" autocomplete="off" checked> <label
+						class="btn btn-outline-primary" for="recent">최근</label> <input
+						type="radio" class="btn-check btn-darkblue" id="recommand"
+						name="btnradio" autocomplete="off"> <label
+						class="btn btn-outline-primary" for="recommand">추천</label>
 				</div>
 			</div>
 

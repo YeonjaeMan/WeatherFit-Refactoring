@@ -57,7 +57,7 @@
 							name="sendUserId" value="<%=uvo.getUserId()%>">
 					</div>
 					<div class="modal-footer">
-						<!-- <input type="submit" class="btn btn-primary"
+						<!-- <input type="submit" class="btn btn-blue"
 							value="채팅방생성"> -->
 						<button class="btn-blue">채팅방생성</button>
 					</div>
