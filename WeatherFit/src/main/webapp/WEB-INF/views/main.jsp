@@ -59,36 +59,27 @@
 ///
 
 /* 메인페이지 게시글 토글버튼 */
-#maintoggle {
-	margin-top: 30px;
-	margin-bottom: 30px;
+div#maintoggle {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-#recent, #recommand {
-	background-color: ;
-	border-color: red;
-	color: white;
-	font-weight: 600;
-}
-
-.btn-outline-primary:hover, .btn-outline-primary:focus {
-	background-color: #7895CB;
-	color: #4A55A2;
-}
 
 /* "최근" 버튼에 대한 기본 상태 */
 #recent:checked+.btn-outline-primary {
 	background-color: #7895CB;
-	color: white; 
+	color: white;
+	border-color: #7895CB;
+	font-weight: bolder;
 }
 
 /* "추천" 버튼에 대한 기본 상태  */
 #recommand:checked+.btn-outline-primary {
 	background-color: #7895CB;
-	color: white; 
+	color: white;
+	border-color: #7895CB;
+	font-weight: bolder;
 }
-
-
 
 /* 게시글 크기 고정.. 하고싶다 */
 .fixed-height {
