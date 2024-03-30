@@ -13,6 +13,7 @@ import com.smhrd.ajax.Chats;
 import com.smhrd.ajax.Comments;
 import com.smhrd.ajax.CrawlingPost;
 import com.smhrd.ajax.Images;
+import com.smhrd.ajax.SelectLike;
 import com.smhrd.ajax.LoginCheck;
 import com.smhrd.ajax.UserPosts;
 import com.smhrd.ajax.Posts;
@@ -41,6 +42,7 @@ public class AjaxController extends HttpServlet {
 		map.put("Images.ajax", new Images());
 		map.put("RecentPosts.ajax", new RecentPosts());
 		map.put("LoginCheck.ajax", new LoginCheck());
+		map.put("LikeCheck.ajax", new SelectLike());
 
 	}
 
