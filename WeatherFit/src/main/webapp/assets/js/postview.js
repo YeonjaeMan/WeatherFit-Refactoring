@@ -111,11 +111,11 @@ function viewPost(post) {
 									<div class="user-info d-flex align-items-center">
 									    <a hrdf="#">
 									    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
-									    <span>` + post.userId + `</span>
+									    <span id="post-user">` + post.userId + `</span>
 										</a>
 									</div>
 								</div>
-									<div class="card-body view-btn shadow-sm" data-bs-toggle="modal" data-bs-target="#postModal">
+									<div id="postcard" class="card-body view-btn shadow-sm" data-bs-toggle="modal" data-bs-target="#postModal">
 										<div class="img-container">
 											<img src="` + imgPath + `" class="img-fluid mx-auto d-block">
 										</div>
@@ -144,7 +144,7 @@ function userPostCheck(post) {
 	if(sessionUserId == post.userId) {
 		$('div.card[data-id="' + post.postIdx + '"] .card-header .user-info').after(`
             <div class="btn-group">
-                <button type="button" class="btn-blue btn-user dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                <button type="button" id="btn-editdel" class="btn-blue btn-user dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
                 <ul class="dropdown-menu">
                     <li><button type="button" class="btn btn-edit btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#updatePostModal">Edit</button></li>
                     <li><button type="button" class="btn btn-delete btn-sm btn-outline-danger btn-post-delete">Delete</button></li>

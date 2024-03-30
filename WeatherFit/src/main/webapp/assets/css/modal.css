@@ -47,13 +47,13 @@ input#floatingInput {
 #cmt-user {
 	padding: 10px;
 	max-height: 20%;
-	
+	max-width: 300px;
 	font-weight: bolder;
 	text-align: left;
 	padding-left: 20px;
 	background-color: none;
 	border-bottom: none;
-	
+	font-weight: bolder;
 }
 
 /* 채팅 아이콘 */
@@ -71,6 +71,11 @@ input#floatingInput {
 
 /* 사진 영역 스타일 */
 #cmt-img {
+	width: 450px;
+	height: 600px;
+	max-width: 450px;
+	max-height: 600px;
+	border-bottom: none;
 	background-color: #fff; /* 배경 색상 */
 	padding: 10px; /* 여백 */
 	text-align: center; /* 텍스트 가운데 정렬 */
@@ -78,7 +83,7 @@ input#floatingInput {
 
 /* 게시글 내용 영역 스타일 */
 #cmt-content {
-	max-height: 40%; 
+	max-height: 40%;
 	background-color: #fff; /* 배경 색상 */
 	padding: 10px; /* 여백 */
 	overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
@@ -99,6 +104,7 @@ input#floatingInput {
 /* 좋아요 버튼 */
 #like {
 	padding: 10px;
+	padding-bottom: 12px;
 }
 
 #like-heart {
@@ -112,36 +118,56 @@ input#floatingInput {
 
 /* 댓글 영역 스타일 */
 #cmt-cmt {
-	max-height: 40%; 
+	max-height: 40%;
 	height: 40%;
 	border-bottom: none;
 	background-color: #e9ecef; /* 배경 색상 */
 	padding: 10px; /* 여백 */
 	overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
-	/* overflow-x: hidden; */
+	overflow-x: hidden;
+	border-radius: 8px;
+}
+
+#comment-txt {
+	padding: 10px;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+#cmtinput-row {
+	align-items: end;
+	bottom: 0px;
 }
 
 /* 댓글입력창 */
-#comment-input{
-	padding-right:0px;
+#comment-input {
+	padding-right: 0px;
 }
 
+/* 댓글등록 버튼 */
+#insert-cmt {
+	width: 50px;
+	height: 35px;
+	font-size: 15px;
+}
 
-
-
+#cmtsubmit-wrap {
+	padding-left: 8px;
+}
 
 /* 스크롤바 스타일 */
-#cmt-content::-webkit-scrollbar, #cmt-hashtag::-webkit-scrollbar, #cmt-cmt::-webkit-scrollbar {
+#cmt-content::-webkit-scrollbar, #cmt-hashtag::-webkit-scrollbar,
+	#cmt-cmt::-webkit-scrollbar {
 	width: 10px; /* 스크롤바 너비 */
 }
 
-#cmt-content::-webkit-scrollbar-thumb, #cmt-hashtag::-webkit-scrollbar-thumb, #cmt-cmt::-webkit-scrollbar-thumb
-	{
+#cmt-content::-webkit-scrollbar-thumb, #cmt-hashtag::-webkit-scrollbar-thumb,
+	#cmt-cmt::-webkit-scrollbar-thumb {
 	background: #DDE6ED; /* 스크롤바 색상 */
 	border-radius: 5px; /* 스크롤바 모서리 둥글게 */
 }
 
-#cmt-content::-webkit-scrollbar-thumb:hover, #cmt-hashtag::-webkit-scrollbar-thumb:hover, #cmt-cmt::-webkit-scrollbar-thumb:hover
-	{
-	background: #7895CB;  /* 스크롤바 색상 (호버 시) */
+#cmt-content::-webkit-scrollbar-thumb:hover, #cmt-hashtag::-webkit-scrollbar-thumb:hover,
+	#cmt-cmt::-webkit-scrollbar-thumb:hover {
+	background: #7895CB; /* 스크롤바 색상 (호버 시) */
 }
