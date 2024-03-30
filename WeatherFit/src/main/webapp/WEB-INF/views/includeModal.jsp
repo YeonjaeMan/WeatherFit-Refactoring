@@ -33,7 +33,7 @@
 				<div class="modal-body">
 
 
-					<form action="Login.do" method="post">
+					<form action="Login.do" method="post" onsubmit="return loginCheck()">
 						<div></div>
 						<div class="form-floating">
 							<input type="text" class="form-control" id="floatingInput"
@@ -53,7 +53,10 @@
 						</div>
 						<div class="mb-2"></div>
 						<button class="btn-blue w-100 py-2" type="submit">로그인</button>
+					
 					</form>
+					
+					
 					<div class="mb-2">
 						<!-- 회원가입 Modal -->
 						<!-- Modal Trigger -->
@@ -535,15 +538,8 @@
 			</div>
 		</div>
 	</div>
-
-	<script>
-	// 좋아요 하트 활성화
-	let like = document.getElementById("like-heart");
-
-	like.addEventListener("click", function(){
-		like.classList.toggle("active")
-	})
-	</script>
-
+	
+	<script src="assets/js/validation.js"></script>
+	
 </body>
 </html>
