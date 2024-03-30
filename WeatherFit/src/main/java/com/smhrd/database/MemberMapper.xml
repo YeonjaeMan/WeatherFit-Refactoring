@@ -234,5 +234,21 @@
 		from tb_user
 		where userId = #{userId}
 	</select>
+	
+	<insert id="insertFollowing" parameterType="com.smhrd.model.FollowingVO">
+		insert into tb_following(follower, followee)
+		values (#{follower}, #{followee})
+	</insert>
+	
+	<delete id="deleteFollowing" parameterType="com.smhrd.model.FollowingVO">
+		delete from tb_following
+		where follower = #{follower} and followee = #{followee}
+	</delete>
+	
+	<select id="selectFollow" parameterType="com.smhrd.model.FollowingVO" resultType="com.smhrd.model.FollowingVO">
+		select *
+		from tb_following
+		where follower = #{follower} and followee = #{followee}
+	</select>
 
 </mapper>

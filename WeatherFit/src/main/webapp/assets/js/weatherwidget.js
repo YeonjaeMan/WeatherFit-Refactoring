@@ -68,7 +68,6 @@ function success(position) {
 
 		success: function(res) {
 
-			console.log(res);
 			let T1H = res.response.body.items.item[24].fcstValue;
 			$("#weather-t1h").append("<span>" + T1H + "°C</span>");
 			$("#postTemp").attr("value", T1H);

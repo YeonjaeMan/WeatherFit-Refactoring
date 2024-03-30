@@ -83,7 +83,6 @@ function recentPostView() {
 
 		success: function(data) {
 			posts = data;
-			console.log(posts);
 			for (let i = 0; i < posts.length; i++) {
 				viewPost(posts[i]);
 			}
@@ -146,8 +145,5 @@ function userPostCheck(post) {
                     <li><button type="button" class="btn btn-delete btn-sm btn-outline-danger btn-post-delete">Delete</button></li>
                 </ul>
             </div>`);
-	} else {
-		$('div.card[data-id="' + post.postIdx + '"] .card-header .user-info').after(`
-			<button id="btn-follow" class="follow-button">팔로우</button>`)
 	}
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>detail</title>
+<title>WeatherFit</title>
 
 <%@ include file="includeHeaders.jsp"%>
 
