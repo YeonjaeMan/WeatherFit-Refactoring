@@ -210,7 +210,6 @@
 		</div>
 	</header>
 
-
 	<%@ include file="includeModal.jsp"%>
 	<script src="assets/js/login.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script

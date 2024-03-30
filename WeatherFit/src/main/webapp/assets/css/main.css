@@ -89,3 +89,9 @@
 	-webkit-line-clamp: 1; /* 원하는 줄 수를 지정합니다. */
 	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
 }
+
+.img-container img {
+  width: 1080px; /* 가로 크기를 1080픽셀로 고정 */
+  height: auto; /* 세로 크기를 자동으로 조정 */
+  object-fit: cover;
+}
