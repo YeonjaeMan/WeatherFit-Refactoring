@@ -231,5 +231,5 @@ public class DAO<CrawlingVO> {
 		session.close();
 		return row;
 	}
-	
+
 }

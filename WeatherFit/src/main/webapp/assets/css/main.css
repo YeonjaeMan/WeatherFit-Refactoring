@@ -1,22 +1,3 @@
-.btn-view {
-	position: relative;
-	display: inline;
-	padding: 5px 10px;
-	margin-top: 3px;
-	border-radius: 8px;
-	/* font-family: "paybooc-Light", sans-serif; */
-	text-decoration: none;
-	font-weight: 600;
-	transition: 0.25s;
-	color: #4A55A2;
-	border-color: #7895CB;
-}
-
-.btn-view:hover {
-	cursor: pointer;
-	background-color: #7895CB;
-	color: white;
-}
 
 .btn-blue {
 	position: relative;
@@ -31,6 +12,7 @@
 	transition: 0.25s;
 	background-color: #7895CB;
 	color: white;
+	font-weight: bolder;
 }
 
 .btn-blue:hover {
@@ -45,30 +27,32 @@
 	margin-bottom: 30px;
 }
 
-#recent, #recommand {
-	background-color: ;
-	border-color: red;
-	color: white;
-	font-weight: 600;
-}
 
 .btn-outline-primary:hover, .btn-outline-primary:focus {
 	background-color: #7895CB;
 	color: #4A55A2;
+	font-weight: bolder;
 }
 
 /* "최근" 버튼에 대한 기본 상태 */
 #recent:checked+.btn-outline-primary {
 	background-color: #7895CB;
 	color: white; 
+	font-weight: bolder;
 }
 
 /* "추천" 버튼에 대한 기본 상태  */
 #recommand:checked+.btn-outline-primary {
 	background-color: #7895CB;
 	color: white; 
+	font-weight: bolder;
 }
 
+
+/* 게시글 수정삭제 버튼 */
+#btn-editdel {
+    float: right;
+}
 
 
 /* 게시글 크기 고정.. 하고싶다 */
