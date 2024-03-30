@@ -68,14 +68,14 @@ function recoPostView(T1H) {
 						let imgPath = "assets/uploads/" + images.fileRname;
 						$('#ajaxcontainer').append(`
 							<div class="col-md-4" data-id=`+ posts[i].postIdx + `>
-								<div class="btn-group">
+								<div id="btn-editdel" class="btn-group">
 										<button type="button" class="btn-blue btn-user dropdown-toggle" data-bs-toggle="dropdown" aria-expanded></button>
 											<ul class="dropdown-menu">
 												<li><button type="button" class="btn btn-edit btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#updatePostModal">Edit</button></li>
 												<li><button type="button" class="btn btn-delete btn-sm btn-outline-danger btn-post-delete">Delete</button></li>
 											</ul>
-										</div>
-								<div class="card shadow-sm view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
+								</div>
+								<div id="postcard" class="card shadow-sm view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
 										<img src="` + imgPath + `">
 									<div class="card-body">
 										<p class="card-text">`+ posts[i].postContent + `</p>
