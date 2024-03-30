@@ -297,7 +297,7 @@
 										<div class="card-body">
 											<form class="form-horizontal" onsubmit='return false;'>
 									</c:if>
-												<div "cmtinput-row" class="row">
+												<div id="cmtinput-row" class="row">
 													<div id="comment-input" class="form-group col-sm-10">
 														<input class="form-control input-sm" id="newReplyText"
 															type="text" name="cmtContent" placeholder="댓글을 입력하세요.">

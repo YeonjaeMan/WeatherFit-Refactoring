@@ -1,4 +1,3 @@
-
 .btn-blue {
 	position: relative;
 	border: none;
@@ -27,29 +26,31 @@
 	margin-bottom: 30px;
 }
 
+.btn-outline {
+	border-color: #7895CB; /* 선택되지 않았을 때의 outline 색상 변경 */
+	color: #7895CB; /* 선택되지 않았을 때의 글자 색상 */
+	background-color: transparent; /* 선택되지 않았을 때의 배경 색상 */
+	font-weight: bolder;
+}
 
-.btn-outline-primary:hover, .btn-outline-primary:focus {
+.btn-outline:hover, .btn-outline:focus {
+	border-color: #7895CB;
 	background-color: #7895CB;
-	color: #4A55A2;
 	font-weight: bolder;
 }
 
 /* "최근" 버튼에 대한 기본 상태 */
-#recent:checked+.btn-outline-primary {
+#recent:checked+.btn-outline {
+	border-color: #7895CB;
 	background-color: #7895CB;
-	color: white; 
+	color: white;
 	font-weight: bolder;
 }
 
 /* "추천" 버튼에 대한 기본 상태  */
-#recommand:checked+.btn-outline-primary {
+#recommand:checked+.btn-outline {
+	border-color: #7895CB;
 	background-color: #7895CB;
-	color: white; 
+	color: white;
 	font-weight: bolder;
 }
-
-#post-user{
-	font-weight: bolder;
-	margin-left: 0.3rem;
-}
-
