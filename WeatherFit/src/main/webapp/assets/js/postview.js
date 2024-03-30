@@ -47,7 +47,8 @@ $(document).ready(function() {
 		}
 	});
 	
-	$(document).on("click", "#postcard", function(event) {
+	$(document).on("click", "#postcard", function() {
+		let postIdx = $(this).closest('.card').data('id');
 		let userId = $(this).closest('.card').find('#post-user').text();
 		let imgSrc = $(this).find('#post-img').attr('src');
 		let content = $(this).closest('.card').find('#post-content').text();
@@ -61,10 +62,28 @@ $(document).ready(function() {
 					         '<path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />' +
 					       '</svg>';
 		
+		$('#like-heart').attr("data-id", postIdx);
 		$('#cmt-user').html(userInfoHtml);
 		$('#cmt-img').attr('src', imgSrc);
 		$('#cmt-content').text(content);
 		$('#cmt-hashtag').text(hashTag);
+		
+		$.ajax({
+			url: "SelectLike.ajax",
+			type: "post",
+			dataType: "json",
+			data: {"userId" : sessionUserId, "postIdx" : postIdx},
+			success: function(res) {
+				if(res != null) {
+					$("[data-id='" + postIdx + "']").addClass(".active");
+				}
+				
+			},
+			error: function() {
+				alert("좋아요 상태 불러오기 실패")
+			}
+			
+		});
 	});
 	
 });
@@ -125,7 +144,7 @@ function viewPost(post) {
 			let imgPath = "assets/uploads/" + images.fileRname;
 			$('#ajaxcontainer').append(`
 						<div class="col-md-4 card-columns">
-							<div id="postcard" class="card" data-id=`+ post.postIdx + `>
+							<div class="card" data-id=`+ post.postIdx + `>
 								<div class="card-header d-flex justify-content-between">
 									<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
 									    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
