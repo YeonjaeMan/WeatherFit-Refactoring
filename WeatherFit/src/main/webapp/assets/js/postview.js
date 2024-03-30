@@ -46,6 +46,19 @@ $(document).ready(function() {
 			}
 		}
 	});
+	
+	$(document).on("click", "#postcard", function(event) {
+		let userId = $(this).closest('.card').find('#post-user').text();
+		let imgSrc = $(this).find('img').attr('src');
+		let content = $(this).closest('.car').find('#post-content').text();
+		let hashTag = $(this).closest('.card').find('#hashtag').text();
+		
+		$('#cmt-user').prepend(userId);
+		$('#cmt-img').attr('src', imgSrc);
+		$('#cmt-content').text(content);
+		$('#cmt-hashtag').text(hashTag);
+	});
+	
 });
 
 // 추천 게시글 보기
@@ -60,7 +73,6 @@ function recoPostView(T1H) {
 
 		success: function(data) {
 			posts = data;
-			console.log(posts);
 			for (let i = 0; i < posts.length; i++) {
 				viewPost(posts[i]);
 			}
@@ -112,14 +124,15 @@ function viewPost(post) {
 									    <span id="post-user">` + post.userId + `</span>
 										</a>
 								</div>
-									<div id="postcard" class="card-body view-btn shadow-sm" data-bs-toggle="modal" data-bs-target="#postModal">
-										<div class="img-container">
-											<img src="` + imgPath + `" class="img-fluid mx-auto d-block">
-										</div>
+								<div id="postcard" class="card-body view-btn shadow-sm" data-bs-toggle="modal" data-bs-target="#postModal">
+									<div class="img-container">
+										<img src="` + imgPath + `" class="img-fluid mx-auto d-block">
 									</div>
-										<div class="card-footer">
-								        <text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ post.hashTag + `</text>
-								    </div>
+								</div>
+								<div class="card-footer">
+									<p id="post-content" class="card-text"> ` + post.postContent + ` </p>
+								    <text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ post.hashTag + `</text>
+								</div>
 							</div>
 						</div>`
 			);

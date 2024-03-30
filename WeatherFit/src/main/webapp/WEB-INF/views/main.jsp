@@ -45,7 +45,7 @@
 			</div>
 
 			<!-- 게시글 카드 -->
-			<div> 
+			<div>
 				<div id="ajaxcontainer"
 					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4"></div>
 				<!-- ajax게시판바로불러오기 -->

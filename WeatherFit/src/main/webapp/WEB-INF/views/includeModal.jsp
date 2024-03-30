@@ -264,7 +264,6 @@
 							<div class="col-md-6">
 								<div class="row">
 									<div class="col-12 mb-2 display-inline" id="cmt-user">
-										작성자 닉네임 영역
 										<svg id="message" xmlns="http://www.w3.org/2000/svg"
 											viewBox="0 0 512 512">
 										<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -272,15 +271,14 @@
 												d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
                   </svg>
 									</div>
-									<div class="col-12" id="cmt-img">
-										사진영역</div>
+									<img class="col-12" id="cmt-img" src=""></img>
 								</div>
 							</div>
 							<!-- 오른쪽 영역 -->
 							<div class="col-md-6">
 								<div class="col-12" id="cmt-content">게시글 내용 영역</div>
 								<div class="col-12" id="cmt-hashtag"
-									style="height: 10%; border-bottom: none;">#해시태그</div>
+									style="height: 10%; border-bottom: none;"></div>
 									<div id="like">
 										<!-- <i class="fa-regular fa-heart" id="like-heart"></i>   -->
 										<svg id="like-heart" xmlns="http://www.w3.org/2000/svg"
