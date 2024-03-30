@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.smhrd.model.ChatVO;
 import com.smhrd.model.CommentVO;
 import com.smhrd.model.FileVO;
+import com.smhrd.model.FollowingVO;
 import com.smhrd.model.LikeVO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.RoomVO;
@@ -235,6 +236,27 @@ public class DAO<CrawlingVO> {
 	public UserVO selectUserInfo(UserVO uvo) {
 		SqlSession session = factory.openSession();
 		UserVO resultVO = session.selectOne("selectUserInfo", uvo);
+		session.close();
+		return resultVO;
+	}
+	
+	public int insertFollowing(FollowingVO flvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.insert("insertFollowing", flvo);
+		session.close();
+		return row;
+	}
+	
+	public int deleteFollowing(FollowingVO flvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.delete("deleteFollowing", flvo);
+		session.close();
+		return row;
+	}
+	
+	public FollowingVO selectFollow(FollowingVO flvo) {
+		SqlSession session = factory.openSession();
+		FollowingVO resultVO = session.selectOne("selectFollow", flvo);
 		session.close();
 		return resultVO;
 	}

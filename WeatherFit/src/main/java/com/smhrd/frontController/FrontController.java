@@ -14,8 +14,10 @@ import com.smhrd.controller.Command;
 import com.smhrd.controller.Comment;
 import com.smhrd.controller.CreatePost;
 import com.smhrd.controller.CreateRoom;
+import com.smhrd.controller.DeleteFollowing;
 import com.smhrd.controller.DeletePost;
 import com.smhrd.controller.DeleteUserInfo;
+import com.smhrd.controller.InsertFollowing;
 import com.smhrd.controller.Join;
 import com.smhrd.controller.Login;
 import com.smhrd.controller.Logout;
@@ -46,6 +48,8 @@ public class FrontController extends HttpServlet {
 		map.put("UpdateUserInfo.do", new UpdateUserInfo());
 		map.put("DeleteUserInfo.do", new DeleteUserInfo());
 		map.put("Profile.do", new Profile());
+		map.put("InsertFollowing.do", new InsertFollowing());
+		map.put("DeleteFollowing.do", new DeleteFollowing());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

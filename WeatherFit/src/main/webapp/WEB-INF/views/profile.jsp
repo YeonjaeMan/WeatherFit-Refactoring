@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.database.DAO"%>
+<%@page import="com.smhrd.model.FollowingVO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -6,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>WeatherFit</title>
 
 
 <!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
@@ -20,7 +23,9 @@
 	<%@ include file="includeNavi.jsp"%>
 
 	<%
+	UserVO mvo = (UserVO) session.getAttribute("member");
 	UserVO uvo = (UserVO) session.getAttribute("userProfileInfo");
+	FollowingVO flvo = (FollowingVO) session.getAttribute("followingCheck");
 	%>
 
 	<main>
@@ -53,10 +58,20 @@
 									}
 									%>
 								</h3>
-
-								<!-- 팔로우버튼 -->
 								<p>
-									<a class="btn-blue" id="btn-follow" href="#">팔로우</a>
+								<%
+									if(mvo.getUserId().equals(uvo.getUserId())) {
+										// 편집버튼
+										out.print("<a class='btn-blue' id='btn-edit' href='#'>편집</a>");
+									} else {
+										// 팔로우버튼
+										if(flvo == null) {
+											out.print("<a class='btn-blue' id='btn-follow' href='InsertFollowing.do?follower=" + mvo.getUserId() + "&followee= " + uvo.getUserId() + "'>팔로우</a>");
+										} else {
+											out.print("<a class='btn-blue' id='btn-follow' href='DeleteFollowing.do?follower=" + mvo.getUserId() + "&followee= " + uvo.getUserId() + "'>팔로우 취소</a>");
+										}
+									}
+								%>
 								</p>
 							</div>
 							<!-- 프로필소개 -->
