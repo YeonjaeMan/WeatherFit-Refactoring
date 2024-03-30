@@ -158,10 +158,10 @@ public class DAO<CrawlingVO> {
 		return resultList;
 	}
 
-	// 내 게시글 확인 기능
-	public List<PostVO> selectMinePosts(UserVO uvo) {
+	// 특정 유저 게시글 확인 기능
+	public List<PostVO> selectUserPosts(UserVO uvo) {
 		SqlSession session = factory.openSession();
-		List<PostVO> resultList = session.selectList("selectMinePosts", uvo);
+		List<PostVO> resultList = session.selectList("selectUserPosts", uvo);
 		session.close();
 		return resultList;
 	}
@@ -230,6 +230,13 @@ public class DAO<CrawlingVO> {
 		int row = session.update("deleteUserInfo", uvo);
 		session.close();
 		return row;
+	}
+
+	public UserVO selectUserInfo(UserVO uvo) {
+		SqlSession session = factory.openSession();
+		UserVO resultVO = session.selectOne("selectUserInfo", uvo);
+		session.close();
+		return resultVO;
 	}
 
 }

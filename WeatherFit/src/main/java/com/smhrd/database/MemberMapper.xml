@@ -151,8 +151,8 @@
 		where postIdx = #{postIdx}
 	</select>
 
-	<!-- 내 게시글 확인 기능 -->
-	<select id="selectMinePosts"
+	<!-- 유저 게시글 확인 기능 -->
+	<select id="selectUserPosts"
 		parameterType="com.smhrd.model.UserVO"
 		resultType="com.smhrd.model.PostVO">
 		select *
@@ -228,5 +228,11 @@
 		delete from tb_user
 		where userId=#{userId}
 	</delete>
+	
+	<select id="selectUserInfo" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
+		select userId, userGender, userNick, userRegion, joinedAt, userHeight, userWeight, userProfileImg, userProfileInfo
+		from tb_user
+		where userId = #{userId}
+	</select>
 
 </mapper>

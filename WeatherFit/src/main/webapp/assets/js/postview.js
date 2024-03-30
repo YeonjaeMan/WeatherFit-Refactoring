@@ -67,7 +67,7 @@ function recoPostView(T1H) {
 
 		},
 		error: function() {
-			console.log("연결 실패");
+			alert("추천 게시글 연결 실패");
 		}
 	})
 };
@@ -90,7 +90,7 @@ function recentPostView() {
 
 		},
 		error: function() {
-			console.log("연결 실패");
+			alert("최신 게시글 연결 실패");
 		}
 	})
 };
@@ -108,12 +108,10 @@ function viewPost(post) {
 						<div class="col-md-4 card-columns">
 							<div class="card" data-id=`+ post.postIdx + `>
 								<div class="card-header d-flex justify-content-between">
-									<div class="user-info d-flex align-items-center">
-									    <a hrdf="#">
+									<a href="Profile.do?userId=` + post.userId + `" class="user-info d-flex align-items-center">
 									    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
 									    <span id="post-user">` + post.userId + `</span>
 										</a>
-									</div>
 								</div>
 									<div id="postcard" class="card-body view-btn shadow-sm" data-bs-toggle="modal" data-bs-target="#postModal">
 										<div class="img-container">
@@ -126,7 +124,7 @@ function viewPost(post) {
 							</div>
 						</div>`
 			);
-			
+
 			userPostCheck(post);
 
 		},
@@ -134,14 +132,12 @@ function viewPost(post) {
 			alert("이미지 가져오기 실패..");
 		}
 	})
-	
+
 }
 
 // 로그인한 유저의 세션 아이디와 포스트에 담겨 있는 아이디 확인해주기
 function userPostCheck(post) {
-	console.log(sessionUserId);
-	console.log(post.userId);
-	if(sessionUserId == post.userId) {
+	if (sessionUserId == post.userId) {
 		$('div.card[data-id="' + post.postIdx + '"] .card-header .user-info').after(`
             <div class="btn-group">
                 <button type="button" id="btn-editdel" class="btn-blue btn-user dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
@@ -152,6 +148,6 @@ function userPostCheck(post) {
             </div>`);
 	} else {
 		$('div.card[data-id="' + post.postIdx + '"] .card-header .user-info').after(`
-			<button class="follow-button">팔로우</button>`)
+			<button id="btn-follow" class="follow-button">팔로우</button>`)
 	}
 }

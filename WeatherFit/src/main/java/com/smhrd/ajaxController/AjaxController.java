@@ -14,7 +14,7 @@ import com.smhrd.ajax.Comments;
 import com.smhrd.ajax.CrawlingPost;
 import com.smhrd.ajax.Images;
 import com.smhrd.ajax.LoginCheck;
-import com.smhrd.ajax.MinePosts;
+import com.smhrd.ajax.UserPosts;
 import com.smhrd.ajax.Posts;
 import com.smhrd.ajax.RecentPosts;
 import com.smhrd.ajax.Rooms;
@@ -35,7 +35,7 @@ public class AjaxController extends HttpServlet {
 		map.put("Searchs.ajax", new Searchs());
 		map.put("Rooms.ajax",new Rooms());
 		map.put("Chats.ajax",new Chats());
-		map.put("MinePosts.ajax",new MinePosts());
+		map.put("UserPosts.ajax",new UserPosts());
 		map.put("Comments.ajax", new Comments());
 		map.put("CrawlingPost.ajax", new CrawlingPost());
 		map.put("Images.ajax", new Images());
