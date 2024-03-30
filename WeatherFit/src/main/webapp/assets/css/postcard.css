@@ -20,8 +20,13 @@
 	border-color: #7895CB;
 }
 
-.card-body.view-btn.shadow-sm {
+.card-body.view-btn {
 	cursor: pointer;
+}
+
+/* 게시글 카드 */
+#postcard{
+	border-radius:2px;
 }
 
 /* 게시글 수정삭제 버튼 */
@@ -33,20 +38,37 @@
 	bottom: 7px;
 }
 
-/* 게시글 크기 고정.. 하고싶다 */
-.fixed-height {
-	height: 600px;
-	overflow: auto;
+
+/* 게시글 헤더 */
+.card-header.d-flex.justify-content-between {
+    background-color: transparent;
+    border-bottom: none;
 }
 
-.postcard {
-	border: none;
-	border-radius: 0px;
+/* 게시글 푸터 */
+.card-footer{
+	background-color: transparent;
+    border-top: none;
 }
 
-.postcard:hover {
-	cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+
+/* 게시글 사진 */
+#post-img {
+	padding:0px;
 }
+
+
+/* 사용자 계정 a태그 */
+#userinfo-main{
+	text-decoration: none;	
+}
+
+#post-user{
+	font-weight: bolder;
+	margin-left: 0.7rem;
+	color: black;
+}
+
 
 #hashtag {
 	color: rgb(93, 93, 214);

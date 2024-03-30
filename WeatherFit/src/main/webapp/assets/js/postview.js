@@ -106,14 +106,14 @@ function viewPost(post) {
 			let imgPath = "assets/uploads/" + images.fileRname;
 			$('#ajaxcontainer').append(`
 						<div class="col-md-4 card-columns">
-							<div class="card" data-id=`+ post.postIdx + `>
+							<div id="postcard" class="card" data-id=`+ post.postIdx + `>
 								<div class="card-header d-flex justify-content-between">
-									<a href="Profile.do?userId=` + post.userId + `" class="user-info d-flex align-items-center">
+									<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
 									    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
 									    <span id="post-user">` + post.userId + `</span>
 										</a>
 								</div>
-									<div id="postcard" class="card-body view-btn shadow-sm" data-bs-toggle="modal" data-bs-target="#postModal">
+									<div id="post-img" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
 										<div class="img-container">
 											<img src="` + imgPath + `" class="img-fluid mx-auto d-block">
 										</div>
