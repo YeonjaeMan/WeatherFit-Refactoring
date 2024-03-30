@@ -54,14 +54,12 @@ public class DAO<CrawlingVO> {
 		return row;
 	}
 
-	public List<Map<String, Object>> getpost() {
-		SqlSession session = factory.openSession();
-//		PostVO resultPVO = (PostVO)session.selectList("getpost");
-		List<Map<String, Object>> result = session.selectList("getpost");
+	public int comment(CommentVO cvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.insert("comment", cvo);
 		session.close();
-		return result;
+		return row;
 	}
-	
 	public FileVO selectFile(FileVO fvo) {
 		SqlSession session = factory.openSession();
 		FileVO resultVO = session.selectOne("selectFile", fvo);
@@ -191,6 +189,47 @@ public class DAO<CrawlingVO> {
 		session.close();
 		return resultCrawl;
 	}
+
+	public List<PostVO> selectRecentPosts() {
+		SqlSession session = factory.openSession();
+		List<PostVO> resultList = session.selectList("selectRecentPosts");
+		session.close();
+		return resultList;
+	}
 	
+	public int deletePost(PostVO pvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.delete("deletePost", pvo);
+		session.close();
+		return row;
+	}
+	
+	public int updatePost(PostVO pvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("updatePost", pvo);
+		session.close();
+		return row;
+	}
+
+	public int updateFile(FileVO fvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("updateFile", fvo);
+		session.close();
+		return row;
+	}
+
+	public int updateUserInfo(UserVO uvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("updateUserInfo", uvo);
+		session.close();
+		return row;
+	}
+
+	public int deleteUserInfo(UserVO uvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("deleteUserInfo", uvo);
+		session.close();
+		return row;
+	}
 	
 }

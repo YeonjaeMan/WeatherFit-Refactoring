@@ -78,7 +78,11 @@
 	<select id="commentselect" resultType="com.smhrd.model.CommentVO">
 		select * from tb_comment where postIdx = #{postIdx}
 	</select>
-
+	
+	<insert id="comment" parameterType="com.smhrd.model.CommentVO">
+		insert into tb_comment (postIdx,cmtContent,userId) values(#{postIdx},#{cmtContent},#{userId})
+	</insert>
+	
 
 	<insert id="sendchat" parameterType="com.smhrd.model.ChatVO">
 		insert into tb_chat(roomIdx,
@@ -190,5 +194,39 @@
 		from tb_file
 		where postIdx = #{postIdx}
 	</select>
+	
+	<select id="selectRecentPosts" resultType="com.smhrd.model.PostVO">
+		select *
+		from tb_post
+		order by createdAt desc
+	</select>
+	
+	<delete id="deletePost" parameterType="com.smhrd.model.PostVO">
+		delete from tb_post
+		where postIdx = #{postIdx}
+	</delete>
+	
+	<update id="updatePost" parameterType="com.smhrd.model.PostVO">
+		update tb_post
+		set postContent=#{postContent}, hashTag=#{hashTag}, postTemp=#{postTemp}
+		where postIdx = #{postIdx}
+	</update>
+	
+	<update id="updateFile" parameterType="com.smhrd.model.FileVO">
+		update tb_file
+		set fileRname=#{fileRname}, fileSize=#{fileSize}, fileExt=#{fileExt}
+		where postIdx=#{postIdx}
+	</update>
+	
+	<update id="updateUserInfo" parameterType="com.smhrd.model.UserVO">
+		update tb_user
+		set userPw=#{userPw}, userNick=#{userNick}, userRegion=#{userRegion}, userHeight=#{userHeight}, userWeight=#{userWeight}
+		where userId=#{userId}
+	</update>
+	
+	<delete id="deleteUserInfo" parameterType="com.smhrd.model.UserVO">
+		delete from tb_user
+		where userId=#{userId}
+	</delete>
 
 </mapper>

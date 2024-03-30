@@ -1,6 +1,5 @@
-
-#myhashtag{
-	color : rgb(93, 93, 214);
+#myhashtag {
+	color: rgb(93, 93, 214);
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
@@ -9,10 +8,74 @@
 	line-clamp: 1; /* 일반적인 브라우저에 대한 지원 */
 }
 
+/* 프로필 사진*/
+.img-profile {
+	width: 120px;
+	height: 120px;
+	margin-left: 17%;
+    margin-right: 50px;
+}
+
 #nickname {
-   margin-right: 10%;
+	margin-right: 10%;
 }
 
 #nick-follow {
-   width: 30%;
+	width: 500px;
+	margin-top: 25px;
+	margin-left: 50px;
+}
+
+/* 팔로우 버튼 */
+#btn-follow {
+	margin-top: 10px;
+}
+
+/* 프로필 소개글 */
+#profiletext {
+	margin-top: 22px;
+}
+
+.line {
+	color: #7895CB;
+	margin: 0px;
+}
+
+#line2 {
+	margin-bottom: 30px;
+}
+
+/* 게시글-저장 이동 버튼*/
+.btn-photo.btn-group.align-items-center {
+	width: 100%;
+	justify-content: space-evenly;
+}
+
+#profilepost-icon1, #profilepost-icon2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	font-size: 35px; /* 이모티콘 크기 조정 */
+}
+
+#profilepost-icon1:hover {
+	background-color: #C5DFF8;
+	cursor: pointer;
+}
+
+#profilepost-icon2:hover {
+	background-color: #C5DFF8;
+	cursor: pointer;
+}
+
+/* 클릭 시 유지될 색상 */
+.active {
+	background-color: #C5DFF8;
+}
+
+/* 프로필 게시글 목록 */
+#profilepost-wrap {
+	margin-left: 18%;
+	margin-right: 18%;
 }

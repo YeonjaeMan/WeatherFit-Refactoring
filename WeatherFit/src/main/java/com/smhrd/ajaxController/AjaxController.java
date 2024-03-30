@@ -15,6 +15,7 @@ import com.smhrd.ajax.CrawlingPost;
 import com.smhrd.ajax.Images;
 import com.smhrd.ajax.MinePosts;
 import com.smhrd.ajax.Posts;
+import com.smhrd.ajax.RecentPosts;
 import com.smhrd.ajax.Rooms;
 import com.smhrd.ajax.Searchs;
 
@@ -37,7 +38,7 @@ public class AjaxController extends HttpServlet {
 		map.put("Comments.ajax", new Comments());
 		map.put("CrawlingPost.ajax", new CrawlingPost());
 		map.put("Images.ajax", new Images());
-		
+		map.put("RecentPosts.ajax", new RecentPosts());
 
 	}
 

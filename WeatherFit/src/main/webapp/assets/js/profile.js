@@ -46,7 +46,7 @@ function viewMinePosts() {
 							let imgPath = "assets/uploads/" + images.fileRname;
 							console.log(imgPath);
 							$('#ajaxcontainer').append(`
-							<div class="col-md-4">
+							<div class="col-md-4 fixed-height">
 								<div class="card shadow-sm">
 										<img src="` + imgPath + `">
 									<div class="card-body">
@@ -79,3 +79,15 @@ function viewMinePosts() {
 		});
 	})
 }
+
+
+// 아이콘 클릭하면 배경색 남아있게 하기
+$(document).ready(function(){
+    $("#profilepost-icon1").addClass("active");
+    $("#profilepost-icon1, #profilepost-icon2").click(function(){
+        // 모든 아이콘에서 'active' 클래스를 제거
+        $("#profilepost-icon1, #profilepost-icon2").removeClass("active");
+        // 클릭된 아이콘에만 'active' 클래스를 추가
+        $(this).addClass("active");
+    });
+});

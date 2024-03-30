@@ -1,11 +1,104 @@
 @charset "EUC-KR";
 
 
-.modal-header{
-	background-color : #C5DFF8;
+/* 모달창 중앙 정렬*/
+.modal-dialog {
+	display: flex;
+	align-items: center; /* 중앙 정렬 */
+	min-height: calc(100% - ( .5rem * 2));
 }
 
+.modal-content {
+	margin: auto;
+}
+
+.modal-header{
+}
+
+.modal-title{
+	color: #4A55A2;
+	font-size: 25px;
+}
+
+
+/* 로그인 모달 - 회원가입 버튼 */ 
 #btn-join:hover{
    font-weight:bolder;
    cursor: pointer;
+   color: #4A55A2
+}
+
+/* 로그인 인풋 간격 */
+input#floatingInput {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+
+
+/* 회원가입 모달창 */
+#modal-update, #modal-login {
+    width: 70%;
+}
+
+
+
+
+
+
+
+/* 작성자 닉네임 영역 스타일 */
+#cmt-user {
+	background-color: #e9ecef; /* 배경 색상 */
+	padding: 10px; /* 여백 */
+	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+	font-weight: bold; /* 글꼴 굵기 */
+	text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 사진 영역 스타일 */
+#cmt-img {
+	background-color: #fff; /* 배경 색상 */
+	padding: 10px; /* 여백 */
+	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+	text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 게시글 내용 영역 스타일 */
+#cmt-content {
+	background-color: #fff; /* 배경 색상 */
+	padding: 10px; /* 여백 */
+	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+	overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
+}
+
+/* 해시태그 영역 스타일 */
+#cmt-hashtag {
+	background-color: #fff; /* 배경 색상 */
+	padding: 10px; /* 여백 */
+	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
+	text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 댓글 영역 스타일 */
+#cmt-cmt {
+	background-color: #fff; /* 배경 색상 */
+	padding: 10px; /* 여백 */
+	overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
+}
+
+/* 스크롤바 스타일 */
+#cmt-content::-webkit-scrollbar, #cmt-cmt::-webkit-scrollbar {
+	width: 5px; /* 스크롤바 너비 */
+}
+
+#cmt-content::-webkit-scrollbar-thumb, #cmt-cmt::-webkit-scrollbar-thumb
+	{
+	background: #888; /* 스크롤바 색상 */
+	border-radius: 5px; /* 스크롤바 모서리 둥글게 */
+}
+
+#cmt-content::-webkit-scrollbar-thumb:hover, #cmt-cmt::-webkit-scrollbar-thumb:hover
+	{
+	background: #555; /* 스크롤바 색상 (호버 시) */
 }
