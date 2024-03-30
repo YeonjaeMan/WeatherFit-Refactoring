@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.FollowingVO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -21,7 +22,7 @@
 	<%@ include file="includeNavi.jsp"%>
 
 	<%
-	UserVO uvo = (UserVO) session.getAttribute("member");
+	UserVO mvo = (UserVO) session.getAttribute("member");
 	%>
 
 	<div id="container-notification"></div>
@@ -53,10 +54,11 @@
 		</div>
 	</main>
 
+	<script type="text/javascript">let sessionUserId = "${member.userId}"</script>
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/comment.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/imageupload.js?ver=<%=System.currentTimeMillis()%>"></script>
-
+	<script src="assets/js/like.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<!-- <script src="assets/js/crawlingView.js"></script> -->
 
 </body>
