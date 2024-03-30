@@ -15,14 +15,6 @@
 <body>
 	<%@ include file="includeNavi.jsp"%>
 
-
-	<%
-	UserVO uvo = (UserVO) session.getAttribute("member");
-	%>
-	
-	
-	
-	
 	<main id="main-chat" class="container-flex">
 
 		<div id="menu-room" class="container-fluid flex-column p-3 bg-light">
@@ -54,7 +46,7 @@
 						<input type="text" name="receiveUserId" class="form-control"
 							placeholder="UserId" aria-label="Username"
 							aria-describedby="basic-addon1"> <input type="hidden"
-							name="sendUserId" value="<%=uvo.getUserId()%>">
+							name="sendUserId" value="${member.userId}">
 					</div>
 					<div class="modal-footer">
 						<!-- <input type="submit" class="btn btn-blue"
