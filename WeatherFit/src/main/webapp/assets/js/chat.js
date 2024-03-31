@@ -12,14 +12,14 @@ let webSocket; // 웹소켓 생성
 			console.log(rooms);
 			for (let i = 0; i < rooms.length; i++) {
 				if (userId == rooms[i].userId) {
-					$("#btn-room-add").after(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
+					$("#btn-room-add").before(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
 									aria-current="page" data-val=` + rooms[i].roomIdx + `> <svg class="bi pe-none me-2" width="16"
 									height="16">
 			                            <use xlink:href="#home" />
 			                    </svg>` + rooms[i].roomTitle +
 						`</a></li>`);
 				} else {
-					$("#btn-room-add").after(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
+					$("#btn-room-add").before(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
 									aria-current="page" data-val=` + rooms[i].roomIdx + `> <svg class="bi pe-none me-2" width="16"
 									height="16">
 			                            <use xlink:href="#home" />

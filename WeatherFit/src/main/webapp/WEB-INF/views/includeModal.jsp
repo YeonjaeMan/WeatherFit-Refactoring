@@ -76,7 +76,7 @@
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div id="modal-join" class="modal-content">
-				<div class="modal-header" id="">
+				<div class="modal-header">
 					<h3 class="modal-title fw-bold mb-0 text-center w-100">회원가입</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -273,6 +273,8 @@
 							</div>
 							<!-- 오른쪽 영역 -->
 							<div class="col-md-6">
+								<button type="button" id="btn-postclose" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
 								<div class="col-12" id="cmt-content"></div>
 								<div class="col-12" id="cmt-hashtag"
 									style="height: 10%; border-bottom: none;"></div>
@@ -418,8 +420,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title" id=" exampleModalLabel"fw-boldmb-0text-centerw-100">게시글
-						작성</h3>
+					<h3 class="modal-title fw-bold mb-0 text-center w-100" id="exampleModalLabel">게시글 작성</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>

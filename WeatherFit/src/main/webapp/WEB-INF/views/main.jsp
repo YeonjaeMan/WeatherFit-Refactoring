@@ -14,6 +14,7 @@
 
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/imageupload.css">
+<link rel="stylesheet" href="assets/css/postcard.css">
 
 </head>
 <body>

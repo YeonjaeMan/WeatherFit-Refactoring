@@ -12,6 +12,7 @@
 	background-color: #7895CB;
 	color: white;
 	font-weight: bolder;
+	font-size: 18px !important;
 }
 
 .btn-blue:hover {
@@ -19,6 +20,12 @@
 	cursor: pointer;
 	color: #4A55A2;
 }
+
+/* 피드 밑 여백 */
+div#ajaxcontainer {
+    margin-bottom: 7%;
+}
+
 
 /* 메인페이지 게시글 토글버튼 */
 #maintoggle {
@@ -33,17 +40,18 @@
 	font-weight: bolder;
 }
 
-.btn-outline:hover, .btn-outline:focus {
-	border-color: #7895CB;
-	background-color: #7895CB;
-	font-weight: bolder;
+.btn-outline:hover {
+	border-color: #7895CB !important;
+	color: #7895CB !important;
 }
+
+
 
 /* "최근" 버튼에 대한 기본 상태 */
 #recent:checked+.btn-outline {
 	border-color: #7895CB;
 	background-color: #7895CB;
-	color: white;
+	color: white !important;
 	font-weight: bolder;
 }
 
@@ -51,6 +59,6 @@
 #recommand:checked+.btn-outline {
 	border-color: #7895CB;
 	background-color: #7895CB;
-	color: white;
+	color: white !important;
 	font-weight: bolder;
 }

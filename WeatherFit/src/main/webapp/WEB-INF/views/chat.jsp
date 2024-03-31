@@ -21,9 +21,8 @@
 			<ul class="nav mb-auto">
 				<li id="btn-room-add">
 					<!-- Button trigger modal -->
-
 					<button type="button" id="btn-addchat" class="btn-blue"
-						data-bs-toggle="modal" data-bs-target="#exampleModal">채팅상대추가</button>
+						data-bs-toggle="modal" data-bs-target="#exampleModal">채팅방 추가</button>
 				</li>
 			</ul>
 		</div>
