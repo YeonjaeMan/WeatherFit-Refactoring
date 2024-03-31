@@ -53,10 +53,10 @@ function viewPost(post) {
 			let imgPath = "assets/uploads/" + images.fileRname;
 			$('#ajaxcontainer').append(`
 						<div class="col-md-4 card-columns">
-							<div class="card" data-id=`+ post.postIdx + `>
+							<div id="profile-postcard" class="card" data-id=`+ post.postIdx + `>
 								
-									<div class="card-body view-btn shadow-sm" data-bs-toggle="modal" data-bs-target="#postModal">
-										<div class="img-container">
+									<div id="profile-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
+										<div id="profile-imgcontainer" class="img-container">
 											<img src="` + imgPath + `" class="img-fluid mx-auto d-block">
 										</div>
 									</div>
