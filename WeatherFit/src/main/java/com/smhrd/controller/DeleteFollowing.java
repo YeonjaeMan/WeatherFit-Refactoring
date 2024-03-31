@@ -9,32 +9,28 @@ import javax.servlet.http.HttpSession;
 
 import com.smhrd.database.DAO;
 import com.smhrd.model.FollowingVO;
-import com.smhrd.model.UserVO;
 
-public class Profile implements Command {
+public class DeleteFollowing implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, InterruptedException {
 		
-		HttpSession session = request.getSession();
-		UserVO sessionUVO = (UserVO)session.getAttribute("member");
-		String follower = sessionUVO.getUserId();
-		String followee = request.getParameter("userId");
-		
-		UserVO uvo = new UserVO();
-		uvo.setUserId(followee);
+		String follower = request.getParameter("follower");
+		String followee = request.getParameter("followee");
 		
 		FollowingVO flvo = new FollowingVO();
 		flvo.setFollower(follower);
 		flvo.setFollowee(followee);
 		
 		DAO dao = new DAO();
-		UserVO resultUVO = dao.selectUserInfo(uvo);
-		FollowingVO resultFLVO = dao.selectFollow(flvo);
+		int row = dao.deleteFollowing(flvo);
 		
-		session.setAttribute("userProfileInfo", resultUVO);
-		session.setAttribute("followingCheck", resultFLVO);
+		if(row > 0) {
+			HttpSession session = request.getSession();
+			session.removeAttribute("followingCheck");
+		}
 		
 		return "profile";
+		
 	}
 	
 }

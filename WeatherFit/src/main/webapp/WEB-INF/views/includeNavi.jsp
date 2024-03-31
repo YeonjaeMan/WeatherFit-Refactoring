@@ -168,10 +168,10 @@
 					href="gomain.do">홈</a></li>
 				<c:choose>
 					<c:when test="${member==null}">
-						<li class="nav-item"><a class="nav-link"
-							href="javascript:alert('회원가입을 해주세요.')">검색</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="javascript:alert('회원가입을 해주세요.')">메시지</a></li>
+						<li class="nav-item"><a class="nav-link" data-bs-toggle="modal"
+							data-bs-target="#loginModal" href="javascript:alert('회원가입을 해주세요.')">검색</a></li>
+						<li class="nav-item"><a class="nav-link" data-bs-toggle="modal"
+							data-bs-target="#loginModal" href="javascript:alert('회원가입을 해주세요.')">메시지</a></li>
 						<button type="button" class="btn-blue" data-bs-toggle="modal"
 							data-bs-target="#loginModal">로그인</button>
 

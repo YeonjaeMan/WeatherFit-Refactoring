@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.database.DAO"%>
+<%@page import="com.smhrd.model.FollowingVO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.smhrd.model.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -6,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+<title>WeatherFit</title>
 
 
 <!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
@@ -20,9 +23,12 @@
 	<%@ include file="includeNavi.jsp"%>
 
 	<%
+	UserVO mvo = (UserVO) session.getAttribute("member");
 	UserVO uvo = (UserVO) session.getAttribute("userProfileInfo");
+	FollowingVO flvo = (FollowingVO) session.getAttribute("followingCheck");
 	%>
-
+	${flvo.follower}
+	${flvo.followee}
 	<main>
 		<div id="profilepost-wrap">
 			<div class="container">
@@ -53,10 +59,25 @@
 									}
 									%>
 								</h3>
-
-								<!-- 팔로우버튼 -->
 								<p>
-									<a class="btn-blue" id="btn-follow" href="#">팔로우</a>
+								<c:choose>
+									<c:when test="${member.userId==userProfileInfo.userId}">
+										<a class='btn-blue' id='btn-edit' href='#'>편집</a>
+									</c:when>
+										
+									<c:when test="${member.userId!=userProfileInfo.userId}">
+										<c:choose>
+											<c:when test="${followingCheck.followee==null}">
+												<a class='btn-blue' id='btn-follow' href='InsertFollowing.do?follower=${member.userId}&followee=${userProfileInfo.userId}'>팔로우</a>
+											</c:when>
+											<c:when test="${followingCheck.followee!=null}">
+												<a class='btn-blue' id='btn-follow' href='DeleteFollowing.do?follower=${member.userId}&followee=${userProfileInfo.userId}'>팔로우 취소</a>
+											</c:when>
+										</c:choose>
+									</c:when>
+				
+								</c:choose>
+								
 								</p>
 							</div>
 							<!-- 프로필소개 -->

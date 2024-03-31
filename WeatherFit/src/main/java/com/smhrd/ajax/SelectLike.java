@@ -1,7 +1,6 @@
 package com.smhrd.ajax;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,25 +8,31 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.smhrd.database.DAO;
-import com.smhrd.model.CrawlingVO;
+import com.smhrd.model.LikeVO;
 
-public class CrawlingPost implements AjaxCommand {
-
+public class SelectLike implements AjaxCommand {
+	
+	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String userId = request.getParameter("userId");
+		int postIdx = Integer.parseInt(request.getParameter("postIdx"));
+		
+		LikeVO lvo = new LikeVO();
+		lvo.setPostIdx(postIdx);
+		lvo.setUserId(userId);
 		
 		DAO dao = new DAO();
-		List<CrawlingVO> crawling = dao.selectCrawling();
+		LikeVO resultVO = dao.selectLike(lvo);
 		
 		Gson gson = new Gson();
-		String json = gson.toJson(crawling);
-
-		// 응답의 컨텐츠 타입을 "application/json"으로 설정하고, 문자 인코딩은 "UTF-8"로 설정합니다.
+		String json = gson.toJson(resultVO);
+		
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
-        
-		// 변환된 JSON 문자열을 응답 바디에 작성하여 클라이언트에게 전송합니다.
-        response.getWriter().write(json);
+
+		response.getWriter().write(json);
 		
-	}	
+	}
+	
 }
