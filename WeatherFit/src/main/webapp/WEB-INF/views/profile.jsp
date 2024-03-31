@@ -15,6 +15,7 @@
 <!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
 <%@ include file="includeHeaders.jsp"%>
 <link rel="stylesheet" href="assets/css/profile.css">
+<link rel="stylesheet" href="assets/css/postcard.css">
 
 </head>
 <body>
