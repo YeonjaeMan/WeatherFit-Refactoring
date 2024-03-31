@@ -109,29 +109,29 @@ function recoPostView(T1H) {
 
 		success: function(data) {
 			// 각 요소에 type 속성 추가
-            posts = data.posts.map(item => ({...item, type: 'post'}));
-            craws = data.craws.map(item => ({...item, type: 'craw'}));
-            let recoPosts = posts.concat(craws);
-            shuffle(recoPosts);
-            console.log(craws);
-            for (let i = 0; i < recoPosts.length; i++) {
-                // type 속성에 따라 적절한 함수 호출
-                if (recoPosts[i].type === 'post') {
-                    viewPost(recoPosts[i]);
-                } else if (recoPosts[i].type === 'craw') {
-                    viewCraw(recoPosts[i]);
-                }
-            }
+			posts = data.posts.map(item => ({ ...item, type: 'post' }));
+			craws = data.craws.map(item => ({ ...item, type: 'craw' }));
+			let recoPosts = posts.concat(craws);
+			shuffle(recoPosts);
+			console.log(craws);
+			for (let i = 0; i < recoPosts.length; i++) {
+				// type 속성에 따라 적절한 함수 호출
+				if (recoPosts[i].type === 'post') {
+					viewPost(recoPosts[i]);
+				} else if (recoPosts[i].type === 'craw') {
+					viewCraw(recoPosts[i]);
+				}
+			}
 
 		},
 		error: function() {
 			alert("추천 게시글 연결 실패");
 		}
-	})
+	});
 };
 
 function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
+	array.sort(() => Math.random() - 0.5);
 }
 
 // 최근 게시글 보기
