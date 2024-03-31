@@ -25,7 +25,7 @@
 /* 로고 */
 #title-logo {
 	width: 330px;
-	margin-left: 4%;
+	margin-left: 14%;
 }
 
 .title {
@@ -62,6 +62,23 @@
 	margin-left: 10px;
 }
 
+/* 탈퇴 버튼 */
+#btn-deleteUser {
+	position: relative;
+	border: none;
+	display: inline-block;
+	width: 80%;
+	margin-top: 3px;
+	border-radius: 8px;
+	/* font-family: "paybooc-Light", sans-serif; */
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+	background-color: rgb(245, 87, 87);
+	color: white;
+	font-weight: bolder;
+}
+
 /* 로그아웃 버튼 */
 #btn-logout {
 	position: relative;
@@ -91,7 +108,7 @@
 	right: 10%;
 	width: 55px;
 	height: 55px;
-	font-size: 50px;
+	font-size: 50px !important;
 	justify-content: center;
 	align-items: center;
 	display: flex;
@@ -120,6 +137,10 @@
 /* 드롭다운 */
 .dropdown-menu {
 	text-align: center;
+}
+
+#dropdown-user.show {
+	transform: translate(-97px, 45px) !important;
 }
 
 /* 메뉴 */
@@ -168,10 +189,12 @@
 					href="gomain.do">홈</a></li>
 				<c:choose>
 					<c:when test="${member==null}">
-						<li class="nav-item"><a class="nav-link" data-bs-toggle="modal"
-							data-bs-target="#loginModal" href="javascript:alert('회원가입을 해주세요.')">검색</a></li>
-						<li class="nav-item"><a class="nav-link" data-bs-toggle="modal"
-							data-bs-target="#loginModal" href="javascript:alert('회원가입을 해주세요.')">메시지</a></li>
+						<li class="nav-item"><a class="nav-link"
+							data-bs-toggle="modal" data-bs-target="#loginModal"
+							href="javascript:alert('회원가입을 해주세요.')">검색</a></li>
+						<li class="nav-item"><a class="nav-link"
+							data-bs-toggle="modal" data-bs-target="#loginModal"
+							href="javascript:alert('회원가입을 해주세요.')">메시지</a></li>
 						<button type="button" class="btn-blue" data-bs-toggle="modal"
 							data-bs-target="#loginModal">로그인</button>
 
@@ -187,14 +210,16 @@
 								data-bs-toggle="dropdown" aria-expanded>
 								<i class="fa-solid fa-user"></i>
 							</button>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="Profile.do?userId=${member.userId}">프로필 확인</a></li>
+							<ul id="dropdown-user" class="dropdown-menu">
+								<li><a class="dropdown-item"
+									href="Profile.do?userId=${member.userId}">프로필 확인</a></li>
 								<li><a class="dropdown-item" data-bs-toggle="modal"
 									data-bs-target="#profileUpdateModal">프로필 수정</a></li>
 								<li><hr class="dropdown-divider"></li>
+								<li><a id="btn-logout" class="dropdown-item" href="#">로그아웃</a></li>
+								<li><hr class="dropdown-divider"></li>
 								<li><a id="btn-deleteUser" class="dropdown-item"
 									href="DeleteUserInfo.do">회원탈퇴</a></li>
-								<li><a id="btn-logout" class="dropdown-item" href="#">로그아웃</a></li>
 							</ul>
 						</div>
 						<button type="button" id="btn-create-post"

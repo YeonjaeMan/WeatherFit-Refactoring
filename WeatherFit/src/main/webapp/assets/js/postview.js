@@ -109,29 +109,29 @@ function recoPostView(T1H) {
 
 		success: function(data) {
 			// 각 요소에 type 속성 추가
-            posts = data.posts.map(item => ({...item, type: 'post'}));
-            craws = data.craws.map(item => ({...item, type: 'craw'}));
-            let recoPosts = posts.concat(craws);
-            shuffle(recoPosts);
-            console.log(craws);
-            for (let i = 0; i < recoPosts.length; i++) {
-                // type 속성에 따라 적절한 함수 호출
-                if (recoPosts[i].type === 'post') {
-                    viewPost(recoPosts[i]);
-                } else if (recoPosts[i].type === 'craw') {
-                    viewCraw(recoPosts[i]);
-                }
-            }
+			posts = data.posts.map(item => ({ ...item, type: 'post' }));
+			craws = data.craws.map(item => ({ ...item, type: 'craw' }));
+			let recoPosts = posts.concat(craws);
+			shuffle(recoPosts);
+			console.log(craws);
+			for (let i = 0; i < recoPosts.length; i++) {
+				// type 속성에 따라 적절한 함수 호출
+				if (recoPosts[i].type === 'post') {
+					viewPost(recoPosts[i]);
+				} else if (recoPosts[i].type === 'craw') {
+					viewCraw(recoPosts[i]);
+				}
+			}
 
 		},
 		error: function() {
 			alert("추천 게시글 연결 실패");
 		}
-	})
+	});
 };
 
 function shuffle(array) {
-  array.sort(() => Math.random() - 0.5);
+	array.sort(() => Math.random() - 0.5);
 }
 
 // 최근 게시글 보기
@@ -167,14 +167,14 @@ function viewPost(post) {
 			let imgPath = "assets/uploads/" + images.fileRname;
 			$('#ajaxcontainer').append(`
 						<div class="col-md-4 card-columns">
-							<div class="card" data-id=`+ post.postIdx + `>
+							<div class="card mb-2" data-id=`+ post.postIdx + `>
 								<div class="card-header d-flex justify-content-between">
 									<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
 									    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
 									    <span id="post-user">` + post.userId + `</span>
 										</a>
 								</div>
-								<div id="postcard" class="card-body view-btn shadow-sm" data-bs-toggle="modal" data-bs-target="#postModal">
+								<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
 									<div class="img-container">
 										<img id="post-img" src="` + imgPath + `" class="img-fluid mx-auto d-block">
 									</div>
@@ -204,9 +204,9 @@ function userPostCheck(post) {
 		$('div.card[data-id="' + post.postIdx + '"] .card-header .user-info').after(`
             <div class="btn-group">
                 <button type="button" id="btn-editdel" class="btn-blue btn-user dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
-                <ul class="dropdown-menu">
-                    <li><button type="button" class="btn btn-edit btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#updatePostModal">Edit</button></li>
-                    <li><button type="button" class="btn btn-delete btn-sm btn-outline-danger btn-post-delete">Delete</button></li>
+                <ul id="dropdown-editdel" class="dropdown-menu">
+                    <li><button type="button" class="btn btn-edit btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#updatePostModal">게시글 수정</button></li>
+                    <li><button type="button" class="btn btn-delete btn-sm btn-outline-danger btn-post-delete">게시글 삭제</button></li>
                 </ul>
             </div>`);
 	}
