@@ -15,8 +15,8 @@ public class SelectLike implements AjaxCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int postIdx = Integer.parseInt(request.getParameter("postIdx"));
 		String userId = request.getParameter("userId");
+		int postIdx = Integer.parseInt(request.getParameter("postIdx"));
 		
 		LikeVO lvo = new LikeVO();
 		lvo.setPostIdx(postIdx);

@@ -13,7 +13,9 @@ import com.smhrd.model.LikeVO;
 public class DeleteLike implements AjaxCommand {
 
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		System.out.println("좋아요 삭제 요청이 들어옴");
+		
 		String userId = request.getParameter("userId");
 		int postIdx = Integer.parseInt(request.getParameter("postIdx"));
 
