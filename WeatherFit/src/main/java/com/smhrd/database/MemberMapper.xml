@@ -132,8 +132,7 @@
 
 	<delete id="deleteLike" parameterType="com.smhrd.model.LikeVO">
 		delete from tb_like
-		where
-		userId = #{userId} and postIdx = #{postIdx}
+		where userId = #{userId} and postIdx = #{postIdx}
 	</delete>
 
 	<select id="selectLike" parameterType="com.smhrd.model.LikeVO"
@@ -182,10 +181,11 @@
 
 
 	<!-- 크롤링 데이터 불러오기 -->
-	<select id="selectCrawling"
-		resultType="com.smhrd.model.crawlingVO">
+	<select id="selectCrawling" parameterType="com.smhrd.model.CrawlingVO"
+		resultType="com.smhrd.model.CrawlingVO">
 		select *
 		from tb_crawling
+		where season=#{season}
 	</select>
 
 	<select id="selectFile" parameterType="com.smhrd.model.FileVO"

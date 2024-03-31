@@ -1,6 +1,5 @@
 package com.smhrd.database;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,9 +14,9 @@ import com.smhrd.model.LikeVO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.RoomVO;
 import com.smhrd.model.UserVO;
-import com.smhrd.model.crawlingVO;
+import com.smhrd.model.CrawlingVO;
 
-public class DAO<CrawlingVO> {
+public class DAO {
 
 	private SqlSessionFactory factory = MySqlSessionManager.getSqlSessionFactory();
 
@@ -184,11 +183,11 @@ public class DAO<CrawlingVO> {
 	
 	// 크롤링 데이터 가져오기
 	
-	public List<crawlingVO> selectCrawling() {
+	public List<CrawlingVO> selectCrawling(CrawlingVO cvo) {
 		SqlSession session = factory.openSession();
-		List<crawlingVO> resultCrawl = session.selectList("selectCrawling");
+		List<CrawlingVO> resultList = session.selectList("selectCrawling", cvo);
 		session.close();
-		return resultCrawl;
+		return resultList;
 	}
 
 	public List<PostVO> selectRecentPosts() {
