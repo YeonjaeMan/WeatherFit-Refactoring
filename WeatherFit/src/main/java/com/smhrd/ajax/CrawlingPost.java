@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.smhrd.database.DAO;
-import com.smhrd.model.crawlingVO;
+import com.smhrd.model.CrawlingVO;
 
 public class CrawlingPost implements AjaxCommand {
 
@@ -17,7 +17,7 @@ public class CrawlingPost implements AjaxCommand {
 		
 		
 		DAO dao = new DAO();
-		List<crawlingVO> crawling = dao.selectCrawling();
+		List<CrawlingVO> crawling = dao.selectCrawling();
 		
 		Gson gson = new Gson();
 		String json = gson.toJson(crawling);
