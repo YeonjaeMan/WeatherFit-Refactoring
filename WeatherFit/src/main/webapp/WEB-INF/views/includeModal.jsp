@@ -58,8 +58,7 @@
 					</form>
 
 
-					<div class="mb-2">
-					</div>
+					<div class="mb-2"></div>
 				</div>
 
 			</div>
@@ -251,7 +250,8 @@
 
 	<!-- 게시물 상세보기 모달 -->
 	<div class="modal fade" id="postModal" tabindex="-1"
-		aria-labelledby="postModalLabel" aria-hidden="true">
+		aria-labelledby="postModalLabel" aria-hidden="true"
+		style="max-height: 90vh; overflow: auto;">
 		<div class="modal-dialog modal-xl">
 			<div id="modal-postdetail" class="modal-content">
 				<div class="modal-body" id="cmtModal-css">
@@ -274,21 +274,25 @@
 							</div>
 							<!-- 오른쪽 영역 -->
 							<div class="col-md-6">
-								<button type="button" id="btn-postclose" class="btn-close"
-									data-bs-dismiss="modal" aria-label="Close"></button>
-								<div class="col-12" id="cmt-content"></div>
+								<div class="flex-container">
+									<div class="col-12" id="cmt-content"></div>
+									<button type="button" id="btn-postclose" class="btn-close"
+										data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
 								<div class="col-12" id="cmt-hashtag"
 									style="height: 10%; border-bottom: none;"></div>
 								<div id="like">
 									<!-- <i class="fa-regular fa-heart" id="like-heart"></i>   -->
 
 								</div>
-								<div class="col-12" id="cmt-cmt">
+								<div class="col-12">
 									<span id="comment-txt">댓글</span>
 									<div class="comment-section">
 										<div>
+
+											<div id="cmt-cmt" style="overflow: auto; max-height: 360px;"></div>
 											<c:if test="${member!=null}">
-												<div class="card-body">
+												<div class="card-body" style="margin-top: auto;">
 													<form class="form-horizontal" onsubmit='return false;'>
 
 														<div id="cmtinput-row" class="row">
@@ -296,10 +300,7 @@
 																<input class="form-control input-sm" id="newReplyText"
 																	type="text" name="cmtContent" placeholder="댓글을 입력하세요.">
 															</div>
-															<div class="form-group col-sm-2">
-																<input class="form-control input-sm" id="newReplyWriter"
-																	type="text" value="${member.userId}">
-															</div>
+
 															<div id="cmtsubmit-wrap" class="form-group col-sm-2">
 																<button type="submit"
 																	class="btn btn-blue btn-sm btn-block replyAddBtn"
@@ -310,6 +311,10 @@
 												</div>
 											</c:if>
 										</div>
+
+
+
+
 									</div>
 								</div>
 							</div>

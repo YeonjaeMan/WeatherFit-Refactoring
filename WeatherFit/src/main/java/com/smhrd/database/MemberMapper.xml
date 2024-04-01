@@ -76,7 +76,7 @@
 
 
 	<select id="commentselect" resultType="com.smhrd.model.CommentVO">
-		select * from tb_comment where postIdx = #{postIdx}
+		select * from tb_comment where postIdx = #{postIdx} 
 	</select>
 	
 	<insert id="comment" parameterType="com.smhrd.model.CommentVO">

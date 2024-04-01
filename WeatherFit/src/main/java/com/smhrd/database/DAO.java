@@ -84,9 +84,9 @@ public class DAO {
 	}
 	
 
-	public List<CommentVO> Commentselect(int postIdx) {
+	public List<CommentVO> Commentselect(CommentVO cvo) {
 		SqlSession session = factory.openSession();
-		List<CommentVO> resultList = session.selectList("commentselect",postIdx);
+		List<CommentVO> resultList = session.selectList("commentselect",cvo);
 		session.close();
 		return resultList;
 
