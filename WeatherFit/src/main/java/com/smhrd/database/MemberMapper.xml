@@ -132,8 +132,7 @@
 
 	<delete id="deleteLike" parameterType="com.smhrd.model.LikeVO">
 		delete from tb_like
-		where
-		userId = #{userId} and postIdx = #{postIdx}
+		where userId = #{userId} and postIdx = #{postIdx}
 	</delete>
 
 	<select id="selectLike" parameterType="com.smhrd.model.LikeVO"
@@ -151,8 +150,8 @@
 		where postIdx = #{postIdx}
 	</select>
 
-	<!-- 내 게시글 확인 기능 -->
-	<select id="selectMinePosts"
+	<!-- 유저 게시글 확인 기능 -->
+	<select id="selectUserPosts"
 		parameterType="com.smhrd.model.UserVO"
 		resultType="com.smhrd.model.PostVO">
 		select *
@@ -182,10 +181,11 @@
 
 
 	<!-- 크롤링 데이터 불러오기 -->
-	<select id="selectCrawling"
-		resultType="com.smhrd.model.crawlingVO">
+	<select id="selectCrawling" parameterType="com.smhrd.model.CrawlingVO"
+		resultType="com.smhrd.model.CrawlingVO">
 		select *
 		from tb_crawling
+		where season=#{season}
 	</select>
 
 	<select id="selectFile" parameterType="com.smhrd.model.FileVO"
@@ -228,5 +228,27 @@
 		delete from tb_user
 		where userId=#{userId}
 	</delete>
+	
+	<select id="selectUserInfo" parameterType="com.smhrd.model.UserVO" resultType="com.smhrd.model.UserVO">
+		select userId, userGender, userNick, userRegion, joinedAt, userHeight, userWeight, userProfileImg, userProfileInfo
+		from tb_user
+		where userId = #{userId}
+	</select>
+	
+	<insert id="insertFollowing" parameterType="com.smhrd.model.FollowingVO">
+		insert into tb_following(follower, followee)
+		values (#{follower}, #{followee})
+	</insert>
+	
+	<delete id="deleteFollowing" parameterType="com.smhrd.model.FollowingVO">
+		delete from tb_following
+		where follower = #{follower} and followee = #{followee}
+	</delete>
+	
+	<select id="selectFollow" parameterType="com.smhrd.model.FollowingVO" resultType="com.smhrd.model.FollowingVO">
+		select *
+		from tb_following
+		where follower = #{follower} and followee = #{followee}
+	</select>
 
 </mapper>

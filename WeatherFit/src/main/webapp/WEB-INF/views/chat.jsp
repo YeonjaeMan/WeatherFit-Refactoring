@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>chat</title>
+<title>WeatherFit</title>
 
 	<%@ include file="includeHeaders.jsp"%>
 <link rel="stylesheet" href="assets/css/chat.css">
@@ -21,9 +21,8 @@
 			<ul class="nav mb-auto">
 				<li id="btn-room-add">
 					<!-- Button trigger modal -->
-
 					<button type="button" id="btn-addchat" class="btn-blue"
-						data-bs-toggle="modal" data-bs-target="#exampleModal">채팅상대추가</button>
+						data-bs-toggle="modal" data-bs-target="#exampleModal">채팅방 추가</button>
 				</li>
 			</ul>
 		</div>

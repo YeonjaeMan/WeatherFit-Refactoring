@@ -46,12 +46,13 @@
 	flex-direction: column;
 	padding: 10px;
 	width: 700px;
-	max-width: 700px;;
+	max-width: 700px;
 	height: 600px;
 	border: 1px solid #ccc;
 	overflow-y: auto;
 }
 
+/* 메세지입력 전송버튼 */
 .message-send-container {
 	display: flex; /* Flexbox 레이아웃 적용 */
 	width: 700px;
@@ -65,6 +66,11 @@
 	width: calc(100% - 65px); /* 버튼 너비와 패딩을 고려한 너비 설정 */
 	height: 80px; /* 높이 설정 */
 	margin-right: 10px; /* 오른쪽 여백 추가 */
+	border-color: #ccc;
+}
+
+#message-input:focus {
+    outline: none;
 }
 
 #btn-send {
@@ -96,7 +102,7 @@
 	margin-top: 5px;
 }
 
-#chat-containter {
+#chat-container {
 	border: none;
 	width: 500px;
 }
@@ -109,8 +115,16 @@
 	float: left;
 }
 
+/* 채팅방 추가 버튼 */
 #btn-room-add {
 	width: 440px;
+}
+
+button#btn-addchat {
+    margin-left: 35px;
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: 18px;
 }
 
 .mb-auto {
