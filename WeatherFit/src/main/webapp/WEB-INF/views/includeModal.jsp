@@ -275,34 +275,28 @@
 									<!-- <i class="fa-regular fa-heart" id="like-heart"></i>   -->
 
 								</div>
-								<div class="col-12" id="cmt-cmt">
+								<div class="d-flex flex-column" id="cmt-cmt">
 									<span id="comment-txt">댓글</span>
 									<div class="comment-section">
-										<div>
-											<c:if test="${member!=null}">
-												<div class="card-body">
-													<form class="form-horizontal" onsubmit='return false;'>
-
-														<div id="cmtinput-row" class="row">
-															<div id="comment-input" class="form-group col-sm-10">
-																<input class="form-control input-sm" id="newReplyText"
-																	type="text" name="cmtContent" placeholder="댓글을 입력하세요.">
-															</div>
-															<div class="form-group col-sm-2">
-																<input class="form-control input-sm" id="newReplyWriter"
-																	type="text" value="${member.userId}">
-															</div>
-															<div id="cmtsubmit-wrap" class="form-group col-sm-2">
-																<button type="submit"
-																	class="btn btn-blue btn-sm btn-block replyAddBtn"
-																	id="insert-cmt">등록</button>
-															</div>
-														</div>
-													</form>
-												</div>
-											</c:if>
-										</div>
 									</div>
+									<c:if test="${member!=null}">
+										<div class="card-body col-12">
+											<form class="form-horizontal" onsubmit='return false;'>
+
+												<div id="cmtinput-row" class="row">
+													<div id="comment-input" class="form-group col-sm-10">
+														<input class="form-control input-sm" id="newReplyText"
+															type="text" name="cmtContent" placeholder="댓글을 입력하세요.">
+													</div>
+													<div id="cmtsubmit-wrap" class="form-group col-sm-2">
+														<button type="submit"
+															class="btn btn-blue btn-sm btn-block replyAddBtn"
+															id="insert-cmt">등록</button>
+													</div>
+												</div>
+											</form>
+										</div>
+									</c:if>
 								</div>
 							</div>
 						</div>

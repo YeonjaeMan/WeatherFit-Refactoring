@@ -60,7 +60,6 @@
 	<script src="assets/js/comment.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/imageupload.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/like.js?ver=<%=System.currentTimeMillis()%>"></script>
-	<!-- <script src="assets/js/crawlingView.js"></script> -->
 
 </body>
 </html>
