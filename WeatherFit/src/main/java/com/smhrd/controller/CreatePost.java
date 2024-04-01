@@ -29,7 +29,7 @@ public class CreatePost implements Command {
 		HttpSession session = request.getSession();
 		UserVO uvo = (UserVO) session.getAttribute("member");
 
-		int sizeLimit = 1024 * 1024;
+		int sizeLimit = 500 * 1024 * 1024;
 
 		String realPath = "C:/Users/smhrd/Desktop/-SNS/WeatherFit/src/main/webapp/assets/uploads";
 		System.out.println("파일 경로 : " + realPath);
