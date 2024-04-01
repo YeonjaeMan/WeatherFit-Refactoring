@@ -47,7 +47,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$(document).on("click", "#postcard", function() {
+	/*$(document).on("click", "#postcard", function() {
 		let postIdx = $(this).closest('.card').data('id');
 		console.log(postIdx);
 		let userId = $(this).closest('.card').find('#post-user').text();
@@ -92,7 +92,7 @@ $(document).ready(function() {
 
 		});
 
-	});
+	});*/
 
 });
 
@@ -164,28 +164,57 @@ function viewPost(post) {
 		dataType: "json",
 		success: function(images) {
 			let imgPath = "assets/uploads/" + images.fileRname;
-			$('#ajaxcontainer').append(`
-						<div class="col-md-4 card-columns">
-							<div class="card mb-2" data-id=`+ post.postIdx + `>
-								<div class="card-header d-flex justify-content-between">
-									<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
-									    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
-									    <span id="post-user">` + post.userId + `</span>
-										</a>
-								</div>
-								<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
-									<div class="img-container">
-										<img id="post-img" src="` + imgPath + `" class="img-fluid mx-auto d-block">
+			
+			if(post.postTemp == -999) {
+				post.postTemp = null;
+				$('#ajaxcontainer').append(`
+							<div class="col-md-4 card-columns">
+								<div class="card mb-2" data-id=`+ post.postIdx + `>
+									<div class="card-header d-flex justify-content-between">
+										<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
+										    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
+										    <span id="post-user">` + post.userId + `</span>
+											</a>
+									</div>
+									<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
+										<div class="img-container">
+											<img id="post-img" src="` + imgPath + `" class="img-fluid mx-auto d-block">
+										</div>
+									</div>
+									<div class="card-footer d-flex justify-content-between">
+										<p id="post-content" style="display:none;"> ` + post.postContent + ` </p>
+										<p id="post-temp" style="display:none;"> ` + post.postTemp + `</p>
+									    <text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ post.hashTag + `</text>
 									</div>
 								</div>
-								<div class="card-footer">
-									<p id="post-content" style="display:none;"> ` + post.postContent + ` </p>
-									<p id="post-temp" style="display:none;"> ` + post.postTemp + `</p>
-								    <text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ post.hashTag + `</text>
+							</div>`
+				);
+			} else {
+				post.postTemp = post.postTemp + "°C";
+				$('#ajaxcontainer').append(`
+							<div class="col-md-4 card-columns">
+								<div class="card mb-2" data-id=`+ post.postIdx + `>
+									<div class="card-header d-flex justify-content-between">
+										<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
+										    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
+										    <span id="post-user">` + post.userId + `</span>
+											</a>
+									</div>
+									<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
+										<div class="img-container">
+											<img id="post-img" src="` + imgPath + `" class="img-fluid mx-auto d-block">
+										</div>
+									</div>
+									<div class="card-footer d-flex justify-content-between">
+										<p id="post-content" style="display:none;"> ` + post.postContent + ` </p>
+									    <text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ post.hashTag + `</text>
+										<p id="post-temp"> ` + post.postTemp + `</p>
+									</div>
 								</div>
-							</div>
-						</div>`
-			);
+							</div>`
+				);
+			}
+			
 
 			userPostCheck(post);
 
