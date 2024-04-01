@@ -8,22 +8,22 @@ let webSocket; // 웹소켓 생성
 		data: { "userId": userId },
 		dataType: "json",
 		type: "post",
-		success: function(rooms) {
-			console.log(rooms);
-			for (let i = 0; i < rooms.length; i++) {
-				if (userId == rooms[i].userId) {
+		success: function(map) {
+			console.log(map);
+			for (let i = 0; i < map.room.length; i++) {
+				if (userId == map.room[i].userId) {
 					$("#btn-room-add").after(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
-									aria-current="page" data-val=` + rooms[i].roomIdx + `> <svg class="bi pe-none me-2" width="16"
+									aria-current="page" data-val=` + map.room[i].roomIdx + `> <svg class="bi pe-none me-2" width="16"
 									height="16">
 			                            <use xlink:href="#home" />
-			                    </svg>` + rooms[i].roomTitle +
+			                    </svg>` + map.user[i].userNick +
 						`</a></li>`);
 				} else {
 					$("#btn-room-add").after(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
-									aria-current="page" data-val=` + rooms[i].roomIdx + `> <svg class="bi pe-none me-2" width="16"
+									aria-current="page" data-val=` + map.room[i].roomIdx + `> <svg class="bi pe-none me-2" width="16"
 									height="16">
 			                            <use xlink:href="#home" />
-			                    </svg>` + rooms[i].userId +
+			                    </svg>` + map.user[i].userNick +
 						`</a></li>`);
 				}
 			}

@@ -218,12 +218,12 @@ function viewPost(post) {
 			if (sessionUserId == "") {
 				$(".card[data-id='" + post.postIdx + "'] .card-header").html(`<a id="userinfo-main" data-bs-toggle="modal" data-bs-target="#joinModal">
 				                                            <img src="assets/user_profile/` + map.user.userProfileImg + `" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
-				                                            <span id="post-user">` + post.userId + `</span>
+				                                            <span id="post-user">` + map.user.userNick + `</span>
 				                                        </a>`);
 			} else {
 				$(".card[data-id='" + post.postIdx + "'] .card-header").html(`<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
 										    <img src="assets/user_profile/` + map.user.userProfileImg + `" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
-										    <span id="post-user">` + post.userId + `</span>
+										    <span id="post-user">` + map.user.userNick + `</span>
 											</a>`);
 			}
 
