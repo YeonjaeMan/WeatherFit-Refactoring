@@ -12,10 +12,15 @@ $(document).on('click', '.card', function() { // .view-btn은 postIdx를 담기�
 		dataType: "json",
 		success: function(comment) {
 			console.log(comment)
+			for (let i = 0; i < comment.length; i++) {
+
+				$("#cmt-cmt").append(`
+					<p>`+ comment[i].userId + `</p>
+					<p>`+ comment[i].cmtContent + `</p>
+				`);
 
 
-			let targetPostIdx = postIdx;
-
+			}
 
 			// postIdx가 targetPostIdx와 일치하는 댓글들만 필터링
 			let filteredComments = comment.filter(comment => comment.postIdx === targetPostIdx);
@@ -36,11 +41,13 @@ $(document).on('click', '.card', function() { // .view-btn은 postIdx를 담기�
 			});
 
 
+
 		}, error: function() {
 			console.log("댓글 비동기 불러오기 실패")
 		}
 
 	});
+	$("#cmt-cmt").empty();
 	///////////////////////////////////////////////////////댓글영역끝///
 	///////////////////////////////////////////////// 게시물 상세보기 영역
 	$.ajax({
@@ -104,6 +111,8 @@ $(document).on('click', '.card', function() { // .view-btn은 postIdx를 담기�
 
 });
 
+
+
 document.querySelector("#newReplyText").addEventListener("keydown", (e) => {
 	if (e.key === 13) {
 		$("#insert-cmt").click();
@@ -124,6 +133,7 @@ $("#insert-cmt").on("click", function() {
 		type: "post",
 		success: function(s) {
 			$("input[name='cmtContent']").val("");
+
 			$.ajax({
 				url: "Comments.ajax",
 				data: { "postIdx": postIdx },
@@ -151,7 +161,7 @@ $("#insert-cmt").on("click", function() {
 
 				}
 			})
-
+			
 
 		}
 
