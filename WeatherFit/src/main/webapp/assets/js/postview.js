@@ -256,9 +256,9 @@ function viewCraw(craw) {
 					<div class="col-md-4 card-columns">
 						<div class="card" data-id=`+ craw.crawlingIdx + `>
 							<div class="card-header d-flex justify-content-between">
-								<span> WeatherFit 추천 </span>
+								<span id="recommend-text"> WeatherFit 추천 </span>
 								</div>
-								<div id="postcard" class="card-body view-btn shadow-sm">
+								<div id="postcard" class="card-body view-btn">
 									<div class="img-container">
 										<img id="post-img" src="` + craw.src + `" class="img-fluid mx-auto d-block">
 									</div>
