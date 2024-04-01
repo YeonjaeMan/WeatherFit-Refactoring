@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////// 댓글영역
 let postIdx;
-$(document).on('click', '.view-btn', function() { // .view-btn은 postIdx를 담기위함
+$(document).on('click', '.card', function() { // .view-btn은 postIdx를 담기위함 -> .card로 변경
 	// 선택개체를 바꾼다면 이부분을 바꿔야함
 	// postviews.js 에 있는것과 동일
 	postIdx = parseInt($(this).data('id'));
@@ -21,13 +21,13 @@ $(document).on('click', '.view-btn', function() { // .view-btn은 postIdx를 담
 			let filteredComments = comment.filter(comment => comment.postIdx === targetPostIdx);
 
 			// 필터링된 댓글들의 userId와 cmtContent를 출력
-			$(".comment-section").empty();
 			filteredComments.forEach(comment => {
 				$(".comment-section").append(`
         <div class="comment">
             <div class="comment-body">
-              <p class="comment-author">`+ comment.userId + `</p>
-              <p class="comment-text">`+ comment.cmtContent + `</p>
+              <span class="comment-author" style = "background-color:whitesmoke">`+ comment.userId + `</span>
+              <br>
+              <span class="comment-text" style = "background-color:yellow">`+ comment.cmtContent + `</span>
             </div>
           </div>
         `);
@@ -44,34 +44,33 @@ $(document).on('click', '.view-btn', function() { // .view-btn은 postIdx를 담
 	///////////////////////////////////////////////////////댓글영역끝///
 	///////////////////////////////////////////////// 게시물 상세보기 영역
 	$.ajax({
-		url: "Posts.ajax",
-		type: "get",
+		url: "Postdetail.ajax",
+		type: "post",
+		data: { "postIdx": postIdx },
 		dataType: "json",
 
 		success: function(data) {
-		console.log(data)
-			for (let i = 0; i < data.length; i++) {
-
-				$.ajax({
-					url: "Images.ajax",
-					data: { "postIdx": postIdx },
-					type: "post",
-					dataType: "json",
-					success: function(images) {
-						let imgPath = "assets/uploads/" + images.fileRname;
-						$("#cmt-user").html(data[i].userId);
-						$("#cmt-img").html(`<img src="` + imgPath + `">`);
-						$("#cmt-content").html(data[i].postContent);
-						$("#cmt-hashtag").html(data[i].hashTag);
 
 
-					},
-					error: function() {
-						alert("이미지 가져오기 실패..");
-					}
-				})
+			$.ajax({
+				url: "Images.ajax",
+				data: { "postIdx": postIdx },
+				type: "post",
+				dataType: "json",
+				success: function(images) {
+					let imgPath = "assets/uploads/" + images.fileRname;
+					$("#cmt-user").html(data[0].userId);
+					$("#cmt-img").html(`<img src="` + imgPath + `">`);
+					$("#cmt-content").html(data[0].postContent);
+					$("#cmt-hashtag").html(data[0].hashTag);
 
-			}
+
+				},
+				error: function() {
+					alert("이미지 가져오기 실패..");
+				}
+			})
+
 
 		},
 		error: function(err) {
@@ -114,11 +113,15 @@ $("#insert-cmt").on("click", function() {
 					$(".comment-author").empty();
 					$(".comment-text").empty();
 					for (let i = 0; i < d.length; i++) {
+					
+
+
 						$(".comment-section").append(`
         <div class="comment">
             <div class="comment-body">
-              <p class="comment-author">`+ d[i].userId + `</p>
-              <p class="comment-text">`+ d[i].cmtContent + `</p>
+              <span class="comment-author" style = "background-color:whitesmoke">`+ d[i].userId + `</span>
+              <br>
+              <span class="comment-text" style = "background-color:yellow">`+ d[i].cmtContent + `</span>
             </div>
           </div>
         `);

@@ -75,6 +75,14 @@ public class DAO {
 		return resultVO;
 
 	}
+	
+	public List<PostVO> Postdetail(PostVO pvo){
+		SqlSession session = factory.openSession();
+		List<PostVO> resultPVO = session.selectList("postdetail", pvo);
+		session.close();
+		return resultPVO;
+	}
+	
 
 	public List<CommentVO> Commentselect(int postIdx) {
 		SqlSession session = factory.openSession();
