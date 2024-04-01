@@ -16,6 +16,7 @@ import com.smhrd.ajax.Images;
 import com.smhrd.ajax.InsertLike;
 import com.smhrd.ajax.SelectLike;
 import com.smhrd.ajax.LoginCheck;
+import com.smhrd.ajax.Postdetail;
 import com.smhrd.ajax.UserPosts;
 import com.smhrd.ajax.Posts;
 import com.smhrd.ajax.RecentPosts;
@@ -45,7 +46,7 @@ public class AjaxController extends HttpServlet {
 		map.put("SelectLike.ajax", new SelectLike());
 		map.put("InsertLike.ajax", new InsertLike());
 		map.put("DeleteLike.ajax", new DeleteLike());
-
+		map.put("Postdetail.ajax", new Postdetail());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

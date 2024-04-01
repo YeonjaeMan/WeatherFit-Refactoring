@@ -201,6 +201,11 @@
 		order by createdAt desc
 	</select>
 	
+	<select id="postdetail" parameterType="com.smhrd.model.PostVO" resultType="com.smhrd.model.PostVO">
+		select *
+		from tb_post where postIdx=#{postIdx}
+	</select>
+	
 	<delete id="deletePost" parameterType="com.smhrd.model.PostVO">
 		delete from tb_post
 		where postIdx = #{postIdx}
