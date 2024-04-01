@@ -157,13 +157,15 @@ function recentPostView() {
 
 // 공통인 이미지를 가져오는 ajax와 더불어 브라우저에 html을 작성해주기
 function viewPost(post) {
+	console.log(typeof sessionUserId);
 	$.ajax({
 		url: "Images.ajax",
-		data: { "postIdx": post.postIdx },
+		data: { "postIdx": post.postIdx,
+				"userId" : post.userId },
 		type: "post",
 		dataType: "json",
-		success: function(images) {
-			let imgPath = "assets/uploads/" + images.fileRname;
+		success: function(map) {
+			let imgPath = "assets/uploads/" + map.file.fileRname;
 			
 			if(post.postTemp == -999) {
 				post.postTemp = null;
@@ -171,10 +173,7 @@ function viewPost(post) {
 							<div class="col-md-4 card-columns">
 								<div class="card mb-2" data-id=`+ post.postIdx + `>
 									<div class="card-header d-flex justify-content-between">
-										<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
-										    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
-										    <span id="post-user">` + post.userId + `</span>
-											</a>
+										
 									</div>
 									<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
 										<div class="img-container">
@@ -189,16 +188,14 @@ function viewPost(post) {
 								</div>
 							</div>`
 				);
+				
 			} else {
 				post.postTemp = post.postTemp + "°C";
 				$('#ajaxcontainer').append(`
 							<div class="col-md-4 card-columns">
 								<div class="card mb-2" data-id=`+ post.postIdx + `>
 									<div class="card-header d-flex justify-content-between">
-										<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
-										    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
-										    <span id="post-user">` + post.userId + `</span>
-											</a>
+										
 									</div>
 									<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
 										<div class="img-container">
@@ -213,8 +210,20 @@ function viewPost(post) {
 								</div>
 							</div>`
 				);
+				
 			}
 			
+			if(sessionUserId == "") {
+				        $(".card[data-id='" + post.postIdx + "'] .card-header").html(`<a id="userinfo-main" data-bs-toggle="modal" data-bs-target="#joinModal">
+				                                            <img src="assets/user_profile/` + map.user.userProfileImg + `" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
+				                                            <span id="post-user">` + post.userId + `</span>
+				                                        </a>`);
+				    } else {
+						$(".card[data-id='" + post.postIdx + "'] .card-header").html(`<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
+										    <img src="assets/user_profile/` + map.user.userProfileImg + `" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
+										    <span id="post-user">` + post.userId + `</span>
+											</a>`);
+					}
 
 			userPostCheck(post);
 

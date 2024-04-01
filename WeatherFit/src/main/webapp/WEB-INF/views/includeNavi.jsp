@@ -213,7 +213,7 @@
 				<c:choose>
 					<c:when test="${member==null}">
 						<li class="nav-item"><a class="nav-link"
-							data-bs-toggle="modal" data-bs-target="#loginModal"
+							data-bs-toggle="modal" data-bs-target="#joinModal"
 							href="javascript:alert('회원가입을 해주세요.')">메시지</a></li>
 						<button type="button" class="btn-blue" data-bs-toggle="modal"
 							data-bs-target="#loginModal">로그인</button>
@@ -227,7 +227,7 @@
 							<div class="btn-group">
 								<button type="button" class="btn-blue btn-user dropdown-toggle"
 									data-bs-toggle="dropdown" aria-expanded>
-									<i class="fa-solid fa-user"></i>
+									<img src="assets/user_profile/${member.userProfileImg}" style="width: 40px; height: 40px; border-radius: 50%;"> 
 								</button>
 								<ul id="dropdown-user" class="dropdown-menu">
 									<li><a class="dropdown-item"

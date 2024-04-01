@@ -25,6 +25,7 @@ import com.smhrd.controller.Post;
 import com.smhrd.controller.Profile;
 import com.smhrd.controller.Update;
 import com.smhrd.controller.UpdatePost;
+import com.smhrd.controller.UpdateProfile;
 import com.smhrd.controller.UpdateUserInfo;
 
 @WebServlet("*.do")
@@ -50,6 +51,7 @@ public class FrontController extends HttpServlet {
 		map.put("Profile.do", new Profile());
 		map.put("InsertFollowing.do", new InsertFollowing());
 		map.put("DeleteFollowing.do", new DeleteFollowing());
+		map.put("UpdateProfile.do", new UpdateProfile());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
