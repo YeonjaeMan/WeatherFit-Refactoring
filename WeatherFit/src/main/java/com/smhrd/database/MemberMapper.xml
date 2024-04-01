@@ -16,8 +16,8 @@
 		insert into tb_user(userId,
 		userPw, userName, userNick, userGender,
 		userRegion, userWeight,
-		userHeight)
-		values(#{userId},#{userPw},#{userName},#{userNick},#{userGender},#{userRegion},#{userWeight},#{userHeight})
+		userHeight, userProfileImg, userProfileInfo)
+		values(#{userId},#{userPw},#{userName},#{userNick},#{userGender},#{userRegion},#{userWeight},#{userHeight},#{userProfileImg},#{userProfileInfo})
 	</insert>
 
 
@@ -226,6 +226,12 @@
 	<update id="updateUserInfo" parameterType="com.smhrd.model.UserVO">
 		update tb_user
 		set userPw=#{userPw}, userNick=#{userNick}, userRegion=#{userRegion}, userHeight=#{userHeight}, userWeight=#{userWeight}
+		where userId=#{userId}
+	</update>
+	
+	<update id="updateProfileInfo" parameterType="com.smhrd.model.UserVO">
+		update tb_user
+		set userNick=#{userNick}, userProfileImg=#{userProfileImg}, userProfileInfo=#{userProfileInfo}
 		where userId=#{userId}
 	</update>
 	
