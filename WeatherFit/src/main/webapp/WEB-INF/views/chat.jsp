@@ -35,7 +35,6 @@
 		<div class="modal-dialog" role="document">
 			<div id="modal-chatadd" class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title fw-bold mb-0 text-center w-100" id="exampleModalLabel">채팅방 추가</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -45,7 +44,7 @@
 							<span class="input-group-text" id="basic-addon1">@userid</span>
 						</div>
 						<input type="text" name="receiveUserId" class="form-control"
-							placeholder="아이디 입력" aria-label="Username"
+							placeholder="채팅상대 아이디 입력" aria-label="Username"
 							aria-describedby="basic-addon1"> <input type="hidden"
 							name="sendUserId" value="${member.userId}">
 					</div>
