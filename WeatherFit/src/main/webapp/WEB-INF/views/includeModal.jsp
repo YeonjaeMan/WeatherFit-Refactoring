@@ -33,7 +33,8 @@
 				<div class="modal-body">
 
 
-					<form action="Login.do" method="post" onsubmit="return loginCheck()">
+					<form action="Login.do" method="post"
+						onsubmit="return loginCheck()">
 						<div></div>
 						<div class="form-floating">
 							<input type="text" class="form-control" id="floatingInput"
@@ -53,16 +54,11 @@
 						</div>
 						<div class="mb-2"></div>
 						<button class="btn-blue w-100 py-2" type="submit">로그인</button>
-					
-					</form>
-					
-					
-					<div class="mb-2">
-						<!-- 회원가입 Modal -->
-						<!-- Modal Trigger -->
 
-						<!-- 회원가입 Modal -->
-					</div>
+					</form>
+
+
+					<div class="mb-2"></div>
 				</div>
 
 			</div>
@@ -99,20 +95,13 @@
 						</div>
 
 						<div class="mb-3">
-							<div class="row">
-								<div class="col">
-									<label for="password2Modal">이름</label> <input type="text"
-										class="form-control" id="password2Modal" name="userName"
-										required>
-									<div class="invalid-feedback">이름을 입력해주세요.</div>
-								</div>
-								<div class="col">
-									<label for="nicknameModal">닉네임</label> <input type="text"
-										class="form-control" id="nicknameModal" name="userNick"
-										required>
-									<div class="invalid-feedback">닉네임을 입력해주세요.</div>
-								</div>
-							</div>
+							<label for="password2Modal">이름</label> <input type="text"
+								class="form-control" id="password2Modal" name="userName"
+								required>
+							<div class="invalid-feedback">이름을 입력해주세요.</div>
+							<label for="nicknameModal">닉네임</label> <input type="text"
+								class="form-control" id="nicknameModal" name="userNick" required>
+							<div class="invalid-feedback">닉네임을 입력해주세요.</div>
 						</div>
 
 						<fieldset class="mb-3">
@@ -263,9 +252,13 @@
 							<!-- 왼쪽 영역 -->
 							<div class="col-md-6">
 								<div class="row">
-									<div class="col-12 mb-2 display-inline d-flex justify-content-between" id="cmt-user">
-										<svg id="message" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-					                    	<path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
+									<div
+										class="col-12 mb-2 display-inline d-flex justify-content-between"
+										id="cmt-user">
+										<svg id="message" xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 512 512">
+					                    	<path
+												d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
 					                    </svg>
 									</div>
 									<img class="col-12" id="cmt-img" src=""></img>
@@ -273,41 +266,37 @@
 							</div>
 							<!-- 오른쪽 영역 -->
 							<div class="col-md-6">
-								<button type="button" id="btn-postclose" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
+								<button type="button" id="btn-postclose" class="btn-close"
+									data-bs-dismiss="modal" aria-label="Close"></button>
 								<div class="col-12" id="cmt-content"></div>
 								<div class="col-12" id="cmt-hashtag"
 									style="height: 10%; border-bottom: none;"></div>
-									<div id="like">
-										<!-- <i class="fa-regular fa-heart" id="like-heart"></i>   -->
-										
-									</div>
-								<div class="col-12" id="cmt-cmt">
-								<span id="comment-txt">댓글</span>
+								<div id="like">
+									<!-- <i class="fa-regular fa-heart" id="like-heart"></i>   -->
+
+								</div>
+								<div class="d-flex flex-column" id="cmt-cmt">
+									<span id="comment-txt">댓글</span>
 									<div class="comment-section">
+									</div>
 									<c:if test="${member!=null}">
-										<div class="card-body">
+										<div class="card-body col-12">
 											<form class="form-horizontal" onsubmit='return false;'>
-									</c:if>
+
 												<div id="cmtinput-row" class="row">
 													<div id="comment-input" class="form-group col-sm-10">
 														<input class="form-control input-sm" id="newReplyText"
 															type="text" name="cmtContent" placeholder="댓글을 입력하세요.">
 													</div>
-													<!-- <div class="form-group col-sm-2">
-														<input class="form-control input-sm" id="newReplyWriter"
-															type="text" value="${member.userId}">
-													</div>  -->
 													<div id="cmtsubmit-wrap" class="form-group col-sm-2">
 														<button type="submit"
 															class="btn btn-blue btn-sm btn-block replyAddBtn"
-															id="insert-cmt">등록
-														</button>
+															id="insert-cmt">등록</button>
 													</div>
 												</div>
 											</form>
 										</div>
-									</div>
+									</c:if>
 								</div>
 							</div>
 						</div>
@@ -316,41 +305,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- 채팅방 생성 모달 -->
-	<div class="modal fade" id="createRoomModal" tabindex="-1"
-		role="dialog" aria-labelledby="createRoomModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3 class="modal-title fw-bold mb-0 text-center w-100"
-						id="exampleModalLabel">채팅상대입력</h3>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<form action="CreateRoom.do" method="post">
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="basic-addon1">@UserId</span>
-						</div>
-						<input type="text" name="receiveUserId" class="form-control"
-							placeholder="UserId" aria-label="Username"
-							aria-describedby="basic-addon1"> <input type="hidden"
-							name="sendUserId" value="${member.userId}">
-					</div>
-					<div>
-						<button class="btn btn-blue">채팅방생성</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
 
 
 	<!-- 회원정보수정 모달 -->
@@ -418,7 +372,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title fw-bold mb-0 text-center w-100" id="exampleModalLabel">게시글 작성</h3>
+					<h3 class="modal-title fw-bold mb-0 text-center w-100"
+						id="exampleModalLabel">게시글 작성</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -428,8 +383,8 @@
 						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
-								class="form-control" type="file" id="imageUpload"
-								name="postImg" accept="image/*"><br>
+								class="form-control" type="file" id="imageUpload" name="postImg"
+								accept="image/*"><br>
 							<!-- 이미지 미리보기를 위한 태그 -->
 							<img id="imagePreview" alt="Image Preview"
 								class="img-fluid mx-auto d-block"
@@ -453,7 +408,7 @@
 								name="hashTags" placeholder="#해시태그">
 							<ul id="hashtagList"></ul>
 						</div>
-						<div>
+						<div style="text-align: right;">
 							<button type="submit" class="btn btn-blue justify-content-end">작성하기</button>
 						</div>
 					</form>
@@ -475,8 +430,8 @@
 				</div>
 				<div class="modal-body">
 					<!-- 게시글 작성 폼 -->
-					<form id="update-imageUploadForm" action="UpdatePost.do" method="post"
-						enctype="multipart/form-data">
+					<form id="update-imageUploadForm" action="UpdatePost.do"
+						method="post" enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
 								class="form-control" type="file" id="update-imageUpload"
@@ -494,8 +449,8 @@
 						<fieldset class="mb-3">
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="postTemp"
-									value="" id="update-postTemp"> <label class="form-check-label"
-									for="postTemp"> 현재 기온 표기 </label>
+									value="" id="update-postTemp"> <label
+									class="form-check-label" for="postTemp"> 현재 기온 표기 </label>
 							</div>
 						</fieldset>
 						<div class="mb-3">
@@ -512,8 +467,8 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<script src="assets/js/validation.js"></script>
-	
+
 </body>
 </html>

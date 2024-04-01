@@ -75,6 +75,14 @@ public class DAO {
 		return resultVO;
 
 	}
+	
+	public List<PostVO> Postdetail(PostVO pvo){
+		SqlSession session = factory.openSession();
+		List<PostVO> resultPVO = session.selectList("postdetail", pvo);
+		session.close();
+		return resultPVO;
+	}
+	
 
 	public List<CommentVO> Commentselect(int postIdx) {
 		SqlSession session = factory.openSession();
@@ -221,6 +229,13 @@ public class DAO {
 	public int updateUserInfo(UserVO uvo) {
 		SqlSession session = factory.openSession(true);
 		int row = session.update("updateUserInfo", uvo);
+		session.close();
+		return row;
+	}
+	
+	public int updateProfileInfo(UserVO uvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("updateProfileInfo", uvo);
 		session.close();
 		return row;
 	}

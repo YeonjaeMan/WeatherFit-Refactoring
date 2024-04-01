@@ -41,6 +41,7 @@
 	height: 100%; /* 부모 요소(#chatroom-display)의 높이와 동일하게 설정 */
 }
 
+/* 메세지 출력창 */
 .chat-container {
 	display: flex;
 	flex-direction: column;
@@ -50,6 +51,20 @@
 	height: 600px;
 	border: 1px solid #ccc;
 	overflow-y: auto;
+}
+
+/* 스크롤바 스타일 */
+#chat-container::-webkit-scrollbar {
+	width: 15px; /* 스크롤바 너비 */
+}
+
+#chat-container::-webkit-scrollbar-thumb {
+	background: #DDE6ED; /* 스크롤바 색상 */
+	border-radius: 2px; /* 스크롤바 모서리 둥글게 */
+}
+
+#chat-container::-webkit-scrollbar-thumb:hover {
+	background: #C5DFF8; /* 스크롤바 색상 (호버 시) */
 }
 
 /* 메세지입력 전송버튼 */
@@ -70,7 +85,7 @@
 }
 
 #message-input:focus {
-    outline: none;
+	outline: none;
 }
 
 #btn-send {
@@ -102,17 +117,23 @@
 	margin-top: 5px;
 }
 
-#chat-container {
-	border: none;
-	width: 500px;
+/* 채팅방 목록 */
+#chatlist {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-weight: bolder !important;
+	font-size: 17px;
+	padding: 16px;
+	margin-left: 22px;
 }
 
-/* 채팅방 목록 */
 #menu-room {
 	width: 300px;
 	min-height: calc(100vh - 56px);
 	left: 0; /* 왼쪽에 고정시킵니다. */
 	float: left;
+	padding-right: 0px !important;
+	padding-left: 0px !important;
 }
 
 /* 채팅방 추가 버튼 */
@@ -121,25 +142,78 @@
 }
 
 button#btn-addchat {
-    margin-left: 35px;
-    margin-top: 10px;
-    font-weight: bolder;
-    font-size: 18px;
+	width: 35px;
+	height: 35px;
+	font-size: 30px !important;
+	font-weight: 900;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	background-color: transparent;
+	border: none;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	color: black;
+}
+
+#btn-addchat:hover {
+	cursor: pointer;
+	color: #4A55A2;
 }
 
 .mb-auto {
 	display: block;
 }
 
+/* 채팅상대목록 */
 #chat-idlist {
 	color: #4A55A2 !important;
 	text-decoration: none !important;
 	text-decoration-line: none !important;
 	font-weight: bolder !important;
-	font-size: 18px;
+	font-size: 15px;
 }
 
 #chat-idlist:hover {
-	transform: scale(1.05);
 	cursor: pointer;
+	background-color: #C5DFF8;
+	transform: none !important;
+}
+
+.active {
+	background-color: #C5DFF8;
+}
+
+/* 채팅방 생성 모달 */
+#modal-chatadd {
+	width: 70%;
+}
+
+.modal-footer {
+	border-top: none;
+}
+
+/* 아이디 입력창 */
+.input-group {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 7%;
+}
+
+.input-group-text {
+	border-bottom-right-radius: 0px;
+	border-top-right-radius: 0px;
+	padding: .375rem .5rem;
+	font-weight: 500;
+}
+
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback)
+	{
+	border-top-right-radius: var(--bs-border-radius);
+	border-bottom-right-radius: var(--bs-border-radius);
 }

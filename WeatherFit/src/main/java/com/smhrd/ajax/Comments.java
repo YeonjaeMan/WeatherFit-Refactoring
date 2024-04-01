@@ -18,9 +18,8 @@ public class Comments implements AjaxCommand {
 		response.setContentType("text/html;charset=UTF-8");
 
 		int postIdx = Integer.parseInt(request.getParameter("postIdx"));
-		System.out.println(postIdx);
-		System.out.println("비동기댓글들어오냐?");
-		CommentVO commentVO = new CommentVO();
+//		System.out.println(postIdx);
+//		System.out.println("비동기댓글들어오냐?");
 
 		DAO dao = new DAO();
 		List<CommentVO> commentlist = dao.Commentselect(postIdx);
