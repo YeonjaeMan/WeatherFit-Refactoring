@@ -12,14 +12,14 @@ let webSocket; // 웹소켓 생성
 			console.log(rooms);
 			for (let i = 0; i < rooms.length; i++) {
 				if (userId == rooms[i].userId) {
-					$("#btn-room-add").before(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
+					$("#btn-room-add").after(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
 									aria-current="page" data-val=` + rooms[i].roomIdx + `> <svg class="bi pe-none me-2" width="16"
 									height="16">
 			                            <use xlink:href="#home" />
 			                    </svg>` + rooms[i].roomTitle +
 						`</a></li>`);
 				} else {
-					$("#btn-room-add").before(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
+					$("#btn-room-add").after(`<li class="nav-item"><a href="#" id="chat-idlist" class="chatroom nav-link active"
 									aria-current="page" data-val=` + rooms[i].roomIdx + `> <svg class="bi pe-none me-2" width="16"
 									height="16">
 			                            <use xlink:href="#home" />
@@ -27,6 +27,14 @@ let webSocket; // 웹소켓 생성
 						`</a></li>`);
 				}
 			}
+			// 채팅방 클릭시 배경색 추가
+			$('.chatroom').removeClass('active');
+			$('.chatroom').on('click', function() {
+				// 모든 채팅방 항목의 'active' 클래스를 제거
+				$('.chatroom').removeClass('active');
+				// 현재 클릭된 채팅방 항목에만 'active' 클래스 추가
+				$(this).addClass('active');
+			});
 
 		},
 		error: function() {
@@ -34,6 +42,9 @@ let webSocket; // 웹소켓 생성
 		}
 	});
 }());
+
+
+
 
 // 채팅방 클릭시 채팅화면 로딩 
 $(document).on("click", ".chatroom", function(event) {

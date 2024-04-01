@@ -122,7 +122,6 @@ function recoPostView(T1H) {
 					viewCraw(recoPosts[i]);
 				}
 			}
-
 		},
 		error: function() {
 			alert("추천 게시글 연결 실패");
