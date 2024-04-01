@@ -104,7 +104,7 @@
 			<hr class="line" id="line2">
 			<div>
 				<div id="ajaxcontainer"
-					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-1"></div>
 				<!-- ajax게시판바로불러오기 -->
 			</div>
 		</div>

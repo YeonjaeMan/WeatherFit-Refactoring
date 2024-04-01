@@ -14,11 +14,12 @@
 .modal-header {
 	border-bottom: none;
 	padding-bottom: 0px;
+	
 }
 
 .modal-title {
 	color: #4A55A2;
-	font-size: 22px;
+	font-size: 25px;
 }
 
 /* 로그인 모달 - 회원가입 버튼 */
@@ -72,6 +73,10 @@ input#floatingInput {
 
 /* 사진 영역 스타일 */
 #cmt-img {
+	width: 429px;
+    height: 500px;
+	max-width: 429px;
+	max-height: 500px;
 	border-bottom: none;
 	background-color: #fff; /* 배경 색상 */
 	padding: 10px; /* 여백 */
@@ -79,8 +84,8 @@ input#floatingInput {
 }
 
 /* 닫기버튼 */
-#btn-postclose {
-	float: right;
+#btn-postclose{
+	float:right;
 }
 
 /* 게시글 내용 영역 스타일 */
@@ -137,15 +142,11 @@ input#floatingInput {
 	font-weight: bold;
 }
 
-#cmtinput-row {
-	position: absolute;
-	bottom: 10px;
-	left: 10px;
-	right: 10px;
-}
+
 
 /* 댓글입력창 */
 #comment-input {
+	margin-top:auto;
 	padding-right: 0px;
 }
 
@@ -153,12 +154,30 @@ input#floatingInput {
 #insert-cmt {
 	width: 50px;
 	height: 35px;
-	font-size: 15px !important;
+	font-size: 15px;
 }
 
 #cmtsubmit-wrap {
 	padding-left: 8px;
 }
+
+
+.flex-container {
+    display: flex; /* Flexbox 레이아웃 활성화 */
+    justify-content: space-between; /* 아이템들을 양 끝으로 정렬 */
+    align-items: center; /* 아이템들을 세로 중앙에 정렬 */
+    width: 100%; /* 컨테이너의 너비 설정 */
+}
+
+/* 필요에 따라 추가 스타일을 적용할 수 있습니다 */
+#btn-postclose {
+    margin-right: 10px; /* 버튼과 div 사이의 간격 조정 */
+}
+
+#cmt-content {
+    flex-grow: 1; /* div가 남은 공간을 모두 차지하도록 설정 */
+}
+
 
 /* 스크롤바 스타일 */
 #cmt-content::-webkit-scrollbar, #cmt-hashtag::-webkit-scrollbar,
@@ -169,11 +188,10 @@ input#floatingInput {
 #cmt-content::-webkit-scrollbar-thumb, #cmt-hashtag::-webkit-scrollbar-thumb,
 	#cmt-cmt::-webkit-scrollbar-thumb {
 	background: #DDE6ED; /* 스크롤바 색상 */
-	border-radius: 2px; /* 스크롤바 모서리 둥글게 */
+	border-radius: 5px; /* 스크롤바 모서리 둥글게 */
 }
 
 #cmt-content::-webkit-scrollbar-thumb:hover, #cmt-hashtag::-webkit-scrollbar-thumb:hover,
 	#cmt-cmt::-webkit-scrollbar-thumb:hover {
 	background: #7895CB; /* 스크롤바 색상 (호버 시) */
 }
-
