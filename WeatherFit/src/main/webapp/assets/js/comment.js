@@ -49,7 +49,7 @@ $(document).on('click', '.view-btn', function() { // .view-btn은 postIdx를 담
 		dataType: "json",
 
 		success: function(data) {
-
+		console.log(data)
 			for (let i = 0; i < data.length; i++) {
 
 				$.ajax({

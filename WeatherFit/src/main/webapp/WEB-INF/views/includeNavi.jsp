@@ -12,22 +12,20 @@
 
 <style>
 
-
-
 /* 헤더 색 */
 #header {
 	background-color: #C5DFF8;
 	top: 0;
 	padding: 5px;
 	padding-top: 10px;
-    width: 100%; /* 헤더의 너비를 화면 전체 크기로 설정 */
-    z-index: 1000;
+	width: 100%; /* 헤더의 너비를 화면 전체 크기로 설정 */
+	z-index: 1000;
 }
 
 /* 로고 */
 #title-logo {
 	width: 330px;
-	margin-left: 4%;
+	margin-left: 14%;
 }
 
 .title {
@@ -51,6 +49,7 @@
 	transition: 0.25s;
 	background-color: #7895CB;
 	color: white;
+	font-weight: bolder;
 }
 
 .btn-blue:hover {
@@ -60,7 +59,24 @@
 }
 
 .btn-user {
-margin-left: 10px;
+	margin-left: 10px;
+}
+
+/* 탈퇴 버튼 */
+#btn-deleteUser {
+	position: relative;
+	border: none;
+	display: inline-block;
+	width: 80%;
+	margin-top: 3px;
+	border-radius: 8px;
+	/* font-family: "paybooc-Light", sans-serif; */
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+	background-color: rgb(245, 87, 87);
+	color: white;
+	font-weight: bolder;
 }
 
 /* 로그아웃 버튼 */
@@ -77,6 +93,7 @@ margin-left: 10px;
 	transition: 0.25s;
 	background-color: #A0BFE0;
 	color: white;
+	font-weight: bolder;
 }
 
 #btn-logout:hover {
@@ -87,21 +104,22 @@ margin-left: 10px;
 /* 게시글 작성 버튼 */
 #btn-create-post {
 	position: fixed; /* 고정 위치 */
-	bottom: 10%;
-	right: 13%;
+	bottom: 15%;
+	right: 10%;
 	width: 55px;
 	height: 55px;
-	font-size: 50px;
+	font-size: 50px !important;
 	justify-content: center;
 	align-items: center;
 	display: flex;
 	border-radius: 50%;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	z-index: 9999;
 }
 
 #plus {
-    margin-bottom: 12px;
+	margin-bottom: 12px;
 }
 
 /* 프로필(사용자) 아이콘 */
@@ -121,6 +139,10 @@ margin-left: 10px;
 	text-align: center;
 }
 
+#dropdown-user.show {
+	transform: translate(-97px, 45px) !important;
+}
+
 /* 메뉴 */
 .nav-link {
 	color: #4A55A2 !important;
@@ -135,9 +157,6 @@ margin-left: 10px;
 	transform: scale(1.1);
 	cursor: pointer;
 }
-
-
-
 </style>
 
 
@@ -171,8 +190,10 @@ margin-left: 10px;
 				<c:choose>
 					<c:when test="${member==null}">
 						<li class="nav-item"><a class="nav-link"
+							data-bs-toggle="modal" data-bs-target="#loginModal"
 							href="javascript:alert('회원가입을 해주세요.')">검색</a></li>
 						<li class="nav-item"><a class="nav-link"
+							data-bs-toggle="modal" data-bs-target="#loginModal"
 							href="javascript:alert('회원가입을 해주세요.')">메시지</a></li>
 						<button type="button" class="btn-blue" data-bs-toggle="modal"
 							data-bs-target="#loginModal">로그인</button>
@@ -189,18 +210,23 @@ margin-left: 10px;
 								data-bs-toggle="dropdown" aria-expanded>
 								<i class="fa-solid fa-user"></i>
 							</button>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="goprofile.do">프로필 확인</a></li>
+							<ul id="dropdown-user" class="dropdown-menu">
+								<li><a class="dropdown-item"
+									href="Profile.do?userId=${member.userId}">프로필 확인</a></li>
 								<li><a class="dropdown-item" data-bs-toggle="modal"
 									data-bs-target="#profileUpdateModal">프로필 수정</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a id="btn-logout" class="dropdown-item" href="#">로그아웃</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a id="btn-deleteUser" class="dropdown-item"
+									href="DeleteUserInfo.do">회원탈퇴</a></li>
 							</ul>
 						</div>
 						<button type="button" id="btn-create-post"
 							class="btn btn-blue round-button fixed-button"
 							data-bs-toggle="modal" data-bs-target="#createPostModal">
-							<span id="plus">+</span></button>
+							<span id="plus">+</span>
+						</button>
 					</c:when>
 
 				</c:choose>
@@ -208,7 +234,6 @@ margin-left: 10px;
 
 		</div>
 	</header>
-
 
 	<%@ include file="includeModal.jsp"%>
 	<script src="assets/js/login.js?ver=<%=System.currentTimeMillis()%>"></script>

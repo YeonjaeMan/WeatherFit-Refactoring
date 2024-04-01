@@ -1,0 +1,64 @@
+.btn-blue {
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 5px 10px;
+	margin-top: 3px;
+	border-radius: 8px;
+	/* font-family: "paybooc-Light", sans-serif; */
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+	background-color: #7895CB;
+	color: white;
+	font-weight: bolder;
+	font-size: 18px !important;
+}
+
+.btn-blue:hover {
+	background-color: #DDE6ED;
+	cursor: pointer;
+	color: #4A55A2;
+}
+
+/* 피드 밑 여백 */
+div#ajaxcontainer {
+    margin-bottom: 7%;
+}
+
+
+/* 메인페이지 게시글 토글버튼 */
+#maintoggle {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.btn-outline {
+	border-color: #7895CB; /* 선택되지 않았을 때의 outline 색상 변경 */
+	color: #7895CB; /* 선택되지 않았을 때의 글자 색상 */
+	background-color: transparent; /* 선택되지 않았을 때의 배경 색상 */
+	font-weight: bolder;
+}
+
+.btn-outline:hover {
+	border-color: #7895CB !important;
+	color: #7895CB !important;
+}
+
+
+
+/* "최근" 버튼에 대한 기본 상태 */
+#recent:checked+.btn-outline {
+	border-color: #7895CB;
+	background-color: #7895CB;
+	color: white !important;
+	font-weight: bolder;
+}
+
+/* "추천" 버튼에 대한 기본 상태  */
+#recommand:checked+.btn-outline {
+	border-color: #7895CB;
+	background-color: #7895CB;
+	color: white !important;
+	font-weight: bolder;
+}

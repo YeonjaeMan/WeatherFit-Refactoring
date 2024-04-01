@@ -1,6 +1,5 @@
 package com.smhrd.database;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,13 +9,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.smhrd.model.ChatVO;
 import com.smhrd.model.CommentVO;
 import com.smhrd.model.FileVO;
+import com.smhrd.model.FollowingVO;
 import com.smhrd.model.LikeVO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.RoomVO;
 import com.smhrd.model.UserVO;
-import com.smhrd.model.crawlingVO;
+import com.smhrd.model.CrawlingVO;
 
-public class DAO<CrawlingVO> {
+public class DAO {
 
 	private SqlSessionFactory factory = MySqlSessionManager.getSqlSessionFactory();
 
@@ -158,10 +158,10 @@ public class DAO<CrawlingVO> {
 		return resultList;
 	}
 
-	// 내 게시글 확인 기능
-	public List<PostVO> selectMinePosts(UserVO uvo) {
+	// 특정 유저 게시글 확인 기능
+	public List<PostVO> selectUserPosts(UserVO uvo) {
 		SqlSession session = factory.openSession();
-		List<PostVO> resultList = session.selectList("selectMinePosts", uvo);
+		List<PostVO> resultList = session.selectList("selectUserPosts", uvo);
 		session.close();
 		return resultList;
 	}
@@ -183,11 +183,11 @@ public class DAO<CrawlingVO> {
 	
 	// 크롤링 데이터 가져오기
 	
-	public List<crawlingVO> selectCrawling() {
+	public List<CrawlingVO> selectCrawling(CrawlingVO cvo) {
 		SqlSession session = factory.openSession();
-		List<crawlingVO> resultCrawl = session.selectList("selectCrawling");
+		List<CrawlingVO> resultList = session.selectList("selectCrawling", cvo);
 		session.close();
-		return resultCrawl;
+		return resultList;
 	}
 
 	public List<PostVO> selectRecentPosts() {
@@ -217,5 +217,47 @@ public class DAO<CrawlingVO> {
 		session.close();
 		return row;
 	}
+
+	public int updateUserInfo(UserVO uvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("updateUserInfo", uvo);
+		session.close();
+		return row;
+	}
+
+	public int deleteUserInfo(UserVO uvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("deleteUserInfo", uvo);
+		session.close();
+		return row;
+	}
+
+	public UserVO selectUserInfo(UserVO uvo) {
+		SqlSession session = factory.openSession();
+		UserVO resultVO = session.selectOne("selectUserInfo", uvo);
+		session.close();
+		return resultVO;
+	}
 	
+	public int insertFollowing(FollowingVO flvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.insert("insertFollowing", flvo);
+		session.close();
+		return row;
+	}
+	
+	public int deleteFollowing(FollowingVO flvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.delete("deleteFollowing", flvo);
+		session.close();
+		return row;
+	}
+	
+	public FollowingVO selectFollow(FollowingVO flvo) {
+		SqlSession session = factory.openSession();
+		FollowingVO resultVO = session.selectOne("selectFollow", flvo);
+		session.close();
+		return resultVO;
+	}
+
 }

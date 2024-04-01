@@ -6,67 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
-<style type="text/css">
-
-/* 작성자 닉네임 영역 스타일 */
-#cmt-user {
-	background-color: #e9ecef; /* 배경 색상 */
-	padding: 10px; /* 여백 */
-	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-	font-weight: bold; /* 글꼴 굵기 */
-	text-align: center; /* 텍스트 가운데 정렬 */
-}
-
-/* 사진 영역 스타일 */
-#cmt-img {
-	background-color: #fff; /* 배경 색상 */
-	padding: 10px; /* 여백 */
-	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-	text-align: center; /* 텍스트 가운데 정렬 */
-}
-
-/* 게시글 내용 영역 스타일 */
-#cmt-content {
-	background-color: #fff; /* 배경 색상 */
-	padding: 10px; /* 여백 */
-	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-	overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
-}
-
-/* 해시태그 영역 스타일 */
-#cmt-hashtag {
-	background-color: #fff; /* 배경 색상 */
-	padding: 10px; /* 여백 */
-	border-bottom: 1px solid #dee2e6; /* 하단 경계선 */
-	text-align: center; /* 텍스트 가운데 정렬 */
-}
-
-/* 댓글 영역 스타일 */
-#cmt-cmt {
-	background-color: #fff; /* 배경 색상 */
-	padding: 10px; /* 여백 */
-	overflow-y: auto; /* 내용이 넘칠 경우 스크롤 */
-}
-
-/* 스크롤바 스타일 */
-#cmt-content::-webkit-scrollbar, #cmt-cmt::-webkit-scrollbar {
-	width: 5px; /* 스크롤바 너비 */
-}
-
-#cmt-content::-webkit-scrollbar-thumb, #cmt-cmt::-webkit-scrollbar-thumb
-	{
-	background: #888; /* 스크롤바 색상 */
-	border-radius: 5px; /* 스크롤바 모서리 둥글게 */
-}
-
-#cmt-content::-webkit-scrollbar-thumb:hover, #cmt-cmt::-webkit-scrollbar-thumb:hover
-	{
-	background: #555; /* 스크롤바 색상 (호버 시) */
-}
-</style>
-
+<title>WeatherFit</title>
 
 </head>
 <link rel="stylesheet" href="assets/css/address.css">
@@ -83,9 +23,9 @@
 	<div class="modal fade" id="loginModal" tabindex="-1"
 		aria-labelledby="loginModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
+			<div id="modal-login" class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title fw-bold mb-0 fs-3 text-center w-100">로그인</h4>
+					<h3 class="modal-title fw-bold mb-0 text-center w-100">회원 로그인</h3>
 					<!-- 수정함  <h5 class="modal-title" id="loginModalLabel">모달 헤더 입니다.</h5> -->
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
@@ -93,7 +33,7 @@
 				<div class="modal-body">
 
 
-					<form action="Login.do" method="post">
+					<form action="Login.do" method="post" onsubmit="return loginCheck()">
 						<div></div>
 						<div class="form-floating">
 							<input type="text" class="form-control" id="floatingInput"
@@ -107,13 +47,16 @@
 								for="floatingPassword">비밀번호</label>
 							<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 						</div>
-						<div class="form-check text-start my-3 d-flex justify-content-end">
+						<div class="form-check text-start mt-1 d-flex justify-content-end">
 							<button type="button" id="btn-join" class="btn"
 								data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
 						</div>
 						<div class="mb-2"></div>
 						<button class="btn-blue w-100 py-2" type="submit">로그인</button>
+					
 					</form>
+					
+					
 					<div class="mb-2">
 						<!-- 회원가입 Modal -->
 						<!-- Modal Trigger -->
@@ -132,9 +75,9 @@
 	<div class="modal fade" id="joinModal" tabindex="-1"
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header" id="">
-					<h4 class="modal-title fw-bold mb-0 fs-3 text-center w-100">회원가입</h4>
+			<div id="modal-join" class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title fw-bold mb-0 text-center w-100">회원가입</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -156,20 +99,24 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="password2Modal">이름</label> <input type="text"
-								class="form-control" id="password2Modal" name="userName"
-								required>
-							<div class="invalid-feedback">이름을 입력해주세요.</div>
-						</div>
-
-						<div class="mb-3">
-							<label for="nicknameModal">닉네임</label> <input type="text"
-								class="form-control" id="nicknameModal" name="userNick" required>
-							<div class="invalid-feedback">닉네임을 입력해주세요.</div>
+							<div class="row">
+								<div class="col">
+									<label for="password2Modal">이름</label> <input type="text"
+										class="form-control" id="password2Modal" name="userName"
+										required>
+									<div class="invalid-feedback">이름을 입력해주세요.</div>
+								</div>
+								<div class="col">
+									<label for="nicknameModal">닉네임</label> <input type="text"
+										class="form-control" id="nicknameModal" name="userNick"
+										required>
+									<div class="invalid-feedback">닉네임을 입력해주세요.</div>
+								</div>
+							</div>
 						</div>
 
 						<fieldset class="mb-3">
-							<legend>성별</legend>
+							<label>성별</label>
 							<div class="row">
 								<div class="col">
 									<div class="form-check">
@@ -270,30 +217,32 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="heightModal">키</label> <input type="text"
-								class="form-control" id="heightModal" placeholder="cm"
-								name="userHeight" required>
-							<div class="invalid-feedback">키를 입력해주세요.</div>
+							<div class="row">
+								<div class="col">
+									<label for="heightModal">키</label> <input type="text"
+										class="form-control" id="heightModal" placeholder="cm"
+										name="userHeight" required>
+									<div class="invalid-feedback">키를 입력해주세요.</div>
+								</div>
+								<div class="col">
+									<label for="weightModal">몸무게</label> <input type="text"
+										class="form-control" id="weightModal" placeholder="kg"
+										name="userWeight" required>
+									<div class="invalid-feedback">몸무게를 입력해주세요.</div>
+								</div>
+							</div>
 						</div>
 
-						<div class="mb-3">
-							<label for="weightModal">몸무게</label> <input type="text"
-								class="form-control" id="weightModal" placeholder="kg"
-								name="userWeight" required>
-							<div class="invalid-feedback">몸무게를 입력해주세요.</div>
-						</div>
 
-						<div class="mb-3 form-check">
+						<div class="mb-3 form-check justify-content-end">
 							<input type="checkbox" class="form-check-input"
 								id="agreementModal" required> <label
 								class="form-check-label" for="agreementModal">개인정보 수집 및
 								이용에 동의합니다.</label>
 						</div>
 
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">닫기</button>
-							<button type="submit" class="btn btn-primary">가입하기</button>
+						<div>
+							<button type="submit" class="btn btn-blue w-100">가입하기</button>
 						</div>
 					</form>
 
@@ -307,49 +256,58 @@
 	<div class="modal fade" id="postModal" tabindex="-1"
 		aria-labelledby="postModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
+			<div id="modal-postdetail" class="modal-content">
 				<div class="modal-body" id="cmtModal-css">
 					<div class="container-fluid">
 						<div class="row">
 							<!-- 왼쪽 영역 -->
 							<div class="col-md-6">
 								<div class="row">
-									<div class="col-12 mb-2" id="cmt-user" style="height: 20%;">작성자
-										닉네임 영역</div>
-									<div class="col-12" id="cmt-img" style="height: 820px;">사진
-										영역</div>
+									<div class="col-12 mb-2 display-inline d-flex justify-content-between" id="cmt-user">
+										<svg id="message" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+					                    	<path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
+					                    </svg>
+									</div>
+									<img class="col-12" id="cmt-img" src=""></img>
 								</div>
 							</div>
 							<!-- 오른쪽 영역 -->
 							<div class="col-md-6">
-								<div class="row">
-									<div class="col-12 mb-2" id="cmt-content" style="height: 20%;">게시글
-										내용 영역</div>
-									<div class="col-12 mb-2" id="cmt-hashtag" style="height: 20%;">해시태그
-										영역</div>
-									<div class="col-12" id="cmt-cmt" style="height: 60%;"></div>
-										<div class="comment-section"></div>
+								<button type="button" id="btn-postclose" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+								<div class="col-12" id="cmt-content"></div>
+								<div class="col-12" id="cmt-hashtag"
+									style="height: 10%; border-bottom: none;"></div>
+									<div id="like">
+										<!-- <i class="fa-regular fa-heart" id="like-heart"></i>   -->
+										
+									</div>
+								<div class="col-12" id="cmt-cmt">
+								<span id="comment-txt">댓글</span>
+									<div class="comment-section">
 									<c:if test="${member!=null}">
 										<div class="card-body">
 											<form class="form-horizontal" onsubmit='return false;'>
-												<div class="row">
-													<div class="form-group col-sm-8">
+									</c:if>
+												<div id="cmtinput-row" class="row">
+													<div id="comment-input" class="form-group col-sm-10">
 														<input class="form-control input-sm" id="newReplyText"
-															type="text" name="cmtContent" placeholder="댓글 입력...">
+															type="text" name="cmtContent" placeholder="댓글을 입력하세요.">
 													</div>
-													<div class="form-group col-sm-2">
+													<!-- <div class="form-group col-sm-2">
 														<input class="form-control input-sm" id="newReplyWriter"
 															type="text" value="${member.userId}">
-													</div>
-													<div class="form-group col-sm-2">
-														<button type="submit" class="btn btn-blue btn-sm btn-block replyAddBtn" id="insert-cmt">
-															<i class="fa fa-save"></i> 저장
+													</div>  -->
+													<div id="cmtsubmit-wrap" class="form-group col-sm-2">
+														<button type="submit"
+															class="btn btn-blue btn-sm btn-block replyAddBtn"
+															id="insert-cmt">등록
 														</button>
 													</div>
 												</div>
 											</form>
 										</div>
-									</c:if>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -366,7 +324,8 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">채팅상대입력</h5>
+					<h3 class="modal-title fw-bold mb-0 text-center w-100"
+						id="exampleModalLabel">채팅상대입력</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
@@ -380,12 +339,8 @@
 							aria-describedby="basic-addon1"> <input type="hidden"
 							name="sendUserId" value="${member.userId}">
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">닫기</button>
-						<!-- <input type="submit" class="btn btn-primary"
-							value="채팅방생성"> -->
-						<button class="btn btn-primary">채팅방생성</button>
+					<div>
+						<button class="btn btn-blue">채팅방생성</button>
 					</div>
 				</form>
 			</div>
@@ -402,34 +357,56 @@
 	<div class="modal fade" id="profileUpdateModal" tabindex="-1"
 		aria-labelledby="profileUpdateModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content">
+			<div id="modal-update" class="modal-content">
 				<div class="modal-header">
-					<h4 id="profileUpdateModalLabel" class="modal-title fw-bold mb-0 fs-3 text-center w-100">프로필 업데이트</h4>
+					<h3 id="profileUpdateModalLabel"
+						class="modal-title fw-bold mb-0 text-center w-100">프로필 업데이트</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<!-- 입력 필드 -->
-					<form>
+					<form action="UpdateUserInfo.do" method="post">
 						<div class="mb-3">
 							<label for="current-password" class="col-form-label">현재
 								비밀번호:</label> <input type="password" class="form-control"
 								id="current-password">
 						</div>
-						<div class="mb-3">
+						<div class="mb-1">
 							<label for="new-password" class="col-form-label">새 비밀번호:</label>
-							<input type="password" class="form-control" id="new-password">
+							<input type="password" class="form-control" id="new-password"
+								name="new-password">
 						</div>
 						<div class="mb-3">
 							<label for="confirm-password" class="col-form-label">새
 								비밀번호 확인:</label> <input type="password" class="form-control"
 								id="confirm-password">
 						</div>
+						<div class="mb-3">
+							<label for="new-nickname" class="col-form-label">새 닉네임:</label> <input
+								type="text" class="form-control" id="new-nickname"
+								name="new-nickname">
+						</div>
+						<div class="mb-3">
+							<label for="new-region" class="col-form-label">새 주소:</label> <input
+								type="text" class="form-control" id="new-region"
+								name="new-region">
+						</div>
+						<div class="mb-3">
+							<label for="new-heigth" class="col-form-label">새 키:</label> <input
+								type="text" class="form-control" id="new-height"
+								name="new-height">
+						</div>
+						<div class="mb-3">
+							<label for="new-weight" class="col-form-label">새 몸무게:</label> <input
+								type="text" class="form-control" id="new-weight"
+								name="new-weight">
+						</div>
 						<!-- 추가 필드는 비슷한 방식으로 구성 -->
+						<div>
+							<button type="submit" class="btn btn-blue w-100">저장하기</button>
+						</div>
 					</form>
-				</div>
-				<div class="justify-content-end">
-					<button type="button" class="btn-blue">저장하기</button>
 				</div>
 			</div>
 		</div>
@@ -441,18 +418,18 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">게시글 수정</h5>
+					<h3 class="modal-title fw-bold mb-0 text-center w-100" id="exampleModalLabel">게시글 작성</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<!-- 게시글 작성 폼 -->
-					<form action="CreatePost.do" method="post"
+					<form id="imageUploadForm" action="CreatePost.do" method="post"
 						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
-								class="form-control" type="file" id="imageUpload" name="postImg"
-								accept="image/*"><br>
+								class="form-control" type="file" id="imageUpload"
+								name="postImg" accept="image/*"><br>
 							<!-- 이미지 미리보기를 위한 태그 -->
 							<img id="imagePreview" alt="Image Preview"
 								class="img-fluid mx-auto d-block"
@@ -484,51 +461,50 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- 게시글 수정 모달 -->
 	<div class="modal fade" id="updatePostModal" tabindex="-1"
 		aria-labelledby="updatePostModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="updateModalLabel">게시글 작성</h5>
+					<h3 class="modal-title id="updateModalLabel" fw-boldmb-0text-centerw-100">게시글
+						수정</h3>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<!-- 게시글 작성 폼 -->
-					<form action="UpdatePost.do" method="post"
+					<form id="update-imageUploadForm" action="UpdatePost.do" method="post"
 						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="imageUpload" class="form-label">이미지 업로드:</label> <input
-								class="form-control" type="file" id="imageUpload" name="postImg"
-								accept="image/*"><br>
+								class="form-control" type="file" id="update-imageUpload"
+								name="postImg" accept="image/*"><br>
 							<!-- 이미지 미리보기를 위한 태그 -->
-							<img id="imagePreview" alt="Image Preview"
+							<img id="update-imagePreview" alt="Image Preview"
 								class="img-fluid mx-auto d-block"
 								style="display: none; max-width: 200px; max-height: 200px;">
 						</div>
 						<div class="mb-3">
 							<label for="postContent" class="form-label">내용:</label>
-							<textarea class="form-control" id="postContent"
+							<textarea class="form-control" id="update-postContent"
 								name="postContent" rows="3"></textarea>
 						</div>
 						<fieldset class="mb-3">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" name="postTemp" value=""
-									id="postTemp"> <label class="form-check-label"
+								<input class="form-check-input" type="checkbox" name="postTemp"
+									value="" id="update-postTemp"> <label class="form-check-label"
 									for="postTemp"> 현재 기온 표기 </label>
 							</div>
 						</fieldset>
 						<div class="mb-3">
 							<label for="hashtagInput" class="form-label">해시태그:</label> <input
-								type="text" class="form-control" id="hashtagInput"
+								type="text" class="form-control" id="update-hashtagInput"
 								name="hashTags" placeholder="#해시태그">
-							<ul id="hashtagList"></ul>
+							<ul id="update-hashtagList"></ul>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">닫기</button>
 							<button type="submit" class="btn btn-primary">작성하기</button>
 						</div>
 					</form>
@@ -536,21 +512,8 @@
 			</div>
 		</div>
 	</div>
-
-	<script type="text/javascript">
-		$("#imageUpload").on("change", function(event) {
-			let file = event.target.files[0];
-			let reader = new FileReader();
-
-			reader.onload = function(e) {
-				$("#imagePreview").attr("src", e.target.result).show();
-			}
-
-			reader.readAsDataURL(file);
-		});
-	</script>
-
-
-
+	
+	<script src="assets/js/validation.js"></script>
+	
 </body>
 </html>

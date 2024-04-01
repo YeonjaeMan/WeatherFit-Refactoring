@@ -1,6 +1,6 @@
 package com.smhrd.model;
 
-public class crawlingVO {
+public class CrawlingVO {
 
 	private String src;
 	private String tag;
@@ -39,7 +39,7 @@ public class crawlingVO {
 		this.crawlingIdx = crawlingIdx;
 	}
 	
-	public crawlingVO(String src, String tag, String season, String gender, int crawlingIdx) {
+	public CrawlingVO(String src, String tag, String season, String gender, int crawlingIdx) {
 		this.src = src;
 		this.tag = tag;
 		this.season = season;
@@ -47,7 +47,7 @@ public class crawlingVO {
 		this.crawlingIdx = crawlingIdx;
 	}
 	
-	public crawlingVO() {
+	public CrawlingVO() {
 		
 	}
 	

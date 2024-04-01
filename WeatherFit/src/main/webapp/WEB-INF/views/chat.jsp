@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>chat</title>
+<title>WeatherFit</title>
 
 	<%@ include file="includeHeaders.jsp"%>
 <link rel="stylesheet" href="assets/css/chat.css">
@@ -15,23 +15,14 @@
 <body>
 	<%@ include file="includeNavi.jsp"%>
 
-
-	<%
-	UserVO uvo = (UserVO) session.getAttribute("member");
-	%>
-	
-	
-	
-	
 	<main id="main-chat" class="container-flex">
 
 		<div id="menu-room" class="container-fluid flex-column p-3 bg-light">
 			<ul class="nav mb-auto">
 				<li id="btn-room-add">
 					<!-- Button trigger modal -->
-
 					<button type="button" id="btn-addchat" class="btn-blue"
-						data-bs-toggle="modal" data-bs-target="#exampleModal">채팅상대추가</button>
+						data-bs-toggle="modal" data-bs-target="#exampleModal">채팅방 추가</button>
 				</li>
 			</ul>
 		</div>
@@ -54,10 +45,10 @@
 						<input type="text" name="receiveUserId" class="form-control"
 							placeholder="UserId" aria-label="Username"
 							aria-describedby="basic-addon1"> <input type="hidden"
-							name="sendUserId" value="<%=uvo.getUserId()%>">
+							name="sendUserId" value="${member.userId}">
 					</div>
 					<div class="modal-footer">
-						<!-- <input type="submit" class="btn btn-primary"
+						<!-- <input type="submit" class="btn btn-blue"
 							value="채팅방생성"> -->
 						<button class="btn-blue">채팅방생성</button>
 					</div>
