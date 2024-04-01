@@ -28,12 +28,13 @@ public class Join implements Command {
 		vo.setUserWeight(userWeight);
 		vo.setUserHeight(userHeight);
 		vo.setUserRegion(userRegion);
+		vo.setUserProfileImg("base_profile.png");
+		vo.setUserProfileInfo("자기소개를 등록해주세요.");
 
 		DAO dao = new DAO();
 		int row = dao.join(vo);
 		if (row > 0) {
 			request.setAttribute("userId", userId);
-
 		}
 
 		return "redirect:/gomain.do";

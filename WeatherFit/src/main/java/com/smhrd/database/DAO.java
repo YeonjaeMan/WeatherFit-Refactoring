@@ -232,6 +232,13 @@ public class DAO {
 		session.close();
 		return row;
 	}
+	
+	public int updateProfileInfo(UserVO uvo) {
+		SqlSession session = factory.openSession(true);
+		int row = session.update("updateProfileInfo", uvo);
+		session.close();
+		return row;
+	}
 
 	public int deleteUserInfo(UserVO uvo) {
 		SqlSession session = factory.openSession(true);
