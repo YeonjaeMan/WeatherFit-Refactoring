@@ -81,6 +81,11 @@
 								
 								</p>
 							</div>
+							<p id="profile-id">
+									<%
+										out.print(uvo.getUserId());
+									%>
+								</p>
 							<!-- 프로필소개 -->
 							<p id="profiletext">
 								<%
@@ -103,9 +108,6 @@
 					<input type="radio" class="btn-check" name="btnradio"
 						id="btnradio1" autocomplete="off" checked> <label
 						id="profilepost-icon1" class="btn-photo" for="btnradio1">📸</label>
-					<input type="radio" class="btn-check" name="btnradio"
-						id="btnradio3" autocomplete="off"> <label
-						id="profilepost-icon2" class="btn-photo" for="btnradio3">🗂</label>
 				</div>
 			</div>
 			<hr class="line" id="line2">

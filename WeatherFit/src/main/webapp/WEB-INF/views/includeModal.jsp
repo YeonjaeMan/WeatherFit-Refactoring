@@ -58,10 +58,6 @@
 					
 					
 					<div class="mb-2">
-						<!-- 회원가입 Modal -->
-						<!-- Modal Trigger -->
-
-						<!-- 회원가입 Modal -->
 					</div>
 				</div>
 
@@ -288,11 +284,11 @@
 									<c:if test="${member!=null}">
 										<div class="card-body">
 											<form class="form-horizontal" onsubmit='return false;'>
-									</c:if>
+									
 												<div id="cmtinput-row" class="row">
 													<div id="comment-input" class="form-group col-sm-10">
 														<input class="form-control input-sm" id="newReplyText"
-															type="text" name="cmtContent" placeholder="댓글을 입력하세요.">
+															type="text" name="cmtContent" placeholder="댓글을 입력하세요...">
 													</div>
 													<!-- <div class="form-group col-sm-2">
 														<input class="form-control input-sm" id="newReplyWriter"
@@ -306,6 +302,7 @@
 													</div>
 												</div>
 											</form>
+									</c:if>
 										</div>
 									</div>
 								</div>
@@ -316,41 +313,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- 채팅방 생성 모달 -->
-	<div class="modal fade" id="createRoomModal" tabindex="-1"
-		role="dialog" aria-labelledby="createRoomModalLabel"
-		aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3 class="modal-title fw-bold mb-0 text-center w-100"
-						id="exampleModalLabel">채팅상대입력</h3>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<form action="CreateRoom.do" method="post">
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="basic-addon1">@UserId</span>
-						</div>
-						<input type="text" name="receiveUserId" class="form-control"
-							placeholder="UserId" aria-label="Username"
-							aria-describedby="basic-addon1"> <input type="hidden"
-							name="sendUserId" value="${member.userId}">
-					</div>
-					<div>
-						<button class="btn btn-blue">채팅방생성</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
 
 
 	<!-- 회원정보수정 모달 -->
@@ -453,7 +415,7 @@
 								name="hashTags" placeholder="#해시태그">
 							<ul id="hashtagList"></ul>
 						</div>
-						<div>
+						<div style="text-align: right;">
 							<button type="submit" class="btn btn-blue justify-content-end">작성하기</button>
 						</div>
 					</form>
