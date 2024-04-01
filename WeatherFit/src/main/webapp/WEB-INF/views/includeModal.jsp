@@ -95,13 +95,20 @@
 						</div>
 
 						<div class="mb-3">
-							<label for="password2Modal">이름</label> <input type="text"
-								class="form-control" id="password2Modal" name="userName"
-								required>
-							<div class="invalid-feedback">이름을 입력해주세요.</div>
-							<label for="nicknameModal">닉네임</label> <input type="text"
-								class="form-control" id="nicknameModal" name="userNick" required>
-							<div class="invalid-feedback">닉네임을 입력해주세요.</div>
+							<div class="row">
+								<div class="col">
+									<label for="password2Modal">이름</label> <input type="text"
+										class="form-control" id="password2Modal" name="userName"
+										required>
+									<div class="invalid-feedback">이름을 입력해주세요.</div>
+								</div>
+								<div class="col">
+									<label for="nicknameModal">닉네임</label> <input type="text"
+										class="form-control" id="nicknameModal" name="userNick"
+										required>
+									<div class="invalid-feedback">닉네임을 입력해주세요.</div>
+								</div>
+							</div>
 						</div>
 
 						<fieldset class="mb-3">
@@ -302,9 +309,9 @@
 														</div>
 													</form>
 												</div>
-											</form>
+											</c:if>
 										</div>
-									</c:if>
+									</div>
 								</div>
 							</div>
 						</div>
