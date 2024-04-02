@@ -47,6 +47,7 @@ $(document).ready(function() {
 		}
 	});
 
+
 	/*$(document).on("click", "#postcard", function() {
 		let postIdx = $(this).closest('.card').data('id');
 		console.log(postIdx);
@@ -93,6 +94,7 @@ $(document).ready(function() {
 		});
 
 	});*/
+
 
 });
 
