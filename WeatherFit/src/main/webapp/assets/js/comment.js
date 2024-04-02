@@ -12,28 +12,18 @@ $(document).on('click', '.card', function() { // .view-btn은 postIdx를 담기�
 		dataType: "json",
 		success: function(comment) {
 			console.log(comment)
+			for (let i = 0; i < comment.length; i++) {
+
+				$("#cmt-cmt").append(`
+					<span>`+ comment[i].userId + `</span><br>
+					<span>`+ comment[i].cmtContent + `</span><br>
+				`);
 
 
-			let targetPostIdx = postIdx;
+			}
 
+			
 
-			// postIdx가 targetPostIdx와 일치하는 댓글들만 필터링
-			let filteredComments = comment.filter(comment => comment.postIdx === targetPostIdx);
-			$(".comment").empty();
-			// 필터링된 댓글들의 userId와 cmtContent를 출력
-			filteredComments.forEach(comment => {
-				$(".comment-section").append(`
-        <div class="comment">
-            <div class="comment-body">
-              <span class="comment-author" style = "background-color:whitesmoke">`+ comment.userId + `</span>
-              <br>
-              <span class="comment-text" style = "background-color:yellow">`+ comment.cmtContent + `</span>
-            </div>
-          </div>
-        `);
-
-
-			});
 
 
 		}, error: function() {
@@ -41,6 +31,7 @@ $(document).on('click', '.card', function() { // .view-btn은 postIdx를 담기�
 		}
 
 	});
+	$("#cmt-cmt").empty();
 	///////////////////////////////////////////////////////댓글영역끝///
 	///////////////////////////////////////////////// 게시물 상세보기 영역
 	$.ajax({
@@ -104,6 +95,8 @@ $(document).on('click', '.card', function() { // .view-btn은 postIdx를 담기�
 
 });
 
+
+
 document.querySelector("#newReplyText").addEventListener("keydown", (e) => {
 	if (e.key === 13) {
 		$("#insert-cmt").click();
@@ -124,34 +117,25 @@ $("#insert-cmt").on("click", function() {
 		type: "post",
 		success: function(s) {
 			$("input[name='cmtContent']").val("");
+
 			$.ajax({
 				url: "Comments.ajax",
 				data: { "postIdx": postIdx },
 				dataType: "json",
 				success: function(d) {
 					console.log("입력성공")
-					$(".comment-author").empty();
-					$(".comment-text").empty();
-					for (let i = 0; i < d.length; i++) {
-
-
-
-						$(".comment-section").append(`
-        <div class="comment">
-            <div class="comment-body">
-              <span class="comment-author" style = "background-color:whitesmoke">`+ d[i].userId + `</span>
-              <br>
-              <span class="comment-text" style = "background-color:yellow">`+ d[i].cmtContent + `</span>
-            </div>
-          </div>
-        `);
-					}
+					
+						$("#cmt-cmt").append(`
+					<span>`+ d[d.length-1].userId + `</span><br>
+					<span>`+ d[d.length-1].cmtContent + `</span><br>
+				`);
+					
 
 				}, error: function(e) {
 
 				}
 			})
-
+			
 
 		}
 
