@@ -169,6 +169,7 @@ function viewPost(post) {
 		type: "post",
 		dataType: "json",
 		success: function(map) {
+			console.log(map);
 			let imgPath = "assets/uploads/" + map.file.fileRname;
 
 			if (post.postTemp == -999) {

@@ -123,15 +123,18 @@
 }
 
 /* 프로필(사용자) 아이콘 */
+button.btn-user.dropdown-toggle {
+    background-color: transparent;
+}
+
 .dropdown-toggle {
-	background-color: #7895CB;
 	border: none;
+	color: #4A55A2;
 }
 
 .dropdown-toggle:hover {
-	background-color: #DDE6ED;
 	cursor: pointer;
-	color: #4A55A2;
+	color: white;
 }
 
 /* 드롭다운 */
@@ -225,7 +228,7 @@
 						<li class="nav-item"><a class="nav-link" href="gochat.do">메시지</a></li>
 						<div class="user-container">
 							<div class="btn-group">
-								<button type="button" class="btn-blue btn-user dropdown-toggle"
+								<button type="button" class="btn-user dropdown-toggle"
 									data-bs-toggle="dropdown" aria-expanded>
 									<img src="assets/user_profile/${member.userProfileImg}" style="width: 40px; height: 40px; border-radius: 50%;"> 
 								</button>
