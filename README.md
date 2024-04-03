@@ -6,19 +6,19 @@
 ## 1. 제작 기간 & 참여 인원
 - 2024년 3월 18일 ~ 4월 2일
 
-> **정연재** : PM / Back, Front   
+**정연재** : PM / Back, Front   
 > 프로젝트 관리, 기상청 API 날씨 위젯, 웹소켓 실시간 채팅   
 
-> **김동현** : Back / DB   
+ **김동현** : Back / DB   
 > 프로젝트 구조화, DB설계, 게시글 상세보기, 댓글, 프로필   
 
-> **박종현** : Front   
+ **박종현** : Front   
 > 게시글 작성, 해시태그, 주소 API   
 
-> **엄희수** : Front   
+ **엄희수** : Front   
 > 프론트 개발, UI & UX 디자인, 시연페이퍼, 시연영상   
 
-> **이동주** : 크롤링, DB / Back   
+ **이동주** : 크롤링, DB / Back   
 > 데이터 크롤링, 로그인, 회원가입, 문서 및 PPT 제작   
 
 </br>
@@ -39,21 +39,90 @@
 
 </br>
 
-## 3. ERD 설계
+## 3. 프로젝트 소개
+> 팀개코(TGK)의 WeatherFit은 날씨의 Weather와 패션 용어이면서 적합한의 의미를 가지고 있는 Fit의 합성어로 날씨에 적합한 패션을 추천한다의 의미를 가지고 있습니다.
+
+<details>
+<summary><b>3.1. 프로젝트 제안 배경 및 필요성</b></summary>
+</details>
+<div markdown="1">
+
+**1. 소셜 네트워크 서비스 (SNS) 이용 증가**
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b37ad1e2-0a3c-4e71-b456-a16c81f2ca44)
+출처:정보통신정책연구원
+
+**2. 패션에 대한 사람들의 관심 증가**
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/70890c65-fd1d-49b8-9036-1528b0e4d3ea)
+출처:한국패션소비시장
+
+**3. 매일 변화하는 날씨에 따른 적절한 옷 선택의 어려움**
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/a35fc8d6-fb39-46d6-8bae-255c7137e361)
+
+</div>
+
+<details>
+<summary><b>3.2. WeatherFit만의 차별성</b></summary>
+</details>
+<div markdown="1">
+
+**1. 기상청 날씨 API를 활용하여 사용자 위치에 따른 기온을 게시글에 등록하여 사용자들끼리 날씨에 적당한 패션 코디를 주고 받을 수 있음!**
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/27797602-925a-4873-b209-e059151c04b4)
+
+**2. 패션을 잘 모르는 사람들도 참고할 수 있도록 무신사 패션 코디 사진을 계절별로 분류하여 추천 게시글을 제공함!**
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/3553dfa0-feae-4b67-903d-c4f252cdcfc0)
+
+</div>
+
+<details>
+<summary><b>3.3. 프로젝트 기능</b></summary>
+</details>
+<div markdown="1">
+
+### 로그인,로그아웃,회원가입,정보수정,회원탈퇴
+- 기본적인 기능
+- 다음 주소 API 사용
+### 날씨 위젯
+- Geolocation API를 사용해 사용자 현재 위치 가져오기
+- 기상청 단기예보 API를 사용해 사용자 위치에 맞는 날씨 정보를 가져옴
+### 게시글 작성
+- 이미지 첨부 시 이미지 미리보기
+- 기온 등록 체크박스를 통해 게시글에 현재 날씨 정보를 등록할건지에 대해 판별
+### 사용자 게시글 확인
+- 등록한 기온 표기
+### 게시글 상세보기
+- 게시글 작성자와의 채팅방 생성
+- 댓글 작성
+### 무신사 코디 사진 추천
+- 파이썬 Requests, Selenium을 사용한 크롤링
+- 태그의 계절 정보를 활용해 분류
+### 채팅
+- 사용자 아이디 입력을 통해 채팅방 생성 후 실시간 채팅 가능
+### 프로필
+- 프로필 이미지, 닉네임, 소개글 작성
+- 사용자별 작성한 게시글 확인
+
+</div>
+
+## 4. ERD 설계
 ![](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/86634da8-afa4-4bc0-b26f-e5b435ad16bb)
 
-## 4. 핵심 기능
-1. 게시글에 기온을 추가하여 사용자들끼리 패션 코디를 공유하기 위한 기능
-2. 의류 정보, 의류 후기 등을 교류하기 위한 채팅 기능
+## 5. 핵심 기능
+
+이 서비스의 핵심 기능은 날씨 위젯의 정보를 활용하여 사용자가 작성한 게시글에 기온이 등록된다는 것입니다.   
+
+사용자는 게시글 작성에서 기온 등록을 체크함으로써 실시간 기온을 게시글에 작성할 수 있고,   
+과거의 사진을 올리고 싶다거나 기온과 관련없는 게시글을 올리고 싶은 경우 기온 등록 체크해제함으로써 게시글을 작성할 수 있습니다.   
+
+사용자는 기온이 등록된 게시글을 보고 패션을 참고할 수 있고, 의류 정보나 기온에 적합한지에 대한 궁금증을 1:1 채팅을 통해 해결할 수 있습니다.
 
 <details>
 <summary><b>핵심 기능 설명 펼치기</b></summary>
 <div markdown="1">
 
-### 4.1. 전체 흐름
+### 5.1. 전체 흐름
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/0bf7f35c-2122-4ed1-b41b-c9f45c07024e)
 
-### 4.2. 사용자 요청
+### 5.2. 사용자 요청
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b8851469-20c3-4a45-b4bd-ab19e6e7fafa)
 
 - **URL 정규식 체크** :pushpin: [코드 확인](https://github.com/JungHyung2/gitio.io/blob/95b4c4f06a2a5a74a00f81a3c3fcc003c994725f/index.html#L15C8-L15C26)
@@ -63,7 +132,7 @@
 - **Axios 비동기 요청** :pushpin: [코드 확인]()
   - URL의 모양새인 경우, 컨텐츠를 등록하는 POST 요청을 비동기로 날립니다.
 
-### 4.3. Controller
+### 5.3. Controller
 
 ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_controller.png)
 
@@ -73,7 +142,7 @@
 - **결과 응답** :pushpin: [코드 확인]()
   - Service 계층에서 넘어온 로직 처리 결과(메세지)를 화면단에 응답해줍니다.
 
-### 4.4. Service
+### 5.4. Service
 
 ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_service1.png)
 
@@ -94,7 +163,7 @@
   - 컨텐츠에 이미지가 없을 경우, 미리 설정해둔 기본 이미지를 사용하고, 제목이 없을 경우 생략합니다.
 
 
-### 4.5. Repository
+### 5.5. Repository
 
 ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_repo.png)
 
@@ -107,10 +176,10 @@
 
 </br>
 
-## 5. 핵심 트러블 슈팅
+## 6. 핵심 트러블 슈팅
 
 <details>
-<summary><b>5.1. 기획의 불안정 문제</b></summary>   
+<summary><b>6.1. 기획의 불안정 문제</b></summary>   
 <div markdown="1">
     
 - 처음에는 날씨 API를 활용해 날씨의 변화에 맞춰 사용자마다 코디를 실시간으로 추천해주는 서비스를 기획했기에 tb_fashion, tb_weather 테이블 두개를 설계했습니다.
@@ -125,7 +194,7 @@
 </details>
 
 <details>
-<summary><b>5.2. 구현 과정 중 생긴 의견 통일의 문제</b></summary>   
+<summary><b>6.2. 구현 과정 중 생긴 의견 통일의 문제</b></summary>   
 <div markdown="1">
     
 - 구현 단계로 들어서기 전 피그마로 전체적인 UI/UX를 구성하였습니다.
@@ -140,7 +209,7 @@
 </details>
 
 <details>
-<summary><b>5.3. Git 문제</b></summary>   
+<summary><b>6.3. Git 문제</b></summary>   
 <div markdown="1">
     
 - 처음 배워서 사용해보는 Git이었기에 프로젝트 기간 초반에 Git을 사용해보면서 공부하는 것에 시간을 많이 사용했습니다.   
@@ -157,7 +226,7 @@
 </details>
 
 <details>
-<summary><b>5.4. WebSocket 채팅방 문제</b></summary>   
+<summary><b>6.4. WebSocket 채팅방 문제</b></summary>   
 <div markdown="1">
     
 - 1:1 실시간 채팅을 위해 WebSocket을 구현하는 도중 채팅방을 통해 사용자 2명을 이어주는 것에 대해 어려움이 있었습니다.
@@ -170,7 +239,7 @@
 </details>
 
 <details>
-<summary><b>5.5. Modal의 충돌</b></summary>
+<summary><b>6.5. Modal의 충돌</b></summary>
 <div markdown="1">
   
 - 프로젝트에 한 페이지 안에서 여러 모달을 사용해야만 했습니다.
