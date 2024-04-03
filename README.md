@@ -122,34 +122,43 @@
 ## 5. 핵심 트러블 슈팅
 ### 5.1. 기획의 불안정 문제
 - 처음에는 날씨 API를 활용해 날씨의 변화에 맞춰 사용자마다 코디를 실시간으로 추천해주는 서비스를 기획했기에 tb_fashion, tb_weather 테이블 두개를 설계했습니다.
+
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/2b76f9aa-cb10-4ff3-89dc-49aac339a149)
   
 - 하지만, 저희의 기술적인 한계로 인해 tb_fashion, tb_weather 테이블 대신 tb_crawling 테이블을 만들어 크롤링한 데이터를 계절별로만 나누어 추천했습니다.
+  
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/7f4b18fb-f2e5-4724-ba62-6f950b5b07b8)
+
 
 ### 5.2. 구현 과정 중 생긴 의견 통일의 문제
 - 구현 단계로 들어서기 전 피그마로 전체적인 UI/UX를 구성하였습니다.
 
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b01f87b2-fe21-4119-980a-f3b569ecb2b6)
+
 - 하지만, 구현 단계로 들어서서 피그마로 구성한 UI/UX에서 세밀한 부분은 사용자의 편의성에 맞추어 바꿔야 할 필요가 있었기 때문에 짧은 기간 동안 빠른 의견 전달을 위해 그림판, 노트 등의 시각화하는 방법으로 회의를 진행하였습니다.
 
 ### 5.3. Git 문제
-- Git에 대해 많은 애로 사항이 있었습니다.
+- 처음 배워서 사용해보는 Git이었기에 프로젝트 기간 초반에 Git을 사용해보면서 공부하는 것에 시간을 많이 사용했습니다.   
 
-- 아무래도 처음 배워서 사용해보는 Git이었기에 프로젝트 기간 초반에 Git을 사용해보면서 공부하는 것에 시간을 많이 사용했습니다.
+- 심지어 팀 한명의 파일이 전부 날아가는 사태도 일어났습니다.   
 
-- 심지어 팀 한명의 파일이 전부 날아가는 사태도 일어났습니다.
+- GitHub Desktop을 이용해 Git을 UI로 보여주는 소프트웨어를 사용했고, 매일 팀원과 시간을 맞추어 Git push & pull을 하여 충돌을 방지했습니다.   
 
-- GitHub Desktop을 이용해 Git을 UI로 보여주는 소프트웨어를 사용했고, 매일 팀원과 시간을 맞추어 Git push & pull을 하여 충돌을 방지했습니다.
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/1153595b-86ca-4719-8135-ceeeb4539edc)
+
 
 ### 5.4. WebSocket 채팅방 문제
 - 1:1 실시간 채팅을 위해 WebSocket을 구현하는 도중 채팅방을 통해 사용자 2명을 이어주는 것에 대해 어려움이 있었습니다.
 
 - @ServerEndpoint 어노테이션을 사용해 사용자가 속해있는 roomIdx를 이어줌으로써 채팅기능을 해결하였습니다.
 
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/a65509cb-aecd-46db-b48d-2248b7668b8e)
+
 ### 5.5. Modal의 충돌
 - 프로젝트에 한 페이지 안에서 여러 모달을 사용해야만 했습니다.
 
-- HTML5의 모달을 구현하여 모달마다 showModal(), removeModal() 함수를 호출해주어야 했습니다.
-
-- 하지만, showModal(), removeModal() 함수를 호출할 때 다른 js 코드들이 작동하지 않는 문제가 발생했습니다.
+- HTML5의 모달을 구현하여 모달마다 showModal(), removeModal() 함수를 호출해주어야 했지만, showModal(), removeModal() 함수를 호출할 때 다른 js 코드들이 작동하지 않는 문제가 발생했습니다.
 
 - 부트스트랩의 data-bs-toggle, data-bs-target 속성을 사용해 모달의 충돌이 일어나는 것을 방지할 수 있었고, 유지보수하기에도 용이해 부트스트랩을 공부하여 해결하였습니다.
 
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/4ba78611-865e-41cc-bd2d-871fad0c61bc)
