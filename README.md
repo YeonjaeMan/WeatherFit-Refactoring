@@ -1,6 +1,7 @@
 ![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
 
 ### 기온과 계절 정보를 활용하여 사용자들에게 다양한 패션을 제공하는 소셜 네트워크 서비스(SNS)
+### 팀명 : TGK(teamGaeko)
 
 </br>
 
@@ -184,10 +185,10 @@
 
 </br>
 
-## 6. 핵심 트러블 슈팅
+## 6. 트러블 슈팅
 
 <details>
-<summary><b>6.1. 기획의 불안정 문제</b></summary>   
+<summary><b>6.1. 기획의 불안정</b></summary>   
 <div markdown="1">
     
 - 처음에는 날씨 API를 활용해 날씨의 변화에 맞춰 사용자마다 코디를 실시간으로 추천해주는 서비스를 기획했기에 tb_fashion, tb_weather 테이블 두개를 설계했습니다.
@@ -202,7 +203,7 @@
 </details>
 
 <details>
-<summary><b>6.2. 구현 과정 중 생긴 의견 통일의 문제</b></summary>   
+<summary><b>6.2. 구현 과정 중 생긴 의견 단합</b></summary>   
 <div markdown="1">
     
 - 구현 단계로 들어서기 전 피그마로 전체적인 UI/UX를 구성하였습니다.
@@ -217,7 +218,7 @@
 </details>
 
 <details>
-<summary><b>6.3. Git 문제</b></summary>   
+<summary><b>6.3. Git & GitHub</b></summary>   
 <div markdown="1">
     
 - 처음 배워서 사용해보는 Git이었기에 프로젝트 기간 초반에 Git을 사용해보면서 공부하는 것에 시간을 많이 사용했습니다.   
@@ -234,7 +235,7 @@
 </details>
 
 <details>
-<summary><b>6.4. WebSocket 채팅방 문제</b></summary>   
+<summary><b>6.4. WebSocket 채팅방</b></summary>   
 <div markdown="1">
     
 - 1:1 실시간 채팅을 위해 WebSocket을 구현하는 도중 채팅방을 통해 사용자 2명을 이어주는 것에 대해 어려움이 있었습니다.
