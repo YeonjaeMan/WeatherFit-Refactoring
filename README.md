@@ -134,7 +134,7 @@
 </details>
 
 <details>
-<summary>5.2. 구현 과정 중 생긴 의견 통일의 문제</summary>
+<summary><b>5.2. 구현 과정 중 생긴 의견 통일의 문제</b></summary>
 <div markdown="1">
   
 - 구현 단계로 들어서기 전 피그마로 전체적인 UI/UX를 구성하였습니다.
@@ -149,7 +149,7 @@
 </details>
 
 <details>
-<summary>5.3. Git 문제</summary>
+<summary><b>5.3. Git 문제</b></summary>
 <div markdown="1">
   
 - 처음 배워서 사용해보는 Git이었기에 프로젝트 기간 초반에 Git을 사용해보면서 공부하는 것에 시간을 많이 사용했습니다.   
@@ -166,7 +166,7 @@
 </details>
 
 <details>
-<summary>5.4. WebSocket 채팅방 문제</summary>
+<summary><b>5.4. WebSocket 채팅방 문제</b></summary>
 <div markdown="1">
   
 - 1:1 실시간 채팅을 위해 WebSocket을 구현하는 도중 채팅방을 통해 사용자 2명을 이어주는 것에 대해 어려움이 있었습니다.
@@ -179,7 +179,7 @@
 </details>
 
 <details>
-<summary>5.5. Modal의 충돌</summary>
+<summary><b>5.5. Modal의 충돌</b></summary>
 <div markdown="1">
   
 - 프로젝트에 한 페이지 안에서 여러 모달을 사용해야만 했습니다.
