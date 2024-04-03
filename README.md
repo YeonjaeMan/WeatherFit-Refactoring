@@ -1,10 +1,14 @@
-# ![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
-> 기온과 계절 정보를 활용하여 사용자들에게 다양한 패션을 제공하는 소셜 네트워크 서비스(SNS)
+# :pushpin:
+
+![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
+
+### 기온과 계절 정보를 활용하여 사용자들에게 다양한 패션을 제공하는 소셜 네트워크 서비스(SNS)
 
 </br>
 
 ## 1. 제작 기간 & 참여 인원
-**2024년 3월 18일 ~ 4월 2일**   
+
+### 2024년 3월 18일 ~ 4월 2일  
 
 **정연재** : PM / Back, Front   
 > 프로젝트 관리, 기상청 API 날씨 위젯, 웹소켓 실시간 채팅   
@@ -29,15 +33,18 @@
 <img src="https://img.shields.io/badge/apachemaven-C71A36.svg?style=for-the-badge&logo=apachemaven&logoColor=#C71A36" />
 <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white"/>
 <img src="https://img.shields.io/badge/Apache Tomcat 9.0-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/>
+
 #### `Front-end`
-<img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white">   
 <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/> <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=#0769AD"/>
+
 #### `IDE`
 <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/> <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/> <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white"/>
+
 #### `Etc`
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"/> 
-<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/> 
-<img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"/> ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white) <img src="https://img.shields.io/badge/AQuery-20232a.svg?style=for-the-badge&logo=aquery&logoColor=61DAFB" />
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"/>   
+<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>    
+<img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"/> <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=#000000"/> <img src="https://img.shields.io/badge/AQuery-20232a.svg?style=for-the-badge&logo=aquery&logoColor=61DAFB" />
 
 </br>
 
