@@ -47,7 +47,8 @@ $(document).ready(function() {
 		}
 	});
 
-	$(document).on("click", "#postcard", function() {
+
+	/*$(document).on("click", "#postcard", function() {
 		let postIdx = $(this).closest('.card').data('id');
 		console.log(postIdx);
 		let userId = $(this).closest('.card').find('#post-user').text();
@@ -78,12 +79,12 @@ $(document).ready(function() {
 				console.log(res);
 				if (res == null) {
 					$("#like").html(`<svg id="like-heart" data-id="` + postIdx + `" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-		                				<path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
-		             				</svg>`);
+										<path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+										</svg>`);
 				} else {
 					$("#like").html(`<svg id="like-heart" class="active" data-id="` + postIdx + `" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-			                				<path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
-			             				</svg>`);
+											<path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+											</svg>`);
 				}
 			},
 			error: function() {
@@ -92,7 +93,8 @@ $(document).ready(function() {
 
 		});
 
-	});
+	});*/
+
 
 });
 
@@ -122,7 +124,6 @@ function recoPostView(T1H) {
 					viewCraw(recoPosts[i]);
 				}
 			}
-
 		},
 		error: function() {
 			alert("추천 게시글 연결 실패");
@@ -160,33 +161,72 @@ function recentPostView() {
 function viewPost(post) {
 	$.ajax({
 		url: "Images.ajax",
-		data: { "postIdx": post.postIdx },
+		data: {
+			"postIdx": post.postIdx,
+			"userId": post.userId
+		},
 		type: "post",
 		dataType: "json",
-		success: function(images) {
-			let imgPath = "assets/uploads/" + images.fileRname;
-			$('#ajaxcontainer').append(`
-						<div class="col-md-4 card-columns">
-							<div class="card mb-2" data-id=`+ post.postIdx + `>
-								<div class="card-header d-flex justify-content-between">
-									<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
-									    <img src="assets/images/user_profile/base_profile.png" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
-									    <span id="post-user">` + post.userId + `</span>
-										</a>
-								</div>
-								<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
-									<div class="img-container">
-										<img id="post-img" src="` + imgPath + `" class="img-fluid mx-auto d-block">
+		success: function(map) {
+			let imgPath = "assets/uploads/" + map.file.fileRname;
+
+			if (post.postTemp == -999) {
+				post.postTemp = null;
+				$('#ajaxcontainer').append(`
+							<div class="col-md-4 card-columns">
+								<div class="card mb-2" data-id=`+ post.postIdx + `>
+									<div class="card-header d-flex justify-content-between">
+										
+									</div>
+									<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
+										<div class="img-container">
+											<img id="post-img" src="` + imgPath + `" class="img-fluid mx-auto d-block">
+										</div>
+									</div>
+									<div class="card-footer d-flex justify-content-between">
+										<p id="post-content" style="display:none;"> ` + post.postContent + ` </p>
+										<p id="post-temp" style="display:none;"> ` + post.postTemp + `</p>
+									    <text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ post.hashTag + `</text>
 									</div>
 								</div>
-								<div class="card-footer">
-									<p id="post-content" style="display:none;"> ` + post.postContent + ` </p>
-									<p id="post-temp" style="display:none;"> ` + post.postTemp + `</p>
-								    <text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ post.hashTag + `</text>
+							</div>`
+				);
+
+			} else {
+				post.postTemp = post.postTemp + "°C";
+				$('#ajaxcontainer').append(`
+							<div class="col-md-4 card-columns">
+								<div class="card mb-2" data-id=`+ post.postIdx + `>
+									<div class="card-header d-flex justify-content-between">
+										
+									</div>
+									<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
+										<div class="img-container">
+											<img id="post-img" src="` + imgPath + `" class="img-fluid mx-auto d-block">
+										</div>
+									</div>
+									<div class="card-footer d-flex justify-content-between">
+										<p id="post-content" style="display:none;"> ` + post.postContent + ` </p>
+									    <text id="hashtag" x="50%" y="50%" fill="#eceeef" dy=".3em">`+ post.hashTag + `</text>
+										<p id="post-temp"> ` + post.postTemp + `</p>
+									</div>
 								</div>
-							</div>
-						</div>`
-			);
+							</div>`
+				);
+
+			}
+
+			if (sessionUserId == "") {
+				$(".card[data-id='" + post.postIdx + "'] .card-header").html(`<a id="userinfo-main" data-bs-toggle="modal" data-bs-target="#joinModal">
+				                                            <img src="assets/user_profile/` + map.user.userProfileImg + `" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
+				                                            <span id="post-user">` + map.user.userNick + `</span>
+				                                        </a>`);
+			} else {
+				$(".card[data-id='" + post.postIdx + "'] .card-header").html(`<a href="Profile.do?userId=` + post.userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
+										    <img src="assets/user_profile/` + map.user.userProfileImg + `" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
+										    <span id="post-user">` + map.user.userNick + `</span>
+											</a>`);
+			}
 
 			userPostCheck(post);
 
@@ -217,9 +257,9 @@ function viewCraw(craw) {
 					<div class="col-md-4 card-columns">
 						<div class="card" data-id=`+ craw.crawlingIdx + `>
 							<div class="card-header d-flex justify-content-between">
-								<span> WeatherFit 추천 </span>
+								<span id="recommend-text"> WeatherFit 추천 </span>
 								</div>
-								<div id="postcard" class="card-body view-btn shadow-sm">
+								<div id="postcard" class="card-body view-btn">
 									<div class="img-container">
 										<img id="post-img" src="` + craw.src + `" class="img-fluid mx-auto d-block">
 									</div>

@@ -20,6 +20,10 @@
 	margin-right: 10%;
 }
 
+#profile-id{
+	margin-left: 2px;
+}
+
 #nick-follow {
 	width: 500px;
 	margin-top: 25px;
@@ -46,39 +50,21 @@
 	margin-bottom: 30px;
 }
 
-/* 게시글-저장 이동 버튼*/
-.btn-photo.btn-group.align-items-center {
-	width: 100%;
-	justify-content: space-evenly;
-}
 
-#profilepost-icon1, #profilepost-icon2 {
+#profilepost-icon1 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 50%;
-	font-size: 35px; /* 이모티콘 크기 조정 */
+	width: 1295px;
+	background-color: #C5DFF8;
+	font-size: 30px; /* 이모티콘 크기 조정 */
 }
 
-#profilepost-icon1:hover {
-	background-color: #C5DFF8;
-	cursor: pointer;
-}
-
-#profilepost-icon2:hover {
-	background-color: #C5DFF8;
-	cursor: pointer;
-}
-
-/* 클릭 시 유지될 색상 */
-.active {
-	background-color: #C5DFF8;
-}
 
 /* 프로필 게시글 목록 */
 #profilepost-wrap {
-	margin-left: 18%;
-	margin-right: 18%;
+	margin-left: 16%;
+	margin-right: 16%;
 	margin-bottom: 7%;
 }
 

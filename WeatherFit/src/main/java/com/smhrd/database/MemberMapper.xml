@@ -16,8 +16,8 @@
 		insert into tb_user(userId,
 		userPw, userName, userNick, userGender,
 		userRegion, userWeight,
-		userHeight)
-		values(#{userId},#{userPw},#{userName},#{userNick},#{userGender},#{userRegion},#{userWeight},#{userHeight})
+		userHeight, userProfileImg, userProfileInfo)
+		values(#{userId},#{userPw},#{userName},#{userNick},#{userGender},#{userRegion},#{userWeight},#{userHeight},#{userProfileImg},#{userProfileInfo})
 	</insert>
 
 
@@ -76,7 +76,7 @@
 
 
 	<select id="commentselect" resultType="com.smhrd.model.CommentVO">
-		select * from tb_comment where postIdx = #{postIdx}
+		select * from tb_comment where postIdx = #{postIdx} 
 	</select>
 	
 	<insert id="comment" parameterType="com.smhrd.model.CommentVO">
@@ -201,6 +201,11 @@
 		order by createdAt desc
 	</select>
 	
+	<select id="postdetail" parameterType="com.smhrd.model.PostVO" resultType="com.smhrd.model.PostVO">
+		select *
+		from tb_post where postIdx=#{postIdx}
+	</select>
+	
 	<delete id="deletePost" parameterType="com.smhrd.model.PostVO">
 		delete from tb_post
 		where postIdx = #{postIdx}
@@ -221,6 +226,12 @@
 	<update id="updateUserInfo" parameterType="com.smhrd.model.UserVO">
 		update tb_user
 		set userPw=#{userPw}, userNick=#{userNick}, userRegion=#{userRegion}, userHeight=#{userHeight}, userWeight=#{userWeight}
+		where userId=#{userId}
+	</update>
+	
+	<update id="updateProfileInfo" parameterType="com.smhrd.model.UserVO">
+		update tb_user
+		set userNick=#{userNick}, userProfileImg=#{userProfileImg}, userProfileInfo=#{userProfileInfo}
 		where userId=#{userId}
 	</update>
 	

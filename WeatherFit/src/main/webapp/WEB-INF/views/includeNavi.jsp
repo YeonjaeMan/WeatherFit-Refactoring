@@ -25,7 +25,7 @@
 /* 로고 */
 #title-logo {
 	width: 330px;
-	margin-left: 14%;
+	margin-left: 11%;
 }
 
 .title {
@@ -123,15 +123,18 @@
 }
 
 /* 프로필(사용자) 아이콘 */
+button.btn-user.dropdown-toggle {
+    background-color: transparent;
+}
+
 .dropdown-toggle {
-	background-color: #7895CB;
 	border: none;
+	color: #4A55A2;
 }
 
 .dropdown-toggle:hover {
-	background-color: #DDE6ED;
 	cursor: pointer;
-	color: #4A55A2;
+	color: white;
 }
 
 /* 드롭다운 */
@@ -156,6 +159,29 @@
 	color: white !important;
 	transform: scale(1.1);
 	cursor: pointer;
+}
+
+#nav-menu {
+	display: flex;
+	align-items: center; /* 가로 방향으로 항목들을 중앙에 정렬 */
+	justify-content: center; /* 세로 방향으로 항목들을 중앙에 정렬 (필요한 경우) */
+	height: 100%; /* 부모 요소의 전체 높이를 차지하도록 설정 */
+}
+
+/* 사용자버튼 밑 닉네임 */
+.user-container {
+	display: flex;
+	flex-direction: column; /* 세로 방향으로 요소들을 정렬 */
+	align-items: center;
+	justify-content: center;
+}
+
+#navi-nick {
+	font-weight: bolder;
+	margin-top: 5px;
+	font-size: 14px;
+	color: #4A55A2;
+	padding-left: 10px;
 }
 </style>
 
@@ -190,10 +216,7 @@
 				<c:choose>
 					<c:when test="${member==null}">
 						<li class="nav-item"><a class="nav-link"
-							data-bs-toggle="modal" data-bs-target="#loginModal"
-							href="javascript:alert('회원가입을 해주세요.')">검색</a></li>
-						<li class="nav-item"><a class="nav-link"
-							data-bs-toggle="modal" data-bs-target="#loginModal"
+							data-bs-toggle="modal" data-bs-target="#joinModal"
 							href="javascript:alert('회원가입을 해주세요.')">메시지</a></li>
 						<button type="button" class="btn-blue" data-bs-toggle="modal"
 							data-bs-target="#loginModal">로그인</button>
@@ -202,25 +225,26 @@
 					</c:when>
 
 					<c:when test="${member!=null}">
-						<li class="nav-item"><a class="nav-link" href="gosearch.do">검색</a></li>
-						<!-- <li class="nav-item"><a class="nav-link" href="#">팔로우</a></li> -->
 						<li class="nav-item"><a class="nav-link" href="gochat.do">메시지</a></li>
-						<div class="btn-group">
-							<button type="button" class="btn-blue btn-user dropdown-toggle"
-								data-bs-toggle="dropdown" aria-expanded>
-								<i class="fa-solid fa-user"></i>
-							</button>
-							<ul id="dropdown-user" class="dropdown-menu">
-								<li><a class="dropdown-item"
-									href="Profile.do?userId=${member.userId}">프로필 확인</a></li>
-								<li><a class="dropdown-item" data-bs-toggle="modal"
-									data-bs-target="#profileUpdateModal">프로필 수정</a></li>
-								<li><hr class="dropdown-divider"></li>
-								<li><a id="btn-logout" class="dropdown-item" href="#">로그아웃</a></li>
-								<li><hr class="dropdown-divider"></li>
-								<li><a id="btn-deleteUser" class="dropdown-item"
-									href="DeleteUserInfo.do">회원탈퇴</a></li>
-							</ul>
+						<div class="user-container">
+							<div class="btn-group">
+								<button type="button" class="btn-user dropdown-toggle"
+									data-bs-toggle="dropdown" aria-expanded>
+									<img src="assets/user_profile/${member.userProfileImg}" style="width: 40px; height: 40px; border-radius: 50%;"> 
+								</button>
+								<ul id="dropdown-user" class="dropdown-menu">
+									<li><a class="dropdown-item"
+										href="Profile.do?userId=${member.userId}">프로필 확인</a></li>
+									<li><a class="dropdown-item" data-bs-toggle="modal"
+										data-bs-target="#profileUpdateModal">프로필 수정</a></li>
+									<li><hr class="dropdown-divider"></li>
+									<li><a id="btn-logout" class="dropdown-item" href="#">로그아웃</a></li>
+									<li><hr class="dropdown-divider"></li>
+									<li><a id="btn-deleteUser" class="dropdown-item"
+										href="DeleteUserInfo.do">회원탈퇴</a></li>
+								</ul>
+							</div>
+							<div id="navi-nick">${member.userNick}</div>
 						</div>
 						<button type="button" id="btn-create-post"
 							class="btn btn-blue round-button fixed-button"
