@@ -26,7 +26,7 @@
 ## 2. 사용 기술
 #### `Back-end`
 <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/> <img src="https://img.shields.io/badge/JSP,Servlet-20232a.svg?style=for-the-badge&logo=jsp&logoColor=61DAFB" />   
-<img src="https://img.shields.io/badge/Maven-20232a.svg?style=for-the-badge&logo=maven&logoColor=#C71A36" />
+<img src="https://img.shields.io/badge/apachemaven-C71A36.svg?style=for-the-badge&logo=apachemaven&logoColor=#C71A36" />
 <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white"/>
 <img src="https://img.shields.io/badge/Apache Tomcat 9.0-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/>
 #### `Front-end`
