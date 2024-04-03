@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 import com.smhrd.database.DAO;
 import com.smhrd.model.RoomVO;
 import com.smhrd.model.UserVO;
-
+// 채팅방의 식별번호를 
 public class Rooms implements AjaxCommand {
 
 	@Override

@@ -13,12 +13,12 @@ import com.google.gson.Gson;
 import com.smhrd.database.DAO;
 import com.smhrd.model.CrawlingVO;
 import com.smhrd.model.PostVO;
-
+// 조건에 맞는 게시물을 색인하는 클래스
 public class Posts implements AjaxCommand{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// postTemp를 요청데이터로 받는다
 		int postTemp = Integer.parseInt(request.getParameter("temp"));
 		
 		PostVO pvo = new PostVO();
@@ -30,7 +30,7 @@ public class Posts implements AjaxCommand{
 		DAO dao = new DAO();
 		List<PostVO> posts = dao.selectPosts(pvo);
 		List<CrawlingVO> craws = dao.selectCrawling(cvo);
-		
+		// 요청데이터를 조건으로 조건에 맞는 게시물들을 가져온다.
 		Map<String, Object> result = new HashMap<>();
 		result.put("posts", posts);
 		result.put("craws", craws);
