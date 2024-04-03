@@ -159,7 +159,6 @@ function recentPostView() {
 
 // 공통인 이미지를 가져오는 ajax와 더불어 브라우저에 html을 작성해주기
 function viewPost(post) {
-	console.log(typeof sessionUserId);
 	$.ajax({
 		url: "Images.ajax",
 		data: {
@@ -169,7 +168,6 @@ function viewPost(post) {
 		type: "post",
 		dataType: "json",
 		success: function(map) {
-			console.log(map);
 			let imgPath = "assets/uploads/" + map.file.fileRname;
 
 			if (post.postTemp == -999) {
