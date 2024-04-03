@@ -6,19 +6,19 @@
 ## 1. 제작 기간 & 참여 인원
 - 2024년 3월 18일 ~ 4월 2일
 
-> 정연재 : PM / Back, Front   
+> **정연재** : PM / Back, Front   
 > 프로젝트 관리, 기상청 API 날씨 위젯, 웹소켓 실시간 채팅   
 
-> 김동현 : Back / DB   
+> **김동현** : Back / DB   
 > 프로젝트 구조화, DB설계, 게시글 상세보기, 댓글, 프로필   
 
-> 박종현 : Front   
+> **박종현** : Front   
 > 게시글 작성, 해시태그, 주소 API   
 
-> 엄희수 : Front   
+> **엄희수** : Front   
 > 프론트 개발, UI & UX 디자인, 시연페이퍼, 시연영상   
 
-> 이동주 : 크롤링, DB / Back   
+> **이동주** : 크롤링, DB / Back   
 > 데이터 크롤링, 로그인, 회원가입, 문서 및 PPT 제작   
 
 </br>
@@ -51,9 +51,6 @@
 ## 3. ERD 설계
 ![](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/86634da8-afa4-4bc0-b26f-e5b435ad16bb)
 
-
-
-
 ## 4. 핵심 기능
 1. 게시글에 기온을 추가하여 사용자들끼리 패션 코디를 공유하기 위한 기능
 2. 의류 정보, 의류 후기 등을 교류하기 위한 채팅 기능
@@ -63,10 +60,10 @@
 <div markdown="1">
 
 ### 4.1. 전체 흐름
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow1.png)
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/0bf7f35c-2122-4ed1-b41b-c9f45c07024e)
 
 ### 4.2. 사용자 요청
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_vue.png)
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b8851469-20c3-4a45-b4bd-ab19e6e7fafa)
 
 - **URL 정규식 체크** :pushpin: [코드 확인](https://github.com/JungHyung2/gitio.io/blob/95b4c4f06a2a5a74a00f81a3c3fcc003c994725f/index.html#L15C8-L15C26)
   - Vue.js로 렌더링된 화면단에서, 사용자가 등록을 시도한 URL의 모양새를 정규식으로 확인합니다.
@@ -120,36 +117,80 @@
 </br>
 
 ## 5. 핵심 트러블 슈팅
-### 5.1. 기획의 불안정 문제
+
+<details>
+<summary><b>5.1. 기획의 불안정 문제</b></summary>   
+<div markdown="1">
+    
 - 처음에는 날씨 API를 활용해 날씨의 변화에 맞춰 사용자마다 코디를 실시간으로 추천해주는 서비스를 기획했기에 tb_fashion, tb_weather 테이블 두개를 설계했습니다.
+
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/2b76f9aa-cb10-4ff3-89dc-49aac339a149)
   
 - 하지만, 저희의 기술적인 한계로 인해 tb_fashion, tb_weather 테이블 대신 tb_crawling 테이블을 만들어 크롤링한 데이터를 계절별로만 나누어 추천했습니다.
+  
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/7f4b18fb-f2e5-4724-ba62-6f950b5b07b8)
 
-### 5.2. 구현 과정 중 생긴 의견 통일의 문제
+</div>
+</details>
+
+<details>
+<summary><b>5.2. 구현 과정 중 생긴 의견 통일의 문제</b></summary>   
+<div markdown="1">
+    
 - 구현 단계로 들어서기 전 피그마로 전체적인 UI/UX를 구성하였습니다.
+   
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b01f87b2-fe21-4119-980a-f3b569ecb2b6)
 
 - 하지만, 구현 단계로 들어서서 피그마로 구성한 UI/UX에서 세밀한 부분은 사용자의 편의성에 맞추어 바꿔야 할 필요가 있었기 때문에 짧은 기간 동안 빠른 의견 전달을 위해 그림판, 노트 등의 시각화하는 방법으로 회의를 진행하였습니다.
 
-### 5.3. Git 문제
-- Git에 대해 많은 애로 사항이 있었습니다.
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/9d44c9df-2a3a-48a5-a200-0bdb45e133e2)
 
-- 아무래도 처음 배워서 사용해보는 Git이었기에 프로젝트 기간 초반에 Git을 사용해보면서 공부하는 것에 시간을 많이 사용했습니다.
+</div>
+</details>
 
-- 심지어 팀 한명의 파일이 전부 날아가는 사태도 일어났습니다.
+<details>
+<summary><b>5.3. Git 문제</b></summary>   
+<div markdown="1">
+    
+- 처음 배워서 사용해보는 Git이었기에 프로젝트 기간 초반에 Git을 사용해보면서 공부하는 것에 시간을 많이 사용했습니다.   
 
-- GitHub Desktop을 이용해 Git을 UI로 보여주는 소프트웨어를 사용했고, 매일 팀원과 시간을 맞추어 Git push & pull을 하여 충돌을 방지했습니다.
+- 심지어 팀 한명의 파일이 전부 날아가는 사태도 일어났습니다.   
 
-### 5.4. WebSocket 채팅방 문제
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/10db11c4-3682-4e7d-bd58-ef58961ffd9a)
+
+- GitHub Desktop을 이용해 Git을 UI로 보여주는 소프트웨어를 사용했고, 매일 팀원과 시간을 맞추어 Git push & pull을 하여 충돌을 방지했습니다.   
+
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/1153595b-86ca-4719-8135-ceeeb4539edc)
+
+</div>
+</details>
+
+<details>
+<summary><b>5.4. WebSocket 채팅방 문제</b></summary>   
+<div markdown="1">
+    
 - 1:1 실시간 채팅을 위해 WebSocket을 구현하는 도중 채팅방을 통해 사용자 2명을 이어주는 것에 대해 어려움이 있었습니다.
 
 - @ServerEndpoint 어노테이션을 사용해 사용자가 속해있는 roomIdx를 이어줌으로써 채팅기능을 해결하였습니다.
 
-### 5.5. Modal의 충돌
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/a65509cb-aecd-46db-b48d-2248b7668b8e)
+
+</div>
+</details>
+
+<details>
+<summary><b>5.5. Modal의 충돌</b></summary>
+<div markdown="1">
+  
 - 프로젝트에 한 페이지 안에서 여러 모달을 사용해야만 했습니다.
 
-- HTML5의 모달을 구현하여 모달마다 showModal(), removeModal() 함수를 호출해주어야 했습니다.
+- HTML5의 모달을 구현하여 모달마다 showModal(), removeModal() 함수를 호출해주어야 했지만, showModal(), removeModal() 함수를 호출할 때 다른 js 코드들이 작동하지 않는 문제가 발생했습니다.
 
-- 하지만, showModal(), removeModal() 함수를 호출할 때 다른 js 코드들이 작동하지 않는 문제가 발생했습니다.
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/0ddf8321-002c-4e93-b165-363ca1b853b9)
 
 - 부트스트랩의 data-bs-toggle, data-bs-target 속성을 사용해 모달의 충돌이 일어나는 것을 방지할 수 있었고, 유지보수하기에도 용이해 부트스트랩을 공부하여 해결하였습니다.
 
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/4ba78611-865e-41cc-bd2d-871fad0c61bc)
+
+</div>
+</details>
