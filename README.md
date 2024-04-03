@@ -60,10 +60,10 @@
 <div markdown="1">
 
 ### 4.1. 전체 흐름
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow1.png)
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/0bf7f35c-2122-4ed1-b41b-c9f45c07024e)
 
 ### 4.2. 사용자 요청
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_vue.png)
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b8851469-20c3-4a45-b4bd-ab19e6e7fafa)
 
 - **URL 정규식 체크** :pushpin: [코드 확인](https://github.com/JungHyung2/gitio.io/blob/95b4c4f06a2a5a74a00f81a3c3fcc003c994725f/index.html#L15C8-L15C26)
   - Vue.js로 렌더링된 화면단에서, 사용자가 등록을 시도한 URL의 모양새를 정규식으로 확인합니다.
@@ -129,6 +129,7 @@
 - 하지만, 저희의 기술적인 한계로 인해 tb_fashion, tb_weather 테이블 대신 tb_crawling 테이블을 만들어 크롤링한 데이터를 계절별로만 나누어 추천했습니다.
   
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/7f4b18fb-f2e5-4724-ba62-6f950b5b07b8)
+
 </div>
 </details>
 
@@ -141,6 +142,9 @@
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b01f87b2-fe21-4119-980a-f3b569ecb2b6)
 
 - 하지만, 구현 단계로 들어서서 피그마로 구성한 UI/UX에서 세밀한 부분은 사용자의 편의성에 맞추어 바꿔야 할 필요가 있었기 때문에 짧은 기간 동안 빠른 의견 전달을 위해 그림판, 노트 등의 시각화하는 방법으로 회의를 진행하였습니다.
+
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/9d44c9df-2a3a-48a5-a200-0bdb45e133e2)
+
 </div>
 </details>
 
@@ -157,6 +161,7 @@
 - GitHub Desktop을 이용해 Git을 UI로 보여주는 소프트웨어를 사용했고, 매일 팀원과 시간을 맞추어 Git push & pull을 하여 충돌을 방지했습니다.   
 
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/1153595b-86ca-4719-8135-ceeeb4539edc)
+
 </div>
 </details>
 
@@ -169,6 +174,7 @@
 - @ServerEndpoint 어노테이션을 사용해 사용자가 속해있는 roomIdx를 이어줌으로써 채팅기능을 해결하였습니다.
 
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/a65509cb-aecd-46db-b48d-2248b7668b8e)
+
 </div>
 </details>
 
@@ -180,8 +186,11 @@
 
 - HTML5의 모달을 구현하여 모달마다 showModal(), removeModal() 함수를 호출해주어야 했지만, showModal(), removeModal() 함수를 호출할 때 다른 js 코드들이 작동하지 않는 문제가 발생했습니다.
 
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/0ddf8321-002c-4e93-b165-363ca1b853b9)
+
 - 부트스트랩의 data-bs-toggle, data-bs-target 속성을 사용해 모달의 충돌이 일어나는 것을 방지할 수 있었고, 유지보수하기에도 용이해 부트스트랩을 공부하여 해결하였습니다.
 
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/4ba78611-865e-41cc-bd2d-871fad0c61bc)
+
 </div>
 </details>
