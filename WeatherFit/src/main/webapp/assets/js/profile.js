@@ -43,9 +43,6 @@ function viewPost(post) {
 				$('#ajaxcontainer').append(`
 							<div class="col-md-4 card-columns">
 								<div class="card mb-2" data-id=`+ post.postIdx + `>
-									<div class="card-header d-flex justify-content-between">
-										
-									</div>
 									<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
 										<div class="img-container">
 											<img id="post-img" src="` + imgPath + `" class="img-fluid mx-auto d-block">
@@ -65,9 +62,6 @@ function viewPost(post) {
 				$('#ajaxcontainer').append(`
 							<div class="col-md-4 card-columns">
 								<div class="card mb-2" data-id=`+ post.postIdx + `>
-									<div class="card-header d-flex justify-content-between">
-										
-									</div>
 									<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
 										<div class="img-container">
 											<img id="post-img" src="` + imgPath + `" class="img-fluid mx-auto d-block">

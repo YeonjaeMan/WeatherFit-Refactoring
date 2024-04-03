@@ -1,20 +1,20 @@
-$(document).on("change", "#imageUpload1", function(event) {
+$(document).on("change", "#imageUpload", function(event) {
 	let file = event.target.files[0];
 	let reader = new FileReader();
 
 	reader.onload = function(e) {
-		$("#imagePreview1").attr("src", e.target.result).show();
+		$("#imagePreview").attr("src", e.target.result).show();
 	}
 
 	reader.readAsDataURL(file);
 });
 
-$(document).on("change", "#imageUpload2", function(event) {
+$(document).on("change", "#update-imageUpload", function(event) {
 	let file = event.target.files[0];
 	let reader = new FileReader();
 
 	reader.onload = function(e) {
-		$("#imagePreview2").attr("src", e.target.result).show();
+		$("#update-imagePreview").attr("src", e.target.result).show();
 	}
 
 	reader.readAsDataURL(file);
