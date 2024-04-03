@@ -117,9 +117,11 @@
 </br>
 
 ## 5. 핵심 트러블 슈팅
+
 <details>
 <summary><b>5.1. 기획의 불안정 문제</b></summary>
 <div markdown="1">
+  
 - 처음에는 날씨 API를 활용해 날씨의 변화에 맞춰 사용자마다 코디를 실시간으로 추천해주는 서비스를 기획했기에 tb_fashion, tb_weather 테이블 두개를 설계했습니다.
 
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/2b76f9aa-cb10-4ff3-89dc-49aac339a149)
@@ -133,6 +135,7 @@
 <details>
 <summary>5.2. 구현 과정 중 생긴 의견 통일의 문제</summary>
 <div markdown="1">
+  
 - 구현 단계로 들어서기 전 피그마로 전체적인 UI/UX를 구성하였습니다.
 
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b01f87b2-fe21-4119-980a-f3b569ecb2b6)
@@ -144,6 +147,7 @@
 <details>
 <summary>5.3. Git 문제</summary>
 <div markdown="1">
+  
 - 처음 배워서 사용해보는 Git이었기에 프로젝트 기간 초반에 Git을 사용해보면서 공부하는 것에 시간을 많이 사용했습니다.   
 
 - 심지어 팀 한명의 파일이 전부 날아가는 사태도 일어났습니다.   
@@ -159,6 +163,7 @@
 <details>
 <summary>5.4. WebSocket 채팅방 문제</summary>
 <div markdown="1">
+  
 - 1:1 실시간 채팅을 위해 WebSocket을 구현하는 도중 채팅방을 통해 사용자 2명을 이어주는 것에 대해 어려움이 있었습니다.
 
 - @ServerEndpoint 어노테이션을 사용해 사용자가 속해있는 roomIdx를 이어줌으로써 채팅기능을 해결하였습니다.
@@ -170,6 +175,7 @@
 <details>
 <summary>5.5. Modal의 충돌</summary>
 <div markdown="1">
+  
 - 프로젝트에 한 페이지 안에서 여러 모달을 사용해야만 했습니다.
 
 - HTML5의 모달을 구현하여 모달마다 showModal(), removeModal() 함수를 호출해주어야 했지만, showModal(), removeModal() 함수를 호출할 때 다른 js 코드들이 작동하지 않는 문제가 발생했습니다.
