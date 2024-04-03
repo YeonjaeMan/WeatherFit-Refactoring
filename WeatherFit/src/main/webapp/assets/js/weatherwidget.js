@@ -20,18 +20,14 @@ const raindrop = 5; // 빗방울
 const raindrop_blowingsnow = 6; // 빗방울/눈날림
 const blowingsnow = 7; // 눈날림
 
-/*
-*  날짜 변수
-*/
+// 날짜 변수
 let now = new Date();
 
 let year = now.getFullYear();
 let month = ('0' + (now.getMonth() + 1)).slice(-2);
 let day = ('0' + now.getDate()).slice(-2);
 let base_date = year + month + day;
-/*
-* 시간 변수
-*/
+// 시간 변수 
 let hours = ('0' + now.getHours()).slice(-2);
 let minutes = ('0' + now.getMinutes()).slice(-2);
 if (Number(minutes) >= 45) {
@@ -53,30 +49,43 @@ if (navigator.geolocation) {
 	alert("위치 정보를 동의하시면 현재 기온에 맞는 게시글 확인이 가능합니다.");
 }
 
-// 위도 경도 불러오기 성공!
+// 위도 경도 불러오기 성공 시 실행되는 함수
 function success(position) {
+	// 사용자의 위도 정보
 	let latitude = position.coords.latitude;
+	// 사용자의 경도 정보
 	let longitude = position.coords.longitude;
 
+	// 위도, 경도를 격자 좌표로 변환하는 함수 호출
 	let rs = dfs_xy_conv("toXY", latitude, longitude);
 
+	// API 키
 	const API_KEY = "0pAM3mq68Ft5YCoKoMe5CiXjNZiB9IiJoMUxqUKsMS897TRFS2YC0ra%2BHpo7VZpMrKmqrAGUuA5TPySKNoAAcQ%3D%3D";
 
+	// 기상청 단기 예보 조회 서비스 API 호출
 	$.ajax({
 		url: `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=${API_KEY}&numOfRows=60&base_date=${base_date}&base_time=${base_time}&nx=${rs.x}&ny=${rs.y}&dataType=JSON`,
 		type: "GET",
 
 		success: function(res) {
+			// 현재 기온 정보
 			let T1H = res.response.body.items.item[24].fcstValue;
+			// 현재 기온을 페이지에 표시
 			$("#weather-t1h").append("<span>" + T1H + "°C</span>");
+			 // 현재 기온을 폼의 값으로 설정
 			$("#postTemp").attr("value", T1H);
+			// 날씨 아이콘 로드 함수 호출
 			load_weather_icon(res);
 		},
 
 		error: function() {
+			// API 호출 실패 시 경고 창 표시
 			alert("날씨 정보를 가져올 수 없습니다..");
+			// 점검중 메시지 표시
 			$("#weather-t1h").append("<span>점검중..<span>")
+			// 폼의 값 설정 해제
 			$("#postTemp").attr("value", null);
+			// 최근 게시물 보기 함수 호출
 			recentPostView();
 		}
 	})

@@ -1,4 +1,4 @@
-
+// 'search'라는 id를 가진 입력 필드를 찾아 inputField 변수에 할당
 let inputField = document.getElementById('search');
 
 inputField.addEventListener('keyup', function() {
@@ -10,13 +10,15 @@ inputField.addEventListener('keyup', function() {
     $.ajax({
         url: "Searchs.ajax",
         type: "get",
-        data: senddata, // 수정된 부분
+        data: senddata,
         dataType: "json",
         success: function(search) {
             console.log(search);
             
-            $("#ajaxcontainer").empty(); // 기존의 검색 결과를 지우고 새로운 결과를 추가
-            search.forEach(function(item) { // 모든 검색 결과를 순회하여 추가
+            // 기존의 검색 결과를 지우고 새로운 결과를 추가
+            $("#ajaxcontainer").empty(); 
+            // 모든 검색 결과를 순회하여 추가
+            search.forEach(function(item) { 
                 $("#ajaxcontainer").html(`
                     ${item.userNick}<br>
                     ${item.hashTag}

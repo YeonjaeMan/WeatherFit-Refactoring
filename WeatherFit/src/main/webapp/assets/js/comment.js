@@ -1,6 +1,7 @@
-////////////////////////////////////////////////// 댓글영역
+// 댓글영역
 let postIdx;
-$(document).on('click', '.card', function() { // .view-btn은 postIdx를 담기위함 -> .card로 변경
+// .view-btn은 postIdx를 담기위함 -> .card로 변경
+$(document).on('click', '.card', function() { 
 	// 선택개체를 바꾼다면 이부분을 바꿔야함
 	// postviews.js 에 있는것과 동일
 	postIdx = parseInt($(this).data('id'));
@@ -18,13 +19,7 @@ $(document).on('click', '.card', function() { // .view-btn은 postIdx를 담기�
 					<span>`+ comment[i].userId + `</span><br>
 					<span>`+ comment[i].cmtContent + `</span><br>
 				`);
-
-
 			}
-
-			
-
-
 
 		}, error: function() {
 			console.log("댓글 비동기 불러오기 실패")
@@ -88,9 +83,6 @@ $(document).on('click', '.card', function() { // .view-btn은 postIdx를 담기�
 			console.log("연결 실패");
 		}
 	})
-
-
-
 
 
 });

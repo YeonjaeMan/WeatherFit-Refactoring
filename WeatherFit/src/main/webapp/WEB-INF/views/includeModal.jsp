@@ -18,8 +18,7 @@
 
 
 <body>
-	<!-- 로그인 Modal -->
-
+	<!-- 로그인 모달 -->
 	<div class="modal fade" id="loginModal" tabindex="-1"
 		aria-labelledby="loginModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -30,12 +29,11 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
+				<!-- 모달창 -->
 				<div class="modal-body">
-
-
+					<!-- 로그인 정보 입력 -->
 					<form action="Login.do" method="post"
 						onsubmit="return loginCheck()">
-						<div></div>
 						<div class="form-floating">
 							<input type="text" class="form-control" id="floatingInput"
 								name="email_id" placeholder="id" required> <label
@@ -48,11 +46,13 @@
 								for="floatingPassword">비밀번호</label>
 							<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 						</div>
+						<!-- 회원가입창으로 연결된 버튼 -->
 						<div class="form-check text-start mt-1 d-flex justify-content-end">
 							<button type="button" id="btn-join" class="btn"
 								data-bs-toggle="modal" data-bs-target="#joinModal">회원가입</button>
 						</div>
 						<div class="mb-2"></div>
+						<!-- 로그인 버튼 -->
 						<button class="btn-blue w-100 py-2" type="submit">로그인</button>
 
 					</form>
@@ -67,7 +67,7 @@
 
 
 
-	<!-- 회원가입 Modal -->
+	<!-- 회원가입 모달 -->
 	<div class="modal fade" id="joinModal" tabindex="-1"
 		aria-labelledby="joinModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
