@@ -44,7 +44,7 @@
 
 <details>
 <summary><b>3.1. 프로젝트 제안 배경 및 필요성</b></summary>
-</details>
+
 <div markdown="1">
 
 **1. 소셜 네트워크 서비스 (SNS) 이용 증가**
@@ -59,10 +59,11 @@
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/a35fc8d6-fb39-46d6-8bae-255c7137e361)
 
 </div>
+</details>
 
 <details>
 <summary><b>3.2. WeatherFit만의 차별성</b></summary>
-</details>
+
 <div markdown="1">
 
 **1. 기상청 날씨 API를 활용하여 사용자 위치에 따른 기온을 게시글에 등록하여 사용자들끼리 날씨에 적당한 패션 코디를 주고 받을 수 있음!**
@@ -72,10 +73,11 @@
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/3553dfa0-feae-4b67-903d-c4f252cdcfc0)
 
 </div>
+</details>
 
 <details>
 <summary><b>3.3. 프로젝트 기능</b></summary>
-</details>
+
 <div markdown="1">
 
 ### 로그인,로그아웃,회원가입,정보수정,회원탈퇴
@@ -102,6 +104,7 @@
 - 사용자별 작성한 게시글 확인
 
 </div>
+</details>
 
 ## 4. ERD 설계
 ![](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/86634da8-afa4-4bc0-b26f-e5b435ad16bb)
