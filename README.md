@@ -1,29 +1,35 @@
-# :pushpin: goQuality
->고퀄리티 개발 컨텐츠 공유 서비스  
-> 데모사이트 링크
+# :pushpin: WeatherFit
+> 기온과 계절 정보를 활용하여 사용자들에게 다양한 패션을 제공하는 소셜 네트워크 서비스(SNS)
 
 </br>
 
 ## 1. 제작 기간 & 참여 인원
-- 2019년 2월 18일 ~ 4월 5일
-- 개인 프로젝트
+- 2024년 3월 18일 ~ 4월 2일
+- 팀 프로젝트
 
 </br>
 
 ## 2. 사용 기술
 #### `Back-end`
   - Java 8
-  - Spring Boot 2.3
-  - Gradle
-  - Spring Data JPA
-  - QueryDSL
-  - H2
+  - JSP/Servlet
+  - Maven
   - MySQL 5.7
-  - Spring Security
-  - Jsoup
+  - Apache Tomcat 9.0
+  - Websocket
 #### `Front-end`
-  - Vue.js 3.0
-  - Element UI
+  - HTML/JS/CSS
+  - Bootstrap
+  - Jquery
+#### `IDE`
+  - Eclipse
+  - VSCode
+#### `Etc`
+  - Python (Crawling)
+  - Notion
+  - GitHub Desktop
+  - Figma
+  - AQuery
 
 </br>
 
