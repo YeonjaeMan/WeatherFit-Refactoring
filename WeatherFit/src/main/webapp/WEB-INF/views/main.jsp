@@ -19,7 +19,6 @@
 </head>
 <body>
 	<!-- 날씨 위젯과 상단 네비 분리 -->
-
 	<%@ include file="includeNavi.jsp"%>
 
 	<%
@@ -32,7 +31,7 @@
 	<main>
 		<div class="album bg-tertiary"></div>
 		<div class="container">
-			<!-- 토글 버튼 -->
+			<!-- 최근/추천 피드 토글 버튼 -->
 			<div id="maintoggle" class="d-flex justify-content-center">
 				<div class="btn-group" role="group"
 					aria-label="Basic radio toggle button group">
@@ -47,9 +46,9 @@
 
 			<!-- 게시글 카드 -->
 			<div>
+				<!-- ajax 게시판 바로 불러오기 -->
 				<div id="ajaxcontainer"
 					class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-1"></div>
-				<!-- ajax게시판바로불러오기 -->
 			</div>
 
 		</div>
