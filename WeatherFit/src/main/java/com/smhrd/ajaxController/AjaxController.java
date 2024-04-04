@@ -24,13 +24,13 @@ import com.smhrd.ajax.Rooms;
 import com.smhrd.ajax.Searchs;
 
 
-
+// .ajax로 끝나는 모든 url을 이곳에서 처리한다
 @WebServlet("*.ajax")
 public class AjaxController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private HashMap<String, AjaxCommand> map = new HashMap<String, AjaxCommand>();
-	
+	// 해당하는 클래스로 연결한다.
 	@Override
 	public void init() throws ServletException {
 		
@@ -48,7 +48,7 @@ public class AjaxController extends HttpServlet {
 		map.put("DeleteLike.ajax", new DeleteLike());
 		map.put("Postdetail.ajax", new Postdetail());
 	}
-
+	// 요청이 들어온 url을 수정한다.
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String uri = request.getRequestURI();

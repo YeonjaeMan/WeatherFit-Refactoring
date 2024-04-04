@@ -9,20 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 import com.smhrd.database.DAO;
 import com.smhrd.model.UserVO;
 
+// 회원정보를 수정하여 DB에 저장해주는 컨트롤러
 public class UpdateUserInfo implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-	
-		UserVO sessionVO = (UserVO)request.getSession().getAttribute("member");
+
+		UserVO sessionVO = (UserVO) request.getSession().getAttribute("member");
 		String userId = sessionVO.getUserId();
 		String password = request.getParameter("new-password");
 		String nick = request.getParameter("new-nickname");
 		String region = request.getParameter("new-region");
 		double height = Double.parseDouble(request.getParameter("new-height"));
 		double weight = Double.parseDouble(request.getParameter("new-weight"));
-		
+
 		UserVO uvo = new UserVO();
 		uvo.setUserId(userId);
 		uvo.setUserPw(password);
@@ -30,11 +31,11 @@ public class UpdateUserInfo implements Command {
 		uvo.setUserRegion(region);
 		uvo.setUserHeight(height);
 		uvo.setUserWeight(weight);
-		
+
 		DAO dao = new DAO();
 		dao.updateUserInfo(uvo);
-		
+
 		return "redirect:/gomain.do";
 	}
-	
+
 }
