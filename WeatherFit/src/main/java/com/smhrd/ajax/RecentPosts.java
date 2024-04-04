@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.smhrd.database.DAO;
 import com.smhrd.model.PostVO;
-
+// 모든 게시물들을 가져오는 클래스
 public class RecentPosts implements AjaxCommand {
 
 	@Override
@@ -18,11 +18,10 @@ public class RecentPosts implements AjaxCommand {
 
 		DAO dao = new DAO();
 		List<PostVO> recentPosts = dao.selectRecentPosts();
-
+		// selectRecentPosts는 post의 모든 데이터를 가져온다.
 		Gson gson = new Gson();
 		String json = gson.toJson(recentPosts);
 
-		// 응답의 컨텐츠 타입을 "application/json"으로 설정하고, 문자 인코딩은 "UTF-8"로 설정합니다.
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 

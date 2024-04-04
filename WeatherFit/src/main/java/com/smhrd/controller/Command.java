@@ -6,11 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// .do 로 들어오는 요청 처리하는 인터페이스
 public interface Command {
 
-	// FrontController --> 자원을 많이 차지하는 / 돈을 많이 받아야하는 매니저
-	// Join, Login, SelectAll, Logout --> 일반클래스 / 자원을 적게 차지하는 / 아르바이트
-	// Command Interface --> 메뉴얼 / 규격
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, InterruptedException;
-	
+   public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, InterruptedException;
+   
 }

@@ -94,7 +94,7 @@ public class DAO {
 
 	public List<Map<String, Object>> Search(String keyWord) {
 		SqlSession session = factory.openSession();
-		List<Map<String, Object>> result = session.selectList("search","%"+keyWord+"%");
+		List<Map<String, Object>> result = session.selectList("search","%"+keyWord);
 		session.close();
 		return result;
 	}

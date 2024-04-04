@@ -7,31 +7,28 @@ import javax.servlet.http.HttpSession;
 import com.smhrd.database.DAO;
 import com.smhrd.model.UserVO;
 
+// 로그인을 하기 위해 DB에 들어있는 ID와 PW가 맞다면 DB에서 회원정보를 가져오는 컨트롤러
 public class Login implements Command {
-	
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		
+   
+   public String execute(HttpServletRequest request, HttpServletResponse response) {
+      
+      String userId = request.getParameter("email_id"); 
+      String userPw = request.getParameter("email_pw");
 
-		String userId = request.getParameter("email_id"); // email
-		String userPw = request.getParameter("email_pw");	// 비번
+      UserVO vo = new UserVO();
+      vo.setUserId(userId);
+      vo.setUserPw(userPw);
+      
+      DAO dao = new DAO();
+      
+      UserVO resultVO = dao.login(vo);
 
-		UserVO vo = new UserVO();
-		vo.setUserId(userId);
-		vo.setUserPw(userPw);
-		
-		DAO dao = new DAO();
-		
-		UserVO resultVO = dao.login(vo);
+      if(resultVO != null) {
+         HttpSession session = request.getSession();
+         session.setAttribute("member", resultVO);
+      }
 
-		if(resultVO != null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("member", resultVO);	// <<<<
-		}else {
-		}
-		// 로그인 완료 후 메인페이지
-    
-		return "redirect:/gomain.do";
-//		return "redirect:/";
-		
-	}	
+      return "redirect:/gomain.do";
+      
+   }   
 }
