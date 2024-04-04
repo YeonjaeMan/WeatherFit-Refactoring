@@ -22,9 +22,8 @@
 
 /* 피드 밑 여백 */
 div#ajaxcontainer {
-    margin-bottom: 7%;
+	margin-bottom: 7%;
 }
-
 
 /* 메인페이지 게시글 토글버튼 */
 #maintoggle {
@@ -44,8 +43,6 @@ div#ajaxcontainer {
 	color: #7895CB !important;
 }
 
-
-
 /* "최근" 버튼에 대한 기본 상태 */
 #recent:checked+.btn-outline {
 	border-color: #7895CB;
@@ -63,7 +60,7 @@ div#ajaxcontainer {
 }
 
 /* 웨더핏추천 문구 */
-#recommend-text{
+#recommend-text {
 	font-weight: bold;
-    color: #4A55A2;
+	color: #4A55A2;
 }

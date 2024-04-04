@@ -64,7 +64,7 @@ function viewPost(post) {
 							</div>`
 				);
 
-			// 온도 정보가 있는 경우
+				// 온도 정보가 있는 경우
 			} else {
 				// 온도 정보 뒤에 '°C'를 붙여 표시
 				post.postTemp = post.postTemp + "°C";

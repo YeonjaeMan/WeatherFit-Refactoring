@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import com.smhrd.database.DAO;
 import com.smhrd.model.UserVO;
 
-// 로그인을 하기 위해 DB에 들어있는 ID와 PW가 맞다면 DB에서 회원정보를 가져오는 컨트롤러
+// 로그인을 하기 위해 DB에 들어있는 ID와 PW가 맞다면 DB에서 회원정보를 가져오는 클래스
 public class Login implements Command {
    
    public String execute(HttpServletRequest request, HttpServletResponse response) {

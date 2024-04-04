@@ -34,6 +34,7 @@ public class CreatePost implements Command {
       if (!dir.exists())
          dir.mkdirs();
 
+      // cos 라이브러리를 사용해 multipart/form-data 처리
       MultipartRequest multipartRequest = null;
       multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
 

@@ -94,7 +94,7 @@ $(document).on("click", ".chatroom", function(event) {
 			for (let i = 0; i < chats.length; i++) {
 				// 메시지를 담을 div 요소 생성
 				let messageElement = document.createElement("div");
-				
+
 				// 메시지 소유자에 따라 클래스 추가
 				if (chats[i].chatter == userId) {
 					messageElement.classList.add("message", "mine");
@@ -117,7 +117,7 @@ $(document).on("click", ".chatroom", function(event) {
 				let container = document.getElementById("chat-container");
 				container.appendChild(messageElement);
 				// 스크롤을 가장 아래로 이동
-				container.scrollTop = container.scrollHeight; 
+				container.scrollTop = container.scrollHeight;
 			}
 		},
 		error: function() {
@@ -192,7 +192,7 @@ function socketMsgSend(userId, roomIdx, sendMessage) {
 // 웹소켓 메시지 수신
 function socketMessage(event, userId) {
 	// 수신 data
-	let receiveData = event.data; 
+	let receiveData = event.data;
 	// 수신받은 데이터를 JSON 형태로 변환
 	let receiveMessage = JSON.parse(receiveData);
 
@@ -213,18 +213,18 @@ function socketMessage(event, userId) {
 
 	// 시각을 담을 요소 생성 
 	// 현재 시각 가져오기
-	let timestamp = new Date().toLocaleTimeString();  
+	let timestamp = new Date().toLocaleTimeString();
 	let timestampElement = document.createElement("div");
 	timestampElement.classList.add("timestamp");
 	// 시각 표시
-	timestampElement.textContent = timestamp; 
+	timestampElement.textContent = timestamp;
 	messageElement.appendChild(timestampElement);
 
 	// 생성된 메시지 요소를 채팅 컨테이너에 추가
 	let container = document.getElementById("chat-container");
 	container.appendChild(messageElement);
 	// 스크롤을 가장 아래로 이동
-	container.scrollTop = container.scrollHeight; 
+	container.scrollTop = container.scrollHeight;
 
 }
 

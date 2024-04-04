@@ -18,7 +18,7 @@ import com.smhrd.model.FileVO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.UserVO;
 
-// 게시물을 수정하여 DB에 저장해주는 컨트롤러
+// 게시물을 수정하여 DB에 저장해주는 클래스
 public class UpdatePost implements Command {
 
 	@Override
@@ -32,6 +32,7 @@ public class UpdatePost implements Command {
 
 		String realPath = "C:/Users/smhrd/Desktop/-SNS/WeatherFit/src/main/webapp/assets/uploads";
 
+		// cos 라이브러리를 사용해 multipart/form-data 처리
 		MultipartRequest multipartRequest = null;
 		multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
 

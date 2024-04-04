@@ -3,100 +3,99 @@ package com.smhrd.model;
 import java.sql.Timestamp;
 
 public class PostVO {
-	
-	// 게시글 
-	
 
-	    // 글 식별자 
-	    private int postIdx;
+	// 게시글
 
-	    // 글 내용 
-	    private String postContent;
+	// 글 식별자
+	private int postIdx;
 
-	    // 작성 일자 
-	    private Timestamp createdAt;
+	// 글 내용
+	private String postContent;
 
-	    // 작성자 아이디 
-	    private String userId;
-	    // UserVO ? String? nickname?
+	// 작성 일자
+	private Timestamp createdAt;
 
-	    // 글 조회수 
-	    private int postViews;
+	// 작성자 아이디
+	private String userId;
+	// UserVO ? String? nickname?
 
-	    // 글 좋아요수 
-	    private int postLikes;
+	// 글 조회수
+	private int postViews;
 
-	    // 해시 태그 
-	    private String hashTag;
-	    
-	    // 기온
-	    private int postTemp;
+	// 글 좋아요수
+	private int postLikes;
 
-	    public int getPostTemp() {
-			return postTemp;
-		}
+	// 해시 태그
+	private String hashTag;
 
-		public void setPostTemp(int postTemp) {
-			this.postTemp = postTemp;
-		}
+	// 기온
+	private int postTemp;
 
-		public int getPostIdx() {
-	        return postIdx;
-	    }
+	public int getPostTemp() {
+		return postTemp;
+	}
 
-	    public void setPostIdx(int postIdx) {
-	        this.postIdx = postIdx;
-	    }
+	public void setPostTemp(int postTemp) {
+		this.postTemp = postTemp;
+	}
 
-	    public String getPostContent() {
-	        return postContent;
-	    }
+	public int getPostIdx() {
+		return postIdx;
+	}
 
-	    public void setPostContent(String postContent) {
-	        this.postContent = postContent;
-	    }
+	public void setPostIdx(int postIdx) {
+		this.postIdx = postIdx;
+	}
 
-	    public Timestamp getCreatedAt() {
-	        return createdAt;
-	    }
+	public String getPostContent() {
+		return postContent;
+	}
 
-	    public void setCreatedAt(Timestamp createdAt) {
-	        this.createdAt = createdAt;
-	    }
+	public void setPostContent(String postContent) {
+		this.postContent = postContent;
+	}
 
-	    public String getUserId() {
-	        return userId;
-	    }
+	public Timestamp getCreatedAt() {
+		return createdAt;
+	}
 
-	    public void setUserId(String userId) {
-	        this.userId = userId;
-	    }
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
+	}
 
-	    public int getPostViews() {
-	        return postViews;
-	    }
+	public String getUserId() {
+		return userId;
+	}
 
-	    public void setPostViews(int postViews) {
-	        this.postViews = postViews;
-	    }
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
-	    public int getPostLikes() {
-	        return postLikes;
-	    }
+	public int getPostViews() {
+		return postViews;
+	}
 
-	    public void setPostLikes(int postLikes) {
-	        this.postLikes = postLikes;
-	    }
+	public void setPostViews(int postViews) {
+		this.postViews = postViews;
+	}
 
-	    public String getHashTag() {
-	        return hashTag;
-	    }
+	public int getPostLikes() {
+		return postLikes;
+	}
 
-	    public void setHashTag(String hashTag) {
-	        this.hashTag = hashTag;
-	    }
+	public void setPostLikes(int postLikes) {
+		this.postLikes = postLikes;
+	}
 
-	    // tbPost 모델 복사
+	public String getHashTag() {
+		return hashTag;
+	}
+
+	public void setHashTag(String hashTag) {
+		this.hashTag = hashTag;
+	}
+
+	// tbPost 모델 복사
 //	    public void CopyData(tbPost param)
 //	    {
 //	        this.postIdx = param.getPostIdx();
@@ -107,19 +106,18 @@ public class PostVO {
 //	        this.postLikes = param.getPostLikes();
 //	        this.hashTag = param.getHashTag();
 //	    }
-	
-		public PostVO() {
 
-		}
-		public PostVO(int postIdx, String postContent, String userId, int postViews, int postLikes, String hashTag) {
-			this.postIdx = postIdx;
-			this.postContent = postContent;
-			this.userId = userId;
-			this.postViews = postViews;
-			this.postLikes = postLikes;
-			this.hashTag = hashTag;
-		}
-	
-	
-	
+	public PostVO() {
+
+	}
+
+	public PostVO(int postIdx, String postContent, String userId, int postViews, int postLikes, String hashTag) {
+		this.postIdx = postIdx;
+		this.postContent = postContent;
+		this.userId = userId;
+		this.postViews = postViews;
+		this.postLikes = postLikes;
+		this.hashTag = hashTag;
+	}
+
 }

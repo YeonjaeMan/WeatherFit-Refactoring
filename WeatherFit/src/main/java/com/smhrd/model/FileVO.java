@@ -1,18 +1,17 @@
 package com.smhrd.model;
 
 public class FileVO {
-	
+
 	private int fileIdx;
-	
+
 	private int postIdx;
-	
+
 	private String fileRname;
-	
+
 	private long fileSize;
-	
+
 	private String fileExt;
 
-	
 	public FileVO() {
 
 	}
@@ -40,7 +39,7 @@ public class FileVO {
 	public void setPostIdx(int postIdx) {
 		this.postIdx = postIdx;
 	}
-	
+
 	public void setFileSize(long fileSize) {
 		this.fileSize = fileSize;
 	}
@@ -48,7 +47,7 @@ public class FileVO {
 	public long getFileSize() {
 		return fileSize;
 	}
-	
+
 	public String getFileRname() {
 		return fileRname;
 	}
@@ -64,8 +63,5 @@ public class FileVO {
 	public void setFileExt(String fileExt) {
 		this.fileExt = fileExt;
 	}
-	
-	
-	
-	
+
 }

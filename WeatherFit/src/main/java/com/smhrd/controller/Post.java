@@ -8,7 +8,7 @@ import com.smhrd.database.DAO;
 import com.smhrd.model.PostVO;
 import com.smhrd.model.UserVO;
 
-// 게시글을 작성을하면  DB에 내용을 저장해주는 컨트롤러
+// 게시글을 작성을하면 DB에 내용을 저장해주는 클래스
 public class Post implements Command {
 
    @Override
@@ -35,6 +35,5 @@ public class Post implements Command {
          return "redirect:/gomain.do";
       }
       
-   
    }
 }

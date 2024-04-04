@@ -13,7 +13,7 @@ $(document).ready(function() {
 			// 최근 게시글 보기 함수 호출
 			recentPostView();
 		} else {
-			 // ajaxcontainer 내용을 비움
+			// ajaxcontainer 내용을 비움
 			$("#ajaxcontainer").html("");
 			// 추천 게시글 보기 함수 호출, 현재 온도를 인자로 전달
 			recoPostView($("#weather-t1h > span").text().slice(0, -2));
@@ -155,7 +155,7 @@ function viewPost(post) {
 								</div>
 							</div>`
 				);
-			// 게시글의 온도 정보가 있는 경우 
+				// 게시글의 온도 정보가 있는 경우 
 			} else {
 				// 온도 값에 °C 추가
 				post.postTemp = post.postTemp + "°C";

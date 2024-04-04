@@ -72,7 +72,7 @@ function success(position) {
 			let T1H = res.response.body.items.item[24].fcstValue;
 			// 현재 기온을 페이지에 표시
 			$("#weather-t1h").append("<span>" + T1H + "°C</span>");
-			 // 현재 기온을 폼의 값으로 설정
+			// 현재 기온을 폼의 값으로 설정
 			$("#postTemp").attr("value", T1H);
 			// 날씨 아이콘 로드 함수 호출
 			load_weather_icon(res);

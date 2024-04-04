@@ -14,7 +14,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.smhrd.database.DAO;
 import com.smhrd.model.UserVO;
 
-// 포로필 정보를 수정하여 DB에 저장해주는 컨트롤러
+// 포로필 정보를 수정하여 DB에 저장해주는 클래스
 public class UpdateProfile implements Command {
 
 	@Override
@@ -32,6 +32,7 @@ public class UpdateProfile implements Command {
 		if (!dir.exists())
 			dir.mkdirs();
 
+		// cos 라이브러리를 사용해 multipart/form-data 처리
 		MultipartRequest multipartRequest = null;
 		multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
 

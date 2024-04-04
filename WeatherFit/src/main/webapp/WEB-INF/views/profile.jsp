@@ -11,16 +11,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WeatherFit</title>
 
-
-<!-- 부트스트랩, 제이쿼리, 폰트어썸 -->
 <%@ include file="includeHeaders.jsp"%>
 <link rel="stylesheet" href="assets/css/profile.css">
 <link rel="stylesheet" href="assets/css/postcard.css">
 
 </head>
 <body>
-	<!-- 날씨 위젯과 상단 네비 분리 -->
-
 	<%@ include file="includeNavi.jsp"%>
 
 	<%
@@ -36,7 +32,8 @@
 					<div
 						class="d-flex justify-content-center align-items-center mt-4 mb-4">
 						<!-- 프로필 사진 -->
-						<img class='img-profile rounded-circle' src='assets/user_profile/<%= uvo.getUserProfileImg() %>'>
+						<img class='img-profile rounded-circle'
+							src='assets/user_profile/<%=uvo.getUserProfileImg()%>'>
 						<title>프로필사진</title>
 						<rect width="250px" height="250px"
 							fill="var(--bs-secondary-color)" />
@@ -57,7 +54,8 @@
 								<p>
 									<c:choose>
 										<c:when test="${member.userId==userProfileInfo.userId}">
-											<a class='btn-blue' id='btn-edit' data-bs-toggle="modal" data-bs-target="#profileModal">편집</a>
+											<a class='btn-blue' id='btn-edit' data-bs-toggle="modal"
+												data-bs-target="#profileModal">편집</a>
 										</c:when>
 
 										<c:when test="${member.userId!=userProfileInfo.userId}">
@@ -85,7 +83,7 @@
 							</p>
 							<!-- 프로필소개 -->
 							<p id="profiletext">
-								<%= uvo.getUserProfileInfo() %>
+								<%=uvo.getUserProfileInfo()%>
 							</p>
 						</div>
 					</div>
@@ -122,10 +120,12 @@
 				</div>
 				<div class="modal-body">
 					<!-- 프로필 수정 폼 -->
-					<form action="UpdateProfile.do" method="post" enctype="multipart/form-data">
+					<form action="UpdateProfile.do" method="post"
+						enctype="multipart/form-data">
 						<div class="mb-3">
 							<label for="profileImage" class="form-label">프로필 이미지</label> <input
-								type="file" class="form-control" name="profileImg" id="profileImage">
+								type="file" class="form-control" name="profileImg"
+								id="profileImage">
 						</div>
 						<div class="mb-3">
 							<label for="nickname" class="form-label">닉네임</label> <input
@@ -133,7 +133,8 @@
 						</div>
 						<div class="mb-3">
 							<label for="profileIntro" class="form-label">프로필 소개</label>
-							<textarea class="form-control" name="userProfileInfo" id="profileIntro" rows="3"></textarea>
+							<textarea class="form-control" name="userProfileInfo"
+								id="profileIntro" rows="3"></textarea>
 						</div>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-primary">저장</button>

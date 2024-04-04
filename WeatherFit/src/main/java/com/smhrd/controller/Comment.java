@@ -31,19 +31,7 @@ public class Comment implements Command {
 		// comment에 cvo를 보내 저장한다.
 		dao.comment(cvo);
 		
-		
 		return null;
 	}
-
-      CommentVO cvo = new CommentVO();
-      cvo.setPostIdx(postIdx);
-      cvo.setCmtContent(cmtContent);
-      cvo.setUserId(userId);
-      
-      DAO dao = new DAO();
-      dao.comment(cvo);
-      
-      return null;
-   }
 
 }

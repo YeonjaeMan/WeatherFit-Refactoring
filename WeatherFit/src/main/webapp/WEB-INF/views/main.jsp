@@ -54,11 +54,13 @@
 		</div>
 	</main>
 
-	<script type="text/javascript">let sessionUserId = "${member.userId}"</script>
+	<script type="text/javascript">
+		let sessionUserId = "${member.userId}"
+	</script>
 	<script src="assets/js/postview.js?ver=<%=System.currentTimeMillis()%>"></script>
 	<script src="assets/js/comment.js?ver=<%=System.currentTimeMillis()%>"></script>
-	<script src="assets/js/imageupload.js?ver=<%=System.currentTimeMillis()%>"></script>
-	<script src="assets/js/like.js?ver=<%=System.currentTimeMillis()%>"></script>
+	<script
+		src="assets/js/imageupload.js?ver=<%=System.currentTimeMillis()%>"></script>
 
 </body>
 </html>

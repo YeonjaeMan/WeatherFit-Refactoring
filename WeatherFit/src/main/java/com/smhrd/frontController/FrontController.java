@@ -67,9 +67,6 @@ public class FrontController extends HttpServlet {
 		String finalPath = null;
 		Command com = map.get(path);
 
-	
-		
-		
 		if (path.startsWith("go")) {
 			finalPath = path.replace("go", "").replace(".do", "");
 		} else {
@@ -79,7 +76,6 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			} 
 		}
-		
 
 		if (finalPath == null) {
 

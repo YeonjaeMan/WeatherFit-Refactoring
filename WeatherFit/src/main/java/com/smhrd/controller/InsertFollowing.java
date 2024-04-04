@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.smhrd.database.DAO;
 import com.smhrd.model.FollowingVO;
 
-// 다른 계정을 팔로우하면 DB에 팔로우 정보를 저장해주는 컨트롤러
+// 다른 계정을 팔로우하면 DB에 팔로우 정보를 저장해주는 클래스
 public class InsertFollowing implements Command {
 
    public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, InterruptedException {

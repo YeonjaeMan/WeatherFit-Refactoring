@@ -8,14 +8,10 @@
 <meta charset="UTF-8">
 <title>WeatherFit</title>
 
-</head>
 <link rel="stylesheet" href="assets/css/address.css">
 <link rel="stylesheet" href="assets/css/modal.css">
 
-
-
-
-
+</head>
 
 <body>
 	<!-- 로그인 모달 -->
@@ -482,8 +478,6 @@
 			</div>
 		</div>
 	</div>
-
-	<script src="assets/js/validation.js"></script>
 
 </body>
 </html>

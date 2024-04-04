@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.smhrd.database.DAO;
 import com.smhrd.model.UserVO;
 
-// 회원가입에 필요한 정보들을 불러오고 회원정보를 DB에 저장해주는 컨트롤러
+// 회원가입에 필요한 정보들을 불러오고 회원정보를 DB에 저장해주는 클래스
 public class Join implements Command {
 
    public String execute(HttpServletRequest request, HttpServletResponse response) {

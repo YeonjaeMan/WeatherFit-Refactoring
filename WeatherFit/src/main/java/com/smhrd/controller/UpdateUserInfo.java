@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.smhrd.database.DAO;
 import com.smhrd.model.UserVO;
 
-// 회원정보를 수정하여 DB에 저장해주는 컨트롤러
+// 회원정보를 수정하여 DB에 저장해주는 클래스
 public class UpdateUserInfo implements Command {
 
 	@Override

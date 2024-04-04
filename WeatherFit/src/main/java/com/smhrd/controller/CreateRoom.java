@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.smhrd.database.DAO;
 import com.smhrd.model.RoomVO;
 
-// 나의 userId와 상대 userId를 가져와 기본 채팅방이 없다면 채팅방을 만들어 DB에 저장해주는 컨트롤러
+// 나의 userId와 상대 userId를 가져와 기본 채팅방이 없다면 채팅방을 만들어 DB에 저장해주는 클래스
 public class CreateRoom implements Command {
 
    public String execute(HttpServletRequest request, HttpServletResponse response) {

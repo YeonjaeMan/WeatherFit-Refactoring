@@ -11,7 +11,7 @@ import com.smhrd.database.DAO;
 import com.smhrd.model.FollowingVO;
 import com.smhrd.model.UserVO;
 
-// 프로필 페이지에 userId에 맞는 정보들을 DB에서 꺼내오는 컨트롤러
+// 프로필 페이지에 userId에 맞는 정보들을 DB에서 꺼내오는 클래스
 public class Profile implements Command {
 
    public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, InterruptedException {
@@ -36,6 +36,7 @@ public class Profile implements Command {
       session.setAttribute("followingCheck", resultFLVO);
       
       return "profile";
+      
    }
    
 }

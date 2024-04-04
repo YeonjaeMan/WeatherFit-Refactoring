@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.smhrd.database.DAO;
 import com.smhrd.model.FollowingVO;
 
-// 팔로잉을 취소하면 DB에 저장된 팔로잉 내용을 삭제하는 컨트롤러
+// 팔로잉을 취소하면 DB에 저장된 팔로잉 내용을 삭제하는 클래스
 public class DeleteFollowing implements Command {
 
    public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, InterruptedException {
