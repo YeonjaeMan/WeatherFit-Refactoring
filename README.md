@@ -1,4 +1,4 @@
-![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/109597157/63c09f54-d671-44a1-b99e-b817b58d32f5)![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
 
 ### 기온과 계절 정보를 활용하여 사용자들에게 다양한 패션을 제공하는 소셜 네트워크 서비스(SNS)
 ### 팀명 : TGK(teamGaeko)
@@ -134,9 +134,11 @@
 ### 5.2. 사용자 요청
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b8851469-20c3-4a45-b4bd-ab19e6e7fafa)
 
-- **URL 정규식 체크** :pushpin: [코드 확인](https://github.com/JungHyung2/gitio.io/blob/95b4c4f06a2a5a74a00f81a3c3fcc003c994725f/index.html#L15C8-L15C26)
-  - Vue.js로 렌더링된 화면단에서, 사용자가 등록을 시도한 URL의 모양새를 정규식으로 확인합니다.
-  - URL의 모양새가 아닌 경우, 에러 메세지를 띄웁니다.
+- **요청이 들어온 URL을 확인** :pushpin: [코드 확인]
+- ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/109597157/ddb65b5f-7698-4d60-a72a-6646a02e860b)
+
+  -  모든 URL이 끝나는 부분을 .do 와 .ajax로 통합하여 각 URL들이 어떤 기능들을 원하는지 분류하고,
+  - Controller를 통해서만 접근할 수 있도록 설계. 다른 방법으로 접근하게 되면 에러를 띄움
 
 - **Axios 비동기 요청** :pushpin: [코드 확인]()
   - URL의 모양새인 경우, 컨텐츠를 등록하는 POST 요청을 비동기로 날립니다.
