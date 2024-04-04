@@ -30,8 +30,8 @@ public class websocket {
 	// 웹 소켓 연결시 호출
 	@OnOpen
 	public void handleOpen(Session userSession, @PathParam("roomIdx") String roomIdx) {
-		// key값에 roomIdx가 있다면, 해당 value의 List에 접속한 사용자를 소켓 세션에 넣고,
-		// 			 		없다면, 새로운 리스트 생성해서 
+		// key값에 roomIdx가 있다면, 해당 key의 value List에 접속한 사용자를 소켓 세션에 넣고,
+		// 			 		없다면, 해당 key의 value에 List를 생성한다.
 		roomSessions.putIfAbsent(roomIdx, Collections.synchronizedList(new ArrayList<>()));
 		List<Session> sessions = roomSessions.get(roomIdx);
 		
