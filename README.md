@@ -1,6 +1,7 @@
-![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/109597157/63c09f54-d671-44a1-b99e-b817b58d32f5)![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
+# :pushpin: 기온과 계절 정보를 활용하여 사용자들에게 다양한 패션을 제공하는 소셜 네트워크 서비스(SNS)
 
-### 기온과 계절 정보를 활용하여 사용자들에게 다양한 패션을 제공하는 소셜 네트워크 서비스(SNS)
+![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
+
 ### 팀명 : TGK(teamGaeko)
 
 </br>
@@ -9,7 +10,7 @@
 
 ### 2024년 3월 18일 ~ 4월 2일  
 
-**정연재** : PM / Back, Front   
+ **정연재** : PM / Back, Front   
 > 프로젝트 관리, 기상청 API 날씨 위젯, 웹소켓 실시간 채팅   
 
  **김동현** : Back / DB   
@@ -54,15 +55,15 @@
 <div markdown="1">
 
 ### 1. 소셜 네트워크 서비스 (SNS) 이용 증가
-![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b37ad1e2-0a3c-4e71-b456-a16c81f2ca44)
-출처:정보통신정책연구원
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b37ad1e2-0a3c-4e71-b456-a16c81f2ca44)   
+출처-정보통신정책연구원
 
 ### 2. 패션에 대한 사람들의 관심 증가
-![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/70890c65-fd1d-49b8-9036-1528b0e4d3ea)
-출처:한국패션소비시장
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/70890c65-fd1d-49b8-9036-1528b0e4d3ea)   
+출처-한국패션소비시장
 
 ### 3. 매일 변화하는 날씨에 따른 적절한 옷 선택의 어려움
-![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/a35fc8d6-fb39-46d6-8bae-255c7137e361)
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/a35fc8d6-fb39-46d6-8bae-255c7137e361)   
 
 </div>
 </details>
@@ -115,7 +116,9 @@
 ## 4. ERD 설계
 ![](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/86634da8-afa4-4bc0-b26f-e5b435ad16bb)
 
-## 5. 핵심 기능
+## 5. 화면 구성
+
+## 6. 핵심 기능
 
 > 이 서비스의 핵심 기능은 날씨 위젯의 정보를 활용하여 사용자가 작성한 게시글에 기온이 등록된다는 것입니다.   
 
@@ -128,10 +131,10 @@
 <summary><b>핵심 기능 설명 펼치기</b></summary>
 <div markdown="1">
 
-### 5.1. 전체 흐름
+### 6.1. 전체 흐름
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/0bf7f35c-2122-4ed1-b41b-c9f45c07024e)
 
-### 5.2. 사용자 요청
+### 6.2. 사용자 요청
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b8851469-20c3-4a45-b4bd-ab19e6e7fafa)
 
 - **요청이 들어온 URL을 확인** :pushpin: [코드 확인]
@@ -144,7 +147,7 @@
   - ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/109597157/28a3c416-1c4d-4401-b095-3600e8567580)
   - 접속 URL판별이후 요청을 command개체로 보내 처리
 
-### 5.3. Controller
+### 6.3. Controller
 
 ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_controller.png)
 
@@ -154,7 +157,7 @@
 - **결과 응답** :pushpin: [코드 확인]()
   - Service 계층에서 넘어온 로직 처리 결과(메세지)를 화면단에 응답해줍니다.
 
-### 5.4. Service
+### 6.4. Service
 
 ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_service1.png)
 
@@ -175,7 +178,7 @@
   - 컨텐츠에 이미지가 없을 경우, 미리 설정해둔 기본 이미지를 사용하고, 제목이 없을 경우 생략합니다.
 
 
-### 5.5. Repository
+### 6.5. Repository
 
 ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_repo.png)
 
@@ -188,7 +191,7 @@
 
 </br>
 
-## 6. 트러블 슈팅
+## 7. 트러블 슈팅
 
 <details>
 <summary><b>6.1. 기획의 불안정</b></summary>   
@@ -266,3 +269,16 @@
 
 </div>
 </details>
+
+## 8. 피드백
+
+- 여러가지 기능을 넣다보면 키포인트를 놓칠 수 있음
+- 날씨에 맞는 패션 추천이 중요해보는 것
+- 접속 당시의 온도를 기준으로 잡음
+- 추천 기능은 크롤링(무신사) - 기온보다 계절만 나오는 것 같다
+- 선호하는 스타일을 받아서 추천해주는 방안 고려
+- 기온에 따라 추천하는 경우 기온 관련 검색
+- 선택 챌린지 포인트 : 발표상 SNS로그인의 부분이 보였다.
+- 게시글 추가시 순서가 섞이는 문제가 있었다. 시퀀스를 사용했어도 섞였나?
+- 실시간 기온이 들어가야하는 서비스 : 시간이 지난 사진은 온도파악이 어려움. 간단하게 체크할 부분이 있으면 좋겠다.
+- 이전에 올렸던 게시글 첨부할 수있는 기능이 있으면 좋겠다.
