@@ -141,7 +141,8 @@
   - Controller를 통해서만 접근할 수 있도록 설계. 다른 방법으로 접근하게 되면 에러를 띄움
 
 - **Axios 비동기 요청** :pushpin: [코드 확인]()
-  - URL의 모양새인 경우, 컨텐츠를 등록하는 POST 요청을 비동기로 날립니다.
+  - ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/109597157/28a3c416-1c4d-4401-b095-3600e8567580)
+  - 접속 URL판별이후 요청을 command개체로 보내 처리
 
 ### 5.3. Controller
 
