@@ -1,9 +1,6 @@
 // 댓글영역
 let postIdx;
-// .view-btn은 postIdx를 담기위함 -> .card로 변경
-$(document).on('click', '.card', function() { 
-	// 선택개체를 바꾼다면 이부분을 바꿔야함
-	// postviews.js 에 있는것과 동일
+$(document).on('click', '.card', function() { // 게시물을 작성할때 .card의 속성 data-id로 postIdx를 보냄
 	postIdx = parseInt($(this).data('id'));
 	console.log(postIdx);
 	$.ajax({
@@ -12,19 +9,15 @@ $(document).on('click', '.card', function() {
 		data: { "postIdx": postIdx },
 		dataType: "json",
 		success: function(comment) {
-			console.log(comment)
-			for (let i = 0; i < comment.length; i++) {
-
+			for (let i = 0; i < comment.length; i++) { // ajaxcontroller를 통해 Comments.java에서 처리된 데이터를 가져옴
 				$("#cmt-cmt").append(`
 					<span>`+ comment[i].userId + `</span><br>
 					<span>`+ comment[i].cmtContent + `</span><br>
 				`);
 			}
-
 		}, error: function() {
 			console.log("댓글 비동기 불러오기 실패")
 		}
-
 	});
 	$("#cmt-cmt").empty();
 	///////////////////////////////////////////////////////댓글영역끝///
@@ -34,10 +27,7 @@ $(document).on('click', '.card', function() {
 		type: "post",
 		data: { "postIdx": postIdx },
 		dataType: "json",
-
 		success: function(data) {
-			console.log(data)
-
 			$.ajax({
 				url: "Images.ajax",
 				data: {
@@ -46,8 +36,7 @@ $(document).on('click', '.card', function() {
 				},
 				type: "post",
 				dataType: "json",
-				success: function(map) {
-					console.log(map);
+				success: function(map) { // ajaxcontroller를 통해 Postdetail.java와 Images.java에서 데이터를 받음
 					let imgPath = "assets/uploads/" + map.file.fileRname;
 					$('#cmt-img').attr('src', imgPath);
 					$("#cmt-content").html(data[0].postContent);
@@ -69,37 +58,24 @@ $(document).on('click', '.card', function() {
 											</svg>
 										</a>`);
 					}
-
-					},
-					error: function() {
-						alert("이미지 가져오기 실패..");
-					}
-				})
-
+				},
+				error: function() {
+					alert("이미지 가져오기 실패..");
+				}
+			})
 		},
-
-
 		error: function(err) {
 			console.log("연결 실패");
 		}
 	})
-
-
 });
-
-
-
-document.querySelector("#newReplyText").addEventListener("keydown", (e) => {
+document.querySelector("#newReplyText").addEventListener("keydown", (e) => { // 댓글입력란에 엔터키로 입력되게 이벤트를 추가
 	if (e.key === 13) {
 		$("#insert-cmt").click();
 	}
 })
-
-
-
 $("#insert-cmt").on("click", function() {
 	let cmtContent = $("input[name='cmtContent']").val();
-	console.log(cmtContent)
 	$.ajax({
 		url: "Comment.do",
 		data: {
@@ -109,29 +85,19 @@ $("#insert-cmt").on("click", function() {
 		type: "post",
 		success: function(s) {
 			$("input[name='cmtContent']").val("");
-
 			$.ajax({
 				url: "Comments.ajax",
 				data: { "postIdx": postIdx },
 				dataType: "json",
-				success: function(d) {
-					console.log("입력성공")
-					
-						$("#cmt-cmt").append(`
-					<span>`+ d[d.length-1].userId + `</span><br>
-					<span>`+ d[d.length-1].cmtContent + `</span><br>
+				success: function(d) { // 입력이 끝나고 그 데이터를 댓글창에 추가
+					$("#cmt-cmt").append(`
+					<span>`+ d[d.length - 1].userId + `</span><br>
+					<span>`+ d[d.length - 1].cmtContent + `</span><br>
 				`);
-					
-
 				}, error: function(e) {
-
 				}
 			})
-			
-
 		}
-
-
 	})
 })
 
