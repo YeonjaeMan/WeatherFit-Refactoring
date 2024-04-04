@@ -1,4 +1,4 @@
-////////////////////////////////////////////////// 댓글영역
+// 댓글영역
 let postIdx;
 $(document).on('click', '.card', function() { // 게시물을 작성할때 .card의 속성 data-id로 postIdx를 보냄
 	postIdx = parseInt($(this).data('id'));

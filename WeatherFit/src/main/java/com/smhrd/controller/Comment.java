@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import com.smhrd.database.DAO;
 import com.smhrd.model.CommentVO;
 import com.smhrd.model.UserVO;
+
 // 댓글을 입력받아 처리하는 클래스
 public class Comment implements Command {
 
@@ -21,7 +22,6 @@ public class Comment implements Command {
 		UserVO uvo = (UserVO)(session.getAttribute("member"));
 		String userId = uvo.getUserId();
 		
-		System.out.println(userId);
 		CommentVO cvo = new CommentVO();
 		cvo.setPostIdx(postIdx);
 		cvo.setCmtContent(cmtContent);
@@ -34,5 +34,16 @@ public class Comment implements Command {
 		
 		return null;
 	}
+
+      CommentVO cvo = new CommentVO();
+      cvo.setPostIdx(postIdx);
+      cvo.setCmtContent(cmtContent);
+      cvo.setUserId(userId);
+      
+      DAO dao = new DAO();
+      dao.comment(cvo);
+      
+      return null;
+   }
 
 }

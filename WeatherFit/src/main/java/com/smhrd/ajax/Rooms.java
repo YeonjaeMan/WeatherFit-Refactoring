@@ -34,14 +34,18 @@ public class Rooms implements AjaxCommand {
 		
 		List<UserVO> uvoList = new ArrayList<>();
 		for(int i = 0; i < rvoList.size(); i++) {
-			UserVO uvo = new UserVO();
-			uvo.setUserId(rvoList.get(i).getRoomTitle());
-			uvoList.add(dao.selectUserInfo(uvo));
-		}
+	         UserVO uvo = new UserVO();
+	         if(rvoList.get(i).getUserId().equals(userId)) {
+	            uvo.setUserId(rvoList.get(i).getRoomTitle());
+	         } else {
+	        	 uvo.setUserId(rvoList.get(i).getUserId());
+	         }
+	         uvoList.add(dao.selectUserInfo(uvo));
+	      }
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("room", rvoList);
-		map.put("user", uvoList);
+		map.put("user", uvoList);	
 		
 		Gson gson = new Gson();
 		String json = gson.toJson(map);

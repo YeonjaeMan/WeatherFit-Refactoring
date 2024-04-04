@@ -12,34 +12,33 @@ import com.smhrd.database.DAO;
 import com.smhrd.model.FileVO;
 import com.smhrd.model.PostVO;
 
+// 게시글 삭제를 하면 DB에 담겨진 게시물 내용을 삭제하는 컨트롤러
 public class DeletePost implements Command {
-	
-	public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, InterruptedException {
-		
-		int postIdx = Integer.parseInt(request.getParameter("postIdx"));
-		String realPath = "C:/Users/smhrd/Desktop/-SNS/WeatherFit/src/main/webapp/assets/uploads";
+   
+   public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, InterruptedException {
+      
+      int postIdx = Integer.parseInt(request.getParameter("postIdx"));
+      String realPath = "C:/Users/smhrd/Desktop/-SNS/WeatherFit/src/main/webapp/assets/uploads";
 
-		PostVO pvo = new PostVO();
-		pvo.setPostIdx(postIdx);
+      PostVO pvo = new PostVO();
+      pvo.setPostIdx(postIdx);
 
-		DAO dao = new DAO();
-		
-		FileVO fvo = new FileVO();
-		fvo.setPostIdx(postIdx);
-		
-		FileVO resultVO = dao.selectFile(fvo);
-		File recentFile = new File(realPath + resultVO.getFileRname());
-		if(recentFile.exists()) {
-			recentFile.delete();
-		} else {
-			System.out.println("파일이 존재하지 않아 삭제할 수 없습니다.");
-		}
-		
-		dao.deletePost(pvo);
-		
-		TimeUnit.SECONDS.sleep(1);
-		
-		return "redirect:/gomain.do";
-	}
-	
+      FileVO fvo = new FileVO();
+      fvo.setPostIdx(postIdx);
+      
+      DAO dao = new DAO();
+      
+      FileVO resultVO = dao.selectFile(fvo);
+      File recentFile = new File(realPath + resultVO.getFileRname());
+      if(recentFile.exists()) {
+         recentFile.delete();
+      }
+      
+      dao.deletePost(pvo);
+      
+      TimeUnit.SECONDS.sleep(1);
+      
+      return "redirect:/gomain.do";
+   }
+   
 }
