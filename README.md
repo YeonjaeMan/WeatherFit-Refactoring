@@ -6,7 +6,7 @@
 
 </br>
 
-## 1. 제작 기간 & 참여 인원
+## 📅&👨‍👩 제작 기간 & 참여 인원
 
 ### 2024년 3월 18일 ~ 4월 2일  
 
@@ -27,7 +27,7 @@
 
 </br>
 
-## 2. 사용 기술
+## ⛏ 사용 기술
 #### `Back-end`
 <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/> <img src="https://img.shields.io/badge/JSP,Servlet-20232a.svg?style=for-the-badge&logo=jsp&logoColor=61DAFB" />   
 <img src="https://img.shields.io/badge/apachemaven-C71A36.svg?style=for-the-badge&logo=apachemaven&logoColor=#C71A36" />
@@ -46,7 +46,7 @@
 
 </br>
 
-## 3. 프로젝트 소개
+## 👀 프로젝트 소개
 > 팀개코(TGK)의 WeatherFit은 날씨의 Weather와 패션 용어이면서 적합한의 의미를 가지고 있는 Fit의 합성어로 날씨에 적합한 패션을 추천한다의 의미를 가지고 있습니다.
 
 <details>
@@ -113,12 +113,12 @@
 </div>
 </details>
 
-## 4. ERD 설계
+## 📌 ERD 설계
 ![erd](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/9df41d90-74df-4a79-860f-afb713b7419a)
 
-## 5. 화면 구성
+## 🖥 화면 구성
 
-## 6. 핵심 기능
+## ⚙ 핵심 기능
 
 > 이 서비스의 핵심 기능은 날씨 위젯의 정보를 활용하여 사용자가 작성한 게시글에 기온이 등록된다는 것입니다.   
 
@@ -131,10 +131,10 @@
 <summary><b>핵심 기능 설명 펼치기</b></summary>
 <div markdown="1">
 
-### 6.1. 전체 흐름
+### 📌 전체 흐름
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/0bf7f35c-2122-4ed1-b41b-c9f45c07024e)
 
-### 6.2. 사용자 요청
+### 📌 사용자 요청
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b8851469-20c3-4a45-b4bd-ab19e6e7fafa)
 
 - **요청이 들어온 URL을 확인** :pushpin: [코드 확인]
@@ -147,7 +147,7 @@
   - ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/109597157/28a3c416-1c4d-4401-b095-3600e8567580)
   - 접속 URL판별이후 요청을 command개체로 보내 처리
 
-### 6.3. Controller
+### 📌 Controller
 
 ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_controller.png)
 
@@ -157,7 +157,7 @@
 - **결과 응답** :pushpin: [코드 확인]()
   - Service 계층에서 넘어온 로직 처리 결과(메세지)를 화면단에 응답해줍니다.
 
-### 6.4. Service
+### 📌 Service
 
 ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_service1.png)
 
@@ -178,7 +178,7 @@
   - 컨텐츠에 이미지가 없을 경우, 미리 설정해둔 기본 이미지를 사용하고, 제목이 없을 경우 생략합니다.
 
 
-### 6.5. Repository
+### 📌 Repository
 
 ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_repo.png)
 
@@ -191,7 +191,7 @@
 
 </br>
 
-## 7. 트러블 슈팅
+## 🤾‍♂️ 트러블 슈팅
 
 <details>
 <summary><b>6.1. 기획의 불안정</b></summary>   
@@ -270,7 +270,7 @@
 </div>
 </details>
 
-## 8. 피드백
+## 📌 피드백
 
 - 여러가지 기능을 넣다보면 키포인트를 놓칠 수 있음
 - 날씨에 맞는 패션 추천이 중요해보는 것
