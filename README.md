@@ -1,8 +1,10 @@
 # 📎 기온과 계절 정보를 활용하여 사용자들에게 다양한 패션을 제공하는 소셜 네트워크 서비스(SNS)
 
+<center>
 ![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
 
 ### 팀명 : TGK(teamGaeko)
+</center>
 
 </br>
 
