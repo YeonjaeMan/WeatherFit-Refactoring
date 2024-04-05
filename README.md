@@ -1,8 +1,4 @@
-# 📎 망가진 날씨에 맞는 옷을 입자! (팀명: TGK(teamGaeko))
-
-<div align="center>
-  <img src="https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6">
-</div>
+# 📎 망가진 날씨에 맞는 옷을 입자! 팀명: TGK(teamGaeko)
 
 ![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
 
