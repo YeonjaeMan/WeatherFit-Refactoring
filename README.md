@@ -1,5 +1,4 @@
 # 📎 망가진 날씨에 맞는 옷을 입자! 팀명: TGK(teamGaeko)
-
 ![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
 
 </br>
@@ -114,19 +113,19 @@
 </details>
 
 ## 📌 ERD 설계
-![erd](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/9df41d90-74df-4a79-860f-afb713b7419a)
+![erd](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/9df41d90-74df-4a79-860f-afb713b7419a)   
 
-## 🖥 화면 구성
+## 🖥 화면 구성   
 
-### 최근탭 / 추천탭
+### 최근탭 / 추천탭   
 
-### 로그인 / 회원가입 / 회원수정 / 로그아웃/회원탈퇴
+### 로그인 / 회원가입 / 회원수정 / 로그아웃/회원탈퇴   
 
-### 게시글 작성 / 수정 / 삭제 / 상세보기
+### 게시글 작성 / 수정 / 삭제 / 상세보기   
 
-### 프로필 확인
+### 프로필 확인   
 
-### 채팅
+### 채팅   
 
 ## ⚙ 핵심 기능
 
