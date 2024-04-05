@@ -118,14 +118,19 @@
 ## 🖥 화면 구성   
 
 ### 최근탭 / 추천탭   
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/30cc1d66-d62c-4bda-8b0d-6928963e7c65)
 
 ### 로그인 / 회원가입 / 회원수정 / 로그아웃/회원탈퇴   
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/9f1108ce-9632-43c6-b5c8-3b5debfce2fa)   
 
 ### 게시글 작성 / 수정 / 삭제 / 상세보기   
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/fdaf319f-3af2-4b20-9b93-70b30f31a85a)
 
 ### 프로필 확인   
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/2b6d0bf0-244b-4c36-9747-fbb0f1301864)
 
 ### 채팅   
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/776e8793-744e-4b6d-b126-a7c865e02e60)
 
 ## ⚙ 핵심 기능
 
