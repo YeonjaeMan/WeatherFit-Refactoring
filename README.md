@@ -2,8 +2,9 @@
 
 <div align="center>
   <img src="https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6">
-  ![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
 </div>
+
+![logo](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/11ed9899-7b2c-434c-b5d9-e954ca9f09e6)
 
 </br>
 
