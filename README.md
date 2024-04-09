@@ -39,7 +39,9 @@
 <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/> <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/> <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white"/>
 
 #### `Etc`
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"/> <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/> <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"/> <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=#000000"/> <img src="https://img.shields.io/badge/AQuery-20232a.svg?style=for-the-badge&logo=aquery&logoColor=61DAFB" />
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"/>   
+<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>   
+<img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white"/> <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=#000000"/> <img src="https://img.shields.io/badge/AQuery-20232a.svg?style=for-the-badge&logo=aquery&logoColor=61DAFB" />
 
 </br>
 
@@ -120,10 +122,10 @@
 ### 최근탭 / 추천탭   
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/30cc1d66-d62c-4bda-8b0d-6928963e7c65)
 
-### 로그인 / 회원가입 / 회원수정 / 로그아웃/회원탈퇴   
+### 로그인 / 회원가입 / 회원수정 / 로그아웃 / 회원탈퇴   
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/9f1108ce-9632-43c6-b5c8-3b5debfce2fa)   
 
-### 게시글 작성 / 수정 / 삭제 / 상세보기   
+### 게시글 작성 / 수정 / 삭제 / 상세보기(+댓글)   
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/fdaf319f-3af2-4b20-9b93-70b30f31a85a)
 
 ### 프로필 확인   
@@ -145,60 +147,12 @@
 <summary><b>핵심 기능 설명 펼치기</b></summary>
 <div markdown="1">
 
-### 📌 전체 흐름
-![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/0bf7f35c-2122-4ed1-b41b-c9f45c07024e)
+### 📌 게시글 작성
+![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/977b37fc-7643-47b0-8fa7-3f43008af92d)
 
-### 📌 사용자 요청
-![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/b8851469-20c3-4a45-b4bd-ab19e6e7fafa)
+### 📌 게시글 확인
 
-- **요청이 들어온 URL을 확인** :pushpin: [코드 확인]
-- ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/109597157/ddb65b5f-7698-4d60-a72a-6646a02e860b)
-
-  -  모든 URL이 끝나는 부분을 .do 와 .ajax로 통합하여 각 URL들이 어떤 기능들을 원하는지 분류하고,
-  - Controller를 통해서만 접근할 수 있도록 설계. 다른 방법으로 접근하게 되면 에러를 띄움
-
-- **Axios 비동기 요청** :pushpin: [코드 확인]()
-  - ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/109597157/28a3c416-1c4d-4401-b095-3600e8567580)
-  - 접속 URL판별이후 요청을 command개체로 보내 처리
-
-### 📌 Controller
-
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_controller.png)
-
-- **요청 처리** :pushpin: [코드 확인](https://github.com/2023-SMHRD-KDT-IOT-4/Repo/blob/94e1b3a93c48cc3fdb51d4468de151930705faa6/Middle_project12/src/main/webapp/WEB-INF/views/BoardContent.jsp#L20)
-  - Controller에서는 요청을 화면단에서 넘어온 요청을 받고, Service 계층에 로직 처리를 위임합니다.
-
-- **결과 응답** :pushpin: [코드 확인]()
-  - Service 계층에서 넘어온 로직 처리 결과(메세지)를 화면단에 응답해줍니다.
-
-### 📌 Service
-
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_service1.png)
-
-- **Http 프로토콜 추가 및 trim()** :pushpin: [코드 확인]()
-  - 사용자가 URL 입력 시 Http 프로토콜을 생략하거나 공백을 넣은 경우,  
-  올바른 URL이 될 수 있도록 Http 프로토콜을 추가해주고, 공백을 제거해줍니다.
-
-- **URL 접속 확인** :pushpin: [코드 확인]()
-  - 화면단에서 모양새만 확인한 URL이 실제 리소스로 연결되는지 HttpUrlConnection으로 테스트합니다.
-  - 이 때, 빠른 응답을 위해 Request Method를 GET이 아닌 HEAD를 사용했습니다.
-  - (HEAD 메소드는 GET 메소드의 응답 결과의 Body는 가져오지 않고, Header만 확인하기 때문에 GET 메소드에 비해 응답속도가 빠릅니다.)
-
-  ![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_service2.png)
-
-- **Jsoup 이미지, 제목 파싱** :pushpin: [코드 확인]()
-  - URL 접속 확인결과 유효하면 Jsoup을 사용해서 입력된 URL의 이미지와 제목을 파싱합니다.
-  - 이미지는 Open Graphic Tag를 우선적으로 파싱하고, 없을 경우 첫 번째 이미지와 제목을 파싱합니다.
-  - 컨텐츠에 이미지가 없을 경우, 미리 설정해둔 기본 이미지를 사용하고, 제목이 없을 경우 생략합니다.
-
-
-### 📌 Repository
-
-![](https://zuminternet.github.io/images/portal/post/2019-04-22-ZUM-Pilot-integer/flow_repo.png)
-
-- **컨텐츠 저장** :pushpin: [코드 확인]()
-  - URL 유효성 체크와 이미지, 제목 파싱이 끝난 컨텐츠는 DB에 저장합니다.
-  - 저장된 컨텐츠는 다시 Repository - Service - Controller를 거쳐 화면단에 송출됩니다.
+### 📌 채팅
 
 </div>
 </details>
@@ -260,7 +214,7 @@
     
 - 1:1 실시간 채팅을 위해 WebSocket을 구현하는 도중 채팅방을 통해 사용자 2명을 이어주는 것에 대해 어려움이 있었습니다.
 
-- @ServerEndpoint 어노테이션을 사용해 사용자가 속해있는 roomIdx를 이어줌으로써 채팅기능을 해결하였습니다.
+- @ServerEndpoint 어노테이션에 param으로 roomIdx를 사용해 사용자가 속해있는 roomIdx를 이어줌으로써 채팅기능을 해결하였습니다.
 
 ![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/a65509cb-aecd-46db-b48d-2248b7668b8e)
 
@@ -286,13 +240,8 @@
 
 ## 📌 피드백
 
-- 여러가지 기능을 넣다보면 키포인트를 놓칠 수 있음
-- 날씨에 맞는 패션 추천이 중요해보는 것
-- 접속 당시의 온도를 기준으로 잡음
-- 추천 기능은 크롤링(무신사) - 기온보다 계절만 나오는 것 같다
-- 선호하는 스타일을 받아서 추천해주는 방안 고려
-- 기온에 따라 추천하는 경우 기온 관련 검색
-- 선택 챌린지 포인트 : 발표상 SNS로그인의 부분이 보였다.
-- 게시글 추가시 순서가 섞이는 문제가 있었다. 시퀀스를 사용했어도 섞였나?
-- 실시간 기온이 들어가야하는 서비스 : 시간이 지난 사진은 온도파악이 어려움. 간단하게 체크할 부분이 있으면 좋겠다.
-- 이전에 올렸던 게시글 첨부할 수있는 기능이 있으면 좋겠다.
+- 크롤링한 데이터를 계절로 나누어 추천하기보다 기온으로 추천   
+- 사용자가 선호하는 스타일을 받아서 추천해주는 방안   
+- 기온에 따라 추천하는 경우 기온 관련 검색   
+- DB의 게시글 인덱스나 게시글 생성 일자를 기준으로 정렬을 하였으나 게시글 추가시 순서가 섞이는 문제가 있었다.   
+- 시간이 지난 사진은 온도파악이 어려워 기온 표기 체크박스를 이용했지만, 간단하게 체크할 부분이 있으면 좋겠다.   
