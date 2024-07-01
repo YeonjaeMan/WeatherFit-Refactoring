@@ -13,9 +13,9 @@
       
       <dataSource type="POOLED">
         <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://project-db-campus.smhrd.com:3307/cgi_23k_big23_p2_4"/>
-        <property name="username" value="cgi_23k_big23_p2_4"/>
-        <property name="password" value="smhrd4"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/weatherfit"/>
+        <property name="username" value="root"/>
+        <property name="password" value="1234"/>
       </dataSource>
       
     </environment>
