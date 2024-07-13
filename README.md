@@ -141,20 +141,6 @@
 
 > 사용자는 기온이 등록된 게시글을 보고 패션을 참고할 수 있고, 의류 정보나 기온에 적합한지에 대한 궁금증을 1:1 채팅을 통해 해결할 수 있습니다.
 
-<details>
-<summary><b>핵심 기능 설명 펼치기</b></summary>
-<div markdown="1">
-
-### 📌 게시글 작성
-![image](https://github.com/2024-SMHRD-KDT-BigData-23/WeatherFit/assets/76952340/977b37fc-7643-47b0-8fa7-3f43008af92d)
-
-### 📌 게시글 확인
-
-### 📌 채팅
-
-</div>
-</details>
-
 </br>
 
 ## 🤾‍♂️ 트러블 슈팅
