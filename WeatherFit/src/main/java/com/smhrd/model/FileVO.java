@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import com.mysql.cj.jdbc.Blob;
+
 public class FileVO {
 
 	private int fileIdx;
@@ -7,6 +9,8 @@ public class FileVO {
 	private int postIdx;
 
 	private String fileRname;
+
+	private byte[] fileImg;
 
 	private long fileSize;
 
@@ -16,10 +20,11 @@ public class FileVO {
 
 	}
 
-	public FileVO(int fileIdx, int postIdx, String fileRname, long fileSize, String fileExt) {
+	public FileVO(int fileIdx, int postIdx, String fileRname, byte[] fileImg, long fileSize, String fileExt) {
 		this.fileIdx = fileIdx;
 		this.postIdx = postIdx;
 		this.fileRname = fileRname;
+		this.fileImg = fileImg;
 		this.fileSize = fileSize;
 		this.fileExt = fileExt;
 	}
@@ -54,6 +59,14 @@ public class FileVO {
 
 	public void setFileRname(String fileRname) {
 		this.fileRname = fileRname;
+	}
+
+	public byte[] getFileImg() {
+		return fileImg;
+	}
+
+	public void setFileImg(byte[] fileImg) {
+		this.fileImg = fileImg;
 	}
 
 	public String getFileExt() {

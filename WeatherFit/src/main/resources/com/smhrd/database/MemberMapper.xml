@@ -164,8 +164,8 @@
 
 	<insert id="insertFile" parameterType="com.smhrd.model.FileVO">
 		insert into
-		tb_file(file_rname, file_size, file_ext, post_idx)
-		values (#{fileRname},
+		tb_file(file_rname, file_img, file_size, file_ext, post_idx)
+		values (#{fileRname}, #{fileImg},
 		#{fileSize}, #{fileExt}, #{postIdx})
 	</insert>
 

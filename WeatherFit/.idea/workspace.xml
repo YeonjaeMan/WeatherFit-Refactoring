@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="490abd8e-9b9d-4408-a6cb-6bbe5f4eb524" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeatherFit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WeatherFit.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/database/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/smhrd/database/MemberMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/database/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/smhrd/database/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/CreatePost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/CreatePost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/model/FileVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/model/FileVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/smhrd/database/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/smhrd/database/MemberMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
