@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="490abd8e-9b9d-4408-a6cb-6bbe5f4eb524" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/ajax/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/ajax/Images.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/CreatePost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/CreatePost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/DeletePost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/DeletePost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/UpdatePost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/UpdatePost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/database/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/database/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/smhrd/database/MemberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/smhrd/database/MemberMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/postview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/postview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/weatherwidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/weatherwidget.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/comment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

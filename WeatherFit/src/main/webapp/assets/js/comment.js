@@ -37,7 +37,8 @@ $(document).on('click', '.card', function() { // 게시물을 작성할때 .card
 				type: "post",
 				dataType: "json",
 				success: function(map) { // ajaxcontroller를 통해 Postdetail.java와 Images.java에서 데이터를 받음
-					let imgPath = "assets/uploads/" + map.file.fileRname;
+//					let imgPath = "assets/uploads/" + map.file.fileRname;
+                    let imgPath = "data:image/jpeg;base64, " + map.file;
 					$('#cmt-img').attr('src', imgPath);
 					$("#cmt-content").html(data[0].postContent);
 					$("#cmt-hashtag").html(data[0].hashTag);
