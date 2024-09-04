@@ -74,6 +74,7 @@ function success(position) {
 			$("#weather-t1h").append("<span>" + T1H + "°C</span>");
 			// 현재 기온을 폼의 값으로 설정
 			$("#postTemp").attr("value", T1H);
+			$("#update-postTemp").attr("value", T1H);
 			// 날씨 아이콘 로드 함수 호출
 			load_weather_icon(res);
 		},

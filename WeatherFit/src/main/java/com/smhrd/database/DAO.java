@@ -60,11 +60,19 @@ public class DAO {
 		session.close();
 		return row;
 	}
+
 	public FileVO selectFile(FileVO fvo) {
 		SqlSession session = factory.openSession();
 		FileVO resultVO = session.selectOne("selectFile", fvo);
 		session.close();
 		return resultVO;
+	}
+
+	public int deleteFile(FileVO fvo) {
+		SqlSession session = factory.openSession();
+		int row = session.delete("deleteFile", fvo);
+		session.close();
+		return row;
 	}
 
 	public List<PostVO> selectPosts(PostVO pvo) {
@@ -274,5 +282,4 @@ public class DAO {
 		session.close();
 		return resultVO;
 	}
-
 }

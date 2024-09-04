@@ -131,7 +131,7 @@ function viewPost(post) {
 		dataType: "json",
 		success: function(map) {
 			// 이미지 경로 설정
-			let imgPath = "assets/uploads/" + map.file.fileRname;
+//			let imgPath = "assets/uploads/" + map.file.fileRname;
 
 			// 게시물의 온도정보가 -999일 경우
 			if (post.postTemp == -999) {
@@ -144,7 +144,7 @@ function viewPost(post) {
 									</div>
 									<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
 										<div class="img-container">
-											<img id="post-img" src="` + imgPath + `" class="img-fluid mx-auto d-block">
+                                            <img id="post-img" src="data:image/jpeg;base64, ` + map.file + `" class="img-fluid mx-auto d-block">
 										</div>
 									</div>
 									<div class="card-footer d-flex justify-content-between">
@@ -167,7 +167,7 @@ function viewPost(post) {
 									</div>
 									<div id="post-imgbody" class="card-body view-btn" data-bs-toggle="modal" data-bs-target="#postModal">
 										<div class="img-container">
-											<img id="post-img" src="` + imgPath + `" class="img-fluid mx-auto d-block">
+                                            <img id="post-img" src="data:image/jpeg;base64, ` + map.file + `" class="img-fluid mx-auto d-block">
 										</div>
 									</div>
 									<div class="card-footer d-flex justify-content-between">

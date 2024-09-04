@@ -2,6 +2,7 @@ package com.smhrd.ajax;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,8 +43,17 @@ public class Images implements AjaxCommand {
 		Map<String, Object> result = new HashMap<>();
 		
 		// file과 user로 매핑한다.
-		result.put("file", resultFileVO);
+//		result.put("file", resultFileVO);
 		result.put("user", resultUserVO);
+
+		// Blob 데이터를 Base64로 인코딩
+		if(resultFileVO != null && resultFileVO.getFileImg() != null) {
+			byte[] fileImg = resultFileVO.getFileImg(); // Blob 데이터를 byte 배열로 가져오기
+			String base64Image = Base64.getEncoder().encodeToString(fileImg); // Base64 인코딩
+			result.put("file", base64Image); // Base64 문자열을 result에 추가
+		} else {
+			result.put("file", null); // 파일이 없는 경우 null 추가
+		}
 
 		// 응답
 		PrintWriter out = response.getWriter();

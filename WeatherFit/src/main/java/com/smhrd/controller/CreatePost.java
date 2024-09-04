@@ -1,8 +1,6 @@
 package com.smhrd.controller;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.concurrent.TimeUnit;
 
 import javax.servlet.ServletException;
@@ -36,7 +34,9 @@ public class CreatePost implements Command {
          dir.mkdirs();
 
       // cos 라이브러리를 사용해 multipart/form-data 처리
+//      MultipartRequest multipartRequest = null;
       MultipartRequest multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
+//      multipartRequest = new MultipartRequest(request, "", sizeLimit, "utf-8", new DefaultFileRenamePolicy());
 
       String userId = uvo.getUserId();
       String postContent = multipartRequest.getParameter("postContent");
@@ -60,12 +60,36 @@ public class CreatePost implements Command {
 
       if (postIdx >= 0) {
          FileVO fvo = new FileVO();
+//         File file = multipartRequest.getFile("postImg"); // 업로드한 파일 객체
+
+//         if(file != null) {
+//            fvo.setFileRname(file.getName()); // 업로드한 파일 이름
+//            fvo.setFileSize(file.length()); // 파일 크기
+//            fvo.setFileExt(FilenameUtils.getExtension(file.getName())); // 파일 확장자
+//            fvo.setPostIdx(postIdx);
+//
+//            // 파일 내용을 byte 배열로 읽기
+//            try(FileInputStream fis = new FileInputStream(file);
+//                ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+//               byte[] buffer = new byte[1024];
+//               int bytesRead;
+//               while((bytesRead = fis.read(buffer)) != -1) {
+//                  bos.write(buffer, 0, bytesRead);
+//               }
+//               fvo.setFileImg(bos.toByteArray());
+//            } catch(IOException e) {
+//               e.printStackTrace();
+//            }
+//
+//            dao.insertFile(fvo);
+//         }
          fvo.setFileRname(multipartRequest.getFilesystemName("postImg")); // 업로드한 파일 이름
          fvo.setFileSize(multipartRequest.getFile("postImg").length()); // 파일 크기
          fvo.setFileExt(FilenameUtils.getExtension(multipartRequest.getFilesystemName("postImg"))); // 파일 확장자
          fvo.setPostIdx(postIdx);
 
          File file = new File(realPath + "/" + multipartRequest.getFilesystemName("postImg"));
+//         File file = new File(multipartRequest.getFilesystemName("postImg"));
          byte[] fileImg = new byte[(int) file.length()];
          try(FileInputStream fis = new FileInputStream(file)) {
             fis.read(fileImg);
@@ -73,9 +97,6 @@ public class CreatePost implements Command {
          fvo.setFileImg(fileImg);
 
          dao.insertFile(fvo);
-
-         TimeUnit.SECONDS.sleep(4);
-
       }
 
       return "redirect:/gomain.do";

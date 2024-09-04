@@ -27,16 +27,17 @@ public class DeletePost implements Command {
       fvo.setPostIdx(postIdx);
       
       DAO dao = new DAO();
-      
+
+      // 삭제
       FileVO resultVO = dao.selectFile(fvo);
+      // 수정
+      int row = dao.deleteFile(fvo);
       File recentFile = new File(realPath + resultVO.getFileRname());
       if(recentFile.exists()) {
          recentFile.delete();
       }
       
       dao.deletePost(pvo);
-      
-      TimeUnit.SECONDS.sleep(1);
       
       return "redirect:/gomain.do";
    }

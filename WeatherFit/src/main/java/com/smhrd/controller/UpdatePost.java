@@ -1,6 +1,7 @@
 package com.smhrd.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -28,13 +29,14 @@ public class UpdatePost implements Command {
 		HttpSession session = request.getSession();
 		UserVO uvo = (UserVO) session.getAttribute("member");
 
-		int sizeLimit = 1024 * 1024;
+		int sizeLimit = 500 * 1024 * 1024;
 
 		String realPath = "C:/Users/smhrd/Desktop/-SNS/WeatherFit/src/main/webapp/assets/uploads";
 
 		// cos 라이브러리를 사용해 multipart/form-data 처리
-		MultipartRequest multipartRequest = null;
-		multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
+//		MultipartRequest multipartRequest = null;
+		MultipartRequest multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
+//		multipartRequest = new MultipartRequest(request, "", sizeLimit, "utf-8", new DefaultFileRenamePolicy());
 
 		String userId = uvo.getUserId();
 		String postContent = multipartRequest.getParameter("postContent");
@@ -48,8 +50,6 @@ public class UpdatePost implements Command {
 			postTemp = -999;
 		}
 
-		DAO dao = new DAO();
-
 		PostVO pvo = new PostVO();
 		pvo.setUserId(userId);
 		pvo.setPostContent(postContent);
@@ -57,6 +57,7 @@ public class UpdatePost implements Command {
 		pvo.setHashTag(hashTags);
 		pvo.setPostIdx(postIdx);
 
+		DAO dao = new DAO();
 		dao.updatePost(pvo);
 
 		FileVO fvo = new FileVO();
@@ -71,11 +72,16 @@ public class UpdatePost implements Command {
 		fvo.setFileRname(multipartRequest.getFilesystemName("postImg")); // 업로드한 파일 이름
 		fvo.setFileSize(multipartRequest.getFile("postImg").length()); // 파일 크기
 		fvo.setFileExt(FilenameUtils.getExtension(multipartRequest.getFilesystemName("postImg"))); // 파일 확장자
-		fvo.setPostIdx(postIdx);
+
+		File file = new File(realPath + "/" + multipartRequest.getFilesystemName("postImg"));
+//		File file = new File(multipartRequest.getFilesystemName("postImg"));
+		byte[] fileImg = new byte[(int) file.length()];
+		try(FileInputStream fis = new FileInputStream(file)) {
+			fis.read(fileImg);
+		}
+		fvo.setFileImg(fileImg);
 
 		dao.updateFile(fvo);
-
-		TimeUnit.SECONDS.sleep(4);
 
 		return "redirect:/gomain.do";
 	}

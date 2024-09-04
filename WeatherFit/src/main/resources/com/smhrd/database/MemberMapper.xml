@@ -183,6 +183,12 @@
 		from tb_file
 		where post_idx = #{postIdx}
 	</select>
+
+	<delete id="deleteFile" parameterType="com.smhrd.model.FileVO">
+		delete
+		from tb_file
+		where post_idx = #{postIdx}
+	</delete>
 	
 	<select id="selectRecentPosts" resultType="com.smhrd.model.PostVO">
 		select *
@@ -208,7 +214,7 @@
 	
 	<update id="updateFile" parameterType="com.smhrd.model.FileVO">
 		update tb_file
-		set file_rname=#{fileRname}, file_size=#{fileSize}, file_ext=#{fileExt}
+		set file_rname=#{fileRname}, file_img=#{fileImg}, file_size=#{fileSize}, file_ext=#{fileExt}
 		where post_idx=#{postIdx}
 	</update>
 	
