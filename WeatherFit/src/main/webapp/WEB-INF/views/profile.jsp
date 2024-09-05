@@ -145,6 +145,9 @@
 		</div>
 	</div>
 
+    <script type="text/javascript">
+		let sessionUserId = "${member.userId}"
+	</script>
 	<script src="assets/js/profile.js"></script>
 	<script src="assets/js/comment.js"></script>
 

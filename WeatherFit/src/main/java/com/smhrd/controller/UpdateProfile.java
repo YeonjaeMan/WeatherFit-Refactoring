@@ -1,6 +1,7 @@
 package com.smhrd.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -33,24 +34,27 @@ public class UpdateProfile implements Command {
 			dir.mkdirs();
 
 		// cos 라이브러리를 사용해 multipart/form-data 처리
-		MultipartRequest multipartRequest = null;
-		multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
+		MultipartRequest multipartRequest = new MultipartRequest(request, realPath, sizeLimit, "utf-8", new DefaultFileRenamePolicy());
 
 		String userId = uvo.getUserId();
 		String userNick = multipartRequest.getParameter("userNick");
 		String userProfileInfo = multipartRequest.getParameter("userProfileInfo");
 
 		uvo.setUserNick(userNick);
-		uvo.setUserProfileImg(multipartRequest.getFilesystemName("profileImg"));
 		uvo.setUserProfileInfo(userProfileInfo);
+//		uvo.setUserProfileImg(multipartRequest.getFilesystemName("profileImg"));
+		File file = new File(realPath + "/" + multipartRequest.getFilesystemName("profileImg"));
+		byte[] fileImg = new byte[(int) file.length()];
+		try(FileInputStream fis = new FileInputStream(file)) {
+			fis.read(fileImg);
+		}
+		uvo.setUserProfileImg(fileImg);
 
 		DAO dao = new DAO();
 		dao.updateProfileInfo(uvo);
 
 		session.setAttribute("member", uvo);
 		session.setAttribute("userProfileInfo", uvo);
-
-		TimeUnit.SECONDS.sleep(4);
 
 		return "redirect:/goprofile.do";
 	}

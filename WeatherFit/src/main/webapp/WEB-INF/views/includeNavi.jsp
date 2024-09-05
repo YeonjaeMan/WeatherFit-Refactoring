@@ -48,7 +48,7 @@
 								<button type="button" class="btn-user dropdown-toggle"
 									data-bs-toggle="dropdown" aria-expanded>
 									<!-- 사용자가 등록한 프로필사진 -->
-									<img src="assets/user_profile/${member.userProfileImg}"
+									<img src="data:image/png;base64, ${member.base64UserProfileImg}"
 										style="width: 40px; height: 40px; border-radius: 50%;">
 								</button>
 								<!-- 드롭다운 -->

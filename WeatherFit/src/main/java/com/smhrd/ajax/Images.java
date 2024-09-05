@@ -55,6 +55,14 @@ public class Images implements AjaxCommand {
 			result.put("file", null); // 파일이 없는 경우 null 추가
 		}
 
+		if(resultUserVO != null && resultUserVO.getUserProfileImg() != null) {
+			byte[] profileImg = resultUserVO.getUserProfileImg();
+			String base64Image = Base64.getEncoder().encodeToString(profileImg);
+			result.put("profile", base64Image);
+		} else {
+			result.put("profile", null);
+		}
+
 		// 응답
 		PrintWriter out = response.getWriter();
 		Gson gson = new Gson();

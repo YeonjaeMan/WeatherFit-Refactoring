@@ -1,6 +1,7 @@
 package com.smhrd.model;
 
 import java.sql.Timestamp;
+import java.util.Base64;
 
 //회원 
 public class UserVO {
@@ -33,7 +34,7 @@ public class UserVO {
 	private Double userWeight;
 
 	// 회원 프로필이미지
-	private String userProfileImg;
+	private byte[] userProfileImg;
 
 	// 회원 프로필소개
 	private String userProfileInfo;
@@ -114,12 +115,16 @@ public class UserVO {
 		this.userWeight = userWeight;
 	}
 
-	public String getUserProfileImg() {
+	public byte[] getUserProfileImg() {
 		return userProfileImg;
 	}
 
-	public void setUserProfileImg(String userProfileImg) {
+	public void setUserProfileImg(byte[] userProfileImg) {
 		this.userProfileImg = userProfileImg;
+	}
+
+	public String getBase64UserProfileImg() {
+		return Base64.getEncoder().encodeToString(userProfileImg);
 	}
 
 	public String getUserProfileInfo() {
@@ -131,7 +136,7 @@ public class UserVO {
 	}
 
 	public UserVO(String userId, String userPw, String userName, String userGender, String userNick, String userRegion,
-			Double userHeight, Double userWeight, String userProfileImg, String userProfileInfo) {
+			Double userHeight, Double userWeight, byte[] userProfileImg, String userProfileInfo) {
 
 		this.userId = userId;
 		this.userPw = userPw;
