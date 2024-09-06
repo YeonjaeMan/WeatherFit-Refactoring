@@ -33,7 +33,7 @@
 						class="d-flex justify-content-center align-items-center mt-4 mb-4">
 						<!-- 프로필 사진 -->
 						<img class='img-profile rounded-circle'
-							src='assets/user_profile/<%=uvo.getUserProfileImg()%>'>
+							src="data:image/png;base64, ${member.base64UserProfileImg}">
 						<title>프로필사진</title>
 						<rect width="250px" height="250px"
 							fill="var(--bs-secondary-color)" />

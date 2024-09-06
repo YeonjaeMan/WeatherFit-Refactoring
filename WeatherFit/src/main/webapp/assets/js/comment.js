@@ -45,12 +45,12 @@ $(document).on('click', '.card', function() { // 게시물을 작성할때 .card
 
 					if (sessionUserId == "") {
 						$("#cmt-user").html(`<a id="userinfo-main" data-bs-toggle="modal" data-bs-target="#joinModal">
-				                                            <img src="assets/user_profile/` + map.user.userProfileImg + `" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
+				                                            <img src="data:image/png;base64, ` + map.profile + `" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
 				                                            <span id="post-user">` + map.user.userNick + `</span>
 				                                        </a>`);
 					} else {
 						$("#cmt-user").html(`<a href="Profile.do?userId=` + data[0].userId + `" id="userinfo-main" class="user-info d-flex align-items-center">
-										    <img src="assets/user_profile/` + map.user.userProfileImg + `" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
+										    <img src="data:image/png;base64, ` + map.profile + `" alt="프로필 이미지" style="width: 40px; height: 40px; border-radius: 50%;">
 										    <span id="post-user">` + map.user.userNick + `</span>
 											</a>
 										<a href="CreateRoom.do?sendUserId=` + sessionUserId + `&receiveUserId=` + data[0].userId + `">

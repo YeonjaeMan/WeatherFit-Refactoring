@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="490abd8e-9b9d-4408-a6cb-6bbe5f4eb524" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/user_profile/base_profile.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/ajax/Images.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/ajax/Images.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/Join.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/Join.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/Update.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/Update.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/UpdateProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/controller/UpdateProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smhrd/model/UserVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smhrd/model/UserVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/includeNavi.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/includeNavi.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/postview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/postview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/js/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/js/comment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
